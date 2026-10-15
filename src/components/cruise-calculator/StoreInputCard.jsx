@@ -42,13 +42,18 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
         <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${th.softBg}`}>
           <StoreIcon className={`w-4 h-4 ${th.accentText}`} />
         </div>
-        <div className="flex-1 grid sm:grid-cols-3 gap-2">
-          <input
-            value={store.name}
-            onChange={(e) => onChange(store.id, "name", e.target.value)}
-            placeholder={s.storeName}
-            className={`w-full h-[34px] rounded-lg border border-slate-300 px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
-          />
+        <div className="flex-1 grid sm:grid-cols-3 gap-2 items-end">
+          <label className="flex flex-col">
+            <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{s.storeCount}</span>
+            <input
+              type="number"
+              min="1"
+              step="1"
+              value={store.stores}
+              onChange={(e) => onChange(store.id, "stores", e.target.value)}
+              className={`w-full h-[34px] rounded-lg border border-slate-300 bg-white px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
+            />
+          </label>
           <SearchCombobox
             value={store.country}
             onChange={(v) => onChange(store.id, "country", v)}

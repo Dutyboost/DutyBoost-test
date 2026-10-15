@@ -33,7 +33,7 @@ export const discountFor = (basketEur) => {
 // A new store starts completely blank — the partner fills in their own figures.
 export const defaultStore = (n, country = "", port = "") => ({
   id: `store-${Date.now()}-${n}`,
-  name: "",
+  stores: 1,
   country,
   port,
   passengersPerCall: "",
@@ -46,9 +46,11 @@ export const defaultStore = (n, country = "", port = "") => ({
 
 const n = (v) => (v === "" || v === null || v === undefined ? 0 : Number(v));
 
-// Annual figures for a single store, in EUR.
+// Annual figures for one row, in EUR. A row can stand for several stores at the
+// same terminal, so every figure scales with the number of stores entered.
 export const computeStore = (store) => {
-  const annualPassengers = n(store.passengersPerCall) * n(store.callsPerYear);
+  const units = Math.max(1, n(store.stores) || 1);
+  const annualPassengers = n(store.passengersPerCall) * n(store.callsPerYear) * units;
   const traffic = annualPassengers * (n(store.passRate) / 100);
   const activated = traffic * (n(store.activation) / 100);
   const redemptions = activated * (n(store.redemption) / 100);
@@ -61,6 +63,7 @@ export const computeStore = (store) => {
 
   return {
     ...store,
+    units,
     annualPassengers,
     traffic,
     activated,
@@ -78,7 +81,7 @@ export const computeStore = (store) => {
 export const computeTotals = (results) =>
   results.reduce(
     (acc, r) => ({
-      stores: acc.stores + 1,
+      stores: acc.stores + r.units,
       annualPassengers: acc.annualPassengers + r.annualPassengers,
       traffic: acc.traffic + r.traffic,
       redemptions: acc.redemptions + r.redemptions,
@@ -98,7 +101,7 @@ export const groupByRegion = (results) => {
       groups.set(r.regionLabel, { region: r.regionLabel, stores: 0, gross: 0, net: 0, redemptions: 0 });
     }
     const g = groups.get(r.regionLabel);
-    g.stores += 1;
+    g.stores += r.units;
     g.gross += r.gross;
     g.net += r.net;
     g.redemptions += r.redemptions;

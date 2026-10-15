@@ -29,7 +29,7 @@ export const cruiseCalculatorStrings = {
       },
     },
     card: {
-      storeName: "Store name",
+      storeCount: "Number of stores",
       countryPlaceholder: "Country / island",
       countryEmpty: "No match in the list — keep typing to enter it as new",
       terminalPlaceholder: "Cruise ship terminal",
@@ -95,7 +95,7 @@ export const cruiseCalculatorStrings = {
       },
     },
     card: {
-      storeName: "Winkelnaam",
+      storeCount: "Aantal winkels",
       countryPlaceholder: "Land / eiland",
       countryEmpty: "Geen resultaat in de lijst — blijf typen om het als nieuw toe te voegen",
       terminalPlaceholder: "Cruiseterminal",
@@ -161,7 +161,7 @@ export const cruiseCalculatorStrings = {
       },
     },
     card: {
-      storeName: "Nom du magasin",
+      storeCount: "Nombre de magasins",
       countryPlaceholder: "Pays / île",
       countryEmpty: "Aucun résultat dans la liste — continuez à taper pour l'ajouter",
       terminalPlaceholder: "Terminal de croisière",
@@ -227,7 +227,7 @@ export const cruiseCalculatorStrings = {
       },
     },
     card: {
-      storeName: "Name der Filiale",
+      storeCount: "Anzahl der Filialen",
       countryPlaceholder: "Land / Insel",
       countryEmpty: "Kein Treffer in der Liste — weiter tippen, um ihn neu anzulegen",
       terminalPlaceholder: "Kreuzfahrtterminal",
@@ -293,7 +293,7 @@ export const cruiseCalculatorStrings = {
       },
     },
     card: {
-      storeName: "Nombre de la tienda",
+      storeCount: "Número de tiendas",
       countryPlaceholder: "País / isla",
       countryEmpty: "Sin coincidencias en la lista — siga escribiendo para añadirlo",
       terminalPlaceholder: "Terminal de cruceros",
@@ -359,7 +359,7 @@ export const cruiseCalculatorStrings = {
       },
     },
     card: {
-      storeName: "Nome del punto vendita",
+      storeCount: "Numero di punti vendita",
       countryPlaceholder: "Paese / isola",
       countryEmpty: "Nessuna corrispondenza — continua a digitare per aggiungerlo",
       terminalPlaceholder: "Terminal crociere",
@@ -425,7 +425,7 @@ export const cruiseCalculatorStrings = {
       },
     },
     card: {
-      storeName: "Nome da loja",
+      storeCount: "Número de lojas",
       countryPlaceholder: "País / ilha",
       countryEmpty: "Sem resultados na lista — continue a escrever para adicionar",
       terminalPlaceholder: "Terminal de cruzeiros",

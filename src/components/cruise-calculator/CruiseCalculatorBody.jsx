@@ -58,7 +58,7 @@ export default function CruiseCalculatorBody({
     setStores((prev) => {
       const i = prev.findIndex((s) => s.id === id);
       if (i < 0) return prev;
-      const copy = { ...prev[i], id: `store-${Date.now()}`, name: `${prev[i].name} (copy)` };
+      const copy = { ...prev[i], id: `store-${Date.now()}` };
       return [...prev.slice(0, i + 1), copy, ...prev.slice(i + 1)];
     });
 
