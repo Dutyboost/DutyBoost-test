@@ -34,9 +34,9 @@ export const cruiseCalculatorStrings = {
         card: {
           fleet: "Ships in fleet",
           shopsPerShip: "Avg. shops per ship",
-          passengersPerShip: "Passengers per ship",
+          passengersPerShip: "Avg. passengers per ship",
           cruiseDays: "Cruise length (nights)",
-          passRate: "Passengers passing your shops",
+          passRate: "Avg. passengers passing your shops",
         },
       },
       seaport: {
@@ -128,9 +128,9 @@ export const cruiseCalculatorStrings = {
         card: {
           fleet: "Schepen in de vloot",
           shopsPerShip: "Gem. winkels per schip",
-          passengersPerShip: "Passagiers per schip",
+          passengersPerShip: "Gem. passagiers per schip",
           cruiseDays: "Duur van de cruise (nachten)",
-          passRate: "Passagiers die langs uw winkels komen",
+          passRate: "Gem. passagiers die langs uw winkels komen",
         },
       },
       seaport: {
@@ -222,9 +222,9 @@ export const cruiseCalculatorStrings = {
         card: {
           fleet: "Navires dans la flotte",
           shopsPerShip: "Moy. boutiques par navire",
-          passengersPerShip: "Passagers par navire",
+          passengersPerShip: "Moy. passagers par navire",
           cruiseDays: "Durée de la croisière (nuits)",
-          passRate: "Passagers passant devant vos boutiques",
+          passRate: "Moy. passagers passant devant vos boutiques",
         },
       },
       seaport: {
@@ -316,9 +316,9 @@ export const cruiseCalculatorStrings = {
         card: {
           fleet: "Schiffe in der Flotte",
           shopsPerShip: "Ø Shops pro Schiff",
-          passengersPerShip: "Passagiere pro Schiff",
+          passengersPerShip: "Ø Passagiere pro Schiff",
           cruiseDays: "Dauer der Kreuzfahrt (Nächte)",
-          passRate: "Passagiere, die an Ihren Shops vorbeikommen",
+          passRate: "Ø Passagiere, die an Ihren Shops vorbeikommen",
         },
       },
       seaport: {
@@ -410,9 +410,9 @@ export const cruiseCalculatorStrings = {
         card: {
           fleet: "Buques en la flota",
           shopsPerShip: "Media de tiendas por buque",
-          passengersPerShip: "Pasajeros por buque",
+          passengersPerShip: "Media de pasajeros por buque",
           cruiseDays: "Duración del crucero (noches)",
-          passRate: "Pasajeros que pasan por sus tiendas",
+          passRate: "Media de pasajeros que pasan por sus tiendas",
         },
       },
       seaport: {
@@ -504,9 +504,9 @@ export const cruiseCalculatorStrings = {
         card: {
           fleet: "Navi della flotta",
           shopsPerShip: "Media negozi per nave",
-          passengersPerShip: "Passeggeri per nave",
+          passengersPerShip: "Media passeggeri per nave",
           cruiseDays: "Durata della crociera (notti)",
-          passRate: "Passeggeri che passano davanti ai tuoi negozi",
+          passRate: "Media passeggeri che passano davanti ai tuoi negozi",
         },
       },
       seaport: {
@@ -598,9 +598,9 @@ export const cruiseCalculatorStrings = {
         card: {
           fleet: "Navios na frota",
           shopsPerShip: "Média de lojas por navio",
-          passengersPerShip: "Passageiros por navio",
+          passengersPerShip: "Média de passageiros por navio",
           cruiseDays: "Duração do cruzeiro (noites)",
-          passRate: "Passageiros que passam pelas suas lojas",
+          passRate: "Média de passageiros que passam pelas suas lojas",
         },
       },
       seaport: {

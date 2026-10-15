@@ -35,7 +35,7 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
       ]
     : isFleet
       ? [
-          { key: "passengersPerShip", label: v.card.passengersPerShip, step: 100 },
+          { key: "passengersPerShip", label: v.card.passengersPerShip, step: "any" },
           { key: "cruiseDays", label: v.card.cruiseDays, step: 1 },
           { key: "passRate", label: v.card.passRate, suffix: "%", step: 1 },
           { key: "activation", label: s.activation, suffix: "%", step: 0.1 },
