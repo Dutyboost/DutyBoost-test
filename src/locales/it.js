@@ -15,6 +15,7 @@ export default {
       live_demo: 'Demo dal vivo',
       roi_calculator: 'Calcolatore ROI per rivenditori aeroportuali',
       roi_calculator_travel_partner: 'Calcolatore ROI per partner di viaggio',
+      roi_calculator_cruise: 'Calcolatore ROI per partner crocieristici',
       letter_of_intent: 'Lettera di Intenti',
       integration_partnerships: 'Per Partners di Integrazione POS',
     },

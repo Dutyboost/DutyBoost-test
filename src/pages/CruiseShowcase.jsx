@@ -28,7 +28,7 @@ export default function CruiseShowcase() {
           </button>
           <div className="flex items-center gap-4">
             <Link to="/cruise-partner-calculator">
-              <Button variant="outline" size="sm">{t('nav.roi_calculator')}</Button>
+              <Button variant="outline" size="sm">{t('nav.roi_calculator_cruise')}</Button>
             </Link>
             <LanguageSwitcher />
           </div>
