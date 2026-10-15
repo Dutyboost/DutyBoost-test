@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight, Menu, X, Cpu, Building2, Anchor, PlaneTakeoff
+  ArrowRight, Menu, X, Cpu, Building2, Anchor, Network, PlaneTakeoff
 } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import { corporateStrings } from "@/lib/i18nCorporate";
@@ -78,6 +78,13 @@ export default function LandingPage() {
       color: "from-blue-500 to-indigo-700",
       bg: "bg-blue-50",
       iconColor: "text-indigo-600",
+    },
+    {
+      key: 'dutyboost',
+      icon: Network,
+      color: "from-primary to-accent",
+      bg: "bg-primary/5",
+      iconColor: "text-primary",
     },
   ];
 
@@ -172,6 +179,16 @@ export default function LandingPage() {
               if (s.key === 'agencies') {
                          AdditionalIcons = [CruiseShipIcon, HotelIcon, CarRentalIcon];
                        }
+
+              if (s.key === 'dutyboost') {
+                title = t(`stakeholders.${s.key}.title`);
+                description = t(`stakeholders.${s.key}.description`);
+                benefits = [
+                  t(`stakeholders.${s.key}.b1`),
+                  t(`stakeholders.${s.key}.b2`),
+                  t(`stakeholders.${s.key}.b3`),
+                ];
+              }
 
               if (s.key === 'ports') {
                 const po = getPortsStrings(i18n.language).showcase;
