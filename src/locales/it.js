@@ -13,7 +13,7 @@ export default {
       partner_with_us: 'Diventa partner con noi',
       we_call_you: 'Ti chiamiamo',
       live_demo: 'Demo dal vivo',
-      roi_calculator: 'Calcolatore ROI per rivenditori aeroportuali e portuali',
+      roi_calculator: 'Calcolatore ROI per rivenditori di terminal',
       roi_calculator_travel_partner: 'Calcolatore ROI per partner di viaggio',
       roi_calculator_cruise: 'Calcolatore ROI per partner crocieristici',
       letter_of_intent: 'Lettera di Intenti',
@@ -44,7 +44,7 @@ export default {
       hub_subtitle: "Il passaggio finale che riunisce l'intero ecosistema.",
       nodes: {
         pos: 'Partner POS',
-        retailers: 'Rivenditori Aeroportuali',
+        retailers: 'Rivenditori di Terminal',
         airports: 'Partner Aeroportuali',
         travelers: 'Viaggiatori',
         cruise: 'Partner Crociere',
@@ -484,7 +484,7 @@ export default {
       retailer: {
         titlePart1: 'Viaggiatori pre-attivati giorni, settimane',
         titlePart2: 'o mesi prima della partenza.',
-        subtitle: "DutyBoost attiva i viaggiatori prima ancora che lascino casa — alla prenotazione e di nuovo prima del viaggio di ritorno. Giorni o settimane prima di passare i controlli di sicurezza, dispongono già di un credito acquisti personalizzato per i negozi di quell'aeroporto. Anche in transito.\n\nArrivano conoscendo il loro premio, il suo valore e dove spenderlo — acquirenti pre-attivati su entrambi i tragitti, invece di viaggiatori che passano davanti al tuo negozio.\n\nNessun costo di implementazione — nessun costo di abbonamento — nessun costo di manutenzione. DutyBoost fattura solo le transazioni che porta alla tua cassa.",
+        subtitle: "DutyBoost attiva i viaggiatori prima ancora che lascino casa — alla prenotazione e di nuovo prima del viaggio di ritorno. Giorni o settimane prima di passare i controlli di sicurezza, dispongono già di un credito acquisti personalizzato per i negozi di quell'aeroporto.\n\nArrivano conoscendo il loro premio, il suo valore e dove spenderlo — acquirenti pre-attivati su entrambi i tragitti, invece di viaggiatori che passano davanti al tuo negozio.\n\nNessun costo di implementazione — nessun costo di abbonamento — nessun costo di manutenzione. DutyBoost fattura solo le transazioni che porta alla tua cassa.",
         howItWorks: 'Come funzionerà',
         step1: 'Pre-attivazione — prima della partenza',
         step1Desc: "Nel momento in cui viene prenotato un viaggio, DutyBoost emette per il viaggiatore un credito acquisti personalizzato per l'aeroporto e lo invia via e-mail — molto prima che lasci casa. Lo conserva per giorni, settimane o mesi fino al giorno della partenza e riceve un secondo credito prima del viaggio di ritorno.",

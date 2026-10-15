@@ -13,7 +13,7 @@ export default {
       partner_with_us: 'Asociarse con nosotros',
       we_call_you: 'Te llamamos',
       live_demo: 'Demo en vivo',
-      roi_calculator: 'Calculadora de ROI para minoristas de aeropuertos y puertos marítimos',
+      roi_calculator: 'Calculadora de ROI para minoristas de terminales',
       roi_calculator_travel_partner: 'Calculadora de ROI para socios de viaje',
       roi_calculator_cruise: 'Calculadora de ROI para socios de cruceros',
       letter_of_intent: 'Carta de Intención',
@@ -44,7 +44,7 @@ export default {
       hub_subtitle: 'El paso final que reúne a todo el ecosistema.',
       nodes: {
         pos: 'Socios POS',
-        retailers: 'Minoristas de Aeropuerto',
+        retailers: 'Minoristas de Terminal',
         airports: 'Socios de Aeropuerto',
         travelers: 'Pasajeros',
         cruise: 'Socios de Cruceros',

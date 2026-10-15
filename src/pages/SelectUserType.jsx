@@ -37,7 +37,7 @@ export default function SelectUserType() {
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
       iconColor: "text-orange-600",
-      path: "/airport-seaport-retailers",
+      path: "/terminal-retailers",
     },
     {
       id: "ports",

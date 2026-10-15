@@ -14,7 +14,7 @@ export default {
       partner_with_us: 'Partner mit uns',
       we_call_you: 'Wir rufen Sie an',
       live_demo: 'Live-Demo',
-      roi_calculator: 'ROI-Rechner für Flughafen- und Seehafeneinzelhändler',
+      roi_calculator: 'ROI-Rechner für Terminal-Einzelhändler',
       roi_calculator_travel_partner: 'ROI-Rechner für Reisepartner',
       roi_calculator_cruise: 'ROI-Rechner für Kreuzfahrtpartner',
       letter_of_intent: 'Absichtserklärung',
@@ -45,7 +45,7 @@ export default {
       hub_subtitle: 'Der letzte Schritt, der das gesamte Ökosystem zusammenbringt.',
       nodes: {
         pos: 'POS-Partner',
-        retailers: 'Flughafen-Einzelhändler',
+        retailers: 'Terminal-Einzelhändler',
         airports: 'Flughafen-Partner',
         travelers: 'Reisende',
         cruise: 'Kreuzfahrt-Partner',

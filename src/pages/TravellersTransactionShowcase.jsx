@@ -15,7 +15,7 @@ import { hubShowcaseStrings } from "@/lib/i18nHubShowcase";
 
 const STAKEHOLDERS = [
   { key: 'pos', Icon: Cpu, bg: "bg-violet-50", border: "border-violet-200", fg: "text-violet-600", iconWrap: "bg-violet-100", link: "/pos-partner" },
-  { key: 'retailers', Icon: AirportRetailerIcon, bg: "bg-orange-50", border: "border-orange-200", fg: "text-orange-600", iconWrap: "bg-orange-100", link: "/airport-seaport-retailers" },
+  { key: 'retailers', Icon: AirportRetailerIcon, bg: "bg-orange-50", border: "border-orange-200", fg: "text-orange-600", iconWrap: "bg-orange-100", link: "/terminal-retailers" },
   { key: 'airports', Icon: PlaneTakeoff, bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", iconWrap: "bg-cyan-100", link: "/airport-showcase" },
   { key: 'wholesale', Icon: Package, bg: "bg-amber-50", border: "border-amber-200", fg: "text-amber-600", iconWrap: "bg-amber-100", link: "/wholesale-showcase" },
   { key: 'corporate', Icon: Building2, bg: "bg-slate-50", border: "border-slate-200", fg: "text-slate-600", iconWrap: "bg-slate-100", link: "/corporate-partner-showcase" },

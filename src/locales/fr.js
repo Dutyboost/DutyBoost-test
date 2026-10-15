@@ -14,7 +14,7 @@ export default {
       partner_with_us: 'Partenaire avec nous',
       we_call_you: 'Nous vous appelons',
       live_demo: 'Démo en direct',
-      roi_calculator: 'Calculateur de ROI pour les détaillants aéroportuaires et portuaires',
+      roi_calculator: 'Calculateur de ROI pour les détaillants en terminaux',
       roi_calculator_travel_partner: 'Calculateur de ROI pour les partenaires de voyage',
       roi_calculator_cruise: 'Calculateur de ROI pour les compagnies de croisière',
       letter_of_intent: 'Lettre d\'Intention',
@@ -45,7 +45,7 @@ export default {
       hub_subtitle: "L'étape finale qui rassemble tout l'écosystème.",
       nodes: {
         pos: 'Partenaires POS',
-        retailers: "Détaillants d'Aéroport",
+        retailers: "Détaillants en Terminal",
         airports: "Partenaires Aéroports",
         travelers: 'Voyageurs',
         cruise: 'Partenaires Croisière',

@@ -241,8 +241,9 @@ const AuthenticatedApp = () => {
         <Route path="/registration" element={<GetStarted />} />
         <Route path="/travel-partner-portal" element={<AgencyPortal />} />
         <Route path="/travel-partner-signup" element={<Navigate to="/get-started" replace />} />
-        <Route path="/airport-seaport-retailers" element={<RetailerShowcase />} />
-        <Route path="/retailer-showcase" element={<Navigate to="/airport-seaport-retailers" replace />} />
+        <Route path="/terminal-retailers" element={<RetailerShowcase />} />
+        <Route path="/airport-seaport-retailers" element={<Navigate to="/terminal-retailers" replace />} />
+        <Route path="/retailer-showcase" element={<Navigate to="/terminal-retailers" replace />} />
         <Route path="/flight-showcase" element={<AgencyShowcase />} />
         <Route path="/registration-flow" element={<RegistrationFlow />} />
         <Route path="/email-preview" element={<EmailPreview />} />
@@ -253,8 +254,9 @@ const AuthenticatedApp = () => {
         <Route path="/agglomeration-travel-partner-one-pager" element={<AgglomerationTravelPartnerOnePager />} />
         <Route path="/gtm-checklist" element={<GTMTestingChecklist />} />
         <Route path="/staging-validation" element={<StagingValidationGuide />} />
-        <Route path="/airport-seaport-retailers-calculator" element={<RetailerCalculator />} />
-        <Route path="/retailer-calculator" element={<Navigate to="/airport-seaport-retailers-calculator" replace />} />
+        <Route path="/terminal-retailers-calculator" element={<RetailerCalculator />} />
+        <Route path="/airport-seaport-retailers-calculator" element={<Navigate to="/terminal-retailers-calculator" replace />} />
+        <Route path="/retailer-calculator" element={<Navigate to="/terminal-retailers-calculator" replace />} />
         <Route path="/roi-calculator" element={<RetailerCalculator />} />
         <Route path="/roi-calculator-travel-partner" element={<TravelPartnerCalculator />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
@@ -343,8 +345,9 @@ const AuthenticatedApp = () => {
         <Route path="/wholesale-showcase" element={<WholesaleShowcase />} />
         <Route path="/wholesale-calculator" element={<WholesaleCalculator />} />
         <Route path="/wholesale-partner-request" element={<WholesalePartnerRequest />} />
-        <Route path="/airport-seaport-retailers-request" element={<RetailerRequest />} />
-        <Route path="/retailer-request" element={<Navigate to="/airport-seaport-retailers-request" replace />} />
+        <Route path="/terminal-retailers-request" element={<RetailerRequest />} />
+        <Route path="/airport-seaport-retailers-request" element={<Navigate to="/terminal-retailers-request" replace />} />
+        <Route path="/retailer-request" element={<Navigate to="/terminal-retailers-request" replace />} />
         <Route path="/retailer-confirmation" element={<RetailerConfirmation />} />
         <Route path="/travel-partner-request" element={<TravelPartnerRequest />} />
         <Route path="/accommodation-request" element={<AccommodationRequest />} />
