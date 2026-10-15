@@ -199,7 +199,7 @@ export default function LandingPage() {
 
               if (s.key === 'portsRetailers') {
                 AdditionalIcons = [PlaneTakeoff, CruiseShipIcon];
-                title = 'Local Retailers';
+                title = 'Local Retail Partners';
                 description = 'Cruise passengers and air travellers all end up down town — this is where both flows meet. Airport shops and cruise terminals are one stop on the way; your store is where every traveller arrives, ready to redeem a DutyCredit however they got here.';
                 benefits = [
                   'Cruise and air travellers in one flow',
