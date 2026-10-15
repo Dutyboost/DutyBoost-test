@@ -404,7 +404,7 @@ export default {
       airports: 'Airports',
       airports_description: 'DutyBoost captures incremental concession revenue from travellers who would otherwise leave without purchasing — no capex, no integration, revenue realised above existing baselines.',
       ports: 'Sea Ports',
-      ports_description: 'DutyBoost captures incremental concession revenue from cruise passengers who would otherwise step ashore without purchasing — no capex, no integration, revenue realised above existing baselines.',
+      ports_description: 'DutyBoost captures incremental concession revenue from cruise passengers who would otherwise leave without purchasing — no capex, no integration, revenue realised above existing baselines.',
       wholesale: 'Wholesale / Retail Suppliers',
       wholesale_description: 'DutyBoost moves your products off airport shelves faster — no new listing required, no additional cost, just incremental volume driven by pre-activated shoppers.',
     },
