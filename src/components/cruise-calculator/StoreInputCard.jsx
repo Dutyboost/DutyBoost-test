@@ -83,7 +83,7 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
           {isFleet ? (
             <>
               <label className="flex flex-col">
-                <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{v.card.fleet}</span>
+                <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight text-center">{v.card.fleet}</span>
                 <input
                   type="number"
                   min="1"
@@ -94,7 +94,7 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
                 />
               </label>
               <label className="flex flex-col">
-                <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{v.card.shopsPerShip}</span>
+                <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight text-center">{v.card.shopsPerShip}</span>
                 <input
                   type="number"
                   min="1"
@@ -162,7 +162,7 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
       <div className={`grid grid-cols-2 sm:grid-cols-3 gap-2 mb-4 ${isLocal ? "lg:grid-cols-5" : "lg:grid-cols-6"}`}>
         {numFields.map((f) => (
           <label key={f.key} className="flex flex-col">
-            <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{f.label}</span>
+            <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight text-center">{f.label}</span>
             <span className="relative block mt-auto">
               <input
                 type="number"
@@ -180,7 +180,7 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
         ))}
 
         <label className="flex flex-col">
-          <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{s.basket}</span>
+          <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight text-center">{s.basket}</span>
           <span className="relative block mt-auto">
             <span className="absolute left-2 top-1/2 -translate-y-1/2 text-xs text-slate-400">{symbol}</span>
             <input
