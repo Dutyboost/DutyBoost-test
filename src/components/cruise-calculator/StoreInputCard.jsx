@@ -98,7 +98,7 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
                 <input
                   type="number"
                   min="1"
-                  step="1"
+                  step="any"
                   value={store.shopsPerShip}
                   onChange={(e) => onChange(store.id, "shopsPerShip", e.target.value)}
                   className={`w-full h-[34px] rounded-lg border border-slate-300 bg-white px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
