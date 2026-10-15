@@ -11,7 +11,12 @@ import RegionBreakdown from "./RegionBreakdown";
 import CruiseTotals from "./CruiseTotals";
 import { CURRENCIES, PLATFORM_FEE, TIERS, defaultStore, computeStore, computeTotals, groupByRegion } from "./model";
 
-export default function CruiseCalculatorBody() {
+export default function CruiseCalculatorBody({
+  badge = "Cruise & Port Retail Partners",
+  intro = "Model one store with your own figures — pick your country or island, then your cruise ship terminal from the list. Add every other store you operate and the calculator totals each island or country on its own, and all of them together.",
+  ctaLabel = "Apply as a cruise partner",
+  ctaTo = "/cruise-signup",
+}) {
   const { currency, setCurrency } = useCurrency();
   const [stores, setStores] = useState(() => [defaultStore(1)]);
 
@@ -56,14 +61,10 @@ export default function CruiseCalculatorBody() {
           </div>
         </div>
         <span className="inline-flex items-center gap-1.5 bg-teal-50 text-teal-700 border border-teal-200 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest">
-          <Anchor className="w-3.5 h-3.5" /> Cruise &amp; Port Retail Partners
+          <Anchor className="w-3.5 h-3.5" /> {badge}
         </span>
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900">Your own store calculator</h1>
-        <p className="text-slate-600 text-sm max-w-2xl mx-auto">
-          Model one store with your own figures — pick your country or island, then your cruise ship terminal from
-          the list. Add every other store you operate and the calculator totals each island or country on its own,
-          and all of them together.
-        </p>
+        <p className="text-slate-600 text-sm max-w-2xl mx-auto">{intro}</p>
       </div>
 
       <div className="bg-teal-50 border border-teal-100 rounded-xl px-4 py-3 flex items-start gap-2.5">
@@ -107,10 +108,10 @@ export default function CruiseCalculatorBody() {
           </p>
         </div>
         <Link
-          to="/cruise-signup"
+          to={ctaTo}
           className="inline-flex items-center gap-2 bg-white text-teal-600 font-bold px-6 py-3 rounded-xl hover:bg-teal-50 transition-colors shrink-0"
         >
-          Apply as a cruise partner <ArrowRight className="w-4 h-4" />
+          {ctaLabel} <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
 
