@@ -197,12 +197,12 @@ export default function LandingPage() {
               }
 
               if (s.key === 'portsRetailers') {
-                AdditionalIcons = [Anchor];
+                AdditionalIcons = [CruiseShipIcon, PlaneTakeoff];
                 title = 'Port & Down Town Retail Partners';
-                description = 'Port terminal retail partners convert passing cruise passengers into paying customers. They receive targeted, pre-qualified shoppers with purchase intent activated by a personalised credit incentive.';
+                description = 'Cruise passengers and air travellers all end up down town — this is where both flows meet. Airport shops and cruise terminals are one stop on the way; your store is where every traveller arrives, ready to redeem a DutyCredit however they got here.';
                 benefits = [
-                  'Higher store conversion',
-                  'Real-time QR redemption',
+                  'Cruise and air travellers in one flow',
+                  'Redeem DutyCredits on any arrival route',
                   'Pay only on results',
                 ];
               }
