@@ -42,7 +42,7 @@ export default function StakeholderRequestForm({ stakeholder }) {
   const needsPosOther = form.posProviders.includes(r.pos_other) && !form.posOther.trim();
   const isValid =
     form.fullName && form.email && form.jobTitle && form.company && form.website && form.country && form.volume &&
-    (stakeholder !== "retailer" || (form.posProviders.length > 0 && !needsPosOther));
+    (!cfg.requiresPos || (form.posProviders.length > 0 && !needsPosOther));
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   const handleSubmit = async (e) => {
@@ -59,7 +59,7 @@ export default function StakeholderRequestForm({ stakeholder }) {
         position: `${form.jobTitle} — ${cfg.positionSuffix}`,
         phone: form.volume,
       };
-      if (stakeholder === "retailer") leadPayload.pos_providers = posValues;
+      if (cfg.requiresPos) leadPayload.pos_providers = posValues;
       await base44.entities.Lead.create(leadPayload);
       try {
         await base44.integrations.Core.SendEmail({
@@ -76,7 +76,7 @@ export default function StakeholderRequestForm({ stakeholder }) {
                 <tr><td style="padding:6px 0; color:#666;">Website</td><td>${form.website}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Country</td><td>${form.country}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">${r.label_volume}</td><td>${form.volume}</td></tr>
-                ${stakeholder === "retailer" ? `<tr><td style="padding:6px 0; color:#666;">${r.label_pos}</td><td>${posValues.join(", ")}</td></tr>` : ""}
+                ${cfg.requiresPos ? `<tr><td style="padding:6px 0; color:#666;">${r.label_pos}</td><td>${posValues.join(", ")}</td></tr>` : ""}
                 <tr><td style="padding:6px 0; color:#666;">Message</td><td>${form.message || "—"}</td></tr>
               </table>
             </div>
@@ -175,7 +175,7 @@ export default function StakeholderRequestForm({ stakeholder }) {
                     </Select>
                   </div>
                 </div>
-                {stakeholder === "retailer" && (
+                {cfg.requiresPos && (
                   <>
                     <MultiSelectComboBox
                       label={r.label_pos}

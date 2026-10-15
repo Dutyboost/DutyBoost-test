@@ -208,7 +208,7 @@ export default function LandingPage() {
               }
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'ports' || s.key === 'portsRetailers' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
-              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'ports' ? '/ports-showcase' : s.key === 'portsRetailers' ? '/ports-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
+              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'ports' ? '/ports-showcase' : s.key === 'portsRetailers' ? '/port-retailer-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
 
               const cardContent = (
                 <>

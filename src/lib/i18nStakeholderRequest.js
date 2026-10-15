@@ -22,6 +22,22 @@ export const STAKEHOLDER_CONFIG = {
     positionSuffix: "Airport Retailer",
     industry: "Retail",
     volumes: VOLUME_STORES,
+    requiresPos: true,
+  },
+  portRetailer: {
+    Icon: Store,
+    gradient: "linear-gradient(to bottom, #818cf8, #4f46e5)",
+    calculatorTo: "/ports-calculator",
+    backTo: "/port-retailer-showcase",
+    badgeClass: "bg-indigo-500/10 text-indigo-700",
+    buttonClass: "bg-indigo-600 hover:bg-indigo-700",
+    iconCircleClass: "bg-indigo-500/10",
+    iconClass: "text-indigo-600",
+    emailSubject: "Port & Down Town Retail Partner enquiry",
+    positionSuffix: "Port & Down Town Retail Partner",
+    industry: "Retail",
+    volumes: VOLUME_STORES,
+    requiresPos: true,
   },
   travelPartner: {
     Icon: Plane,
@@ -68,6 +84,23 @@ export const STAKEHOLDER_CONFIG = {
 };
 
 export const stakeholderRequestStrings = {
+  portRetailer: {
+    en: {
+      badge: "Port & Down Town Retail Partner",
+      subtitle: "Tell us about your stores and locations, and we'll prepare a tailored DutyBoost estimate — no commitment, no cost.",
+      label_volume: "Number of stores",
+      placeholder_volume: "Select store count",
+      label_pos: "POS providers in use",
+      placeholder_pos: "Select one or more POS providers",
+      pos_search: "Search POS providers...",
+      pos_empty: "No POS provider found.",
+      pos_selected: "{n} selected",
+      pos_other: "Other",
+      label_pos_other: "Other POS provider",
+      placeholder_pos_other: "Please specify which system(s)...",
+      success_desc: "We've received your request and will be in touch shortly with a tailored estimate for your stores.",
+    },
+  },
   retailer: {
     en: {
       badge: "Airport Retailer",
