@@ -40,16 +40,6 @@ export default function SelectUserType() {
       path: "/retailer-showcase",
     },
     {
-      id: "cruise",
-      title: t('getstarted.cruise'),
-      descKey: 'getstarted.cruise_description',
-      icon: CruiseShipIcon,
-      color: "from-teal-400 to-cyan-600",
-      bg: "bg-teal-50",
-      iconColor: "text-teal-600",
-      path: "/cruise-showcase",
-    },
-    {
       id: "ports",
       title: t('getstarted.ports'),
       descKey: 'getstarted.ports_description',
@@ -58,6 +48,16 @@ export default function SelectUserType() {
       bg: "bg-blue-50",
       iconColor: "text-indigo-600",
       path: "/ports-showcase",
+    },
+    {
+      id: "cruise",
+      title: t('getstarted.cruise'),
+      descKey: 'getstarted.cruise_description',
+      icon: CruiseShipIcon,
+      color: "from-teal-400 to-cyan-600",
+      bg: "bg-teal-50",
+      iconColor: "text-teal-600",
+      path: "/cruise-showcase",
     },
     {
       id: "agency",
