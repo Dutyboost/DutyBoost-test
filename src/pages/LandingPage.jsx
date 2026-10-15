@@ -31,18 +31,11 @@ export default function LandingPage() {
 
   const stakeholders = [
     {
-      key: 'posPartner',
-      icon: Cpu,
-      color: "from-violet-400 to-indigo-600",
-      bg: "bg-violet-50",
-      iconColor: "text-violet-600",
-    },
-    {
-      key: 'retailers',
-      icon: AirportRetailerIcon,
-      color: "from-orange-400 to-orange-600",
-      bg: "bg-orange-50",
-      iconColor: "text-orange-600",
+      key: 'travelers',
+      icon: TravelerIcon,
+      color: "from-blue-400 to-blue-600",
+      bg: "bg-blue-50",
+      iconColor: "text-blue-600",
     },
     {
       key: 'airports',
@@ -52,11 +45,18 @@ export default function LandingPage() {
       iconColor: "text-cyan-600",
     },
     {
-      key: 'travelers',
-      icon: TravelerIcon,
-      color: "from-blue-400 to-blue-600",
+      key: 'retailers',
+      icon: AirportRetailerIcon,
+      color: "from-orange-400 to-orange-600",
+      bg: "bg-orange-50",
+      iconColor: "text-orange-600",
+    },
+    {
+      key: 'ports',
+      icon: Anchor,
+      color: "from-blue-500 to-indigo-700",
       bg: "bg-blue-50",
-      iconColor: "text-blue-600",
+      iconColor: "text-indigo-600",
     },
     {
       key: 'agencies',
@@ -73,11 +73,11 @@ export default function LandingPage() {
       iconColor: "text-slate-700",
     },
     {
-      key: 'ports',
-      icon: Anchor,
-      color: "from-blue-500 to-indigo-700",
-      bg: "bg-blue-50",
-      iconColor: "text-indigo-600",
+      key: 'posPartner',
+      icon: Cpu,
+      color: "from-violet-400 to-indigo-600",
+      bg: "bg-violet-50",
+      iconColor: "text-violet-600",
     },
     {
       key: 'dutyboost',
