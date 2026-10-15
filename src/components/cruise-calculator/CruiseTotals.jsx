@@ -16,7 +16,7 @@ export default function CruiseTotals({ totals, variant = "cruise" }) {
   const cards = [
     { label: v.totalsStores || s.stores, val: numShort(totals.stores) },
     { label: v.totalsPassengers || s.passengers, val: numShort(totals.annualPassengers) },
-    { label: s.traffic, val: numShort(totals.traffic) },
+    { label: v.totalsTraffic || s.traffic, val: numShort(totals.traffic) },
     { label: s.baskets, val: numShort(totals.redemptions) },
     { label: s.sales, val: fmtCompact(totals.gross) },
     { label: s.discounts, val: fmtCompact(totals.discount) },
