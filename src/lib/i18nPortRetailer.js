@@ -38,7 +38,7 @@ export const portRetailerStrings = {
     step4_desc:
       "The retailer keeps the incremental sale and pays the platform fee only on validated transactions.",
     s3_title: "The Numbers",
-    stat1_value: "73%",
+    stat1_value: "60%",
     stat1_label: "Walk past without buying",
     stat1_desc:
       "The conversion headroom already passing your store every day, ashore and down town.",
@@ -88,7 +88,7 @@ export const portRetailerStrings = {
     step4_desc:
       "De retailer behoudt de extra verkoop en betaalt de platformvergoeding alleen op gevalideerde transacties.",
     s3_title: "De cijfers",
-    stat1_value: "73%",
+    stat1_value: "60%",
     stat1_label: "Loopt voorbij zonder te kopen",
     stat1_desc:
       "De conversieruimte die dagelijks al langs uw winkel komt, aan wal en in de binnenstad.",
@@ -138,7 +138,7 @@ export const portRetailerStrings = {
     step4_desc:
       "Le détaillant conserve la vente additionnelle et ne paie la commission de plateforme que sur les transactions validées.",
     s3_title: "Les chiffres",
-    stat1_value: "73 %",
+    stat1_value: "60 %",
     stat1_label: "Passent sans acheter",
     stat1_desc:
       "La marge de conversion qui passe déjà chaque jour devant votre magasin, à terre et en centre-ville.",
@@ -188,7 +188,7 @@ export const portRetailerStrings = {
     step4_desc:
       "Der Händler behält den Zusatzverkauf und zahlt die Plattformgebühr nur auf validierte Transaktionen.",
     s3_title: "Die Zahlen",
-    stat1_value: "73 %",
+    stat1_value: "60 %",
     stat1_label: "Gehen ohne Kauf vorbei",
     stat1_desc:
       "Das Conversion-Potenzial, das täglich an Ihrer Filiale vorbeikommt — an Land und in der Innenstadt.",
@@ -238,7 +238,7 @@ export const portRetailerStrings = {
     step4_desc:
       "El minorista conserva la venta incremental y paga la comisión de plataforma solo sobre transacciones validadas.",
     s3_title: "Los números",
-    stat1_value: "73 %",
+    stat1_value: "60 %",
     stat1_label: "Pasan sin comprar",
     stat1_desc:
       "El margen de conversión que ya pasa cada día por su tienda, en tierra y en el centro urbano.",
@@ -288,7 +288,7 @@ export const portRetailerStrings = {
     step4_desc:
       "Il rivenditore trattiene la vendita incrementale e paga la commissione di piattaforma solo sulle transazioni validate.",
     s3_title: "I numeri",
-    stat1_value: "73%",
+    stat1_value: "60%",
     stat1_label: "Passano senza comprare",
     stat1_desc:
       "Il margine di conversione che già passa ogni giorno davanti al tuo negozio, a terra e in centro città.",
@@ -338,7 +338,7 @@ export const portRetailerStrings = {
     step4_desc:
       "O retalhista fica com a venda incremental e paga a comissão de plataforma apenas sobre transações validadas.",
     s3_title: "Os números",
-    stat1_value: "73%",
+    stat1_value: "60%",
     stat1_label: "Passam sem comprar",
     stat1_desc:
       "A margem de conversão que já passa todos os dias pela sua loja, em terra e no centro urbano.",
