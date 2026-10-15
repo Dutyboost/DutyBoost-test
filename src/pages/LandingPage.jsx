@@ -198,7 +198,7 @@ export default function LandingPage() {
 
               if (s.key === 'portsRetailers') {
                 AdditionalIcons = [Anchor];
-                title = 'Sea Port Retail Partners';
+                title = 'Port & Down Town Retail Partners';
                 description = 'Port terminal retail partners convert passing cruise passengers into paying customers. They receive targeted, pre-qualified shoppers with purchase intent activated by a personalised credit incentive.';
                 benefits = [
                   'Higher store conversion',
