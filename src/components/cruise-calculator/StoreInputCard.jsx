@@ -200,7 +200,7 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
         {[
           { label: isLocal ? v.card.kArrivals : s.kPassengers, val: numShort(result.annualPassengers) },
-          { label: v.card.kTraffic || s.kTraffic, val: numShort(result.traffic) },
+          { label: v.card?.kTraffic || s.kTraffic, val: numShort(result.traffic) },
           { label: s.kBaskets, val: numShort(result.redemptions) },
           { label: s.kSales, val: fmtCompact(result.gross) },
           { label: s.kNet, val: fmt(result.net), highlight: true },
