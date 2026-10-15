@@ -12,7 +12,7 @@ import TravellerTransactionHub from "./TravellerTransactionHub";
 // DutyBoost is intentionally excluded from the oval layout.
 const NODES = [
   { key: 'pos', Icon: Cpu, bg: "bg-violet-50", border: "border-violet-200", fg: "text-violet-600", link: "/pos-partner", extraIcons: [] },
-  { key: 'retailers', Icon: AirportRetailerIcon, bg: "bg-orange-50", border: "border-orange-200", fg: "text-orange-600", link: "/retailer-showcase", extraIcons: [] },
+  { key: 'retailers', Icon: AirportRetailerIcon, bg: "bg-orange-50", border: "border-orange-200", fg: "text-orange-600", link: "/airport-seaport-retailers", extraIcons: [] },
   { key: 'airports', Icon: PlaneTakeoff, bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", link: "/airport-showcase", extraIcons: [] },
   { key: 'cruise', Icon: CruiseShipIcon, bg: "bg-teal-50", border: "border-teal-200", fg: "text-teal-600", link: "/cruise-showcase", extraIcons: [] },
   { key: 'corporate', Icon: Building2, bg: "bg-slate-50", border: "border-slate-200", fg: "text-slate-600", link: "/corporate-partner-showcase", extraIcons: [] },

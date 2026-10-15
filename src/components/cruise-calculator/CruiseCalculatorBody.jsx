@@ -21,6 +21,7 @@ export default function CruiseCalculatorBody({
   variant = "cruise",
   ctaTo = "/cruise-signup",
   prefillByCountry = false,
+  showBrandBar = true,
 }) {
   const th = CALCULATOR_THEMES[theme] || CALCULATOR_THEMES.teal;
   const { i18n } = useTranslation();
@@ -68,6 +69,7 @@ export default function CruiseCalculatorBody({
     <CalculatorThemeProvider value={th}>
     <div className="max-w-6xl mx-auto space-y-8">
       <div className="text-center space-y-2">
+        {showBrandBar && (
         <div className="flex justify-between items-center mb-2">
           <div className="w-28" />
           <DutyBoostLogo height={55} />
@@ -86,6 +88,7 @@ export default function CruiseCalculatorBody({
             <LanguageSwitcher />
           </div>
         </div>
+        )}
         <span className={`inline-flex items-center gap-1.5 border rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest ${th.badge}`}>
           {isLocal ? <Store className="w-3.5 h-3.5" /> : <Anchor className="w-3.5 h-3.5" />} {v.badge}
         </span>

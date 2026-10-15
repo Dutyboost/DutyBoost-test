@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Check, MessageCircle } from "lucide-react";
+import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Check, MessageCircle, PlaneTakeoff, Anchor } from "lucide-react";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
@@ -19,6 +19,7 @@ import CompanyNetworkView from "../components/CompanyNetworkView";
 import { GLOBAL_AIRPORTS } from "../data/globalAirports";
 import { computeCompanyTotals } from "../utils/retailerCalc";
 import EnterpriseCalculator from "../components/calculator/EnterpriseCalculator";
+import CruiseCalculatorBody from "../components/cruise-calculator/CruiseCalculatorBody";
 import { CurrencyProvider } from "../components/calculator/CurrencyContext";
 import CurrencySwitcher from "../components/calculator/CurrencySwitcher";
 
@@ -384,7 +385,7 @@ export function TravelPartnerTab({ t }) {
           <p className="text-green-50 text-sm mt-0.5">{t('calculator.partner_cta_desc')}</p>
         </div>
         <Link
-          to="/retailer-request"
+          to="/airport-seaport-retailers-request"
           className="inline-flex items-center gap-2 bg-white text-green-600 font-bold px-6 py-3 rounded-xl hover:bg-green-50 transition-colors shrink-0"
         >
           <MessageCircle className="w-5 h-5" />
@@ -396,8 +397,16 @@ export function TravelPartnerTab({ t }) {
 }
 
 // ── Main page ──────────────────────────────────────────────────────────────────
+// The same model serves both terminal types: an airport retailer models its
+// airport network, a sea port retailer models the cruise terminals it trades in.
+const TERMINALS = [
+  { key: "airport", label: "Airport Retailer", Icon: PlaneTakeoff },
+  { key: "seaport", label: "Sea Port Retailer", Icon: Anchor },
+];
+
 export default function RetailerCalculator() {
   const { t } = useTranslation();
+  const [terminal, setTerminal] = useState("airport");
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 px-4 py-10">
@@ -423,7 +432,34 @@ export default function RetailerCalculator() {
           </p>
         </div>
 
-        <EnterpriseCalculator />
+        {/* Terminal type — airport or sea port */}
+        <div className="flex justify-center">
+          <div className="inline-flex bg-white border border-slate-200 rounded-xl p-1 gap-1">
+            {TERMINALS.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setTerminal(tab.key)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                  terminal === tab.key ? "bg-blue-600 text-white" : "text-slate-600 hover:bg-slate-100"
+                }`}
+              >
+                <tab.Icon className="w-4 h-4" /> {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {terminal === "airport" ? (
+          <EnterpriseCalculator />
+        ) : (
+          <CruiseCalculatorBody
+            theme="orange"
+            variant="seaport"
+            prefillByCountry
+            ctaTo="/airport-seaport-retailers-request"
+            showBrandBar={false}
+          />
+        )}
 
       </div>
       <PageFooter />

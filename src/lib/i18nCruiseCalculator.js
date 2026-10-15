@@ -23,6 +23,12 @@ export const cruiseCalculatorStrings = {
           "Built around the number that matters most: more visits to your store. DutyBoost pre-activates cruise passengers before they arrive, so they step ashore with purchase intent — every additional visit is incremental, and you pay only on the sales it brings.",
         ctaLabel: "Apply as a cruise partner",
       },
+      seaport: {
+        badge: "Sea Port Retailers",
+        intro:
+          "Cruise passengers step ashore with hours to spend and a DutyCredit already in hand. DutyBoost pre-activates them before they arrive, so more of them walk into your terminal store with purchase intent — every extra visit is incremental, and you pay only on the sales it brings.",
+        ctaLabel: "Apply as a sea port retailer",
+      },
       local: {
         badge: "Local Retailers",
         intro:
@@ -94,6 +100,12 @@ export const cruiseCalculatorStrings = {
         intro:
           "Gebouwd rond het cijfer dat het meest telt: meer bezoeken aan uw winkel. DutyBoost activeert cruisepassagiers vóór aankomst, zodat zij met koopintentie aan wal komen — elk extra bezoek is incrementeel, en u betaalt alleen op de omzet die het oplevert.",
         ctaLabel: "Aanmelden als cruisepartner",
+      },
+      seaport: {
+        badge: "Zeehavenretailers",
+        intro:
+          "Cruisepassagiers gaan aan wal met uren te besteden en een DutyCredit al in handen. DutyBoost activeert hen vóór aankomst, zodat meer van hen met koopintentie uw terminalwinkel binnenstappen — elk extra bezoek is incrementeel, en u betaalt alleen op de omzet die het oplevert.",
+        ctaLabel: "Aanmelden als zeehavenretailer",
       },
       local: {
         badge: "Lokale retailers",
@@ -167,6 +179,12 @@ export const cruiseCalculatorStrings = {
           "Construit autour du chiffre qui compte le plus : plus de visites dans votre magasin. DutyBoost pré-active les passagers de croisière avant leur arrivée, afin qu'ils débarquent avec une intention d'achat — chaque visite supplémentaire est incrémentale, et vous ne payez que sur les ventes générées.",
         ctaLabel: "Devenir partenaire croisière",
       },
+      seaport: {
+        badge: "Détaillants portuaires",
+        intro:
+          "Les passagers de croisière débarquent avec des heures à consacrer à leurs achats et un DutyCredit déjà en main. DutyBoost les pré-active avant leur arrivée, afin que davantage d'entre eux entrent dans votre magasin du terminal avec une intention d'achat — chaque visite supplémentaire est incrémentale, et vous ne payez que sur les ventes générées.",
+        ctaLabel: "Postuler comme détaillant portuaire",
+      },
       local: {
         badge: "Détaillants locaux",
         intro:
@@ -238,6 +256,12 @@ export const cruiseCalculatorStrings = {
         intro:
           "Rund um die Zahl, die am meisten zählt: mehr Besuche in Ihrer Filiale. DutyBoost aktiviert Kreuzfahrtpassagiere vor der Ankunft, sodass sie mit Kaufabsicht an Land gehen — jeder zusätzliche Besuch ist inkrementell, und Sie zahlen nur auf den erzielten Umsatz.",
         ctaLabel: "Als Kreuzfahrtpartner bewerben",
+      },
+      seaport: {
+        badge: "Seehafen-Händler",
+        intro:
+          "Kreuzfahrtpassagiere gehen mit Stunden Zeit und einem DutyCredit in der Hand an Land. DutyBoost aktiviert sie vor ihrer Ankunft, damit mehr von ihnen mit Kaufabsicht in Ihre Terminalfiliale kommen — jeder zusätzliche Besuch ist inkrementell, und Sie zahlen nur auf den Umsatz, den er bringt.",
+        ctaLabel: "Als Seehafen-Händler bewerben",
       },
       local: {
         badge: "Lokale Händler",
@@ -311,6 +335,12 @@ export const cruiseCalculatorStrings = {
           "Construido en torno al número que más importa: más visitas a su tienda. DutyBoost preactiva a los pasajeros de crucero antes de su llegada, para que desembarquen con intención de compra — cada visita adicional es incremental, y solo paga por las ventas que genera.",
         ctaLabel: "Solicitar ser socio de cruceros",
       },
+      seaport: {
+        badge: "Minoristas de puerto marítimo",
+        intro:
+          "Los pasajeros de crucero bajan a tierra con horas por delante y un DutyCredit ya en la mano. DutyBoost los preactiva antes de que lleguen, para que más de ellos entren en su tienda del terminal con intención de compra: cada visita adicional es incremental y solo paga por las ventas que genera.",
+        ctaLabel: "Solicitar como minorista de puerto marítimo",
+      },
       local: {
         badge: "Minoristas locales",
         intro:
@@ -383,6 +413,12 @@ export const cruiseCalculatorStrings = {
           "Costruito attorno al numero che conta di più: più visite al tuo punto vendita. DutyBoost pre-attiva i passeggeri delle crociere prima dell'arrivo, così sbarcano con intenzione d'acquisto — ogni visita in più è incrementale e paghi solo sulle vendite che genera.",
         ctaLabel: "Candidati come partner crociere",
       },
+      seaport: {
+        badge: "Rivenditori portuali",
+        intro:
+          "I passeggeri delle crociere sbarcano con ore a disposizione e un DutyCredit già in mano. DutyBoost li pre-attiva prima dell'arrivo, così più di loro entrano nel tuo negozio del terminal con intenzione di acquisto: ogni visita in più è incrementale e paghi solo sulle vendite che genera.",
+        ctaLabel: "Candidati come rivenditore portuale",
+      },
       local: {
         badge: "Rivenditori locali",
         intro:
@@ -454,6 +490,12 @@ export const cruiseCalculatorStrings = {
         intro:
           "Construído em torno do número que mais importa: mais visitas à sua loja. A DutyBoost pré-ativa os passageiros de cruzeiro antes da chegada, para que desembarquem com intenção de compra — cada visita adicional é incremental, e paga apenas sobre as vendas que gera.",
         ctaLabel: "Candidatar-se como parceiro de cruzeiros",
+      },
+      seaport: {
+        badge: "Retalhistas portuários",
+        intro:
+          "Os passageiros de cruzeiro desembarcam com horas para gastar e um DutyCredit já na mão. A DutyBoost pré-ativa-os antes de chegarem, para que mais deles entrem na sua loja do terminal com intenção de compra — cada visita adicional é incremental e paga apenas sobre as vendas que gera.",
+        ctaLabel: "Candidatar-me como retalhista portuário",
       },
       local: {
         badge: "Retalhistas locais",
