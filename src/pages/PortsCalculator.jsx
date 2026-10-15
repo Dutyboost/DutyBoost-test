@@ -8,8 +8,9 @@ export default function PortsCalculator() {
       <CurrencyProvider>
         <CruiseCalculatorBody
           theme="purple"
+          prefillByCountry
           badge="Port & Down Town Retail Partners"
-          intro="Model one store with your own figures — pick your country or island, then your terminal from the list. Add every other store you operate and the calculator totals each island or country on its own, and all of them together."
+          intro="Pick your country or island and your terminal, and we pre-fill indicative figures for that market — adjust them to what you see in your own store. Add every other store you operate and the calculator totals each island or country on its own, and all of them together."
           ctaLabel="Apply as a port & down town retail partner"
           ctaTo="/ports-partner-request"
         />

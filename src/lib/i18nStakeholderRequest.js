@@ -27,7 +27,7 @@ export const STAKEHOLDER_CONFIG = {
   portRetailer: {
     Icon: Store,
     gradient: "linear-gradient(to bottom, #818cf8, #4f46e5)",
-    calculatorTo: "/ports-calculator",
+    calculatorTo: "/port-downtown-calculator",
     backTo: "/port-retailer-showcase",
     badgeClass: "bg-indigo-500/10 text-indigo-700",
     buttonClass: "bg-indigo-600 hover:bg-indigo-700",

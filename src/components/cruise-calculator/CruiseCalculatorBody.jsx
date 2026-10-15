@@ -10,6 +10,7 @@ import StoreInputCard from "./StoreInputCard";
 import RegionBreakdown from "./RegionBreakdown";
 import CruiseTotals from "./CruiseTotals";
 import { CURRENCIES, PLATFORM_FEE, TIERS, defaultStore, computeStore, computeTotals, groupByRegion } from "./model";
+import { trafficDefaultsFor } from "@/data/cruiseTrafficDefaults";
 import { CALCULATOR_THEMES, CalculatorThemeProvider } from "./theme";
 
 export default function CruiseCalculatorBody({
@@ -18,6 +19,7 @@ export default function CruiseCalculatorBody({
   intro = "Model one store with your own figures — pick your country or island, then your cruise ship terminal from the list. Add every other store you operate and the calculator totals each island or country on its own, and all of them together.",
   ctaLabel = "Apply as a cruise partner",
   ctaTo = "/cruise-signup",
+  prefillByCountry = false,
 }) {
   const th = CALCULATOR_THEMES[theme] || CALCULATOR_THEMES.teal;
   const { currency, setCurrency } = useCurrency();
@@ -27,8 +29,18 @@ export default function CruiseCalculatorBody({
   const totals = useMemo(() => computeTotals(results), [results]);
   const regions = useMemo(() => groupByRegion(results), [results]);
 
+  // Picking a country fills in that market's indicative figures, so a store
+  // owner who does not know the local traffic still sees a full model.
   const handleChange = (id, key, value) =>
-    setStores((prev) => prev.map((s) => (s.id === id ? { ...s, [key]: value } : s)));
+    setStores((prev) =>
+      prev.map((s) => {
+        if (s.id !== id) return s;
+        if (key === "country" && prefillByCountry) {
+          return { ...s, country: value, port: "", ...trafficDefaultsFor(value) };
+        }
+        return { ...s, [key]: value };
+      })
+    );
 
   const handleAdd = () => setStores((prev) => [...prev, defaultStore(prev.length + 1)]);
 
@@ -120,8 +132,9 @@ export default function CruiseCalculatorBody({
       </div>
 
       <p className="text-xs text-slate-400 text-center max-w-3xl mx-auto">
-        Illustrative model. Volumes are the partner's own estimates; values are shown in the selected currency and
-        recalculate as you edit. The platform fee applies only to DutyBoost-validated transactions.
+        Illustrative model. Traffic figures are indicative market starting points, not audited statistics; values are
+        shown in the selected currency and recalculate as you edit. The platform fee applies only to
+        DutyBoost-validated transactions.
       </p>
     </div>
     </CalculatorThemeProvider>
