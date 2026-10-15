@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Info, Anchor, Store, ArrowRight } from "lucide-react";
+import { Info, Anchor, Store, Ship, ArrowRight } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useCurrency } from "@/components/calculator/CurrencyContext";
@@ -28,10 +28,12 @@ export default function CruiseCalculatorBody({
   const s = getCruiseCalculatorStrings(i18n.language);
   const v = s.variants[variant] || s.variants.cruise;
   const isLocal = variant === "local";
+  const isFleet = variant === "cruise";
+  const mode = isLocal ? "local" : isFleet ? "fleet" : "seaport";
   const { currency, setCurrency } = useCurrency();
   const [stores, setStores] = useState(() => [defaultStore(1)]);
 
-  const results = useMemo(() => stores.map((st) => computeStore(st, isLocal ? "local" : "cruise")), [stores, isLocal]);
+  const results = useMemo(() => stores.map((st) => computeStore(st, mode)), [stores, mode]);
   const totals = useMemo(() => computeTotals(results), [results]);
   const regions = useMemo(() => groupByRegion(results), [results]);
 
@@ -90,9 +92,9 @@ export default function CruiseCalculatorBody({
         </div>
         )}
         <span className={`inline-flex items-center gap-1.5 border rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest ${th.badge}`}>
-          {isLocal ? <Store className="w-3.5 h-3.5" /> : <Anchor className="w-3.5 h-3.5" />} {v.badge}
+          {isLocal ? <Store className="w-3.5 h-3.5" /> : isFleet ? <Ship className="w-3.5 h-3.5" /> : <Anchor className="w-3.5 h-3.5" />} {v.badge}
         </span>
-        <h1 className="text-3xl md:text-4xl font-bold text-slate-900">{s.title}</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-slate-900">{v.title || s.title}</h1>
         <p className="text-slate-600 text-sm max-w-2xl mx-auto">{v.intro}</p>
       </div>
 
@@ -123,12 +125,12 @@ export default function CruiseCalculatorBody({
 
       <CruiseTotals totals={totals} variant={variant} />
 
-      {stores.length > 1 && <RegionBreakdown regions={regions} />}
+      {stores.length > 1 && !isFleet && <RegionBreakdown regions={regions} />}
 
       <div className={`bg-gradient-to-r rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 ${th.ctaGradient}`}>
         <div className="text-center sm:text-left">
-          <h3 className="font-bold text-white text-lg">{s.ctaTitle}</h3>
-          <p className={`text-sm mt-0.5 ${th.ctaSubtext}`}>{s.ctaDesc}</p>
+          <h3 className="font-bold text-white text-lg">{v.ctaTitle || s.ctaTitle}</h3>
+          <p className={`text-sm mt-0.5 ${th.ctaSubtext}`}>{v.ctaDesc || s.ctaDesc}</p>
         </div>
         <Link
           to={ctaTo}
@@ -138,7 +140,7 @@ export default function CruiseCalculatorBody({
         </Link>
       </div>
 
-      <p className="text-xs text-slate-400 text-center max-w-3xl mx-auto">{s.disclaimer}</p>
+      <p className="text-xs text-slate-400 text-center max-w-3xl mx-auto">{v.disclaimer || s.disclaimer}</p>
     </div>
     </CalculatorThemeProvider>
   );

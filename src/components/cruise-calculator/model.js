@@ -34,8 +34,12 @@ export const discountFor = (basketEur) => {
 export const defaultStore = (n, country = "", port = "") => ({
   id: `store-${Date.now()}-${n}`,
   stores: 1,
+  fleet: 1,
+  shopsPerShip: 1,
+  cruiseDays: 7,
   country,
   port,
+  passengersPerShip: "",
   passengersPerCall: "",
   callsPerYear: "",
   arrivalsPerYear: "",
@@ -50,11 +54,19 @@ const n = (v) => (v === "" || v === null || v === undefined ? 0 : Number(v));
 // Annual figures for one row, in EUR. A row can stand for several stores at the
 // same terminal, so every figure scales with the number of stores entered.
 // mode "local" models every traveller arriving in the market, however they
-// travel; "cruise" models one terminal's ship calls.
-export const computeStore = (store, mode = "cruise") => {
-  const units = Math.max(1, n(store.stores) || 1);
-  const annualPassengers =
-    mode === "local"
+// travel; "seaport" models one terminal's ship calls; "fleet" models a cruise
+// line's own ships: the fleet, the passengers each ship carries, the length of
+// a cruise (which sets how many cruises a ship sails a year) and its shops.
+export const computeStore = (store, mode = "seaport") => {
+  const isFleet = mode === "fleet";
+  const ships = Math.max(1, n(store.fleet) || 1);
+  const shopsPerShip = Math.max(1, n(store.shopsPerShip) || 1);
+  const units = isFleet ? ships * shopsPerShip : Math.max(1, n(store.stores) || 1);
+  const cruiseDays = Math.max(1, n(store.cruiseDays) || 7);
+  const cruisesPerYear = isFleet ? 365 / cruiseDays : 0;
+  const annualPassengers = isFleet
+    ? ships * n(store.passengersPerShip) * cruisesPerYear
+    : mode === "local"
       ? n(store.arrivalsPerYear) * units
       : n(store.passengersPerCall) * n(store.callsPerYear) * units;
   const traffic = annualPassengers * (n(store.passRate) / 100);
@@ -70,6 +82,9 @@ export const computeStore = (store, mode = "cruise") => {
   return {
     ...store,
     units,
+    ships,
+    shopsPerShip,
+    cruisesPerYear,
     annualPassengers,
     traffic,
     activated,

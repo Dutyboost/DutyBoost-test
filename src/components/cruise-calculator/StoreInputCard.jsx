@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Copy, Trash2, Store as StoreIcon } from "lucide-react";
+import { Copy, Trash2, Store as StoreIcon, Ship } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useCurrency } from "@/components/calculator/CurrencyContext";
 import SearchCombobox from "@/components/onboarding/SearchCombobox";
@@ -19,11 +19,13 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
   const strings = getCruiseCalculatorStrings(i18n.language);
   const s = strings.card;
   const isLocal = variant === "local";
+  const isFleet = variant === "cruise";
   const v = strings.variants[variant] || strings.variants.cruise;
   const { rate, symbol, fmt, fmtCompact } = useCurrency();
 
   // A local retailer models the travellers arriving in their market, whatever
-  // their mode of travel; a cruise partner models one terminal's ship calls.
+  // their mode of travel; a sea port retailer models one terminal's ship calls;
+  // a cruise line models its own fleet and the shops on board.
   const numFields = isLocal
     ? [
         { key: "arrivalsPerYear", label: v.card.arrivals, step: 10000 },
@@ -31,13 +33,21 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
         { key: "activation", label: s.activation, suffix: "%", step: 0.1 },
         { key: "redemption", label: s.redemption, suffix: "%", step: 1 },
       ]
-    : [
-        { key: "passengersPerCall", label: s.passengers, step: 100 },
-        { key: "callsPerYear", label: s.calls, step: 1 },
-        { key: "passRate", label: s.passRate, suffix: "%", step: 1 },
-        { key: "activation", label: s.activation, suffix: "%", step: 0.1 },
-        { key: "redemption", label: s.redemption, suffix: "%", step: 1 },
-      ];
+    : isFleet
+      ? [
+          { key: "passengersPerShip", label: v.card.passengersPerShip, step: 100 },
+          { key: "cruiseDays", label: v.card.cruiseDays, step: 1 },
+          { key: "passRate", label: v.card.passRate, suffix: "%", step: 1 },
+          { key: "activation", label: s.activation, suffix: "%", step: 0.1 },
+          { key: "redemption", label: s.redemption, suffix: "%", step: 1 },
+        ]
+      : [
+          { key: "passengersPerCall", label: s.passengers, step: 100 },
+          { key: "callsPerYear", label: s.calls, step: 1 },
+          { key: "passRate", label: s.passRate, suffix: "%", step: 1 },
+          { key: "activation", label: s.activation, suffix: "%", step: 0.1 },
+          { key: "redemption", label: s.redemption, suffix: "%", step: 1 },
+        ];
 
   const basketDisplay =
     store.basket === "" || store.basket === null || store.basket === undefined
@@ -67,39 +77,68 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
     <div className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5">
       <div className="flex items-start gap-2 mb-3">
         <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${th.softBg}`}>
-          <StoreIcon className={`w-4 h-4 ${th.accentText}`} />
+          {isFleet ? <Ship className={`w-4 h-4 ${th.accentText}`} /> : <StoreIcon className={`w-4 h-4 ${th.accentText}`} />}
         </div>
-        <div className={`flex-1 grid gap-2 items-end ${isLocal ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}>
-          <label className="flex flex-col">
-            <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{s.storeCount}</span>
-            <input
-              type="number"
-              min="1"
-              step="1"
-              value={store.stores}
-              onChange={(e) => onChange(store.id, "stores", e.target.value)}
-              className={`w-full h-[34px] rounded-lg border border-slate-300 bg-white px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
-            />
-          </label>
-          <SearchCombobox
-            value={countryName}
-            onChange={(v) => onChange(store.id, "country", v)}
-            onPick={(o) => pickCountry(o.value ?? o.label)}
-            options={countryOptions}
-            placeholder={s.countryPlaceholder}
-            emptyText={s.countryEmpty}
-            className={`${FIELD_CLASS} ${th.fieldRing}`}
-          />
-          {!isLocal && (
-            <SearchCombobox
-              value={store.port}
-              onChange={(v) => onChange(store.id, "port", v)}
-              onPick={(o) => onChange(store.id, "port", o.label)}
-              options={terminalOptions}
-              placeholder={store.country ? s.terminalPlaceholder : s.terminalPlaceholderNoCountry}
-              emptyText={store.country ? s.terminalEmpty : s.terminalEmptyNoCountry}
-              className={`${FIELD_CLASS} ${th.fieldRing}`}
-            />
+        <div className={`flex-1 grid gap-2 items-end ${isLocal ? "sm:grid-cols-2" : isFleet ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}>
+          {isFleet ? (
+            <>
+              <label className="flex flex-col">
+                <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{v.card.fleet}</span>
+                <input
+                  type="number"
+                  min="1"
+                  step="1"
+                  value={store.fleet}
+                  onChange={(e) => onChange(store.id, "fleet", e.target.value)}
+                  className={`w-full h-[34px] rounded-lg border border-slate-300 bg-white px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
+                />
+              </label>
+              <label className="flex flex-col">
+                <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{v.card.shopsPerShip}</span>
+                <input
+                  type="number"
+                  min="1"
+                  step="1"
+                  value={store.shopsPerShip}
+                  onChange={(e) => onChange(store.id, "shopsPerShip", e.target.value)}
+                  className={`w-full h-[34px] rounded-lg border border-slate-300 bg-white px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
+                />
+              </label>
+            </>
+          ) : (
+            <>
+              <label className="flex flex-col">
+                <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{s.storeCount}</span>
+                <input
+                  type="number"
+                  min="1"
+                  step="1"
+                  value={store.stores}
+                  onChange={(e) => onChange(store.id, "stores", e.target.value)}
+                  className={`w-full h-[34px] rounded-lg border border-slate-300 bg-white px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
+                />
+              </label>
+              <SearchCombobox
+                value={countryName}
+                onChange={(v) => onChange(store.id, "country", v)}
+                onPick={(o) => pickCountry(o.value ?? o.label)}
+                options={countryOptions}
+                placeholder={s.countryPlaceholder}
+                emptyText={s.countryEmpty}
+                className={`${FIELD_CLASS} ${th.fieldRing}`}
+              />
+              {!isLocal && (
+                <SearchCombobox
+                  value={store.port}
+                  onChange={(v) => onChange(store.id, "port", v)}
+                  onPick={(o) => onChange(store.id, "port", o.label)}
+                  options={terminalOptions}
+                  placeholder={store.country ? s.terminalPlaceholder : s.terminalPlaceholderNoCountry}
+                  emptyText={store.country ? s.terminalEmpty : s.terminalEmptyNoCountry}
+                  className={`${FIELD_CLASS} ${th.fieldRing}`}
+                />
+              )}
+            </>
           )}
         </div>
         <div className="flex items-center gap-1">

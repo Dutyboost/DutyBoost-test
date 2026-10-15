@@ -18,10 +18,24 @@ export const cruiseCalculatorStrings = {
       "Illustrative model. Traffic figures are indicative 2025 market starting points, not audited statistics; values are shown in the selected currency and recalculate as you edit. The platform fee applies only to DutyBoost-validated transactions.",
     variants: {
       cruise: {
-        badge: "Cruise & Port Retail Partners",
+        badge: "Cruise Line Partners",
+        title: "Your fleet's onboard retail calculator",
         intro:
-          "Built around the number that matters most: more visits to your store. DutyBoost pre-activates cruise passengers before they arrive, so they step ashore with purchase intent — every additional visit is incremental, and you pay only on the sales it brings.",
-        ctaLabel: "Apply as a cruise partner",
+          "Built around the number that matters most: more purchases on board. Enter your fleet, the passengers each ship carries, the length of a cruise and the number of shops per ship — DutyBoost pre-activates those passengers before they sail, so they board with purchase intent, and you pay only on the sales it brings.",
+        ctaLabel: "Apply as a cruise line partner",
+        ctaTitle: "Want these numbers validated for your fleet?",
+        ctaDesc: "Send us your fleet and itinerary profile and we will model the full picture with you.",
+        disclaimer:
+          "Illustrative model. Figures are shown in the selected currency and recalculate as you edit. The platform fee applies only to DutyBoost-validated transactions.",
+        totalsStores: "Shops modelled",
+        totalsSub: "Every ship in the fleet and its onboard shops, added together.",
+        card: {
+          fleet: "Ships in fleet",
+          shopsPerShip: "Shops per ship",
+          passengersPerShip: "Passengers per ship",
+          cruiseDays: "Cruise length (nights)",
+          passRate: "Passengers passing your shops",
+        },
       },
       seaport: {
         badge: "Sea Port Retailers",
@@ -96,10 +110,24 @@ export const cruiseCalculatorStrings = {
       "Illustratief model. Verkeerscijfers zijn indicatieve marktstartpunten voor 2025, geen gecontroleerde statistieken; bedragen worden weergegeven in de gekozen valuta en herberekend terwijl u invoert. De platformvergoeding geldt alleen voor door DutyBoost gevalideerde transacties.",
     variants: {
       cruise: {
-        badge: "Cruise- en havenretailpartners",
+        badge: "Cruisemaatschappij-partners",
+        title: "Calculator voor boordverkoop van uw vloot",
         intro:
-          "Gebouwd rond het cijfer dat het meest telt: meer bezoeken aan uw winkel. DutyBoost activeert cruisepassagiers vóór aankomst, zodat zij met koopintentie aan wal komen — elk extra bezoek is incrementeel, en u betaalt alleen op de omzet die het oplevert.",
-        ctaLabel: "Aanmelden als cruisepartner",
+          "Gebouwd rond het cijfer dat het meest telt: meer aankopen aan boord. Vul uw vloot in, het aantal passagiers per schip, de duur van een cruise en het aantal winkels per schip — DutyBoost activeert die passagiers voordat ze afvaren, zodat zij met koopintentie aan boord gaan, en u betaalt alleen op de omzet die het oplevert.",
+        ctaLabel: "Aanmelden als cruisemaatschappij",
+        ctaTitle: "Wilt u deze cijfers laten valideren voor uw vloot?",
+        ctaDesc: "Stuur ons uw vloot- en routeprofiel en we modelleren samen het volledige beeld.",
+        disclaimer:
+          "Illustratief model. Bedragen worden weergegeven in de gekozen valuta en herberekend terwijl u invoert. De platformvergoeding geldt alleen voor door DutyBoost gevalideerde transacties.",
+        totalsStores: "Gemodelleerde winkels",
+        totalsSub: "Elk schip van de vloot en de bijbehorende boordwinkels, samengeteld.",
+        card: {
+          fleet: "Schepen in de vloot",
+          shopsPerShip: "Winkels per schip",
+          passengersPerShip: "Passagiers per schip",
+          cruiseDays: "Duur van de cruise (nachten)",
+          passRate: "Passagiers die langs uw winkels komen",
+        },
       },
       seaport: {
         badge: "Zeehavenretailers",
@@ -174,10 +202,24 @@ export const cruiseCalculatorStrings = {
       "Modèle indicatif. Les chiffres de trafic sont des points de départ indicatifs du marché 2025, et non des statistiques auditées ; les montants sont affichés dans la devise choisie et recalculés au fil de vos saisies. La commission de plateforme ne s'applique qu'aux transactions validées par DutyBoost.",
     variants: {
       cruise: {
-        badge: "Partenaires croisière et portuaires",
+        badge: "Compagnies de croisière",
+        title: "Calculateur de vente à bord de votre flotte",
         intro:
-          "Construit autour du chiffre qui compte le plus : plus de visites dans votre magasin. DutyBoost pré-active les passagers de croisière avant leur arrivée, afin qu'ils débarquent avec une intention d'achat — chaque visite supplémentaire est incrémentale, et vous ne payez que sur les ventes générées.",
-        ctaLabel: "Devenir partenaire croisière",
+          "Construit autour du chiffre qui compte le plus : plus d'achats à bord. Saisissez votre flotte, le nombre de passagers par navire, la durée d'une croisière et le nombre de boutiques par navire — DutyBoost pré-active ces passagers avant l'appareillage, afin qu'ils montent à bord avec une intention d'achat, et vous ne payez que sur les ventes générées.",
+        ctaLabel: "Devenir compagnie de croisière partenaire",
+        ctaTitle: "Vous souhaitez faire valider ces chiffres pour votre flotte ?",
+        ctaDesc: "Envoyez-nous le profil de votre flotte et de vos itinéraires et nous modéliserons ensemble la vue complète.",
+        disclaimer:
+          "Modèle indicatif. Les montants sont affichés dans la devise choisie et recalculés au fil de vos saisies. La commission de plateforme ne s'applique qu'aux transactions validées par DutyBoost.",
+        totalsStores: "Boutiques modélisées",
+        totalsSub: "Chaque navire de la flotte et ses boutiques à bord, réunis.",
+        card: {
+          fleet: "Navires dans la flotte",
+          shopsPerShip: "Boutiques par navire",
+          passengersPerShip: "Passagers par navire",
+          cruiseDays: "Durée de la croisière (nuits)",
+          passRate: "Passagers passant devant vos boutiques",
+        },
       },
       seaport: {
         badge: "Détaillants portuaires",
@@ -252,10 +294,24 @@ export const cruiseCalculatorStrings = {
       "Illustratives Modell. Verkehrszahlen sind indikative Marktausgangspunkte für 2025, keine geprüften Statistiken; Beträge werden in der gewählten Währung angezeigt und bei Eingaben neu berechnet. Die Plattformgebühr gilt nur für von DutyBoost validierte Transaktionen.",
     variants: {
       cruise: {
-        badge: "Kreuzfahrt- und Hafenpartner",
+        badge: "Kreuzfahrtreedereien",
+        title: "Rechner für den Bordverkauf Ihrer Flotte",
         intro:
-          "Rund um die Zahl, die am meisten zählt: mehr Besuche in Ihrer Filiale. DutyBoost aktiviert Kreuzfahrtpassagiere vor der Ankunft, sodass sie mit Kaufabsicht an Land gehen — jeder zusätzliche Besuch ist inkrementell, und Sie zahlen nur auf den erzielten Umsatz.",
-        ctaLabel: "Als Kreuzfahrtpartner bewerben",
+          "Rund um die Zahl, die am meisten zählt: mehr Käufe an Bord. Geben Sie Ihre Flotte, die Passagiere pro Schiff, die Dauer einer Kreuzfahrt und die Anzahl der Shops pro Schiff ein — DutyBoost aktiviert diese Passagiere vor dem Auslaufen, sodass sie mit Kaufabsicht an Bord gehen, und Sie zahlen nur auf den erzielten Umsatz.",
+        ctaLabel: "Als Kreuzfahrtreederei bewerben",
+        ctaTitle: "Möchten Sie diese Zahlen für Ihre Flotte prüfen lassen?",
+        ctaDesc: "Senden Sie uns Ihr Flotten- und Routenprofil und wir modellieren gemeinsam das Gesamtbild.",
+        disclaimer:
+          "Illustratives Modell. Beträge werden in der gewählten Währung angezeigt und bei Eingaben neu berechnet. Die Plattformgebühr gilt nur für von DutyBoost validierte Transaktionen.",
+        totalsStores: "Modellierte Shops",
+        totalsSub: "Jedes Schiff der Flotte und seine Bordshops, zusammengezählt.",
+        card: {
+          fleet: "Schiffe in der Flotte",
+          shopsPerShip: "Shops pro Schiff",
+          passengersPerShip: "Passagiere pro Schiff",
+          cruiseDays: "Dauer der Kreuzfahrt (Nächte)",
+          passRate: "Passagiere, die an Ihren Shops vorbeikommen",
+        },
       },
       seaport: {
         badge: "Seehafen-Händler",
@@ -330,10 +386,24 @@ export const cruiseCalculatorStrings = {
       "Modelo ilustrativo. Las cifras de tráfico son puntos de partida indicativos del mercado de 2025, no estadísticas auditadas; los importes se muestran en la moneda elegida y se recalculan al editar. La comisión de plataforma solo se aplica a transacciones validadas por DutyBoost.",
     variants: {
       cruise: {
-        badge: "Socios de cruceros y puertos",
+        badge: "Navieras de cruceros",
+        title: "Calculadora de venta a bordo de su flota",
         intro:
-          "Construido en torno al número que más importa: más visitas a su tienda. DutyBoost preactiva a los pasajeros de crucero antes de su llegada, para que desembarquen con intención de compra — cada visita adicional es incremental, y solo paga por las ventas que genera.",
-        ctaLabel: "Solicitar ser socio de cruceros",
+          "Construido en torno al número que más importa: más compras a bordo. Introduzca su flota, los pasajeros que transporta cada buque, la duración de un crucero y el número de tiendas por buque — DutyBoost preactiva a esos pasajeros antes de zarpar, para que embarquen con intención de compra, y solo paga por las ventas que genera.",
+        ctaLabel: "Solicitar ser naviera de cruceros",
+        ctaTitle: "¿Quiere que validemos estas cifras para su flota?",
+        ctaDesc: "Envíenos el perfil de su flota y sus itinerarios y modelaremos juntos la visión completa.",
+        disclaimer:
+          "Modelo ilustrativo. Los importes se muestran en la moneda elegida y se recalculan al editar. La comisión de plataforma solo se aplica a transacciones validadas por DutyBoost.",
+        totalsStores: "Tiendas modeladas",
+        totalsSub: "Cada buque de la flota y sus tiendas a bordo, sumados.",
+        card: {
+          fleet: "Buques en la flota",
+          shopsPerShip: "Tiendas por buque",
+          passengersPerShip: "Pasajeros por buque",
+          cruiseDays: "Duración del crucero (noches)",
+          passRate: "Pasajeros que pasan por sus tiendas",
+        },
       },
       seaport: {
         badge: "Minoristas de puerto marítimo",
@@ -408,10 +478,24 @@ export const cruiseCalculatorStrings = {
       "Modello illustrativo. I dati di traffico sono punti di partenza indicativi del mercato 2025, non statistiche certificate; gli importi sono mostrati nella valuta scelta e si ricalcolano mentre modifichi i valori. La commissione di piattaforma si applica solo alle transazioni validate da DutyBoost.",
     variants: {
       cruise: {
-        badge: "Partner crociere e portuali",
+        badge: "Compagnie di crociera",
+        title: "Calcolatore delle vendite a bordo della tua flotta",
         intro:
-          "Costruito attorno al numero che conta di più: più visite al tuo punto vendita. DutyBoost pre-attiva i passeggeri delle crociere prima dell'arrivo, così sbarcano con intenzione d'acquisto — ogni visita in più è incrementale e paghi solo sulle vendite che genera.",
-        ctaLabel: "Candidati come partner crociere",
+          "Costruito attorno al numero che conta di più: più acquisti a bordo. Inserisci la tua flotta, i passeggeri per nave, la durata di una crociera e il numero di negozi per nave — DutyBoost pre-attiva quei passeggeri prima della partenza, così salgono a bordo con intenzione d'acquisto, e paghi solo sulle vendite che genera.",
+        ctaLabel: "Candidati come compagnia di crociera",
+        ctaTitle: "Vuoi che validiamo questi numeri per la tua flotta?",
+        ctaDesc: "Inviaci il profilo della tua flotta e degli itinerari e modelleremo insieme il quadro completo.",
+        disclaimer:
+          "Modello illustrativo. Gli importi sono mostrati nella valuta scelta e si ricalcolano mentre modifichi i valori. La commissione di piattaforma si applica solo alle transazioni validate da DutyBoost.",
+        totalsStores: "Negozi modellati",
+        totalsSub: "Ogni nave della flotta e i suoi negozi di bordo, sommati.",
+        card: {
+          fleet: "Navi della flotta",
+          shopsPerShip: "Negozi per nave",
+          passengersPerShip: "Passeggeri per nave",
+          cruiseDays: "Durata della crociera (notti)",
+          passRate: "Passeggeri che passano davanti ai tuoi negozi",
+        },
       },
       seaport: {
         badge: "Rivenditori portuali",
@@ -486,10 +570,24 @@ export const cruiseCalculatorStrings = {
       "Modelo ilustrativo. Os valores de tráfego são pontos de partida indicativos do mercado de 2025, não estatísticas auditadas; os montantes são apresentados na moeda escolhida e recalculados à medida que edita. A comissão de plataforma aplica-se apenas a transações validadas pela DutyBoost.",
     variants: {
       cruise: {
-        badge: "Parceiros de cruzeiros e portuários",
+        badge: "Companhias de cruzeiros",
+        title: "Calculadora de vendas a bordo da sua frota",
         intro:
-          "Construído em torno do número que mais importa: mais visitas à sua loja. A DutyBoost pré-ativa os passageiros de cruzeiro antes da chegada, para que desembarquem com intenção de compra — cada visita adicional é incremental, e paga apenas sobre as vendas que gera.",
-        ctaLabel: "Candidatar-se como parceiro de cruzeiros",
+          "Construído em torno do número que mais importa: mais compras a bordo. Introduza a sua frota, os passageiros por navio, a duração de um cruzeiro e o número de lojas por navio — a DutyBoost pré-ativa esses passageiros antes da partida, para que embarquem com intenção de compra, e paga apenas sobre as vendas que gera.",
+        ctaLabel: "Candidatar-se como companhia de cruzeiros",
+        ctaTitle: "Quer validar estes números para a sua frota?",
+        ctaDesc: "Envie-nos o perfil da sua frota e dos itinerários e modelamos juntos o quadro completo.",
+        disclaimer:
+          "Modelo ilustrativo. Os montantes são apresentados na moeda escolhida e recalculados à medida que edita. A comissão de plataforma aplica-se apenas a transações validadas pela DutyBoost.",
+        totalsStores: "Lojas modeladas",
+        totalsSub: "Cada navio da frota e as suas lojas a bordo, somados.",
+        card: {
+          fleet: "Navios na frota",
+          shopsPerShip: "Lojas por navio",
+          passengersPerShip: "Passageiros por navio",
+          cruiseDays: "Duração do cruzeiro (noites)",
+          passRate: "Passageiros que passam pelas suas lojas",
+        },
       },
       seaport: {
         badge: "Retalhistas portuários",

@@ -14,7 +14,7 @@ export default function CruiseTotals({ totals, variant = "cruise" }) {
   const { fmt, fmtCompact } = useCurrency();
 
   const cards = [
-    { label: s.stores, val: numShort(totals.stores) },
+    { label: v.totalsStores || s.stores, val: numShort(totals.stores) },
     { label: v.totalsPassengers || s.passengers, val: numShort(totals.annualPassengers) },
     { label: s.traffic, val: numShort(totals.traffic) },
     { label: s.baskets, val: numShort(totals.redemptions) },
@@ -27,7 +27,7 @@ export default function CruiseTotals({ totals, variant = "cruise" }) {
   return (
     <div className="bg-slate-900 rounded-2xl p-4 sm:p-6">
       <h3 className="font-heading font-bold text-white text-lg">{s.title}</h3>
-      <p className="text-slate-400 text-xs mt-0.5 mb-4">{s.sub}</p>
+      <p className="text-slate-400 text-xs mt-0.5 mb-4">{v.totalsSub || s.sub}</p>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
         {cards.map((c) => (
           <div
