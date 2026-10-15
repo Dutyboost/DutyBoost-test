@@ -102,7 +102,7 @@ export default function TravellerJourneyOval() {
             const y = 50 + (250 / 6.4) * Math.sin(rad);
             return (
               <div key={node.key} className="absolute z-10"
-                style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)", width: "170px" }}>
+                style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)", width: "190px" }}>
                 <StakeholderNodeCard node={node} />
               </div>
             );
