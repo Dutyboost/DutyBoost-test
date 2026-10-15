@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowRight, Anchor, Gift, QrCode, TrendingUp } from "lucide-react";
+import { ArrowRight, Ship, Gift, QrCode, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -12,7 +12,7 @@ export default function CruiseShowcase() {
   const { t } = useTranslation();
 
   const steps = [
-    { icon: Anchor, title: t('showcase.cruise.step1'), desc: t('showcase.cruise.step1Desc') },
+    { icon: Ship, title: t('showcase.cruise.step1'), desc: t('showcase.cruise.step1Desc') },
     { icon: Gift, title: t('showcase.cruise.step2'), desc: t('showcase.cruise.step2Desc') },
     { icon: QrCode, title: t('showcase.cruise.step3'), desc: t('showcase.cruise.step3Desc') },
     { icon: TrendingUp, title: t('showcase.cruise.step4'), desc: t('showcase.cruise.step4Desc') },
