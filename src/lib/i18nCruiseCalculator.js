@@ -18,13 +18,13 @@ export const cruiseCalculatorStrings = {
       cruise: {
         badge: "Cruise & Port Retail Partners",
         intro:
-          "Model one store with your own figures — pick your country or island, then your cruise ship terminal from the list. Add every other store you operate and the calculator totals each island or country on its own, and all of them together.",
+          "Built around the number that matters most: more visits to your store. DutyBoost pre-activates cruise passengers before they arrive, so they step ashore with purchase intent — every additional visit is incremental, and you pay only on the sales it brings.",
         ctaLabel: "Apply as a cruise partner",
       },
       port: {
         badge: "Port & Down Town Retail Partners",
         intro:
-          "Pick your country or island and your terminal, and we pre-fill indicative 2025 figures for that market — adjust them to what you see in your own store. Add every other store you operate and the calculator totals each island or country on its own, and all of them together.",
+          "Built around the number that matters most: more visits to your store. DutyBoost pre-activates cruise passengers before they step ashore, so they arrive with purchase intent — every additional visit is incremental, and you pay only on the sales it brings.",
         ctaLabel: "Apply as a port & down town retail partner",
       },
     },
@@ -84,13 +84,13 @@ export const cruiseCalculatorStrings = {
       cruise: {
         badge: "Cruise- en havenretailpartners",
         intro:
-          "Modelleer één winkel met uw eigen cijfers — kies uw land of eiland en daarna uw cruiseterminal uit de lijst. Voeg elke andere winkel die u beheert toe; de calculator telt elk eiland of land apart en alle winkels samen.",
+          "Gebouwd rond het cijfer dat het meest telt: meer bezoeken aan uw winkel. DutyBoost activeert cruisepassagiers vóór aankomst, zodat zij met koopintentie aan wal komen — elk extra bezoek is incrementeel, en u betaalt alleen op de omzet die het oplevert.",
         ctaLabel: "Aanmelden als cruisepartner",
       },
       port: {
         badge: "Haven- en binnenstadretailpartners",
         intro:
-          "Kies uw land of eiland en uw terminal; wij vullen indicatieve cijfers voor 2025 voor die markt in — pas ze aan op wat u in uw eigen winkel ziet. Voeg elke andere winkel die u beheert toe; de calculator telt elk eiland of land apart en alle winkels samen.",
+          "Gebouwd rond het cijfer dat het meest telt: meer bezoeken aan uw winkel. DutyBoost activeert cruisepassagiers voordat zij aan wal gaan, zodat zij met koopintentie binnenkomen — elk extra bezoek is incrementeel, en u betaalt alleen op de omzet die het oplevert.",
         ctaLabel: "Aanmelden als haven- en binnenstadretailpartner",
       },
     },
@@ -150,13 +150,13 @@ export const cruiseCalculatorStrings = {
       cruise: {
         badge: "Partenaires croisière et portuaires",
         intro:
-          "Modélisez un magasin avec vos propres chiffres — choisissez votre pays ou île, puis votre terminal de croisière dans la liste. Ajoutez chaque autre magasin que vous exploitez : le calculateur totalise chaque île ou pays séparément, et tous ensemble.",
+          "Construit autour du chiffre qui compte le plus : plus de visites dans votre magasin. DutyBoost pré-active les passagers de croisière avant leur arrivée, afin qu'ils débarquent avec une intention d'achat — chaque visite supplémentaire est incrémentale, et vous ne payez que sur les ventes générées.",
         ctaLabel: "Devenir partenaire croisière",
       },
       port: {
         badge: "Partenaires retail portuaires et en centre-ville",
         intro:
-          "Choisissez votre pays ou île et votre terminal : nous pré-remplissons des chiffres indicatifs 2025 pour ce marché — ajustez-les selon ce que vous constatez dans votre magasin. Ajoutez chaque autre magasin que vous exploitez : le calculateur totalise chaque île ou pays séparément, et tous ensemble.",
+          "Construit autour du chiffre qui compte le plus : plus de visites dans votre magasin. DutyBoost pré-active les passagers de croisière avant qu'ils débarquent, afin qu'ils arrivent avec une intention d'achat — chaque visite supplémentaire est incrémentale, et vous ne payez que sur les ventes générées.",
         ctaLabel: "Devenir partenaire retail portuaire et centre-ville",
       },
     },
@@ -216,13 +216,13 @@ export const cruiseCalculatorStrings = {
       cruise: {
         badge: "Kreuzfahrt- und Hafenpartner",
         intro:
-          "Modellieren Sie eine Filiale mit Ihren eigenen Zahlen — wählen Sie Ihr Land oder Ihre Insel und dann Ihr Kreuzfahrtterminal aus der Liste. Fügen Sie jede weitere Filiale hinzu: Der Rechner summiert jede Insel oder jedes Land separat und alle zusammen.",
+          "Rund um die Zahl, die am meisten zählt: mehr Besuche in Ihrer Filiale. DutyBoost aktiviert Kreuzfahrtpassagiere vor der Ankunft, sodass sie mit Kaufabsicht an Land gehen — jeder zusätzliche Besuch ist inkrementell, und Sie zahlen nur auf den erzielten Umsatz.",
         ctaLabel: "Als Kreuzfahrtpartner bewerben",
       },
       port: {
         badge: "Hafen- und Innenstadt-Handelspartner",
         intro:
-          "Wählen Sie Ihr Land oder Ihre Insel und Ihr Terminal — wir füllen indikative Zahlen für 2025 für diesen Markt vor, die Sie an Ihre eigene Filiale anpassen. Fügen Sie jede weitere Filiale hinzu: Der Rechner summiert jede Insel oder jedes Land separat und alle zusammen.",
+          "Rund um die Zahl, die am meisten zählt: mehr Besuche in Ihrer Filiale. DutyBoost aktiviert Kreuzfahrtpassagiere, bevor sie an Land gehen, sodass sie mit Kaufabsicht in Ihre Filiale kommen — jeder zusätzliche Besuch ist inkrementell, und Sie zahlen nur auf den erzielten Umsatz.",
         ctaLabel: "Als Hafen- und Innenstadt-Handelspartner bewerben",
       },
     },
@@ -282,13 +282,13 @@ export const cruiseCalculatorStrings = {
       cruise: {
         badge: "Socios de cruceros y puertos",
         intro:
-          "Modele una tienda con sus propias cifras: elija su país o isla y después su terminal de cruceros de la lista. Añada cada otra tienda que gestione; la calculadora totaliza cada isla o país por separado y todas juntas.",
+          "Construido en torno al número que más importa: más visitas a su tienda. DutyBoost preactiva a los pasajeros de crucero antes de su llegada, para que desembarquen con intención de compra — cada visita adicional es incremental, y solo paga por las ventas que genera.",
         ctaLabel: "Solicitar ser socio de cruceros",
       },
       port: {
         badge: "Socios minoristas de puerto y centro urbano",
         intro:
-          "Elija su país o isla y su terminal: rellenamos cifras indicativas de 2025 para ese mercado, que puede ajustar a lo que ve en su propia tienda. Añada cada otra tienda que gestione; la calculadora totaliza cada isla o país por separado y todas juntas.",
+          "Construido en torno al número que más importa: más visitas a su tienda. DutyBoost preactiva a los pasajeros de crucero antes de que desembarquen, para que lleguen con intención de compra — cada visita adicional es incremental, y solo paga por las ventas que genera.",
         ctaLabel: "Solicitar ser socio minorista de puerto y centro urbano",
       },
     },
@@ -348,13 +348,13 @@ export const cruiseCalculatorStrings = {
       cruise: {
         badge: "Partner crociere e portuali",
         intro:
-          "Modella un punto vendita con i tuoi numeri: scegli il paese o l'isola e poi il terminal crociere dall'elenco. Aggiungi ogni altro punto vendita che gestisci; il calcolatore totalizza ogni isola o paese separatamente e tutti insieme.",
+          "Costruito attorno al numero che conta di più: più visite al tuo punto vendita. DutyBoost pre-attiva i passeggeri delle crociere prima dell'arrivo, così sbarcano con intenzione d'acquisto — ogni visita in più è incrementale e paghi solo sulle vendite che genera.",
         ctaLabel: "Candidati come partner crociere",
       },
       port: {
         badge: "Partner retail portuali e in centro città",
         intro:
-          "Scegli il paese o l'isola e il terminal: precompiliamo cifre indicative 2025 per quel mercato, che puoi adattare a ciò che vedi nel tuo punto vendita. Aggiungi ogni altro punto vendita che gestisci; il calcolatore totalizza ogni isola o paese separatamente e tutti insieme.",
+          "Costruito attorno al numero che conta di più: più visite al tuo punto vendita. DutyBoost pre-attiva i passeggeri delle crociere prima che sbarchino, così arrivano con intenzione d'acquisto — ogni visita in più è incrementale e paghi solo sulle vendite che genera.",
         ctaLabel: "Candidati come partner retail portuale e in centro città",
       },
     },
@@ -414,13 +414,13 @@ export const cruiseCalculatorStrings = {
       cruise: {
         badge: "Parceiros de cruzeiros e portuários",
         intro:
-          "Modele uma loja com os seus próprios números — escolha o país ou ilha e depois o terminal de cruzeiros da lista. Adicione todas as outras lojas que opera; a calculadora totaliza cada ilha ou país separadamente e todas em conjunto.",
+          "Construído em torno do número que mais importa: mais visitas à sua loja. A DutyBoost pré-ativa os passageiros de cruzeiro antes da chegada, para que desembarquem com intenção de compra — cada visita adicional é incremental, e paga apenas sobre as vendas que gera.",
         ctaLabel: "Candidatar-se como parceiro de cruzeiros",
       },
       port: {
         badge: "Parceiros retalhistas portuários e de centro urbano",
         intro:
-          "Escolha o país ou ilha e o terminal: pré-preenchemos valores indicativos de 2025 para esse mercado, que pode ajustar ao que vê na sua loja. Adicione todas as outras lojas que opera; a calculadora totaliza cada ilha ou país separadamente e todas em conjunto.",
+          "Construído em torno do número que mais importa: mais visitas à sua loja. A DutyBoost pré-ativa os passageiros de cruzeiro antes de desembarcarem, para que cheguem com intenção de compra — cada visita adicional é incremental, e paga apenas sobre as vendas que gera.",
         ctaLabel: "Candidatar-se como parceiro retalhista portuário e de centro urbano",
       },
     },
