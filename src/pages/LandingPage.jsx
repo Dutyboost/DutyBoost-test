@@ -156,6 +156,7 @@ export default function LandingPage() {
               ];
 
               if (s.key === 'retailers') {
+                AdditionalIcons = [PlaneTakeoff];
                 title = 'Airport Retail Partners';
               }
 
