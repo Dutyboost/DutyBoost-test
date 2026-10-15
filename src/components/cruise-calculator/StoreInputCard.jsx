@@ -4,6 +4,7 @@ import SearchCombobox from "@/components/onboarding/SearchCombobox";
 import { COUNTRY_OPTIONS } from "@/data/unCountries";
 import { terminalsForCountry } from "@/data/cruiseTerminals";
 import { numShort } from "./model";
+import { useCalculatorTheme } from "./theme";
 
 const NUM_FIELDS = [
   { key: "passengersPerCall", label: "Cruise passengers per call", step: 100 },
@@ -14,9 +15,10 @@ const NUM_FIELDS = [
 ];
 
 const FIELD_CLASS =
-  "[&_input]:h-[34px] [&_input]:rounded-lg [&_input]:border-slate-300 [&_input]:bg-white [&_input]:px-2.5 [&_input]:text-sm [&_input]:shadow-none [&_input]:focus-visible:ring-2 [&_input]:focus-visible:ring-teal-500/40";
+  "[&_input]:h-[34px] [&_input]:rounded-lg [&_input]:border-slate-300 [&_input]:bg-white [&_input]:px-2.5 [&_input]:text-sm [&_input]:shadow-none [&_input]:focus-visible:ring-2";
 
 export default function StoreInputCard({ store, result, onChange, onRemove, onDuplicate }) {
+  const th = useCalculatorTheme();
   const { rate, symbol, fmt, fmtCompact } = useCurrency();
 
   const basketDisplay =
@@ -33,15 +35,15 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
   return (
     <div className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5">
       <div className="flex items-start gap-2 mb-3">
-        <div className="w-9 h-9 rounded-lg bg-teal-50 flex items-center justify-center shrink-0">
-          <StoreIcon className="w-4 h-4 text-teal-600" />
+        <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${th.softBg}`}>
+          <StoreIcon className={`w-4 h-4 ${th.accentText}`} />
         </div>
         <div className="flex-1 grid sm:grid-cols-3 gap-2">
           <input
             value={store.name}
             onChange={(e) => onChange(store.id, "name", e.target.value)}
             placeholder="Store name"
-            className="w-full h-[34px] rounded-lg border border-slate-300 px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+            className={`w-full h-[34px] rounded-lg border border-slate-300 px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
           />
           <SearchCombobox
             value={store.country}
@@ -50,7 +52,7 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
             options={COUNTRY_OPTIONS}
             placeholder="Country / island"
             emptyText="No match in the list — keep typing to enter it as new"
-            className={FIELD_CLASS}
+            className={`${FIELD_CLASS} ${th.fieldRing}`}
           />
           <SearchCombobox
             value={store.port}
@@ -63,7 +65,7 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
                 ? "No terminal listed for this country — type yours to add it"
                 : "Pick a country or island to see its cruise ship terminals"
             }
-            className={FIELD_CLASS}
+            className={`${FIELD_CLASS} ${th.fieldRing}`}
           />
         </div>
         <div className="flex items-center gap-1">
@@ -95,7 +97,7 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
                 step={f.step}
                 value={store[f.key]}
                 onChange={(e) => onChange(store.id, f.key, e.target.value)}
-                className="w-full h-[34px] rounded-lg border border-slate-300 bg-white py-1 pr-7 pl-2 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+                className={`w-full h-[34px] rounded-lg border border-slate-300 bg-white py-1 pr-7 pl-2 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
               />
               {f.suffix && (
                 <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-slate-400">{f.suffix}</span>
@@ -116,7 +118,7 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
               onChange={(e) =>
                 onChange(store.id, "basket", e.target.value === "" ? "" : Number(e.target.value) / rate)
               }
-              className="w-full h-[34px] rounded-lg border border-slate-300 bg-white py-1 pl-6 pr-2 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+              className={`w-full h-[34px] rounded-lg border border-slate-300 bg-white py-1 pl-6 pr-2 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
             />
           </span>
         </label>
@@ -133,10 +135,10 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
           <div
             key={row.label}
             className={`rounded-xl px-2.5 py-2 border ${
-              row.highlight ? "bg-teal-50 border-teal-200" : "bg-slate-50 border-slate-200"
+              row.highlight ? th.highlightBox : "bg-slate-50 border-slate-200"
             }`}
           >
-            <div className={`font-bold text-sm ${row.highlight ? "text-teal-700" : "text-slate-800"}`}>{row.val}</div>
+            <div className={`font-bold text-sm ${row.highlight ? th.highlightText : "text-slate-800"}`}>{row.val}</div>
             <div className="text-[10px] text-slate-500 leading-tight mt-0.5">{row.label}</div>
           </div>
         ))}

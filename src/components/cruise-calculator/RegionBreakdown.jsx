@@ -1,8 +1,10 @@
 import { useCurrency } from "@/components/calculator/CurrencyContext";
+import { useCalculatorTheme } from "./theme";
 
 // Subtotals per island / country / region so a partner operating in several
 // places sees each area on its own, plus the combined total.
 export default function RegionBreakdown({ regions }) {
+  const th = useCalculatorTheme();
   const { fmt, fmtCompact } = useCurrency();
 
   return (
@@ -31,7 +33,7 @@ export default function RegionBreakdown({ regions }) {
                 <td className="px-3 py-2.5 text-right text-slate-600">{r.stores}</td>
                 <td className="px-3 py-2.5 text-right text-slate-600">{Math.round(r.redemptions).toLocaleString()}</td>
                 <td className="px-3 py-2.5 text-right text-slate-600">{fmtCompact(r.gross)}</td>
-                <td className="px-4 sm:px-5 py-2.5 text-right font-bold text-teal-700">{fmt(r.net)}</td>
+                <td className={`px-4 sm:px-5 py-2.5 text-right font-bold ${th.highlightText}`}>{fmt(r.net)}</td>
               </tr>
             ))}
           </tbody>

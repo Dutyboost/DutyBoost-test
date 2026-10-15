@@ -1,8 +1,10 @@
 import { useCurrency } from "@/components/calculator/CurrencyContext";
 import { numShort, PLATFORM_FEE } from "./model";
+import { useCalculatorTheme } from "./theme";
 
 // The full picture: every store the partner modelled, combined.
 export default function CruiseTotals({ totals }) {
+  const th = useCalculatorTheme();
   const { fmt, fmtCompact } = useCurrency();
 
   const cards = [
@@ -27,10 +29,10 @@ export default function CruiseTotals({ totals }) {
           <div
             key={c.label}
             className={`rounded-xl px-3 py-2.5 border ${
-              c.highlight ? "bg-teal-500/15 border-teal-400/40" : "bg-white/5 border-white/10"
+              c.highlight ? th.totalsHighlight : "bg-white/5 border-white/10"
             }`}
           >
-            <div className={`font-bold text-base ${c.highlight ? "text-teal-300" : "text-white"}`}>{c.val}</div>
+            <div className={`font-bold text-base ${c.highlight ? th.totalsHighlightText : "text-white"}`}>{c.val}</div>
             <div className="text-[10px] text-slate-400 leading-tight mt-0.5">{c.label}</div>
           </div>
         ))}

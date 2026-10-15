@@ -7,6 +7,7 @@ export default function PortsCalculator() {
     <main className="min-h-screen bg-slate-50 text-slate-900 px-4 py-10">
       <CurrencyProvider>
         <CruiseCalculatorBody
+          theme="purple"
           badge="Port & Down Town Retail Partners"
           intro="Model one store with your own figures — pick your country or island, then your terminal from the list. Add every other store you operate and the calculator totals each island or country on its own, and all of them together."
           ctaLabel="Apply as a port & down town retail partner"

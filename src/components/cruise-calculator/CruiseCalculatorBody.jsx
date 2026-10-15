@@ -10,13 +10,16 @@ import StoreInputCard from "./StoreInputCard";
 import RegionBreakdown from "./RegionBreakdown";
 import CruiseTotals from "./CruiseTotals";
 import { CURRENCIES, PLATFORM_FEE, TIERS, defaultStore, computeStore, computeTotals, groupByRegion } from "./model";
+import { CALCULATOR_THEMES, CalculatorThemeProvider } from "./theme";
 
 export default function CruiseCalculatorBody({
+  theme = "teal",
   badge = "Cruise & Port Retail Partners",
   intro = "Model one store with your own figures — pick your country or island, then your cruise ship terminal from the list. Add every other store you operate and the calculator totals each island or country on its own, and all of them together.",
   ctaLabel = "Apply as a cruise partner",
   ctaTo = "/cruise-signup",
 }) {
+  const th = CALCULATOR_THEMES[theme] || CALCULATOR_THEMES.teal;
   const { currency, setCurrency } = useCurrency();
   const [stores, setStores] = useState(() => [defaultStore(1)]);
 
@@ -40,6 +43,7 @@ export default function CruiseCalculatorBody({
   const handleRemove = (id) => setStores((prev) => (prev.length > 1 ? prev.filter((s) => s.id !== id) : prev));
 
   return (
+    <CalculatorThemeProvider value={th}>
     <div className="max-w-6xl mx-auto space-y-8">
       <div className="text-center space-y-2">
         <div className="flex justify-between items-center mb-2">
@@ -49,7 +53,7 @@ export default function CruiseCalculatorBody({
             <select
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
-              className="rounded-lg border border-slate-300 bg-white px-2.5 py-1.5 text-sm font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-500/40"
+              className={`rounded-lg border border-slate-300 bg-white px-2.5 py-1.5 text-sm font-semibold text-slate-700 focus:outline-none focus:ring-2 ${th.selectRing}`}
             >
               {CURRENCIES.map((c) => (
                 <option key={c} value={c}>
@@ -60,15 +64,15 @@ export default function CruiseCalculatorBody({
             <LanguageSwitcher />
           </div>
         </div>
-        <span className="inline-flex items-center gap-1.5 bg-teal-50 text-teal-700 border border-teal-200 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest">
+        <span className={`inline-flex items-center gap-1.5 border rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest ${th.badge}`}>
           <Anchor className="w-3.5 h-3.5" /> {badge}
         </span>
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900">Your own store calculator</h1>
         <p className="text-slate-600 text-sm max-w-2xl mx-auto">{intro}</p>
       </div>
 
-      <div className="bg-teal-50 border border-teal-100 rounded-xl px-4 py-3 flex items-start gap-2.5">
-        <Info className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
+      <div className={`border rounded-xl px-4 py-3 flex items-start gap-2.5 ${th.infoBox}`}>
+        <Info className={`w-4 h-4 shrink-0 mt-0.5 ${th.accentText}`} />
         <p className="text-xs text-slate-600 leading-relaxed">
           DutyBoost pre-activates travellers before they reach you. The only cost is a {PLATFORM_FEE * 100}% platform
           fee on DutyBoost-validated transactions, and traveller discounts follow the DutyCredit tiers:{" "}
@@ -100,16 +104,16 @@ export default function CruiseCalculatorBody({
 
       {stores.length > 1 && <RegionBreakdown regions={regions} />}
 
-      <div className="bg-gradient-to-r from-teal-400 to-cyan-600 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className={`bg-gradient-to-r rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 ${th.ctaGradient}`}>
         <div className="text-center sm:text-left">
           <h3 className="font-bold text-white text-lg">Want these numbers validated for your estate?</h3>
-          <p className="text-cyan-50 text-sm mt-0.5">
+          <p className={`text-sm mt-0.5 ${th.ctaSubtext}`}>
             Send us your store list and we will model the full picture with you.
           </p>
         </div>
         <Link
           to={ctaTo}
-          className="inline-flex items-center gap-2 bg-white text-teal-600 font-bold px-6 py-3 rounded-xl hover:bg-teal-50 transition-colors shrink-0"
+          className={`inline-flex items-center gap-2 bg-white font-bold px-6 py-3 rounded-xl transition-colors shrink-0 ${th.ctaButton}`}
         >
           {ctaLabel} <ArrowRight className="w-4 h-4" />
         </Link>
@@ -120,5 +124,6 @@ export default function CruiseCalculatorBody({
         recalculate as you edit. The platform fee applies only to DutyBoost-validated transactions.
       </p>
     </div>
+    </CalculatorThemeProvider>
   );
 }
