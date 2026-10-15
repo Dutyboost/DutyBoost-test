@@ -42,7 +42,7 @@ export const STAKEHOLDER_CONFIG = {
   travelPartner: {
     Icon: Plane,
     gradient: "linear-gradient(to bottom, #22c55e, #16a34a)",
-    calculatorTo: "/roi-calculator-travel-partner",
+    calculatorTo: "/roi-calculator-travel-partner?vertical=flight",
     backTo: "/flight-showcase",
     badgeClass: "bg-green-500/10 text-green-700",
     buttonClass: "bg-green-600 hover:bg-green-700",
@@ -56,7 +56,7 @@ export const STAKEHOLDER_CONFIG = {
   accommodation: {
     Icon: BedDouble,
     gradient: "linear-gradient(to bottom, #3b82f6, #2563eb)",
-    calculatorTo: "/roi-calculator-travel-partner",
+    calculatorTo: "/roi-calculator-travel-partner?vertical=accommodation",
     backTo: "/accommodation-showcase",
     badgeClass: "bg-blue-500/10 text-blue-700",
     buttonClass: "bg-blue-600 hover:bg-blue-700",
@@ -70,7 +70,7 @@ export const STAKEHOLDER_CONFIG = {
   carRental: {
     Icon: Car,
     gradient: "linear-gradient(to bottom, #ef4444, #dc2626)",
-    calculatorTo: "/roi-calculator-travel-partner",
+    calculatorTo: "/roi-calculator-travel-partner?vertical=car",
     backTo: "/car-rental-showcase",
     badgeClass: "bg-red-500/10 text-red-700",
     buttonClass: "bg-red-600 hover:bg-red-700",

@@ -6,6 +6,9 @@ import { TravelPartnerTab } from "./RetailerCalculator";
 
 export default function TravelPartnerCalculator() {
   const { t } = useTranslation();
+  // A flight, accommodation or car rental partner arrives with its own vertical
+  // (?vertical=flight|accommodation|car) and then only sees that calculator.
+  const vertical = new URLSearchParams(window.location.search).get("vertical") || undefined;
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 px-4 py-10">
@@ -17,7 +20,7 @@ export default function TravelPartnerCalculator() {
         </div>
 
         {/* Travel partner calculator (self-contained title, inputs, results, CTA) */}
-        <TravelPartnerTab t={t} />
+        <TravelPartnerTab t={t} vertical={vertical} />
       </div>
       <PageFooter />
     </main>

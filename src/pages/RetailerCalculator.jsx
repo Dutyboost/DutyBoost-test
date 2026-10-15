@@ -147,10 +147,30 @@ const VERTICALS_CONFIG = [
 ];
 
 // ── Travel Partner tab ────────────────────────────────────────────────────────
-export function TravelPartnerTab({ t }) {
-  const [selected, setSelected] = useState({ flight: false, accommodation: false, car: false });
-  const [bookings, setBookings] = useState({ flight: 10000, accommodation: 0, car: 0 });
-  const [bookingsInput, setBookingsInput] = useState({ flight: fmtNum(10000), accommodation: "0", car: "0" });
+export function TravelPartnerTab({ t, vertical }) {
+  // A partner that only operates one vertical (flight, accommodation or car
+  // rental) gets that vertical alone: preselected, with no vertical selector.
+  const locked = vertical || null;
+  const initialBookings = locked
+    ? {
+        flight: 0,
+        accommodation: 0,
+        car: 0,
+        [locked]: VERTICALS_CONFIG.find((v) => v.key === locked)?.defaultBookings ?? 0,
+      }
+    : { flight: 10000, accommodation: 0, car: 0 };
+
+  const [selected, setSelected] = useState(
+    locked
+      ? { flight: locked === "flight", accommodation: locked === "accommodation", car: locked === "car" }
+      : { flight: false, accommodation: false, car: false }
+  );
+  const [bookings, setBookings] = useState(initialBookings);
+  const [bookingsInput, setBookingsInput] = useState({
+    flight: fmtNum(initialBookings.flight),
+    accommodation: fmtNum(initialBookings.accommodation),
+    car: fmtNum(initialBookings.car),
+  });
   const [bookingsError, setBookingsError] = useState({ flight: "", accommodation: "", car: "" });
   const [selectedPartners, setSelectedPartners] = useState({ flight: null, accommodation: null, car: null });
   const [conversion, setConversion] = useState({ flight: 0.01, accommodation: 0.01, car: 0.01 });
@@ -202,7 +222,8 @@ export function TravelPartnerTab({ t }) {
         <p className="text-slate-600 text-sm max-w-xl mx-auto" dangerouslySetInnerHTML={{ __html: t('calculator.partner_subtitle_full') }} />
       </div>
 
-      {/* Vertical selector */}
+      {/* Vertical selector — a single-vertical partner goes straight to its calculator */}
+      {!locked && (
       <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-4">
         <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest">{t('calculator.select_verticals')}</p>
         <div className="flex flex-wrap gap-3">
@@ -223,6 +244,7 @@ export function TravelPartnerTab({ t }) {
         </div>
         <p className="text-xs text-slate-400">{t('calculator.select_verticals_hint')}</p>
       </div>
+      )}
 
       {/* Per-vertical sliders */}
       {activeVerticals.map((v) => (
