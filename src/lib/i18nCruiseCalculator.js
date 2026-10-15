@@ -22,6 +22,8 @@ export const cruiseCalculatorStrings = {
         title: "Your fleet's onboard retail calculator",
         intro:
           "Built around the number that matters most: more purchases on board. Enter your fleet, the passengers each ship carries, the length of a cruise and the number of shops per ship — DutyBoost pre-activates those passengers before they sail, so they board with purchase intent, and you pay only on the sales it brings.",
+        focus:
+          "On average, 60% of cruise passengers leave the shops on board without buying. DutyBoost does not depend on more passengers — it converts a share of those non-purchasers into incremental sales, and you pay only on the sales it brings.",
         ctaLabel: "Apply as a cruise line partner",
         ctaTitle: "Want these numbers validated for your fleet?",
         ctaDesc: "Send us your fleet and itinerary profile and we will model the full picture with you.",
@@ -114,6 +116,8 @@ export const cruiseCalculatorStrings = {
         title: "Calculator voor boordverkoop van uw vloot",
         intro:
           "Gebouwd rond het cijfer dat het meest telt: meer aankopen aan boord. Vul uw vloot in, het aantal passagiers per schip, de duur van een cruise en het aantal winkels per schip — DutyBoost activeert die passagiers voordat ze afvaren, zodat zij met koopintentie aan boord gaan, en u betaalt alleen op de omzet die het oplevert.",
+        focus:
+          "Gemiddeld verlaat 60% van de cruisepassagiers de boordwinkels zonder iets te kopen. DutyBoost is niet afhankelijk van meer passagiers — het converteert een deel van die niet-kopers naar incrementele omzet, en u betaalt alleen op de omzet die het oplevert.",
         ctaLabel: "Aanmelden als cruisemaatschappij",
         ctaTitle: "Wilt u deze cijfers laten valideren voor uw vloot?",
         ctaDesc: "Stuur ons uw vloot- en routeprofiel en we modelleren samen het volledige beeld.",
@@ -206,6 +210,8 @@ export const cruiseCalculatorStrings = {
         title: "Calculateur de vente à bord de votre flotte",
         intro:
           "Construit autour du chiffre qui compte le plus : plus d'achats à bord. Saisissez votre flotte, le nombre de passagers par navire, la durée d'une croisière et le nombre de boutiques par navire — DutyBoost pré-active ces passagers avant l'appareillage, afin qu'ils montent à bord avec une intention d'achat, et vous ne payez que sur les ventes générées.",
+        focus:
+          "En moyenne, 60 % des passagers de croisière quittent les boutiques à bord sans acheter. DutyBoost ne dépend pas d'un surcroît de passagers — il convertit une part de ces non-acheteurs en ventes incrémentales, et vous ne payez que sur les ventes générées.",
         ctaLabel: "Devenir compagnie de croisière partenaire",
         ctaTitle: "Vous souhaitez faire valider ces chiffres pour votre flotte ?",
         ctaDesc: "Envoyez-nous le profil de votre flotte et de vos itinéraires et nous modéliserons ensemble la vue complète.",
@@ -298,6 +304,8 @@ export const cruiseCalculatorStrings = {
         title: "Rechner für den Bordverkauf Ihrer Flotte",
         intro:
           "Rund um die Zahl, die am meisten zählt: mehr Käufe an Bord. Geben Sie Ihre Flotte, die Passagiere pro Schiff, die Dauer einer Kreuzfahrt und die Anzahl der Shops pro Schiff ein — DutyBoost aktiviert diese Passagiere vor dem Auslaufen, sodass sie mit Kaufabsicht an Bord gehen, und Sie zahlen nur auf den erzielten Umsatz.",
+        focus:
+          "Im Durchschnitt verlassen 60 % der Kreuzfahrtpassagiere die Bordshops ohne Kauf. DutyBoost setzt nicht auf mehr Passagiere — es wandelt einen Teil dieser Nichtkäufer in inkrementelle Umsätze um, und Sie zahlen nur auf den erzielten Umsatz.",
         ctaLabel: "Als Kreuzfahrtreederei bewerben",
         ctaTitle: "Möchten Sie diese Zahlen für Ihre Flotte prüfen lassen?",
         ctaDesc: "Senden Sie uns Ihr Flotten- und Routenprofil und wir modellieren gemeinsam das Gesamtbild.",
@@ -390,6 +398,8 @@ export const cruiseCalculatorStrings = {
         title: "Calculadora de venta a bordo de su flota",
         intro:
           "Construido en torno al número que más importa: más compras a bordo. Introduzca su flota, los pasajeros que transporta cada buque, la duración de un crucero y el número de tiendas por buque — DutyBoost preactiva a esos pasajeros antes de zarpar, para que embarquen con intención de compra, y solo paga por las ventas que genera.",
+        focus:
+          "De media, el 60 % de los pasajeros de crucero salen de las tiendas a bordo sin comprar. DutyBoost no depende de más pasajeros — convierte una parte de esos no compradores en ventas incrementales, y solo paga por las ventas que genera.",
         ctaLabel: "Solicitar ser naviera de cruceros",
         ctaTitle: "¿Quiere que validemos estas cifras para su flota?",
         ctaDesc: "Envíenos el perfil de su flota y sus itinerarios y modelaremos juntos la visión completa.",
@@ -482,6 +492,8 @@ export const cruiseCalculatorStrings = {
         title: "Calcolatore delle vendite a bordo della tua flotta",
         intro:
           "Costruito attorno al numero che conta di più: più acquisti a bordo. Inserisci la tua flotta, i passeggeri per nave, la durata di una crociera e il numero di negozi per nave — DutyBoost pre-attiva quei passeggeri prima della partenza, così salgono a bordo con intenzione d'acquisto, e paghi solo sulle vendite che genera.",
+        focus:
+          "In media, il 60% dei passeggeri di crociera esce dai negozi di bordo senza acquistare. DutyBoost non dipende da più passeggeri — converte una quota di quei non acquirenti in vendite incrementali, e paghi solo sulle vendite che genera.",
         ctaLabel: "Candidati come compagnia di crociera",
         ctaTitle: "Vuoi che validiamo questi numeri per la tua flotta?",
         ctaDesc: "Inviaci il profilo della tua flotta e degli itinerari e modelleremo insieme il quadro completo.",
@@ -574,6 +586,8 @@ export const cruiseCalculatorStrings = {
         title: "Calculadora de vendas a bordo da sua frota",
         intro:
           "Construído em torno do número que mais importa: mais compras a bordo. Introduza a sua frota, os passageiros por navio, a duração de um cruzeiro e o número de lojas por navio — a DutyBoost pré-ativa esses passageiros antes da partida, para que embarquem com intenção de compra, e paga apenas sobre as vendas que gera.",
+        focus:
+          "Em média, 60% dos passageiros de cruzeiro saem das lojas a bordo sem comprar. A DutyBoost não depende de mais passageiros — converte uma parte desses não-compradores em vendas incrementais, e paga apenas sobre as vendas que gera.",
         ctaLabel: "Candidatar-se como companhia de cruzeiros",
         ctaTitle: "Quer validar estes números para a sua frota?",
         ctaDesc: "Envie-nos o perfil da sua frota e dos itinerários e modelamos juntos o quadro completo.",

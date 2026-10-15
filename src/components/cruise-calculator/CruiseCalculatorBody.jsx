@@ -98,6 +98,12 @@ export default function CruiseCalculatorBody({
         <p className="text-slate-600 text-sm max-w-2xl mx-auto">{v.intro}</p>
       </div>
 
+      {v.focus && (
+        <div className={`border rounded-xl px-4 py-3 text-center text-sm font-semibold text-slate-700 ${th.infoBox}`}>
+          {v.focus}
+        </div>
+      )}
+
       <div className={`border rounded-xl px-4 py-3 flex items-start gap-2.5 ${th.infoBox}`}>
         <Info className={`w-4 h-4 shrink-0 mt-0.5 ${th.accentText}`} />
         <p className="text-xs text-slate-600 leading-relaxed">
