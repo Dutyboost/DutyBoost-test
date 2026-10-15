@@ -43,9 +43,9 @@ export default {
       title: 'Every Stakeholder Orbits the <span class="text-primary">Traveller Journey</span>',
       subtitle: 'One validated transaction connects every participant — each earning from the same traveller moment.',
       actual_title: 'Actual Situation',
-      actual_text: 'In the actual situation engagement only begins when the traveller clears security. By then the intent is set — 73% walk straight to the gate.',
+      actual_text: 'In the actual situation, engagement only begins once the traveller clears security or steps aboard. By then the intent is set — 73% head straight to the gate or the gangway.',
       activated_title: 'DutyBoost: Activated Before Arrival',
-      activated_text: 'DutyBoost engages travellers before they reach the airport, pre-activating the 73% who currently do not purchase — every converted traveller becomes an incremental customer, creating measurable value across the entire travel-retail ecosystem.',
+      activated_text: 'DutyBoost engages travellers before they reach the airport or the cruise terminal, pre-activating the 73% who currently do not purchase — every converted traveller becomes an incremental customer, creating measurable value across the entire travel-retail ecosystem.',
       hub_title: "The Traveller's Transaction",
       hub_subtitle: 'The final step that brings the entire ecosystem together.',
       nodes: {

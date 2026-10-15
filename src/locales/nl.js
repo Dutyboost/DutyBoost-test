@@ -37,9 +37,9 @@ export default {
       title: 'Elke Stakeholder Draait om de <span class="text-primary">Reizigersreis</span>',
       subtitle: 'Eén gevalideerde transactie verbindt elke deelnemer — iedereen verdient aan hetzelfde reizigersmoment.',
       actual_title: 'Werkelijke Situatie',
-      actual_text: 'In de huidige situatie begint betrokkenheid pas wanneer de reiziger door de veiligheidscontrole is. Tegen die tijd is de intentie bepaald — 73% loopt direct naar de gate.',
+      actual_text: 'In de huidige situatie begint betrokkenheid pas wanneer de reiziger door de veiligheidscontrole is of aan boord gaat. Tegen die tijd is de intentie bepaald — 73% loopt direct naar de gate of de loopplank.',
       activated_title: 'DutyBoost: Geactiveerd voor Aankomst',
-      activated_text: 'DutyBoost activeert reizigers voordat zij de luchthaven bereiken, en pre-activeert de 73% die momenteel niet koopt — elke geconverteerde reiziger wordt een extra klant, wat meetbare waarde creëert in het hele reis-retail ecosysteem.',
+      activated_text: 'DutyBoost activeert reizigers voordat zij de luchthaven of de cruiseterminal bereiken, en pre-activeert de 73% die momenteel niet koopt — elke geconverteerde reiziger wordt een extra klant, wat meetbare waarde creëert in het hele reis-retail ecosysteem.',
       hub_title: 'De Reizigerstransactie',
       hub_subtitle: 'De laatste stap die het hele ecosysteem samenbrengt.',
       nodes: {
