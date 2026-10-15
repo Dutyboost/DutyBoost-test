@@ -403,6 +403,8 @@ export default {
       corporate_partners_description: "Through DutyBoost your booking platform turns every business trip into a new revenue line — each traveller redemption earns your platform a share of the platform fee, at zero cost to you or your travellers.",
       airports: 'Airports',
       airports_description: 'DutyBoost captures incremental concession revenue from travellers who would otherwise leave without purchasing — no capex, no integration, revenue realised above existing baselines.',
+      ports: 'Sea Ports',
+      ports_description: 'DutyBoost captures incremental concession revenue from cruise passengers who would otherwise step ashore without purchasing — no capex, no integration, revenue realised above existing baselines.',
       wholesale: 'Wholesale / Retail Suppliers',
       wholesale_description: 'DutyBoost moves your products off airport shelves faster — no new listing required, no additional cost, just incremental volume driven by pre-activated shoppers.',
     },

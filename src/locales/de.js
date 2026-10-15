@@ -209,6 +209,8 @@ export default {
       airport_retailer: 'Flughafenhändler',
       airports: 'Flughäfen',
       airports_description: 'DutyBoost erschließt zusätzliche Konzessionsumsätze von Reisenden, die sonst ohne Kauf verlassen würden — kein Capex, keine Integration, Erlöse über bestehenden Basislinien.',
+      ports: 'Seehäfen',
+      ports_description: 'DutyBoost erschließt zusätzliche Konzessionsumsätze von Kreuzfahrtpassagieren, die sonst ohne Kauf an Land gehen würden — kein Capex, keine Integration, Erlöse über bestehenden Basislinien.',
       wholesale: 'Groß-/Einzelhandelslieferanten',
       wholesale_description: 'DutyBoost bewegt Ihre Produkte schneller von den Flughafenregalen — keine neue Listung erforderlich, keine zusätzlichen Kosten, nur zusätzliches Volumen durch voraktivierte Käufer.',
     },

@@ -209,6 +209,8 @@ export default {
       airport_retailer: 'Détaillant aéroportuaire',
       airports: 'Aéroports',
       airports_description: "DutyBoost capte des revenus de concession incrémentiels des voyageurs qui sinon partiraient sans acheter — sans capex, sans intégration, des revenus réalisés au-dessus des bases existantes.",
+      ports: 'Ports',
+      ports_description: "DutyBoost capte des revenus de concession incrémentiels des passagers de croisière qui sinon débarqueraient sans acheter — sans capex, sans intégration, des revenus réalisés au-dessus des bases existantes.",
       wholesale: 'Fournisseurs de Gros / Détail',
       wholesale_description: "DutyBoost déplace vos produits plus rapidement des étagères de l'aéroport — sans nouvelle référence, sans coût supplémentaire, uniquement du volume incrémentiel généré par des acheteurs pré-activés.",
     },

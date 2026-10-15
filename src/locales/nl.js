@@ -298,6 +298,8 @@ export default {
       corporate_partners_description: 'Met DutyBoost maakt uw boekingsplatform van elke zakenreis een nieuwe omzetlijn — elke verzilvering door uw reizigers levert uw platform een aandeel in de platformvergoeding op, zonder kosten voor u of uw reizigers.',
       airports: 'Luchthavens',
       airports_description: 'DutyBoost genereert extra concessie-inkomsten van reizigers die anders zonder aankoop zouden vertrekken — geen capex, geen integratie, inkomsten gerealiseerd bovenop bestaande basislijnen.',
+      ports: 'Zeehavens',
+      ports_description: 'DutyBoost genereert extra concessie-inkomsten van cruisepassagiers die anders zonder aankoop van boord zouden gaan — geen capex, geen integratie, inkomsten gerealiseerd bovenop bestaande basislijnen.',
       wholesale: 'Groothandel / Retail Leveranciers',
       wholesale_description: 'DutyBoost verplaatst uw producten sneller van de luchthavenschappen — geen nieuwe vermelding vereist, geen extra kosten, alleen extra volume gedreven door voor-geactiveerde kopers.',
     },

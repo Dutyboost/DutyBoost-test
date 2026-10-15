@@ -403,6 +403,8 @@ export default {
       corporate_partners_description: 'Através da DutyBoost, a sua plataforma de reservas transforma cada viagem de negócios numa nova linha de receita — cada resgate de um viajante garante à sua plataforma uma parte da taxa de plataforma, sem qualquer custo para si ou para os seus viajantes.',
       airports: 'Aeroportos',
       airports_description: 'A DutyBoost capta receita de concessão incremental de viajantes que, de outra forma, sairiam sem comprar — sem investimento, sem integração, com receita realizada acima das bases existentes.',
+      ports: 'Portos',
+      ports_description: 'A DutyBoost capta receita de concessão incremental de passageiros de cruzeiro que, de outra forma, desembarcariam sem comprar — sem investimento, sem integração, com receita realizada acima das bases existentes.',
       wholesale: 'Grossistas / Fornecedores de Retalho',
       wholesale_description: 'A DutyBoost faz sair os seus produtos das prateleiras do aeroporto mais depressa — sem necessidade de novas listagens, sem custos adicionais, apenas volume incremental gerado por compradores pré-ativados.',
     },

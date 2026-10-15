@@ -6,7 +6,7 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
-import { ArrowRight, Cpu, Building2, PlaneTakeoff } from "lucide-react";
+import { ArrowRight, Cpu, Building2, PlaneTakeoff, Anchor } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -48,6 +48,16 @@ export default function SelectUserType() {
       bg: "bg-cyan-50",
       iconColor: "text-cyan-600",
       path: "/airport-showcase",
+    },
+    {
+      id: "ports",
+      title: t('getstarted.ports'),
+      descKey: 'getstarted.ports_description',
+      icon: Anchor,
+      color: "from-blue-500 to-indigo-700",
+      bg: "bg-blue-50",
+      iconColor: "text-indigo-600",
+      path: "/ports-showcase",
     },
     {
       id: "agency",
@@ -127,7 +137,7 @@ export default function SelectUserType() {
           </div>
 
           <div className={`grid gap-4 mx-auto sm:grid-cols-2 ${fromAgency ? 'lg:grid-cols-4 max-w-6xl' : 'lg:grid-cols-4 max-w-7xl'}`}>
-            {options.filter(o => !(fromAgency && (o.id === 'retailer' || o.id === 'pos' || o.id === 'corporate' || o.id === 'airports'))).map((option) => {
+            {options.filter(o => !(fromAgency && (o.id === 'retailer' || o.id === 'pos' || o.id === 'corporate' || o.id === 'airports' || o.id === 'ports'))).map((option) => {
               const Icon = option.icon;
               return (
                 <div

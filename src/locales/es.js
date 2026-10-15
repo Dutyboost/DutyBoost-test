@@ -342,6 +342,8 @@ export default {
       airport_retailer: 'Minorista aeroportuario',
       airports: 'Aeropuertos',
       airports_description: 'DutyBoost captura ingresos de concesión incrementales de pasajeros que de otro modo se irían sin comprar — sin capex, sin integración, ingresos realizados sobre las líneas base existentes.',
+      ports: 'Puertos',
+      ports_description: 'DutyBoost captura ingresos de concesión incrementales de pasajeros de crucero que de otro modo desembarcarían sin comprar — sin capex, sin integración, ingresos realizados sobre las líneas base existentes.',
       wholesale: 'Proveedores Mayoristas / Minoristas',
       wholesale_description: 'DutyBoost mueve sus productos más rápido de los estantes del aeropuerto — sin nueva listado, sin coste adicional, solo volumen incremental impulsado por compradores pre-activados.',
     },

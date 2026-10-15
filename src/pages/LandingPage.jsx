@@ -5,11 +5,12 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight, Menu, X, Cpu, Building2, Network, PlaneTakeoff
+  ArrowRight, Menu, X, Cpu, Building2, Anchor, PlaneTakeoff
 } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import { corporateStrings } from "@/lib/i18nCorporate";
 import { getAirportStrings } from "@/lib/i18nAirport";
+import { getPortsStrings } from "@/lib/i18nPorts";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
@@ -72,11 +73,11 @@ export default function LandingPage() {
       iconColor: "text-slate-700",
     },
     {
-      key: 'dutyboost',
-      icon: Network,
-      color: "from-primary to-accent",
-      bg: "bg-primary/5",
-      iconColor: "text-primary",
+      key: 'ports',
+      icon: Anchor,
+      color: "from-blue-500 to-indigo-700",
+      bg: "bg-blue-50",
+      iconColor: "text-indigo-600",
     },
   ];
 
@@ -172,18 +173,19 @@ export default function LandingPage() {
                          AdditionalIcons = [CruiseShipIcon, HotelIcon, CarRentalIcon];
                        }
 
-              if (s.key === 'dutyboost') {
-                title = t(`stakeholders.${s.key}.title`);
-                description = t(`stakeholders.${s.key}.description`);
+              if (s.key === 'ports') {
+                const po = getPortsStrings(i18n.language).showcase;
+                title = 'Sea Ports';
+                description = po.subtitle;
                 benefits = [
-                  t(`stakeholders.${s.key}.b1`),
-                  t(`stakeholders.${s.key}.b2`),
-                  t(`stakeholders.${s.key}.b3`),
+                  po.why2_title + ' — 15% concession on incremental sales.',
+                  po.why1_title + ' — no capex, no integration.',
+                  po.why3_title + ' — revenue realised above MAG.',
                 ];
               }
 
-              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
-              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
+              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'ports' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
+              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'ports' ? '/ports-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
 
               const cardContent = (
                 <>
