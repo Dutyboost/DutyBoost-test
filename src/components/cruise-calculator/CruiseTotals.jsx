@@ -5,15 +5,17 @@ import { numShort, PLATFORM_FEE } from "./model";
 import { useCalculatorTheme } from "./theme";
 
 // The full picture: every store the partner modelled, combined.
-export default function CruiseTotals({ totals }) {
+export default function CruiseTotals({ totals, variant = "cruise" }) {
   const th = useCalculatorTheme();
   const { i18n } = useTranslation();
-  const s = getCruiseCalculatorStrings(i18n.language).totals;
+  const strings = getCruiseCalculatorStrings(i18n.language);
+  const s = strings.totals;
+  const v = strings.variants[variant] || strings.variants.cruise;
   const { fmt, fmtCompact } = useCurrency();
 
   const cards = [
     { label: s.stores, val: numShort(totals.stores) },
-    { label: s.passengers, val: numShort(totals.annualPassengers) },
+    { label: v.totalsPassengers || s.passengers, val: numShort(totals.annualPassengers) },
     { label: s.traffic, val: numShort(totals.traffic) },
     { label: s.baskets, val: numShort(totals.redemptions) },
     { label: s.sales, val: fmtCompact(totals.gross) },

@@ -331,10 +331,13 @@ const AuthenticatedApp = () => {
         <Route path="/airport-partner-request" element={<AirportPartnerRequest />} />
         <Route path="/ports-showcase" element={<PortsShowcase />} />
         <Route path="/ports-calculator" element={<PortsCalculator />} />
-        <Route path="/port-downtown-calculator" element={<PortDowntownCalculator />} />
         <Route path="/ports-partner-request" element={<PortsPartnerRequest />} />
-        <Route path="/port-retailer-showcase" element={<PortRetailerShowcase />} />
-        <Route path="/port-retailer-request" element={<PortRetailerRequest />} />
+        <Route path="/local-retailers" element={<PortRetailerShowcase />} />
+        <Route path="/local-retailers-calculator" element={<PortDowntownCalculator />} />
+        <Route path="/local-retailers-request" element={<PortRetailerRequest />} />
+        <Route path="/port-retailer-showcase" element={<Navigate to="/local-retailers" replace />} />
+        <Route path="/port-downtown-calculator" element={<Navigate to="/local-retailers-calculator" replace />} />
+        <Route path="/port-retailer-request" element={<Navigate to="/local-retailers-request" replace />} />
         <Route path="/wholesale-showcase" element={<WholesaleShowcase />} />
         <Route path="/wholesale-calculator" element={<WholesaleCalculator />} />
         <Route path="/wholesale-partner-request" element={<WholesalePartnerRequest />} />

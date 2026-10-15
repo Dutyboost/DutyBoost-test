@@ -198,7 +198,7 @@ export default function LandingPage() {
 
               if (s.key === 'portsRetailers') {
                 AdditionalIcons = [CruiseShipIcon, PlaneTakeoff];
-                title = 'Port & Down Town Retail Partners';
+                title = 'Local Retailers';
                 description = 'Cruise passengers and air travellers all end up down town — this is where both flows meet. Airport shops and cruise terminals are one stop on the way; your store is where every traveller arrives, ready to redeem a DutyCredit however they got here.';
                 benefits = [
                   'Cruise and air travellers in one flow',
@@ -208,7 +208,7 @@ export default function LandingPage() {
               }
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'ports' || s.key === 'portsRetailers' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
-              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'ports' ? '/ports-showcase' : s.key === 'portsRetailers' ? '/port-retailer-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
+              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'ports' ? '/ports-showcase' : s.key === 'portsRetailers' ? '/local-retailers' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
 
               const cardContent = (
                 <>

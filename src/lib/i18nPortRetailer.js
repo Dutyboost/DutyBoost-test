@@ -6,18 +6,18 @@
 
 export const portRetailerStrings = {
   en: {
-    badge: "For Port & Down Town Retail Partners",
+    badge: "For Local Retailers",
     headlinePart1: "Turn Everyday Traveller Flow Into",
     headlinePart2: "Paying Customers",
     subtitle:
-      "Sea port terminals and down town stores sit on the daily traveller flow. Travellers are pre-activated days, weeks or even months before departure and arrive at your till holding a DutyCredit and purchase intent. You convert them at the POS and pay only on validated sales.",
-    s1_title: "Why It Works for Port & Down Town Retail",
+      "Local retailers sit on the daily traveller flow. Cruise passengers and air travellers all arrive in your market and end up down town, pre-activated days, weeks or even months before departure and holding a DutyCredit and purchase intent. You convert them at the POS and pay only on validated sales.",
+    s1_title: "Why It Works for Local Retail",
     why1_title: "Pre-activated shoppers",
     why1_desc:
       "Travellers arrive holding a DutyCredit they were handed days, weeks or months before departure — purchase intent is already built before they reach your store.",
-    why2_title: "Everyday traveller flow",
+    why2_title: "Every traveller flow, one place",
     why2_desc:
-      "Cruise passengers, crew and down town visitors pass your door every day. DutyBoost converts the ones who would otherwise walk straight past.",
+      "Cruise passengers, air travellers, crew and down town visitors all pass your door. DutyBoost converts the ones who would otherwise walk straight past, however they arrived.",
     why3_title: "Pay only on results",
     why3_desc:
       "No joining fee, no integration cost, no capital expenditure. The platform fee applies only to validated transactions — a sale that already happened.",
@@ -30,7 +30,7 @@ export const portRetailerStrings = {
       "Travellers receive their DutyCredit days, weeks or months before departure, well ahead of their visit to your store.",
     step2_title: "Arrive",
     step2_desc:
-      "Travellers step ashore or into town with purchase intent and a credit ready to spend at your store.",
+      "Travellers arrive by ship or by plane and head into town with purchase intent and a credit ready to spend at your store.",
     step3_title: "Validate",
     step3_desc:
       "Your POS validates the DutyCredit at checkout and applies the traveller discount instantly.",
@@ -41,7 +41,7 @@ export const portRetailerStrings = {
     stat1_value: "60%",
     stat1_label: "Walk past without buying",
     stat1_desc:
-      "The conversion headroom already passing your store every day, ashore and down town.",
+      "The conversion headroom already passing your store every day, from the port, the airport and down town.",
     stat2_value: "€0",
     stat2_label: "Cost to the retailer",
     stat2_desc:
@@ -56,18 +56,18 @@ export const portRetailerStrings = {
   },
 
   nl: {
-    badge: "Voor haven- en binnenstadretailpartners",
+    badge: "Voor lokale retailers",
     headlinePart1: "Maak van de dagelijkse reizigersstroom",
     headlinePart2: "betalende klanten",
     subtitle:
-      "Terminals in zeehavens en winkels in de binnenstad liggen aan de dagelijkse reizigersstroom. Reizigers worden dagen, weken of zelfs maanden voor vertrek vooraf geactiveerd en komen met een DutyCredit en koopintentie aan uw kassa. U converteert ze bij de POS en betaalt alleen op gevalideerde verkopen.",
-    s1_title: "Waarom het werkt voor haven- en binnenstadretail",
+      "Lokale retailers liggen aan de dagelijkse reizigersstroom. Cruisepassagiers en vliegtuigreizigers komen allemaal in uw markt aan en eindigen in de binnenstad, vooraf geactiveerd dagen, weken of zelfs maanden voor vertrek en met een DutyCredit en koopintentie. U converteert ze bij de POS en betaalt alleen op gevalideerde verkopen.",
+    s1_title: "Waarom het werkt voor lokale retail",
     why1_title: "Vooraf geactiveerde shoppers",
     why1_desc:
       "Reizigers komen aan met een DutyCredit die ze dagen, weken of maanden voor vertrek hebben gekregen — de koopintentie is al opgebouwd voordat ze uw winkel bereiken.",
-    why2_title: "Dagelijkse reizigersstroom",
+    why2_title: "Elke reizigersstroom, één plek",
     why2_desc:
-      "Cruisepassagiers, bemanning en bezoekers van de binnenstad passeren dagelijks uw deur. DutyBoost converteert degenen die er anders langs zouden lopen.",
+      "Cruisepassagiers, vliegtuigreizigers, bemanning en bezoekers van de binnenstad passeren dagelijks uw deur. DutyBoost converteert degenen die er anders langs zouden lopen, hoe ze ook zijn aangekomen.",
     why3_title: "Betaal alleen op resultaat",
     why3_desc:
       "Geen inschrijfgeld, geen integratiekosten, geen investeringen. De platformvergoeding geldt alleen voor gevalideerde transacties — een verkoop die al heeft plaatsgevonden.",
@@ -80,7 +80,7 @@ export const portRetailerStrings = {
       "Reizigers ontvangen hun DutyCredit dagen, weken of maanden voor vertrek, ruim voor hun bezoek aan uw winkel.",
     step2_title: "Aankomst",
     step2_desc:
-      "Reizigers gaan aan wal of de stad in met koopintentie en een tegoed dat ze bij uw winkel kunnen besteden.",
+      "Reizigers komen per schip of per vliegtuig aan en gaan de stad in met koopintentie en een tegoed dat ze bij uw winkel kunnen besteden.",
     step3_title: "Valideren",
     step3_desc:
       "Uw POS valideert de DutyCredit bij het afrekenen en past de reizigerskorting direct toe.",
@@ -91,7 +91,7 @@ export const portRetailerStrings = {
     stat1_value: "60%",
     stat1_label: "Loopt voorbij zonder te kopen",
     stat1_desc:
-      "De conversieruimte die dagelijks al langs uw winkel komt, aan wal en in de binnenstad.",
+      "De conversieruimte die dagelijks al langs uw winkel komt, vanuit de haven, de luchthaven en de binnenstad.",
     stat2_value: "€0",
     stat2_label: "Kosten voor de retailer",
     stat2_desc:
@@ -106,18 +106,18 @@ export const portRetailerStrings = {
   },
 
   fr: {
-    badge: "Pour les partenaires retail portuaires et en centre-ville",
+    badge: "Pour les détaillants locaux",
     headlinePart1: "Transformez le flux quotidien de voyageurs en",
     headlinePart2: "clients payants",
     subtitle:
-      "Les terminaux portuaires et les magasins en centre-ville se trouvent sur le flux quotidien de voyageurs. Les voyageurs sont pré-activés des jours, des semaines ou même des mois avant le départ et arrivent à votre caisse avec un DutyCredit et une intention d'achat. Vous les convertissez au POS et ne payez que sur les ventes validées.",
-    s1_title: "Pourquoi cela fonctionne pour le retail portuaire et en centre-ville",
+      "Les détaillants locaux se trouvent sur le flux quotidien de voyageurs. Les passagers de croisière et les voyageurs aériens arrivent tous sur votre marché et finissent en centre-ville, pré-activés des jours, des semaines ou même des mois avant le départ et porteurs d'un DutyCredit et d'une intention d'achat. Vous les convertissez au POS et ne payez que sur les ventes validées.",
+    s1_title: "Pourquoi cela fonctionne pour le retail local",
     why1_title: "Des acheteurs pré-activés",
     why1_desc:
       "Les voyageurs arrivent avec un DutyCredit remis des jours, des semaines ou des mois avant le départ — l'intention d'achat est déjà construite avant qu'ils n'atteignent votre magasin.",
-    why2_title: "Un flux quotidien de voyageurs",
+    why2_title: "Tous les flux de voyageurs, un seul endroit",
     why2_desc:
-      "Passagers de croisière, équipages et visiteurs du centre-ville passent chaque jour devant votre porte. DutyBoost convertit ceux qui, sinon, passeraient tout droit.",
+      "Passagers de croisière, voyageurs aériens, équipages et visiteurs du centre-ville passent tous devant votre porte. DutyBoost convertit ceux qui, sinon, passeraient tout droit, quel que soit leur mode d'arrivée.",
     why3_title: "Payer uniquement au résultat",
     why3_desc:
       "Pas de frais d'adhésion, pas de coût d'intégration, pas d'investissement. La commission de plateforme ne s'applique qu'aux transactions validées — une vente déjà réalisée.",
@@ -130,7 +130,7 @@ export const portRetailerStrings = {
       "Les voyageurs reçoivent leur DutyCredit des jours, des semaines ou des mois avant le départ, bien avant leur visite dans votre magasin.",
     step2_title: "Arriver",
     step2_desc:
-      "Les voyageurs débarquent ou entrent en ville avec une intention d'achat et un crédit prêt à être dépensé dans votre magasin.",
+      "Les voyageurs arrivent par bateau ou par avion et gagnent la ville avec une intention d'achat et un crédit prêt à être dépensé dans votre magasin.",
     step3_title: "Valider",
     step3_desc:
       "Votre POS valide le DutyCredit à l'encaissement et applique instantanément la remise voyageur.",
@@ -141,7 +141,7 @@ export const portRetailerStrings = {
     stat1_value: "60 %",
     stat1_label: "Passent sans acheter",
     stat1_desc:
-      "La marge de conversion qui passe déjà chaque jour devant votre magasin, à terre et en centre-ville.",
+      "La marge de conversion qui passe déjà chaque jour devant votre magasin, depuis le port, l'aéroport et le centre-ville.",
     stat2_value: "0 €",
     stat2_label: "Coût pour le détaillant",
     stat2_desc:
@@ -156,18 +156,18 @@ export const portRetailerStrings = {
   },
 
   de: {
-    badge: "Für Hafen- und Innenstadt-Handelspartner",
+    badge: "Für lokale Händler",
     headlinePart1: "Machen Sie aus dem täglichen Reisendenstrom",
     headlinePart2: "zahlende Kunden",
     subtitle:
-      "Seehafenterminals und Innenstadtfilialen liegen am täglichen Reisendenstrom. Reisende werden Tage, Wochen oder sogar Monate vor der Abreise voraktiviert und kommen mit einem DutyCredit und Kaufabsicht an Ihre Kasse. Sie konvertieren sie am POS und zahlen nur auf validierte Verkäufe.",
-    s1_title: "Warum es für Hafen- und Innenstadthandel funktioniert",
+      "Lokale Händler liegen am täglichen Reisendenstrom. Kreuzfahrtpassagiere und Flugreisende kommen alle in Ihrem Markt an und landen in der Innenstadt — voraktiviert Tage, Wochen oder sogar Monate vor der Abreise und mit einem DutyCredit und Kaufabsicht. Sie konvertieren sie am POS und zahlen nur auf validierte Verkäufe.",
+    s1_title: "Warum es für lokalen Handel funktioniert",
     why1_title: "Voraktivierte Käufer",
     why1_desc:
       "Reisende kommen mit einem DutyCredit, das sie Tage, Wochen oder Monate vor der Abreise erhalten haben — die Kaufabsicht ist bereits aufgebaut, bevor sie Ihre Filiale erreichen.",
-    why2_title: "Täglicher Reisendenstrom",
+    why2_title: "Alle Reisendenströme, ein Ort",
     why2_desc:
-      "Kreuzfahrtpassagiere, Crew und Innenstadtbesucher gehen täglich an Ihrer Tür vorbei. DutyBoost konvertiert diejenigen, die sonst direkt weitergehen würden.",
+      "Kreuzfahrtpassagiere, Flugreisende, Crew und Innenstadtbesucher gehen täglich an Ihrer Tür vorbei. DutyBoost konvertiert diejenigen, die sonst direkt weitergehen würden — egal, wie sie angekommen sind.",
     why3_title: "Zahlung nur bei Ergebnis",
     why3_desc:
       "Keine Beitrittsgebühr, keine Integrationskosten, keine Investitionen. Die Plattformgebühr gilt nur für validierte Transaktionen — ein Verkauf, der bereits stattgefunden hat.",
@@ -180,7 +180,7 @@ export const portRetailerStrings = {
       "Reisende erhalten ihr DutyCredit Tage, Wochen oder Monate vor der Abreise, lange vor ihrem Besuch in Ihrer Filiale.",
     step2_title: "Ankommen",
     step2_desc:
-      "Reisende gehen an Land oder in die Stadt — mit Kaufabsicht und einem Guthaben, das sie in Ihrer Filiale einlösen können.",
+      "Reisende kommen per Schiff oder per Flugzeug an und gehen mit Kaufabsicht und einem Guthaben, das sie in Ihrer Filiale einlösen können, in die Stadt.",
     step3_title: "Validieren",
     step3_desc:
       "Ihr POS validiert das DutyCredit an der Kasse und zieht den Reisendenrabatt sofort ab.",
@@ -191,7 +191,7 @@ export const portRetailerStrings = {
     stat1_value: "60 %",
     stat1_label: "Gehen ohne Kauf vorbei",
     stat1_desc:
-      "Das Conversion-Potenzial, das täglich an Ihrer Filiale vorbeikommt — an Land und in der Innenstadt.",
+      "Das Conversion-Potenzial, das täglich an Ihrer Filiale vorbeikommt — vom Hafen, vom Flughafen und aus der Innenstadt.",
     stat2_value: "0 €",
     stat2_label: "Kosten für den Händler",
     stat2_desc:
@@ -206,18 +206,18 @@ export const portRetailerStrings = {
   },
 
   es: {
-    badge: "Para socios minoristas de puerto y centro urbano",
+    badge: "Para minoristas locales",
     headlinePart1: "Convierta el flujo diario de viajeros en",
     headlinePart2: "clientes que pagan",
     subtitle:
-      "Las terminales portuarias y las tiendas del centro urbano están en el flujo diario de viajeros. Los viajeros se preactivan días, semanas o incluso meses antes de la salida y llegan a su caja con un DutyCredit y intención de compra. Usted los convierte en el POS y solo paga por ventas validadas.",
-    s1_title: "Por qué funciona para el retail portuario y de centro urbano",
+      "Los minoristas locales están en el flujo diario de viajeros. Los pasajeros de crucero y los viajeros aéreos llegan todos a su mercado y acaban en el centro urbano, preactivados días, semanas o incluso meses antes de la salida y con un DutyCredit y intención de compra. Usted los convierte en el POS y solo paga por ventas validadas.",
+    s1_title: "Por qué funciona para el retail local",
     why1_title: "Compradores preactivados",
     why1_desc:
       "Los viajeros llegan con un DutyCredit entregado días, semanas o meses antes de la salida: la intención de compra ya está creada antes de llegar a su tienda.",
-    why2_title: "Flujo diario de viajeros",
+    why2_title: "Todos los flujos, un solo lugar",
     why2_desc:
-      "Pasajeros de crucero, tripulación y visitantes del centro pasan cada día por su puerta. DutyBoost convierte a quienes, de otro modo, seguirían de largo.",
+      "Pasajeros de crucero, viajeros aéreos, tripulación y visitantes del centro pasan cada día por su puerta. DutyBoost convierte a quienes, de otro modo, seguirían de largo, sea cual sea su modo de llegada.",
     why3_title: "Pague solo por resultados",
     why3_desc:
       "Sin cuota de adhesión, sin coste de integración, sin inversión. La comisión de plataforma solo se aplica a transacciones validadas: una venta que ya se ha producido.",
@@ -230,7 +230,7 @@ export const portRetailerStrings = {
       "Los viajeros reciben su DutyCredit días, semanas o meses antes de la salida, mucho antes de su visita a su tienda.",
     step2_title: "Llegar",
     step2_desc:
-      "Los viajeros bajan a tierra o entran en la ciudad con intención de compra y un crédito listo para gastar en su tienda.",
+      "Los viajeros llegan en barco o en avión y se adentran en la ciudad con intención de compra y un crédito listo para gastar en su tienda.",
     step3_title: "Validar",
     step3_desc:
       "Su POS valida el DutyCredit al pagar y aplica el descuento al viajero al instante.",
@@ -241,7 +241,7 @@ export const portRetailerStrings = {
     stat1_value: "60 %",
     stat1_label: "Pasan sin comprar",
     stat1_desc:
-      "El margen de conversión que ya pasa cada día por su tienda, en tierra y en el centro urbano.",
+      "El margen de conversión que ya pasa cada día por su tienda, desde el puerto, el aeropuerto y el centro urbano.",
     stat2_value: "0 €",
     stat2_label: "Coste para el minorista",
     stat2_desc:
@@ -256,18 +256,18 @@ export const portRetailerStrings = {
   },
 
   it: {
-    badge: "Per i partner retail portuali e in centro città",
+    badge: "Per i rivenditori locali",
     headlinePart1: "Trasforma il flusso quotidiano di viaggiatori in",
     headlinePart2: "clienti paganti",
     subtitle:
-      "I terminal portuali e i negozi in centro città si trovano sul flusso quotidiano di viaggiatori. I viaggiatori vengono pre-attivati giorni, settimane o persino mesi prima della partenza e arrivano alla tua cassa con un DutyCredit e l'intenzione di acquisto. Tu li converti al POS e paghi solo sulle vendite validate.",
-    s1_title: "Perché funziona per il retail portuale e in centro città",
+      "I rivenditori locali si trovano sul flusso quotidiano di viaggiatori. I passeggeri delle crociere e i viaggiatori aerei arrivano tutti nel tuo mercato e finiscono in centro città, pre-attivati giorni, settimane o persino mesi prima della partenza e con un DutyCredit e l'intenzione di acquisto. Tu li converti al POS e paghi solo sulle vendite validate.",
+    s1_title: "Perché funziona per il retail locale",
     why1_title: "Acquirenti pre-attivati",
     why1_desc:
       "I viaggiatori arrivano con un DutyCredit ricevuto giorni, settimane o mesi prima della partenza: l'intenzione di acquisto è già costruita prima che raggiungano il tuo negozio.",
-    why2_title: "Flusso quotidiano di viaggiatori",
+    why2_title: "Tutti i flussi, un solo posto",
     why2_desc:
-      "Passeggeri di crociera, equipaggi e visitatori del centro passano ogni giorno davanti alla tua porta. DutyBoost converte chi altrimenti passerebbe oltre.",
+      "Passeggeri di crociera, viaggiatori aerei, equipaggi e visitatori del centro passano ogni giorno davanti alla tua porta. DutyBoost converte chi altrimenti passerebbe oltre, qualunque sia il modo in cui è arrivato.",
     why3_title: "Paghi solo sui risultati",
     why3_desc:
       "Nessuna quota di adesione, nessun costo di integrazione, nessun investimento. La commissione di piattaforma si applica solo alle transazioni validate: una vendita già avvenuta.",
@@ -280,7 +280,7 @@ export const portRetailerStrings = {
       "I viaggiatori ricevono il loro DutyCredit giorni, settimane o mesi prima della partenza, molto prima di visitare il tuo negozio.",
     step2_title: "Arriva",
     step2_desc:
-      "I viaggiatori sbarcano o entrano in città con intenzione di acquisto e un credito pronto da spendere nel tuo negozio.",
+      "I viaggiatori arrivano in nave o in aereo e si dirigono in città con intenzione di acquisto e un credito pronto da spendere nel tuo negozio.",
     step3_title: "Valida",
     step3_desc:
       "Il tuo POS valida il DutyCredit alla cassa e applica subito lo sconto per il viaggiatore.",
@@ -291,7 +291,7 @@ export const portRetailerStrings = {
     stat1_value: "60%",
     stat1_label: "Passano senza comprare",
     stat1_desc:
-      "Il margine di conversione che già passa ogni giorno davanti al tuo negozio, a terra e in centro città.",
+      "Il margine di conversione che già passa ogni giorno davanti al tuo negozio, dal porto, dall'aeroporto e dal centro città.",
     stat2_value: "0 €",
     stat2_label: "Costo per il rivenditore",
     stat2_desc:
@@ -306,18 +306,18 @@ export const portRetailerStrings = {
   },
 
   pt: {
-    badge: "Para parceiros retalhistas portuários e de centro urbano",
+    badge: "Para retalhistas locais",
     headlinePart1: "Transforme o fluxo diário de viajantes em",
     headlinePart2: "clientes que pagam",
     subtitle:
-      "Os terminais portuários e as lojas de centro urbano estão no fluxo diário de viajantes. Os viajantes são pré-ativados dias, semanas ou mesmo meses antes da partida e chegam à sua caixa com um DutyCredit e intenção de compra. Converte-os no POS e paga apenas sobre vendas validadas.",
-    s1_title: "Porque funciona para o retalho portuário e de centro urbano",
+      "Os retalhistas locais estão no fluxo diário de viajantes. Passageiros de cruzeiro e viajantes aéreos chegam todos ao seu mercado e acabam no centro urbano, pré-ativados dias, semanas ou mesmo meses antes da partida e com um DutyCredit e intenção de compra. Converte-os no POS e paga apenas sobre vendas validadas.",
+    s1_title: "Porque funciona para o retalho local",
     why1_title: "Compradores pré-ativados",
     why1_desc:
       "Os viajantes chegam com um DutyCredit entregue dias, semanas ou meses antes da partida — a intenção de compra já está criada antes de chegarem à sua loja.",
-    why2_title: "Fluxo diário de viajantes",
+    why2_title: "Todos os fluxos, um só lugar",
     why2_desc:
-      "Passageiros de cruzeiro, tripulações e visitantes do centro passam todos os dias pela sua porta. A DutyBoost converte quem, de outro modo, passaria em frente.",
+      "Passageiros de cruzeiro, viajantes aéreos, tripulações e visitantes do centro passam todos os dias pela sua porta. A DutyBoost converte quem, de outro modo, passaria em frente, seja qual for a forma como chegou.",
     why3_title: "Pague apenas por resultados",
     why3_desc:
       "Sem taxa de adesão, sem custo de integração, sem investimento. A comissão de plataforma aplica-se apenas a transações validadas — uma venda que já aconteceu.",
@@ -330,7 +330,7 @@ export const portRetailerStrings = {
       "Os viajantes recebem o seu DutyCredit dias, semanas ou meses antes da partida, bem antes da visita à sua loja.",
     step2_title: "Chegar",
     step2_desc:
-      "Os viajantes desembarcam ou entram na cidade com intenção de compra e um crédito pronto a usar na sua loja.",
+      "Os viajantes chegam de navio ou de avião e seguem para a cidade com intenção de compra e um crédito pronto a usar na sua loja.",
     step3_title: "Validar",
     step3_desc:
       "O seu POS valida o DutyCredit no pagamento e aplica o desconto ao viajante de imediato.",
@@ -341,7 +341,7 @@ export const portRetailerStrings = {
     stat1_value: "60%",
     stat1_label: "Passam sem comprar",
     stat1_desc:
-      "A margem de conversão que já passa todos os dias pela sua loja, em terra e no centro urbano.",
+      "A margem de conversão que já passa todos os dias pela sua loja, do porto, do aeroporto e do centro urbano.",
     stat2_value: "0 €",
     stat2_label: "Custo para o retalhista",
     stat2_desc:

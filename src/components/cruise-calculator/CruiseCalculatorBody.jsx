@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Info, Anchor, ArrowRight } from "lucide-react";
+import { Info, Anchor, Store, ArrowRight } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useCurrency } from "@/components/calculator/CurrencyContext";
@@ -12,6 +12,7 @@ import CruiseTotals from "./CruiseTotals";
 import { CURRENCIES, PLATFORM_FEE, TIERS, defaultStore, computeStore, computeTotals, groupByRegion } from "./model";
 import { trafficDefaultsFor } from "@/data/cruiseTrafficDefaults";
 import { terminalTrafficFor } from "@/data/cruiseTerminalTraffic";
+import { localTrafficFor } from "@/data/localRetailerTraffic";
 import { getCruiseCalculatorStrings } from "@/lib/i18nCruiseCalculator";
 import { CALCULATOR_THEMES, CalculatorThemeProvider } from "./theme";
 
@@ -25,10 +26,11 @@ export default function CruiseCalculatorBody({
   const { i18n } = useTranslation();
   const s = getCruiseCalculatorStrings(i18n.language);
   const v = s.variants[variant] || s.variants.cruise;
+  const isLocal = variant === "local";
   const { currency, setCurrency } = useCurrency();
   const [stores, setStores] = useState(() => [defaultStore(1)]);
 
-  const results = useMemo(() => stores.map(computeStore), [stores]);
+  const results = useMemo(() => stores.map((st) => computeStore(st, isLocal ? "local" : "cruise")), [stores, isLocal]);
   const totals = useMemo(() => computeTotals(results), [results]);
   const regions = useMemo(() => groupByRegion(results), [results]);
 
@@ -41,7 +43,8 @@ export default function CruiseCalculatorBody({
       prev.map((s) => {
         if (s.id !== id) return s;
         if (key === "country" && prefillByCountry) {
-          return { ...s, country: value, port: "", ...trafficDefaultsFor(value) };
+          const traffic = isLocal ? localTrafficFor(value) : trafficDefaultsFor(value);
+          return { ...s, country: value, port: "", ...traffic };
         }
         if (key === "port" && prefillByCountry) {
           const traffic = terminalTrafficFor(s.country, value);
@@ -84,7 +87,7 @@ export default function CruiseCalculatorBody({
           </div>
         </div>
         <span className={`inline-flex items-center gap-1.5 border rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest ${th.badge}`}>
-          <Anchor className="w-3.5 h-3.5" /> {v.badge}
+          {isLocal ? <Store className="w-3.5 h-3.5" /> : <Anchor className="w-3.5 h-3.5" />} {v.badge}
         </span>
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900">{s.title}</h1>
         <p className="text-slate-600 text-sm max-w-2xl mx-auto">{v.intro}</p>
@@ -107,6 +110,7 @@ export default function CruiseCalculatorBody({
             key={r.id}
             store={r}
             result={r}
+            variant={variant}
             onChange={handleChange}
             onRemove={handleRemove}
             onDuplicate={handleDuplicate}
@@ -114,7 +118,7 @@ export default function CruiseCalculatorBody({
         ))}
       </div>
 
-      <CruiseTotals totals={totals} />
+      <CruiseTotals totals={totals} variant={variant} />
 
       {stores.length > 1 && <RegionBreakdown regions={regions} />}
 

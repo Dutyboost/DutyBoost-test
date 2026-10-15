@@ -10,22 +10,34 @@ import { getCruiseCalculatorStrings } from "@/lib/i18nCruiseCalculator";
 import { numShort } from "./model";
 import { useCalculatorTheme } from "./theme";
 
-const NUM_FIELDS = [
-  { key: "passengersPerCall", labelKey: "passengers", step: 100 },
-  { key: "callsPerYear", labelKey: "calls", step: 1 },
-  { key: "passRate", labelKey: "passRate", suffix: "%", step: 1 },
-  { key: "activation", labelKey: "activation", suffix: "%", step: 0.1 },
-  { key: "redemption", labelKey: "redemption", suffix: "%", step: 1 },
-];
-
 const FIELD_CLASS =
   "[&_input]:h-[34px] [&_input]:rounded-lg [&_input]:border-slate-300 [&_input]:bg-white [&_input]:px-2.5 [&_input]:text-sm [&_input]:shadow-none [&_input]:focus-visible:ring-2";
 
-export default function StoreInputCard({ store, result, onChange, onRemove, onDuplicate }) {
+export default function StoreInputCard({ store, result, variant = "cruise", onChange, onRemove, onDuplicate }) {
   const th = useCalculatorTheme();
   const { i18n } = useTranslation();
-  const s = getCruiseCalculatorStrings(i18n.language).card;
+  const strings = getCruiseCalculatorStrings(i18n.language);
+  const s = strings.card;
+  const isLocal = variant === "local";
+  const v = strings.variants[variant] || strings.variants.cruise;
   const { rate, symbol, fmt, fmtCompact } = useCurrency();
+
+  // A local retailer models the travellers arriving in their market, whatever
+  // their mode of travel; a cruise partner models one terminal's ship calls.
+  const numFields = isLocal
+    ? [
+        { key: "arrivalsPerYear", label: v.card.arrivals, step: 10000 },
+        { key: "passRate", label: v.card.passRate, suffix: "%", step: 1 },
+        { key: "activation", label: s.activation, suffix: "%", step: 0.1 },
+        { key: "redemption", label: s.redemption, suffix: "%", step: 1 },
+      ]
+    : [
+        { key: "passengersPerCall", label: s.passengers, step: 100 },
+        { key: "callsPerYear", label: s.calls, step: 1 },
+        { key: "passRate", label: s.passRate, suffix: "%", step: 1 },
+        { key: "activation", label: s.activation, suffix: "%", step: 0.1 },
+        { key: "redemption", label: s.redemption, suffix: "%", step: 1 },
+      ];
 
   const basketDisplay =
     store.basket === "" || store.basket === null || store.basket === undefined
@@ -57,7 +69,7 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
         <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${th.softBg}`}>
           <StoreIcon className={`w-4 h-4 ${th.accentText}`} />
         </div>
-        <div className="flex-1 grid sm:grid-cols-3 gap-2 items-end">
+        <div className={`flex-1 grid gap-2 items-end ${isLocal ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}>
           <label className="flex flex-col">
             <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{s.storeCount}</span>
             <input
@@ -78,15 +90,17 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
             emptyText={s.countryEmpty}
             className={`${FIELD_CLASS} ${th.fieldRing}`}
           />
-          <SearchCombobox
-            value={store.port}
-            onChange={(v) => onChange(store.id, "port", v)}
-            onPick={(o) => onChange(store.id, "port", o.label)}
-            options={terminalOptions}
-            placeholder={store.country ? s.terminalPlaceholder : s.terminalPlaceholderNoCountry}
-            emptyText={store.country ? s.terminalEmpty : s.terminalEmptyNoCountry}
-            className={`${FIELD_CLASS} ${th.fieldRing}`}
-          />
+          {!isLocal && (
+            <SearchCombobox
+              value={store.port}
+              onChange={(v) => onChange(store.id, "port", v)}
+              onPick={(o) => onChange(store.id, "port", o.label)}
+              options={terminalOptions}
+              placeholder={store.country ? s.terminalPlaceholder : s.terminalPlaceholderNoCountry}
+              emptyText={store.country ? s.terminalEmpty : s.terminalEmptyNoCountry}
+              className={`${FIELD_CLASS} ${th.fieldRing}`}
+            />
+          )}
         </div>
         <div className="flex items-center gap-1">
           <button
@@ -106,10 +120,10 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
         </div>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-4">
-        {NUM_FIELDS.map((f) => (
+      <div className={`grid grid-cols-2 sm:grid-cols-3 gap-2 mb-4 ${isLocal ? "lg:grid-cols-5" : "lg:grid-cols-6"}`}>
+        {numFields.map((f) => (
           <label key={f.key} className="flex flex-col">
-            <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{s[f.labelKey]}</span>
+            <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{f.label}</span>
             <span className="relative block mt-auto">
               <input
                 type="number"
@@ -146,7 +160,7 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
 
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
         {[
-          { label: s.kPassengers, val: numShort(result.annualPassengers) },
+          { label: isLocal ? v.card.kArrivals : s.kPassengers, val: numShort(result.annualPassengers) },
           { label: s.kTraffic, val: numShort(result.traffic) },
           { label: s.kBaskets, val: numShort(result.redemptions) },
           { label: s.kSales, val: fmtCompact(result.gross) },

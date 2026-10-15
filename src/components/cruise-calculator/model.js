@@ -38,6 +38,7 @@ export const defaultStore = (n, country = "", port = "") => ({
   port,
   passengersPerCall: "",
   callsPerYear: "",
+  arrivalsPerYear: "",
   passRate: "",
   activation: "",
   redemption: "",
@@ -48,9 +49,14 @@ const n = (v) => (v === "" || v === null || v === undefined ? 0 : Number(v));
 
 // Annual figures for one row, in EUR. A row can stand for several stores at the
 // same terminal, so every figure scales with the number of stores entered.
-export const computeStore = (store) => {
+// mode "local" models every traveller arriving in the market, however they
+// travel; "cruise" models one terminal's ship calls.
+export const computeStore = (store, mode = "cruise") => {
   const units = Math.max(1, n(store.stores) || 1);
-  const annualPassengers = n(store.passengersPerCall) * n(store.callsPerYear) * units;
+  const annualPassengers =
+    mode === "local"
+      ? n(store.arrivalsPerYear) * units
+      : n(store.passengersPerCall) * n(store.callsPerYear) * units;
   const traffic = annualPassengers * (n(store.passRate) / 100);
   const activated = traffic * (n(store.activation) / 100);
   const redemptions = activated * (n(store.redemption) / 100);

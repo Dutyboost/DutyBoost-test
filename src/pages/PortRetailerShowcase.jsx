@@ -34,14 +34,14 @@ export default function PortRetailerShowcase() {
 
   return (
     <div className="min-h-screen bg-background font-body">
-      <ShowcaseMobileNav calculatorTo="/port-downtown-calculator" gradient={PORT_RETAIL_GRADIENT} />
+      <ShowcaseMobileNav calculatorTo="/local-retailers-calculator" gradient={PORT_RETAIL_GRADIENT} />
       <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={55} />
           </Link>
           <div className="flex items-center gap-4">
-            <Link to="/port-downtown-calculator">
+            <Link to="/local-retailers-calculator">
               <Button variant="outline" size="sm" className="gap-1.5 text-indigo-600 border-indigo-600 hover:text-indigo-700 hover:bg-indigo-50">
                 <Calculator className="w-4 h-4 shrink-0" /> ROI Calculator
               </Button>
@@ -123,7 +123,7 @@ export default function PortRetailerShowcase() {
               <h2 className="text-4xl font-heading font-bold">{o.ctaTitle}</h2>
               <p className="text-white/80 text-lg max-w-xl mx-auto">{o.ctaDesc}</p>
               <div className="flex justify-center">
-                <Link to="/port-retailer-request">
+                <Link to="/local-retailers-request">
                   <Button size="lg" className="bg-white text-indigo-700 hover:bg-white/90 gap-2 px-8 text-base mt-2">
                     {t('common.request_more_info')} <ArrowRight className="w-4 h-4" />
                   </Button>

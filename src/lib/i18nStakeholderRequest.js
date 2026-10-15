@@ -27,14 +27,14 @@ export const STAKEHOLDER_CONFIG = {
   portRetailer: {
     Icon: Store,
     gradient: "linear-gradient(to bottom, #818cf8, #4f46e5)",
-    calculatorTo: "/port-downtown-calculator",
-    backTo: "/port-retailer-showcase",
+    calculatorTo: "/local-retailers-calculator",
+    backTo: "/local-retailers",
     badgeClass: "bg-indigo-500/10 text-indigo-700",
     buttonClass: "bg-indigo-600 hover:bg-indigo-700",
     iconCircleClass: "bg-indigo-500/10",
     iconClass: "text-indigo-600",
-    emailSubject: "Port & Down Town Retail Partner enquiry",
-    positionSuffix: "Port & Down Town Retail Partner",
+    emailSubject: "Local Retailer enquiry",
+    positionSuffix: "Local Retailer",
     industry: "Retail",
     volumes: VOLUME_STORES,
     requiresPos: true,
@@ -86,7 +86,7 @@ export const STAKEHOLDER_CONFIG = {
 export const stakeholderRequestStrings = {
   portRetailer: {
     en: {
-      badge: "Port & Down Town Retail Partner",
+      badge: "Local Retailer",
       subtitle: "Tell us about your stores and locations, and we'll prepare a tailored DutyBoost estimate — no commitment, no cost.",
       label_volume: "Number of stores",
       placeholder_volume: "Select store count",
@@ -101,7 +101,7 @@ export const stakeholderRequestStrings = {
       success_desc: "We've received your request and will be in touch shortly with a tailored estimate for your stores.",
     },
     nl: {
-      badge: "Haven- en binnenstadretailpartner",
+      badge: "Lokale retailer",
       subtitle: "Vertel ons over je winkels en locaties, en we maken een op maat gemaakte DutyBoost-schatting — zonder verplichting, zonder kosten.",
       label_volume: "Aantal winkels",
       placeholder_volume: "Selecteer aantal winkels",
@@ -116,7 +116,7 @@ export const stakeholderRequestStrings = {
       success_desc: "We hebben je aanvraag ontvangen en nemen binnenkort contact op met een op maat gemaakte schatting voor je winkels.",
     },
     es: {
-      badge: "Socio minorista de puerto y centro urbano",
+      badge: "Minorista local",
       subtitle: "Cuéntanos sobre tus tiendas y ubicaciones, y prepararemos una estimación de DutyBoost a medida — sin compromiso, sin coste.",
       label_volume: "Número de tiendas",
       placeholder_volume: "Selecciona el número de tiendas",
@@ -131,7 +131,7 @@ export const stakeholderRequestStrings = {
       success_desc: "Hemos recibido tu solicitud y nos pondremos en contacto en breve con una estimación a medida para tus tiendas.",
     },
     de: {
-      badge: "Hafen- und Innenstadt-Handelspartner",
+      badge: "Lokaler Händler",
       subtitle: "Erzählen Sie uns von Ihren Filialen und Standorten, und wir erstellen eine maßgeschneiderte DutyBoost-Schätzung — ohne Verpflichtung, ohne Kosten.",
       label_volume: "Anzahl der Filialen",
       placeholder_volume: "Filialanzahl auswählen",
@@ -146,7 +146,7 @@ export const stakeholderRequestStrings = {
       success_desc: "Wir haben Ihre Anfrage erhalten und melden uns in Kürze mit einer maßgeschneiderten Schätzung für Ihre Filialen.",
     },
     fr: {
-      badge: "Partenaire retail portuaire et en centre-ville",
+      badge: "Détaillant local",
       subtitle: "Parlez-nous de vos boutiques et de leurs emplacements, et nous préparerons une estimation DutyBoost sur mesure — sans engagement, sans coût.",
       label_volume: "Nombre de boutiques",
       placeholder_volume: "Sélectionnez le nombre de boutiques",
@@ -161,7 +161,7 @@ export const stakeholderRequestStrings = {
       success_desc: "Nous avons reçu votre demande et vous contacterons prochainement avec une estimation sur mesure pour vos boutiques.",
     },
     it: {
-      badge: "Partner retail portuale e in centro città",
+      badge: "Rivenditore locale",
       subtitle: "Raccontaci dei tuoi negozi e delle loro ubicazioni, e prepareremo una stima DutyBoost su misura — nessun impegno, nessun costo.",
       label_volume: "Numero di negozi",
       placeholder_volume: "Seleziona il numero di negozi",
@@ -176,7 +176,7 @@ export const stakeholderRequestStrings = {
       success_desc: "Abbiamo ricevuto la tua richiesta e ti contatteremo a breve con una stima su misura per i tuoi negozi.",
     },
     pt: {
-      badge: "Parceiro retalhista portuário e de centro urbano",
+      badge: "Retalhista local",
       subtitle: "Fale-nos das suas lojas e localizações, e prepararemos uma estimativa DutyBoost à medida — sem compromisso, sem custos.",
       label_volume: "Número de lojas",
       placeholder_volume: "Selecione o número de lojas",

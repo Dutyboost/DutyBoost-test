@@ -1,7 +1,9 @@
-// Cruise & Port Retail Partner calculator — UI strings (7 languages).
+// Cruise & Local Retail Partner calculator — UI strings (7 languages).
 // Shared by src/pages/CruisePartnerCalculator.jsx (variant "cruise") and
-// src/pages/PortsCalculator.jsx (variant "port"). The two variants differ only
-// in badge, intro and CTA label; every other label is shared.
+// src/pages/PortDowntownCalculator.jsx (variant "local"). The variants differ in
+// badge, intro, CTA label and the store-card fields: a cruise partner models one
+// terminal's ship calls, a local retailer the travellers arriving in their market,
+// by sea and by air. Every other label is shared.
 // Brand terms (DutyBoost, DutyCredit) stay untranslated.
 
 export const cruiseCalculatorStrings = {
@@ -21,11 +23,17 @@ export const cruiseCalculatorStrings = {
           "Built around the number that matters most: more visits to your store. DutyBoost pre-activates cruise passengers before they arrive, so they step ashore with purchase intent — every additional visit is incremental, and you pay only on the sales it brings.",
         ctaLabel: "Apply as a cruise partner",
       },
-      port: {
-        badge: "Port & Down Town Retail Partners",
+      local: {
+        badge: "Local Retailers",
         intro:
-          "Built around the number that matters most: more visits to your store. DutyBoost pre-activates cruise passengers before they step ashore, so they arrive with purchase intent — every additional visit is incremental, and you pay only on the sales it brings.",
-        ctaLabel: "Apply as a port & down town retail partner",
+          "Every traveller who arrives in your market — by cruise ship or by plane — ends up down town, and that is where your store is. DutyBoost pre-activates them before they arrive, so they reach your till with purchase intent; the model starts from your market's indicative arrivals, by sea and by air, and you pay only on the sales it brings.",
+        ctaLabel: "Apply as a local retailer",
+        totalsPassengers: "Travellers arriving / yr",
+        card: {
+          arrivals: "Travellers arriving in your market / yr",
+          passRate: "Share passing your store",
+          kArrivals: "Travellers arriving / yr",
+        },
       },
     },
     card: {
@@ -87,11 +95,17 @@ export const cruiseCalculatorStrings = {
           "Gebouwd rond het cijfer dat het meest telt: meer bezoeken aan uw winkel. DutyBoost activeert cruisepassagiers vóór aankomst, zodat zij met koopintentie aan wal komen — elk extra bezoek is incrementeel, en u betaalt alleen op de omzet die het oplevert.",
         ctaLabel: "Aanmelden als cruisepartner",
       },
-      port: {
-        badge: "Haven- en binnenstadretailpartners",
+      local: {
+        badge: "Lokale retailers",
         intro:
-          "Gebouwd rond het cijfer dat het meest telt: meer bezoeken aan uw winkel. DutyBoost activeert cruisepassagiers voordat zij aan wal gaan, zodat zij met koopintentie binnenkomen — elk extra bezoek is incrementeel, en u betaalt alleen op de omzet die het oplevert.",
-        ctaLabel: "Aanmelden als haven- en binnenstadretailpartner",
+          "Elke reiziger die in uw markt aankomt — per cruiseschip of per vliegtuig — komt uiteindelijk in de binnenstad, en daar zit uw winkel. DutyBoost activeert hen voordat ze aankomen, zodat ze met koopintentie aan uw kassa staan; het model vertrekt van de indicatieve aankomsten in uw markt, over zee en door de lucht, en u betaalt alleen op de omzet die het oplevert.",
+        ctaLabel: "Aanmelden als lokale retailer",
+        totalsPassengers: "Aankomende reizigers / jaar",
+        card: {
+          arrivals: "Reizigers die in uw markt aankomen / jaar",
+          passRate: "Aandeel dat uw winkel passeert",
+          kArrivals: "Aankomende reizigers / jaar",
+        },
       },
     },
     card: {
@@ -153,11 +167,17 @@ export const cruiseCalculatorStrings = {
           "Construit autour du chiffre qui compte le plus : plus de visites dans votre magasin. DutyBoost pré-active les passagers de croisière avant leur arrivée, afin qu'ils débarquent avec une intention d'achat — chaque visite supplémentaire est incrémentale, et vous ne payez que sur les ventes générées.",
         ctaLabel: "Devenir partenaire croisière",
       },
-      port: {
-        badge: "Partenaires retail portuaires et en centre-ville",
+      local: {
+        badge: "Détaillants locaux",
         intro:
-          "Construit autour du chiffre qui compte le plus : plus de visites dans votre magasin. DutyBoost pré-active les passagers de croisière avant qu'ils débarquent, afin qu'ils arrivent avec une intention d'achat — chaque visite supplémentaire est incrémentale, et vous ne payez que sur les ventes générées.",
-        ctaLabel: "Devenir partenaire retail portuaire et centre-ville",
+          "Chaque voyageur qui arrive sur votre marché — en bateau de croisière ou en avion — finit en centre-ville, et c'est là que se trouve votre magasin. DutyBoost les pré-active avant leur arrivée, afin qu'ils arrivent à votre caisse avec une intention d'achat ; le modèle part des arrivées indicatives de votre marché, par mer et par avion, et vous ne payez que sur les ventes générées.",
+        ctaLabel: "Devenir détaillant local",
+        totalsPassengers: "Voyageurs arrivant / an",
+        card: {
+          arrivals: "Voyageurs arrivant sur votre marché / an",
+          passRate: "Part passant devant votre magasin",
+          kArrivals: "Voyageurs arrivant / an",
+        },
       },
     },
     card: {
@@ -219,11 +239,17 @@ export const cruiseCalculatorStrings = {
           "Rund um die Zahl, die am meisten zählt: mehr Besuche in Ihrer Filiale. DutyBoost aktiviert Kreuzfahrtpassagiere vor der Ankunft, sodass sie mit Kaufabsicht an Land gehen — jeder zusätzliche Besuch ist inkrementell, und Sie zahlen nur auf den erzielten Umsatz.",
         ctaLabel: "Als Kreuzfahrtpartner bewerben",
       },
-      port: {
-        badge: "Hafen- und Innenstadt-Handelspartner",
+      local: {
+        badge: "Lokale Händler",
         intro:
-          "Rund um die Zahl, die am meisten zählt: mehr Besuche in Ihrer Filiale. DutyBoost aktiviert Kreuzfahrtpassagiere, bevor sie an Land gehen, sodass sie mit Kaufabsicht in Ihre Filiale kommen — jeder zusätzliche Besuch ist inkrementell, und Sie zahlen nur auf den erzielten Umsatz.",
-        ctaLabel: "Als Hafen- und Innenstadt-Handelspartner bewerben",
+          "Jeder Reisende, der in Ihrem Markt ankommt — per Kreuzfahrtschiff oder per Flugzeug — landet in der Innenstadt, und dort liegt Ihre Filiale. DutyBoost aktiviert sie vor der Ankunft, sodass sie mit Kaufabsicht an Ihre Kasse kommen; das Modell startet mit den indikativen Ankünften Ihres Marktes, über See und über die Luft, und Sie zahlen nur auf den erzielten Umsatz.",
+        ctaLabel: "Als lokaler Händler bewerben",
+        totalsPassengers: "Ankommende Reisende / Jahr",
+        card: {
+          arrivals: "Reisende, die in Ihrem Markt ankommen / Jahr",
+          passRate: "Anteil, der Ihre Filiale passiert",
+          kArrivals: "Ankommende Reisende / Jahr",
+        },
       },
     },
     card: {
@@ -285,11 +311,17 @@ export const cruiseCalculatorStrings = {
           "Construido en torno al número que más importa: más visitas a su tienda. DutyBoost preactiva a los pasajeros de crucero antes de su llegada, para que desembarquen con intención de compra — cada visita adicional es incremental, y solo paga por las ventas que genera.",
         ctaLabel: "Solicitar ser socio de cruceros",
       },
-      port: {
-        badge: "Socios minoristas de puerto y centro urbano",
+      local: {
+        badge: "Minoristas locales",
         intro:
-          "Construido en torno al número que más importa: más visitas a su tienda. DutyBoost preactiva a los pasajeros de crucero antes de que desembarquen, para que lleguen con intención de compra — cada visita adicional es incremental, y solo paga por las ventas que genera.",
-        ctaLabel: "Solicitar ser socio minorista de puerto y centro urbano",
+          "Todo viajero que llega a su mercado — en crucero o en avión — acaba en el centro urbano, y ahí está su tienda. DutyBoost los preactiva antes de que lleguen, para que lleguen a su caja con intención de compra; el modelo parte de las llegadas indicativas de su mercado, por mar y por aire, y solo paga por las ventas que genera.",
+        ctaLabel: "Solicitar como minorista local",
+        totalsPassengers: "Viajeros que llegan / año",
+        card: {
+          arrivals: "Viajeros que llegan a su mercado / año",
+          passRate: "Proporción que pasa por su tienda",
+          kArrivals: "Viajeros que llegan / año",
+        },
       },
     },
     card: {
@@ -351,11 +383,17 @@ export const cruiseCalculatorStrings = {
           "Costruito attorno al numero che conta di più: più visite al tuo punto vendita. DutyBoost pre-attiva i passeggeri delle crociere prima dell'arrivo, così sbarcano con intenzione d'acquisto — ogni visita in più è incrementale e paghi solo sulle vendite che genera.",
         ctaLabel: "Candidati come partner crociere",
       },
-      port: {
-        badge: "Partner retail portuali e in centro città",
+      local: {
+        badge: "Rivenditori locali",
         intro:
-          "Costruito attorno al numero che conta di più: più visite al tuo punto vendita. DutyBoost pre-attiva i passeggeri delle crociere prima che sbarchino, così arrivano con intenzione d'acquisto — ogni visita in più è incrementale e paghi solo sulle vendite che genera.",
-        ctaLabel: "Candidati come partner retail portuale e in centro città",
+          "Ogni viaggiatore che arriva nel tuo mercato — in crociera o in aereo — finisce in centro città, ed è lì che si trova il tuo negozio. DutyBoost li pre-attiva prima dell'arrivo, così arrivano alla tua cassa con intenzione d'acquisto; il modello parte dagli arrivi indicativi del tuo mercato, via mare e via aria, e paghi solo sulle vendite che genera.",
+        ctaLabel: "Candidati come rivenditore locale",
+        totalsPassengers: "Viaggiatori in arrivo / anno",
+        card: {
+          arrivals: "Viaggiatori in arrivo nel tuo mercato / anno",
+          passRate: "Quota che passa davanti al tuo negozio",
+          kArrivals: "Viaggiatori in arrivo / anno",
+        },
       },
     },
     card: {
@@ -417,11 +455,17 @@ export const cruiseCalculatorStrings = {
           "Construído em torno do número que mais importa: mais visitas à sua loja. A DutyBoost pré-ativa os passageiros de cruzeiro antes da chegada, para que desembarquem com intenção de compra — cada visita adicional é incremental, e paga apenas sobre as vendas que gera.",
         ctaLabel: "Candidatar-se como parceiro de cruzeiros",
       },
-      port: {
-        badge: "Parceiros retalhistas portuários e de centro urbano",
+      local: {
+        badge: "Retalhistas locais",
         intro:
-          "Construído em torno do número que mais importa: mais visitas à sua loja. A DutyBoost pré-ativa os passageiros de cruzeiro antes de desembarcarem, para que cheguem com intenção de compra — cada visita adicional é incremental, e paga apenas sobre as vendas que gera.",
-        ctaLabel: "Candidatar-se como parceiro retalhista portuário e de centro urbano",
+          "Todos os viajantes que chegam ao seu mercado — de cruzeiro ou de avião — acabam no centro urbano, e é aí que está a sua loja. A DutyBoost pré-ativa-os antes da chegada, para que cheguem à sua caixa com intenção de compra; o modelo parte das chegadas indicativas do seu mercado, por mar e por ar, e paga apenas sobre as vendas que gera.",
+        ctaLabel: "Candidatar-se como retalhista local",
+        totalsPassengers: "Viajantes a chegar / ano",
+        card: {
+          arrivals: "Viajantes que chegam ao seu mercado / ano",
+          passRate: "Proporção que passa pela sua loja",
+          kArrivals: "Viajantes a chegar / ano",
+        },
       },
     },
     card: {
