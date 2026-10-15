@@ -13,7 +13,7 @@
 // `activation`, `redemption` and `basket` (EUR) are the DutyBoost model
 // parameters and are the same in every market; the traffic figures vary.
 
-export const DEFAULT_RATES = { activation: 30, redemption: 80, basket: 50 };
+export const DEFAULT_RATES = { activation: 15, redemption: 30, basket: 50 };
 
 // Country / island → typical traffic for one store in that market.
 export const COUNTRY_TRAFFIC = {
