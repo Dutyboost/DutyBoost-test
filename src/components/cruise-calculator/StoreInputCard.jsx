@@ -1,17 +1,19 @@
 import { Copy, Trash2, Store as StoreIcon } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useCurrency } from "@/components/calculator/CurrencyContext";
 import SearchCombobox from "@/components/onboarding/SearchCombobox";
 import { COUNTRY_OPTIONS } from "@/data/unCountries";
 import { terminalsForCountry } from "@/data/cruiseTerminals";
+import { getCruiseCalculatorStrings } from "@/lib/i18nCruiseCalculator";
 import { numShort } from "./model";
 import { useCalculatorTheme } from "./theme";
 
 const NUM_FIELDS = [
-  { key: "passengersPerCall", label: "Cruise passengers per call", step: 100 },
-  { key: "callsPerYear", label: "Port calls per year", step: 1 },
-  { key: "passRate", label: "Passengers passing your store", suffix: "%", step: 1 },
-  { key: "activation", label: "DutyCredit pre-activation", suffix: "%", step: 0.1 },
-  { key: "redemption", label: "Redemption rate", suffix: "%", step: 1 },
+  { key: "passengersPerCall", labelKey: "passengers", step: 100 },
+  { key: "callsPerYear", labelKey: "calls", step: 1 },
+  { key: "passRate", labelKey: "passRate", suffix: "%", step: 1 },
+  { key: "activation", labelKey: "activation", suffix: "%", step: 0.1 },
+  { key: "redemption", labelKey: "redemption", suffix: "%", step: 1 },
 ];
 
 const FIELD_CLASS =
@@ -19,6 +21,8 @@ const FIELD_CLASS =
 
 export default function StoreInputCard({ store, result, onChange, onRemove, onDuplicate }) {
   const th = useCalculatorTheme();
+  const { i18n } = useTranslation();
+  const s = getCruiseCalculatorStrings(i18n.language).card;
   const { rate, symbol, fmt, fmtCompact } = useCurrency();
 
   const basketDisplay =
@@ -42,7 +46,7 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
           <input
             value={store.name}
             onChange={(e) => onChange(store.id, "name", e.target.value)}
-            placeholder="Store name"
+            placeholder={s.storeName}
             className={`w-full h-[34px] rounded-lg border border-slate-300 px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
           />
           <SearchCombobox
@@ -50,8 +54,8 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
             onChange={(v) => onChange(store.id, "country", v)}
             onPick={(o) => pickCountry(o.label)}
             options={COUNTRY_OPTIONS}
-            placeholder="Country / island"
-            emptyText="No match in the list — keep typing to enter it as new"
+            placeholder={s.countryPlaceholder}
+            emptyText={s.countryEmpty}
             className={`${FIELD_CLASS} ${th.fieldRing}`}
           />
           <SearchCombobox
@@ -59,12 +63,8 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
             onChange={(v) => onChange(store.id, "port", v)}
             onPick={(o) => onChange(store.id, "port", o.label)}
             options={terminalOptions}
-            placeholder={store.country ? "Cruise ship terminal" : "Pick a country first"}
-            emptyText={
-              store.country
-                ? "No terminal listed for this country — type yours to add it"
-                : "Pick a country or island to see its cruise ship terminals"
-            }
+            placeholder={store.country ? s.terminalPlaceholder : s.terminalPlaceholderNoCountry}
+            emptyText={store.country ? s.terminalEmpty : s.terminalEmptyNoCountry}
             className={`${FIELD_CLASS} ${th.fieldRing}`}
           />
         </div>
@@ -89,7 +89,7 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-4">
         {NUM_FIELDS.map((f) => (
           <label key={f.key} className="flex flex-col">
-            <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{f.label}</span>
+            <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{s[f.labelKey]}</span>
             <span className="relative block mt-auto">
               <input
                 type="number"
@@ -107,7 +107,7 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
         ))}
 
         <label className="flex flex-col">
-          <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">Average basket</span>
+          <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight">{s.basket}</span>
           <span className="relative block mt-auto">
             <span className="absolute left-2 top-1/2 -translate-y-1/2 text-xs text-slate-400">{symbol}</span>
             <input
@@ -126,11 +126,11 @@ export default function StoreInputCard({ store, result, onChange, onRemove, onDu
 
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
         {[
-          { label: "Cruise passengers / yr", val: numShort(result.annualPassengers) },
-          { label: "Passing your store / yr", val: numShort(result.traffic) },
-          { label: "Incremental baskets / yr", val: numShort(result.redemptions) },
-          { label: "Incremental sales / yr", val: fmtCompact(result.gross) },
-          { label: "Retailer net / yr", val: fmt(result.net), highlight: true },
+          { label: s.kPassengers, val: numShort(result.annualPassengers) },
+          { label: s.kTraffic, val: numShort(result.traffic) },
+          { label: s.kBaskets, val: numShort(result.redemptions) },
+          { label: s.kSales, val: fmtCompact(result.gross) },
+          { label: s.kNet, val: fmt(result.net), highlight: true },
         ].map((row) => (
           <div
             key={row.label}

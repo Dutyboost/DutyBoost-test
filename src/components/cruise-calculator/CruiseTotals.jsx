@@ -1,29 +1,31 @@
+import { useTranslation } from "react-i18next";
 import { useCurrency } from "@/components/calculator/CurrencyContext";
+import { getCruiseCalculatorStrings } from "@/lib/i18nCruiseCalculator";
 import { numShort, PLATFORM_FEE } from "./model";
 import { useCalculatorTheme } from "./theme";
 
 // The full picture: every store the partner modelled, combined.
 export default function CruiseTotals({ totals }) {
   const th = useCalculatorTheme();
+  const { i18n } = useTranslation();
+  const s = getCruiseCalculatorStrings(i18n.language).totals;
   const { fmt, fmtCompact } = useCurrency();
 
   const cards = [
-    { label: "Stores modelled", val: numShort(totals.stores) },
-    { label: "Cruise passengers / yr", val: numShort(totals.annualPassengers) },
-    { label: "Passing all stores / yr", val: numShort(totals.traffic) },
-    { label: "Incremental baskets / yr", val: numShort(totals.redemptions) },
-    { label: "Incremental sales / yr", val: fmtCompact(totals.gross) },
-    { label: "Traveller discounts funded", val: fmtCompact(totals.discount) },
-    { label: `Platform fee (${PLATFORM_FEE * 100}%) / yr`, val: fmtCompact(totals.fee) },
-    { label: "Retailer net / yr", val: fmt(totals.net), highlight: true },
+    { label: s.stores, val: numShort(totals.stores) },
+    { label: s.passengers, val: numShort(totals.annualPassengers) },
+    { label: s.traffic, val: numShort(totals.traffic) },
+    { label: s.baskets, val: numShort(totals.redemptions) },
+    { label: s.sales, val: fmtCompact(totals.gross) },
+    { label: s.discounts, val: fmtCompact(totals.discount) },
+    { label: s.fee.replace("{fee}", PLATFORM_FEE * 100), val: fmtCompact(totals.fee) },
+    { label: s.net, val: fmt(totals.net), highlight: true },
   ];
 
   return (
     <div className="bg-slate-900 rounded-2xl p-4 sm:p-6">
-      <h3 className="font-heading font-bold text-white text-lg">Your full picture</h3>
-      <p className="text-slate-400 text-xs mt-0.5 mb-4">
-        All stores added together, across every island, country or region.
-      </p>
+      <h3 className="font-heading font-bold text-white text-lg">{s.title}</h3>
+      <p className="text-slate-400 text-xs mt-0.5 mb-4">{s.sub}</p>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
         {cards.map((c) => (
           <div

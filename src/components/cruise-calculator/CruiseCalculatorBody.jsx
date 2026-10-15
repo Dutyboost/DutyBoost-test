@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Plus, Info, Anchor, ArrowRight } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
@@ -11,17 +12,19 @@ import RegionBreakdown from "./RegionBreakdown";
 import CruiseTotals from "./CruiseTotals";
 import { CURRENCIES, PLATFORM_FEE, TIERS, defaultStore, computeStore, computeTotals, groupByRegion } from "./model";
 import { trafficDefaultsFor } from "@/data/cruiseTrafficDefaults";
+import { getCruiseCalculatorStrings } from "@/lib/i18nCruiseCalculator";
 import { CALCULATOR_THEMES, CalculatorThemeProvider } from "./theme";
 
 export default function CruiseCalculatorBody({
   theme = "teal",
-  badge = "Cruise & Port Retail Partners",
-  intro = "Model one store with your own figures — pick your country or island, then your cruise ship terminal from the list. Add every other store you operate and the calculator totals each island or country on its own, and all of them together.",
-  ctaLabel = "Apply as a cruise partner",
+  variant = "cruise",
   ctaTo = "/cruise-signup",
   prefillByCountry = false,
 }) {
   const th = CALCULATOR_THEMES[theme] || CALCULATOR_THEMES.teal;
+  const { i18n } = useTranslation();
+  const s = getCruiseCalculatorStrings(i18n.language);
+  const v = s.variants[variant] || s.variants.cruise;
   const { currency, setCurrency } = useCurrency();
   const [stores, setStores] = useState(() => [defaultStore(1)]);
 
@@ -77,27 +80,27 @@ export default function CruiseCalculatorBody({
           </div>
         </div>
         <span className={`inline-flex items-center gap-1.5 border rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest ${th.badge}`}>
-          <Anchor className="w-3.5 h-3.5" /> {badge}
+          <Anchor className="w-3.5 h-3.5" /> {v.badge}
         </span>
-        <h1 className="text-3xl md:text-4xl font-bold text-slate-900">Your own store calculator</h1>
-        <p className="text-slate-600 text-sm max-w-2xl mx-auto">{intro}</p>
+        <h1 className="text-3xl md:text-4xl font-bold text-slate-900">{s.title}</h1>
+        <p className="text-slate-600 text-sm max-w-2xl mx-auto">{v.intro}</p>
       </div>
 
       <div className={`border rounded-xl px-4 py-3 flex items-start gap-2.5 ${th.infoBox}`}>
         <Info className={`w-4 h-4 shrink-0 mt-0.5 ${th.accentText}`} />
         <p className="text-xs text-slate-600 leading-relaxed">
-          DutyBoost pre-activates travellers before they reach you. The only cost is a {PLATFORM_FEE * 100}% platform
-          fee on DutyBoost-validated transactions, and traveller discounts follow the DutyCredit tiers:{" "}
-          {TIERS[0].discMin * 100}%–{TIERS[TIERS.length - 1].discMax * 100}% depending on the basket, capped at the
-          qualifying spend limit.
+          {s.info
+            .replace("{fee}", PLATFORM_FEE * 100)
+            .replace("{min}", TIERS[0].discMin * 100)
+            .replace("{max}", TIERS[TIERS.length - 1].discMax * 100)}
         </p>
       </div>
 
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="font-heading font-bold text-slate-900">Your stores</h2>
+          <h2 className="font-heading font-bold text-slate-900">{s.stores}</h2>
           <Button variant="outline" size="sm" className="gap-1.5" onClick={handleAdd}>
-            <Plus className="w-4 h-4" /> Add store
+            <Plus className="w-4 h-4" /> {s.addStore}
           </Button>
         </div>
         {results.map((r) => (
@@ -118,24 +121,18 @@ export default function CruiseCalculatorBody({
 
       <div className={`bg-gradient-to-r rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 ${th.ctaGradient}`}>
         <div className="text-center sm:text-left">
-          <h3 className="font-bold text-white text-lg">Want these numbers validated for your estate?</h3>
-          <p className={`text-sm mt-0.5 ${th.ctaSubtext}`}>
-            Send us your store list and we will model the full picture with you.
-          </p>
+          <h3 className="font-bold text-white text-lg">{s.ctaTitle}</h3>
+          <p className={`text-sm mt-0.5 ${th.ctaSubtext}`}>{s.ctaDesc}</p>
         </div>
         <Link
           to={ctaTo}
           className={`inline-flex items-center gap-2 bg-white font-bold px-6 py-3 rounded-xl transition-colors shrink-0 ${th.ctaButton}`}
         >
-          {ctaLabel} <ArrowRight className="w-4 h-4" />
+          {v.ctaLabel} <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
 
-      <p className="text-xs text-slate-400 text-center max-w-3xl mx-auto">
-        Illustrative model. Traffic figures are indicative 2025 market starting points, not audited statistics; values are
-        shown in the selected currency and recalculate as you edit. The platform fee applies only to
-        DutyBoost-validated transactions.
-      </p>
+      <p className="text-xs text-slate-400 text-center max-w-3xl mx-auto">{s.disclaimer}</p>
     </div>
     </CalculatorThemeProvider>
   );
