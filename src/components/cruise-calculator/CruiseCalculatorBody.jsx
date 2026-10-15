@@ -132,7 +132,7 @@ export default function CruiseCalculatorBody({
       </div>
 
       <p className="text-xs text-slate-400 text-center max-w-3xl mx-auto">
-        Illustrative model. Traffic figures are indicative market starting points, not audited statistics; values are
+        Illustrative model. Traffic figures are indicative 2025 market starting points, not audited statistics; values are
         shown in the selected currency and recalculate as you edit. The platform fee applies only to
         DutyBoost-validated transactions.
       </p>
