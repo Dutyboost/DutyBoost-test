@@ -14,8 +14,9 @@ const featureIcons = [Zap, QrCode, BarChart3, ShieldCheck, Globe2, TrendingUp];
 
 export default function AgencyShowcase() {
   const { t } = useTranslation();
-  const urlParams = new URLSearchParams(window.location.search);
-  const fromAgency = urlParams.get('from') === 'agency';
+  // This is the flight travel-partner showcase: its calculator is always the
+  // flight travel-partner ROI calculator, never the terminal retailer one.
+  const calculatorTo = '/roi-calculator-travel-partner?vertical=flight';
 
   const flowSteps = [
     { num: '01', titleKey: 'showcase.agency.step1', descKey: 'showcase.agency.step1Desc' },
@@ -41,16 +42,16 @@ export default function AgencyShowcase() {
   return (
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
-      <ShowcaseMobileNav calculatorTo={fromAgency ? '/roi-calculator-travel-partner?vertical=flight' : '/retailer-calculator'} gradient="linear-gradient(to bottom, #4ade80, #059669)" />
+      <ShowcaseMobileNav calculatorTo={calculatorTo} gradient="linear-gradient(to bottom, #4ade80, #059669)" />
       <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={55} />
           </Link>
           <div className="flex items-center gap-4">
-            <Link to={fromAgency ? '/roi-calculator-travel-partner?vertical=flight' : '/retailer-calculator'}>
+            <Link to={calculatorTo}>
               <Button variant="outline" size="sm" className="gap-1.5">
-                <Calculator className="w-4 h-4 shrink-0" /> <span className="hidden sm:inline">{fromAgency ? t('nav.roi_calculator_travel_partner') : t('nav.roi_calculator')}</span>
+                <Calculator className="w-4 h-4 shrink-0" /> <span className="hidden sm:inline">{t('nav.roi_calculator_travel_partner')}</span>
               </Button>
             </Link>
             <LanguageSwitcher />

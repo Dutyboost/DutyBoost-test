@@ -11,8 +11,9 @@ import HotelIcon from "../components/HotelIcon";
 
 export default function HotelShowcase() {
   const { t } = useTranslation();
-  const urlParams = new URLSearchParams(window.location.search);
-  const fromAgency = urlParams.get('from') === 'agency';
+  // This is the accommodation travel-partner showcase: its calculator is always
+  // the accommodation travel-partner ROI calculator, never the terminal retailer one.
+  const calculatorTo = '/roi-calculator-travel-partner?vertical=accommodation';
 
   const flowSteps = [
     { num: '01', titleKey: 'showcase.accommodation.step1', descKey: 'showcase.accommodation.step1Desc' },
@@ -24,15 +25,15 @@ export default function HotelShowcase() {
   return (
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
-      <ShowcaseMobileNav calculatorTo={fromAgency ? '/roi-calculator-travel-partner?vertical=accommodation' : '/retailer-calculator'} gradient="linear-gradient(to bottom, #60a5fa, #0891b2)" />
+      <ShowcaseMobileNav calculatorTo={calculatorTo} gradient="linear-gradient(to bottom, #60a5fa, #0891b2)" />
       <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={55} />
           </Link>
           <div className="flex items-center gap-4">
-            <Link to={fromAgency ? '/roi-calculator-travel-partner?vertical=accommodation' : '/retailer-calculator'}>
-              <Button variant="outline" size="sm">{fromAgency ? t('nav.roi_calculator_travel_partner') : t('nav.roi_calculator')}</Button>
+            <Link to={calculatorTo}>
+              <Button variant="outline" size="sm">{t('nav.roi_calculator_travel_partner')}</Button>
             </Link>
             <LanguageSwitcher />
           </div>
