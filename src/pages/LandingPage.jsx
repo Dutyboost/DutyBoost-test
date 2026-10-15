@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight, Menu, X, Cpu, Building2, Anchor, Network, PlaneTakeoff
+  ArrowRight, Menu, X, Cpu, Building2, Anchor, PlaneTakeoff
 } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import { corporateStrings } from "@/lib/i18nCorporate";
@@ -59,6 +59,13 @@ export default function LandingPage() {
       iconColor: "text-indigo-600",
     },
     {
+      key: 'portsRetailers',
+      icon: AirportRetailerIcon,
+      color: "from-indigo-400 to-blue-600",
+      bg: "bg-indigo-50",
+      iconColor: "text-indigo-600",
+    },
+    {
       key: 'agencies',
       icon: TravelAgencyIcon,
       color: "from-green-400 to-emerald-600",
@@ -78,13 +85,6 @@ export default function LandingPage() {
       color: "from-violet-400 to-indigo-600",
       bg: "bg-violet-50",
       iconColor: "text-violet-600",
-    },
-    {
-      key: 'dutyboost',
-      icon: Network,
-      color: "from-primary to-accent",
-      bg: "bg-primary/5",
-      iconColor: "text-primary",
     },
   ];
 
@@ -155,6 +155,10 @@ export default function LandingPage() {
                 t(`stakeholders.${s.key}.b3`),
               ];
 
+              if (s.key === 'retailers') {
+                title = 'Airport Retail Partners';
+              }
+
               if (s.key === 'airports') {
                 const ao = getAirportStrings(i18n.language).showcase;
                 title = 'Airports';
@@ -180,16 +184,6 @@ export default function LandingPage() {
                          AdditionalIcons = [CruiseShipIcon, HotelIcon, CarRentalIcon];
                        }
 
-              if (s.key === 'dutyboost') {
-                title = t(`stakeholders.${s.key}.title`);
-                description = t(`stakeholders.${s.key}.description`);
-                benefits = [
-                  t(`stakeholders.${s.key}.b1`),
-                  t(`stakeholders.${s.key}.b2`),
-                  t(`stakeholders.${s.key}.b3`),
-                ];
-              }
-
               if (s.key === 'ports') {
                 const po = getPortsStrings(i18n.language).showcase;
                 title = 'Sea Ports';
@@ -201,8 +195,19 @@ export default function LandingPage() {
                 ];
               }
 
-              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'ports' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
-              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'ports' ? '/ports-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
+              if (s.key === 'portsRetailers') {
+                AdditionalIcons = [Anchor];
+                title = 'Sea Port Retail Partners';
+                description = 'Port terminal retail partners convert passing cruise passengers into paying customers. They receive targeted, pre-qualified shoppers with purchase intent activated by a personalised credit incentive.';
+                benefits = [
+                  'Higher store conversion',
+                  'Real-time QR redemption',
+                  'Pay only on results',
+                ];
+              }
+
+              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'ports' || s.key === 'portsRetailers' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
+              const cardLink = s.key === 'retailers' ? '/retailer-showcase' : s.key === 'airports' ? '/airport-showcase' : s.key === 'ports' ? '/ports-showcase' : s.key === 'portsRetailers' ? '/ports-showcase' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
 
               const cardContent = (
                 <>
