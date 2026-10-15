@@ -10,7 +10,7 @@ export const portRetailerStrings = {
     headlinePart1: "Turn Everyday Traveller Flow Into",
     headlinePart2: "Paying Customers",
     subtitle:
-      "Sea port terminals and down town stores sit on the same daily traveller flow as airport retail. Travellers are pre-activated days, weeks or even months before departure — by cruise lines, travel partners and corporate programmes — and arrive at your till holding a DutyCredit and purchase intent. You convert them at the POS and pay only on validated sales.",
+      "Sea port terminals and down town stores sit on the daily traveller flow. Travellers are pre-activated days, weeks or even months before departure and arrive at your till holding a DutyCredit and purchase intent. You convert them at the POS and pay only on validated sales.",
     s1_title: "Why It Works for Port & Down Town Retail",
     why1_title: "Pre-activated shoppers",
     why1_desc:
@@ -27,7 +27,7 @@ export const portRetailerStrings = {
     s2_title: "How It Works",
     step1_title: "Activate",
     step1_desc:
-      "Cruise, travel and corporate partners hand travellers their DutyCredit days, weeks or months before departure.",
+      "Travellers receive their DutyCredit days, weeks or months before departure, well ahead of their visit to your store.",
     step2_title: "Arrive",
     step2_desc:
       "Travellers step ashore or into town with purchase intent and a credit ready to spend at your store.",
