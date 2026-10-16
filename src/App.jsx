@@ -72,7 +72,7 @@ import EmailPreview from './pages/EmailPreview';
 import FlightPartnerOnePager from './pages/FlightPartnerOnePager';
 import AccommodationPartnerOnePager from './pages/AccommodationPartnerOnePager';
 import CarRentalPartnerOnePager from './pages/CarRentalPartnerOnePager';
-import RetailerOnePager from './pages/RetailerOnePager';
+import RetailPartnerOnePager from './pages/RetailPartnerOnePager';
 import CorporatePartnerOnePager from './pages/CorporatePartnerOnePager';
 import AgglomerationTravelPartnerOnePager from './pages/TravelStackOnePager';
 import GTMTestingChecklist from './pages/GTMTestingChecklist';
@@ -250,7 +250,7 @@ const AuthenticatedApp = () => {
         <Route path="/flight-partner-one-pager" element={<FlightPartnerOnePager />} />
         <Route path="/accommodation-partner-one-pager" element={<AccommodationPartnerOnePager />} />
         <Route path="/car-rental-partner-one-pager" element={<CarRentalPartnerOnePager />} />
-        <Route path="/retailer-one-pager" element={<RetailerOnePager />} />
+        <Route path="/retailer-one-pager" element={<RetailPartnerOnePager />} />
         <Route path="/agglomeration-travel-partner-one-pager" element={<AgglomerationTravelPartnerOnePager />} />
         <Route path="/gtm-checklist" element={<GTMTestingChecklist />} />
         <Route path="/staging-validation" element={<StagingValidationGuide />} />

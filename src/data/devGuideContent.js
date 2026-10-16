@@ -633,7 +633,7 @@ const lines = [
 "  |   |-- AgencyIntegrationPage.jsx",
 "  |   |-- RetailerIntegrationGuide.jsx",
 "  |   |-- AgencyOnePager.jsx",
-"  |   |-- RetailerOnePager.jsx",
+"  |   |-- RetailPartnerOnePager.jsx",
 "  |   |-- RetailerPresentationFuture.jsx",
 "  |   |-- TravelPartnerPresentationFuture.jsx",
 "  |   |-- RetailerCalculator.jsx",
