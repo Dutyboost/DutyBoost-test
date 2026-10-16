@@ -69,8 +69,7 @@ export default function RetailPartnerOnePager() {
       className="min-h-screen font-body"
       style={{ background: "linear-gradient(135deg, hsl(216 60% 97%) 0%, hsl(217 50% 95%) 50%, hsl(216 55% 96%) 100%)", backgroundAttachment: "fixed" }}
     >
-      <div className="print:hidden sticky top-0 z-50 bg-white border-b border-border px-6 py-3 flex items-center justify-between">
-        <LanguageSwitcher />
+      <div className="print:hidden sticky top-0 z-50 bg-white border-b border-border px-6 py-3 flex items-center justify-end">
         <Button onClick={handleDownloadPDF} className="gap-2" style={{ background: "linear-gradient(to right, #1f69ff, #14b8a6)" }}>
           <Printer className="w-4 h-4" /> {t("common.download")}
         </Button>
@@ -84,7 +83,10 @@ export default function RetailPartnerOnePager() {
         >
           <div className="flex items-center justify-between pb-1">
             <OnePagerLogo height={40} />
-            <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#1f69ff" }}>{p("badge")}</span>
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#1f69ff" }}>{p("badge")}</span>
+              <LanguageSwitcher className="print:hidden" />
+            </div>
           </div>
           <GradientDivider />
 
