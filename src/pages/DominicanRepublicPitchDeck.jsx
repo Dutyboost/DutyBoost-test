@@ -16,7 +16,6 @@ import SlideIntegrate from "@/components/dominican-pitch/retailer/SlideIntegrate
 import SlideFlywheel from "@/components/dominican-pitch/retailer/SlideFlywheel";
 import SlideGetStarted from "@/components/dominican-pitch/retailer/SlideGetStarted";
 import SlideThankYouRetail from "@/components/dominican-pitch/retailer/SlideThankYouRetail";
-import SlideGovernment from "@/components/dominican-pitch/SlideGovernment";
 import SlideThankYouSupport from "@/components/dominican-pitch/SlideThankYouSupport";
 import SlideProjects from "@/components/dominican-pitch/SlideProjects";
 import { NetworkProvider } from "@/components/dominican-pitch/NetworkContext";
@@ -44,7 +43,6 @@ const SLIDES = [
   { id: "getStarted", type: "getStarted" },
   { id: "thankYou", type: "thankYou" },
   { id: "projects", type: "projects" },
-  { id: "government", type: "government" },
   { id: "closing", type: "closing" },
 ];
 
@@ -66,7 +64,7 @@ const SLIDE_COMPONENTS = {
   getStarted: SlideGetStarted,
   thankYou: SlideThankYouRetail,
   projects: SlideProjects,
-  government: SlideGovernment,
+
   closing: SlideThankYouSupport,
 };
 
