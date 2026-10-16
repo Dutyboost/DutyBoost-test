@@ -1626,7 +1626,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       why2_title: 'Acquisizione clienti, non l\u2019ennesima campagna sconti',
       why2_desc: 'DutyBoost non è un programma fedeltà né un coupon. È uno strato di acquisizione che porta nel tuo negozio un cliente pre-qualificato con l\u2019intenzione di acquisto già attivata.',
       why3_title: 'L\u2019intenzione pre-attivata converte a un altro livello',
-      why3_desc: 'Un viaggiatore che arriva con un DutyCredit che lo aspetta non sta sfogliando, sta comprando. L\u2019intenzione pre-attivata converte 2x meglio del traffico pedonale casuale, senza costi iniziali.',
+      why3_desc: 'Un viaggiatore che arriva con un DutyCredit non sta sfogliando, sta comprando. L\u2019intenzione pre-attivata converte 2x meglio del traffico pedonale casuale, senza costi iniziali.',
       why4_title: '100% basato sulla performance: paghi sulla vendita',
       why4_desc: 'Nessun abbonamento, nessun costo di listing, nessun costo di integrazione. Una commissione di piattaforma solo sui riscatti verificati. Il traffico che non converte non ti costa nulla.',
       s2_title: '02 — Come funziona lo strato di acquisizione',

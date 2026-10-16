@@ -750,7 +750,7 @@ export default {
       why2_title: 'Aquisição de clientes, não mais uma campanha de descontos',
       why2_desc: 'A DutyBoost não é um programa de fidelização nem um cupão. É uma camada de aquisição que traz à sua loja um cliente pré-qualificado com a intenção de compra já ativada.',
       why3_title: 'A intenção pré-ativada converte a outro nível',
-      why3_desc: 'Um viajante que chega com um DutyCredit à espera não está a ver montras, está a comprar. A intenção pré-ativada converte 2x melhor do que o tráfego casual, sem custos iniciais.',
+      why3_desc: 'Um viajante que chega com um DutyCredit não está a ver montras, está a comprar. A intenção pré-ativada converte 2x melhor do que o tráfego casual, sem custos iniciais.',
       why4_title: '100% baseado no desempenho: paga na venda',
       why4_desc: 'Sem subscrição, sem taxa de listagem, sem custos de integração. Uma taxa de plataforma apenas sobre resgates verificados. O tráfego que não converte não lhe custa nada.',
       s2_title: '02 — Como funciona a camada de aquisição',

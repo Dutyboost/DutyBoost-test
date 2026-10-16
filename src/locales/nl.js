@@ -1523,7 +1523,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       why2_title: 'Klantacquisitie, geen zoveelste kortingsactie',
       why2_desc: 'DutyBoost is geen loyaliteitsprogramma en geen coupon. Het is een acquisitielaag die een voorgekwalificeerde klant met al geactiveerde koopintentie naar uw winkel brengt.',
       why3_title: 'Voorgeactiveerde intentie converteert op een ander niveau',
-      why3_desc: 'Een reiziger met een wachtend DutyCredit is niet aan het browsen, die koopt. Voorgeactiveerde intentie converteert 2x beter dan toevallig passantenverkeer, zonder voorafkosten.',
+      why3_desc: 'Een reiziger met een DutyCredit is niet aan het browsen, die koopt. Voorgeactiveerde intentie converteert 2x beter dan toevallig passantenverkeer, zonder voorafkosten.',
       why4_title: '100% prestatiegericht: u betaalt bij de verkoop',
       why4_desc: 'Geen abonnement, geen listingkosten, geen integratiekosten. Eén platformvergoeding, uitsluitend op bevestigde inwisselingen. Verkeer dat niet converteert kost u niets.',
       s2_title: '02 — Hoe de acquisitielaag werkt',

@@ -1622,7 +1622,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       why2_title: "De l'acquisition client, pas une énième campagne de remise",
       why2_desc: "DutyBoost n'est ni un programme de fidélité ni un coupon. C'est une couche d'acquisition qui amène dans votre boutique un client pré-qualifié, avec l'intention d'achat déjà activée.",
       why3_title: "L'intention pré-activée convertit à un autre niveau",
-      why3_desc: "Un voyageur qui arrive avec un DutyCredit qui l'attend ne navigue pas, il achète. L'intention pré-activée convertit 2x mieux que le trafic piéton aléatoire, sans coût initial.",
+      why3_desc: "Un voyageur qui arrive avec un DutyCredit ne navigue pas, il achète. L'intention pré-activée convertit 2x mieux que le trafic piéton aléatoire, sans coût initial.",
       why4_title: "100% basé sur la performance : vous payez sur la vente",
       why4_desc: "Pas d'abonnement, pas de frais de référencement, pas de frais d'intégration. Une commission de plateforme uniquement sur les échanges vérifiés. Le trafic qui ne convertit pas ne vous coûte rien.",
       s2_title: "02 — Comment fonctionne la couche d'acquisition",

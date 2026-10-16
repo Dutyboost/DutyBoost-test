@@ -750,7 +750,7 @@ export default {
       why2_title: 'Acquisition, not another discount campaign',
       why2_desc: 'DutyBoost is not a loyalty programme or a coupon. It is an acquisition layer that delivers a pre-qualified customer to your store with purchase intent already activated.',
       why3_title: 'Pre-activated intent converts at a different level',
-      why3_desc: 'A traveller who arrives with a DutyCredit waiting is not browsing, they are buying. Pre-activated intent converts at 2x the rate of casual footfall, with no upfront cost.',
+      why3_desc: 'A traveller who arrives with a DutyCredit is not browsing, they are buying. Pre-activated intent converts at 2x the rate of casual footfall, with no upfront cost.',
       why4_title: '100% performance-based: you pay on the sale',
       why4_desc: 'No subscription, no listing fee, no integration fee. One platform fee on verified redemptions only. Traffic that does not convert costs you nothing.',
       s2_title: '02 — How the Acquisition Layer Works',

@@ -1620,7 +1620,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       why2_title: 'Kundenakquise, keine weitere Rabattaktion',
       why2_desc: 'DutyBoost ist kein Loyalitätsprogramm und kein Coupon. Es ist eine Akquise-Ebene, die einen vorqualifizierten Kunden mit bereits aktivierter Kaufabsicht in Ihr Geschäft bringt.',
       why3_title: 'Voraktivierte Absicht konvertiert auf einem anderen Niveau',
-      why3_desc: 'Ein Reisender mit wartendem DutyCredit browst nicht, er kauft. Voraktivierte Absicht konvertiert 2x besser als zufälliges Laufpublikum, ohne Vorabkosten.',
+      why3_desc: 'Ein Reisender mit DutyCredit browst nicht, er kauft. Voraktivierte Absicht konvertiert 2x besser als zufälliges Laufpublikum, ohne Vorabkosten.',
       why4_title: '100% performancebasiert: Sie zahlen beim Verkauf',
       why4_desc: 'Kein Abo, keine Listungsgebühr, keine Integrationsgebühr. Eine Plattformgebühr nur auf bestätigte Einlösungen. Traffic, der nicht konvertiert, kostet Sie nichts.',
       s2_title: '02 — So funktioniert die Akquise-Ebene',
