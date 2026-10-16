@@ -1535,6 +1535,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       step3_desc: 'Ze stappen uw winkel binnen met de intentie al gezet. Bij de kassa wordt de QR gescand en de korting toegepast via uw bestaande POS-integratie.',
       step4_title: 'Bevestigde verkoop, prestatievergoeding',
       step4_desc: 'DutyBoost valideert de transactie, verrekent de korting en rapporteert. Eén maandelijkse factuur: 2,5% van de bruto inwisselingswaarde, maximaal €25 per transactie.',
+      s2_note: 'Reizigers kunnen hun eigen DutyCredit ook rechtstreeks op dutyboost.com aanmaken — zonder tussenkomst van een reispartner.',
       s3_title: '03 — De businesscase voor retailpartners',
       stat1_value: '2x',
       stat1_label: 'conversiestijging t.o.v. toevallig verkeer',

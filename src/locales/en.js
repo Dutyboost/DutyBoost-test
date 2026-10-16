@@ -762,6 +762,7 @@ export default {
       step3_desc: 'They walk into your store with intent already set. At checkout the QR is scanned and the discount applied through your existing POS integration.',
       step4_title: 'Verified sale, performance fee',
       step4_desc: 'DutyBoost validates the transaction, settles the discount and reports it. One monthly invoice: 2.5% of gross redemption value, capped at €25 per transaction.',
+      s2_note: 'Travellers can also generate their own DutyCredit directly on dutyboost.com — no travel partner required.',
       s3_title: '03 — The Retail Partner Business Case',
       stat1_value: '2x',
       stat1_label: 'conversion uplift vs. casual footfall',

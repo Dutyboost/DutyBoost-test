@@ -1632,6 +1632,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       step3_desc: 'Sie betreten Ihr Geschäft mit bereits gesetzter Absicht. An der Kasse wird der QR-Code gescannt und der Rabatt über Ihre bestehende POS-Integration angewendet.',
       step4_title: 'Bestätigter Verkauf, Performance-Gebühr',
       step4_desc: 'DutyBoost validiert die Transaktion, verrechnet den Rabatt und berichtet. Eine Monatsrechnung: 2,5% des Brutto-Einlösungswertes, max. €25 pro Transaktion.',
+      s2_note: 'Reisende können ihr DutyCredit auch direkt auf dutyboost.com selbst erstellen — ohne Reisepartner.',
       s3_title: '03 — Der Business Case für Retail-Partner',
       stat1_value: '2x',
       stat1_label: 'Conversion-Steigerung vs. Laufpublikum',

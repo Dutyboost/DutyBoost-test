@@ -762,6 +762,7 @@ export default {
       step3_desc: 'Entram na sua loja com a intenção já definida. Na caixa, o QR é lido e o desconto aplicado através da sua integração POS existente.',
       step4_title: 'Venda verificada, taxa de desempenho',
       step4_desc: 'A DutyBoost valida a transação, liquida o desconto e reporta. Uma fatura mensal: 2,5% do valor bruto resgatado, com máximo de 25 € por transação.',
+      s2_note: 'Os viajantes também podem gerar o seu próprio DutyCredit diretamente em dutyboost.com — sem necessidade de um parceiro de viagem.',
       s3_title: '03 — O business case dos parceiros de retalho',
       stat1_value: '2x',
       stat1_label: 'ganho de conversão vs. tráfego casual',
