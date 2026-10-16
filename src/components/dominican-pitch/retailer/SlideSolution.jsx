@@ -4,7 +4,7 @@ import { ChevronRight, Zap, Briefcase, RefreshCw } from "lucide-react";
 import HotelIcon from "@/components/HotelIcon";
 import CarRentalIcon from "@/components/CarRentalIcon";
 import TravelAgencyIcon from "@/components/TravelAgencyIcon";
-import { ACCENT, GridBg, SlideWrapper } from "../Shared";
+import { ACCENT, GridBg, SlideWrapper, SITE } from "../Shared";
 import { useDeckLang } from "../LanguageContext";
 
 const ICONS = [TravelAgencyIcon, HotelIcon, CarRentalIcon, Briefcase];
@@ -33,6 +33,7 @@ export default function SlideSolution() {
                 to="/eligibility-showcase"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-pdf-link={`${SITE}/eligibility-showcase`}
                 className="font-semibold mb-1 inline-flex items-center gap-1 underline decoration-white/40"
               >
                 {c.platforms[0].title}

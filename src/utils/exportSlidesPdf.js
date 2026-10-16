@@ -168,6 +168,32 @@ export async function captureSlide(node, { width = 1400, height = 788 } = {}) {
   }
 }
 
+// A slide can mark an element with data-pdf-link="https://…" so that it stays
+// clickable in the exported PDF: the element's position on the slide is measured
+// before capture and re-applied as a link annotation over the captured page image.
+function collectPdfLinks(node) {
+  const base = node.getBoundingClientRect();
+  return Array.from(node.querySelectorAll("[data-pdf-link]"))
+    .map((el) => {
+      const url = el.getAttribute("data-pdf-link");
+      if (!url) return null;
+      const rect = el.getBoundingClientRect();
+      return { url, x: rect.left - base.left, y: rect.top - base.top, w: rect.width, h: rect.height };
+    })
+    .filter(Boolean);
+}
+
+function addPdfLinks(pdf, links, { width, height }) {
+  if (!links.length || typeof pdf.link !== "function") return;
+  links.forEach(({ url, x, y, w, h }) => {
+    const left = Math.max(0, Math.min(x, width - 1));
+    const top = Math.max(0, Math.min(y, height - 1));
+    const right = Math.max(left + 1, Math.min(x + w, width));
+    const bottom = Math.max(top + 1, Math.min(y + h, height));
+    pdf.link(left, top, right - left, bottom - top, { url });
+  });
+}
+
 export async function exportSlideNodesToPdf(nodes, filename, { width = 1400, height = 788, onProgress } = {}) {
   if (!nodes.length) return;
 
@@ -176,10 +202,12 @@ export async function exportSlideNodesToPdf(nodes, filename, { width = 1400, hei
   for (let i = 0; i < nodes.length; i += 1) {
     onProgress?.(i + 1, nodes.length);
 
+    const links = collectPdfLinks(nodes[i]);
     const canvas = await captureSlide(nodes[i], { width, height });
 
     if (i > 0) pdf.addPage([width, height], "landscape");
     pdf.addImage(canvas.toDataURL("image/jpeg", 0.92), "JPEG", 0, 0, width, height);
+    addPdfLinks(pdf, links, { width, height });
 
     // Hand the frame back to the browser so the button's progress keeps up.
     await new Promise((resolve) => setTimeout(resolve, 20));
