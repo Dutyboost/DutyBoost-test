@@ -186,7 +186,7 @@ export default function RetailerCalculator() {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 flex-1 min-h-0">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 shrink-0">
         {ROWS.map((row) => (
           <div
             key={row.label}
@@ -203,7 +203,7 @@ export default function RetailerCalculator() {
         ))}
       </div>
 
-      <div className="text-slate-800 text-xs mt-3 shrink-0">{c.note}</div>
+      <div className="text-slate-800 text-xs mt-auto pt-3 shrink-0">{c.note}</div>
     </div>
   );
 }
