@@ -98,10 +98,10 @@ export default function RetailerCalculator() {
               key={a.code}
               type="button"
               onClick={() => chooseAirport(a)}
-              className={`text-sm font-semibold px-3 py-1 rounded-full border transition-colors ${
-                isActive ? "text-white" : "bg-white text-slate-800 border-slate-300 hover:border-slate-400"
+              className={`text-sm font-semibold transition-colors ${
+                isActive ? "underline underline-offset-4" : "text-slate-500 hover:text-slate-800"
               }`}
-              style={isActive ? { background: ACCENT, borderColor: ACCENT } : undefined}
+              style={isActive ? { color: ACCENT } : undefined}
             >
               {a.code === "ALL" ? c.airport.all : a.label}
             </button>
