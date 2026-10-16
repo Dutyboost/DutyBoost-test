@@ -3,13 +3,11 @@ import { ACCENT } from "./Shared";
 import StatusPill from "./StatusPill";
 import { useDeckLang } from "./LanguageContext";
 import { MODEL, num, usd, usdShort } from "./figures";
-import { SXM_BASKETS, SXM_REDEMPTIONS, SXM_SINCE_LAUNCH } from "./sxmRedemptions";
 
-// The Sint Maarten redemption card: the live market's daily DutyCredit volumes
-// and a sample of the baskets redeemed at the till.
-export default function SxmRedemptionCard() {
+// A live market's redemption card: the daily DutyCredit volumes and a sample of
+// the baskets redeemed at the till. Shared by Sint Maarten and Trinidad & Tobago.
+export default function LiveRedemptionCard({ code, data, since, baskets, copy: c }) {
   const { t } = useDeckLang();
-  const c = t.projects.sxm;
 
   return (
     <div className="relative overflow-hidden rounded-2xl p-3 md:p-3.5 text-white bg-gradient-to-br from-[#0a0f1e] via-[#140c28] to-[#231136] border border-white/10 flex flex-col">
@@ -20,7 +18,7 @@ export default function SxmRedemptionCard() {
       <div className="relative z-10 flex flex-col flex-1">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-bold tracking-widest text-white/40">SXM</span>
+            <span className="text-sm font-bold tracking-widest text-white/40">{code}</span>
             <Ticket className="w-4 h-4 text-white/40" />
           </div>
           <StatusPill label={t.projects.live} />
@@ -36,34 +34,30 @@ export default function SxmRedemptionCard() {
           <div className="text-xs uppercase tracking-widest text-white/40">{c.redemptionsTitle}</div>
           <div className="rounded-xl bg-white/5 border border-white/10 px-3 py-1.5">
             <span className="text-2xl font-bold" style={{ color: "#f5d0fe" }}>
-              {num(SXM_REDEMPTIONS.redeemed)}
+              {num(data.redeemed)}
             </span>
             <span className="text-base text-white/60 ml-2">{c.redeemedLabel}</span>
             <span className="text-base font-bold ml-2" style={{ color: "#f5d0fe" }}>
-              ({SXM_REDEMPTIONS.redemptionPct}%)
+              ({data.redemptionPct}%)
             </span>
             <div className="text-base text-white/45 leading-snug">
-              {c.preActivatedLine(
-                num(SXM_REDEMPTIONS.preActivated),
-                SXM_REDEMPTIONS.activationPct,
-                num(SXM_REDEMPTIONS.passengers)
-              )}
+              {c.preActivatedLine(num(data.preActivated), data.activationPct, num(data.passengers))}
             </div>
             <div className="text-base text-white/60 leading-snug">{c.microCampaign}</div>
           </div>
 
           <div className="rounded-xl bg-white/5 border border-white/10 px-3 py-1.5">
             <div className="text-xs uppercase tracking-widest text-white/40">
-              {c.sinceTitle(SXM_SINCE_LAUNCH.days)}
+              {c.sinceTitle(since.days)}
             </div>
             <div>
               <span className="text-2xl font-bold" style={{ color: "#f5d0fe" }}>
-                {usdShort(SXM_SINCE_LAUNCH.retailValue)}
+                {usdShort(since.retailValue)}
               </span>
               <span className="text-base text-white/60 ml-2">{c.revenueLabel}</span>
             </div>
             <div className="text-base text-white/45 leading-snug">
-              {c.sinceLine(num(SXM_SINCE_LAUNCH.redeemed))}
+              {c.sinceLine(num(since.redeemed))}
             </div>
           </div>
 
@@ -72,14 +66,14 @@ export default function SxmRedemptionCard() {
             style={{ background: `${ACCENT}22`, border: `1px solid ${ACCENT}55`, color: "#f5d0fe" }}
           >
             <Coins className="w-3.5 h-3.5" />
-            {c.feePill(MODEL.platformFee * 100)} · {usd(SXM_SINCE_LAUNCH.platformFee)}
+            {c.feePill(MODEL.platformFee * 100)} · {usd(since.platformFee)}
           </span>
         </div>
 
         <div className="mt-2 flex flex-col gap-1.5">
           <div className="text-xs uppercase tracking-widest text-white/40">{c.basketsTitle}</div>
           <div className="grid grid-cols-2 gap-1.5">
-            {SXM_BASKETS.slice(0, 8).map((b) => (
+            {baskets.slice(0, 8).map((b) => (
               <div
                 key={b.basket}
                 className="flex items-baseline justify-between gap-2 min-w-0 rounded-lg bg-white/5 border border-white/10 px-2.5 py-0.5"

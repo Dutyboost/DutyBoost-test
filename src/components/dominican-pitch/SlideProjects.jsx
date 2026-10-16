@@ -1,8 +1,10 @@
-import { Store, Wine, Cpu } from "lucide-react";
+import { Store, Cpu } from "lucide-react";
 import { ACCENT, GridBg, SlideWrapper } from "./Shared";
 import { useDeckLang } from "./LanguageContext";
-import SxmRedemptionCard from "./SxmRedemptionCard";
+import LiveRedemptionCard from "./LiveRedemptionCard";
 import StatusPill from "./StatusPill";
+import { SXM_BASKETS, SXM_REDEMPTIONS, SXM_SINCE_LAUNCH } from "./sxmRedemptions";
+import { POS_BASKETS, POS_REDEMPTIONS, POS_SINCE_LAUNCH } from "./posRedemptions";
 
 // Live deployment track record: the two Caribbean markets already redeeming
 // DutyCredits, shown to the Dominican Republic as proof of execution.
@@ -87,14 +89,16 @@ export default function SlideProjects() {
     country: c.tnt.country,
     airport: c.tnt.airport,
     status: c.tnt.status,
-    note: c.tnt.rolloutNote,
+    note: c.tnt.note,
     blocks: (
       <>
+        <Block title={c.tnt.partnersTitle}>
+          {c.tnt.partners.map((p) => (
+            <PartnerRow key={p.name} name={p.name} detail={p.detail} desc={p.desc} compact={compact} />
+          ))}
+        </Block>
         <Block title={c.tnt.posTitle}>
           <PartnerRow name={c.tnt.pos} detail={c.tnt.posNote} icon={Cpu} compact={compact} />
-        </Block>
-        <Block title={c.tnt.rolloutTitle}>
-          <PartnerRow name={c.tnt.rollout} desc={c.tnt.rolloutDesc} icon={Wine} compact={compact} />
         </Block>
       </>
     ),
@@ -115,10 +119,23 @@ export default function SlideProjects() {
             <p className="text-slate-500 mt-1 text-xs md:text-sm leading-snug">{c.subtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
             <MarketCard code="SXM" data={sxm} icon={Store} live={c.live} compact={compact} />
-            <SxmRedemptionCard />
-            <MarketCard code="POS" data={tnt} icon={Cpu} live={c.inProgress} isLive={false} compact={compact} />
+            <MarketCard code="POS" data={tnt} icon={Cpu} live={c.live} compact={compact} />
+            <LiveRedemptionCard
+              code="SXM"
+              data={SXM_REDEMPTIONS}
+              since={SXM_SINCE_LAUNCH}
+              baskets={SXM_BASKETS}
+              copy={c.sxm}
+            />
+            <LiveRedemptionCard
+              code="POS"
+              data={POS_REDEMPTIONS}
+              since={POS_SINCE_LAUNCH}
+              baskets={POS_BASKETS}
+              copy={c.tnt}
+            />
           </div>
         </div>
       </div>

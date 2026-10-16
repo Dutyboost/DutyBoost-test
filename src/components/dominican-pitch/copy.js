@@ -392,7 +392,7 @@ export const COPY = {
     projects: {
       eyebrow: "Ongoing Projects",
       title: "Already Live in the Caribbean.",
-      titleAccent: "Two Markets, One Redeeming Today.",
+      titleAccent: "Two Markets, Both Redeeming Today.",
       subtitle:
         "DutyBoost is expanding across the Caribbean and is opening more doors in the region.",
       live: "Live",
@@ -434,17 +434,39 @@ export const COPY = {
       tnt: {
         country: "Trinidad & Tobago",
         airport: "Piarco International (POS)",
-        status: "POS integration in progress — redeeming from 15 October 2026",
-        posTitle: "POS integration in progress",
+        status: "Live — DutyCredits redeeming at the till",
+        partnersTitle: "DutyCredits redeemed at",
+        partners: [
+          {
+            name: "Liquor & spirits",
+            detail: "Aged rums, premium spirits & liqueurs",
+            desc: "Angostura aged rums and premium spirits — the category where the DutyCredit drives the highest incremental baskets.",
+          },
+          {
+            name: "Perfumes & fragrances",
+            detail: "Designer fragrance & cosmetics",
+            desc: "Prestige fragrance and cosmetics, redeemable at every till in the store.",
+          },
+        ],
+        posTitle: "Integration at POS level (15 Oct. 2026)",
         pos: "NCR CounterPoint",
         posNote:
-          "DutyCredit validation is being implemented natively inside NCR CounterPoint — no separate integration, no new hardware and no change to the cashier's routine.",
-        rolloutTitle: "Redeeming from 15 October 2026",
-        rollout: "Caribbean Duty Free stores at Piarco",
-        rolloutDesc:
-          "Caribbean Duty Free's Piarco stores — liquor & spirits, perfumes & fragrances, and cigars & cigarettes — span the concourse, with DutyCredits redeemed at the till through the same native NCR CounterPoint flow already running in Sint Maarten.",
-        rolloutNote:
-          "The POS integration is still in progress — the stores go live on 15 October 2026.",
+          "DutyCredit validation runs natively inside NCR CounterPoint — no separate integration, no new hardware and no change to the cashier's routine.",
+        redemptionsTitle: "DutyCredits redeemed / day",
+        redeemedLabel: "avg. redeemed / day",
+        preActivatedLine: (pre, pct, pax) => `${pre} pre-activated (${pct}% of ${pax} passengers) / day`,
+        microCampaign: "Micro-Campaign Miami and Toronto",
+        basketsTitle: "Sample of baskets redeemed",
+        basketLabels: {
+          spirits: "Liquor & spirits",
+          fragrance: "Perfumes & fragrances",
+          cigars: "Cigars & cigarettes",
+        },
+        sinceTitle: (days) => `${days} ${days === 1 ? "day" : "days"} live — since 15 October 2026`,
+        revenueLabel: "incremental retail value",
+        sinceLine: (n) => `${n} DutyCredits redeemed at the till`,
+        feePill: (pct) => `DutyBoost platform fee (${pct}%)`,
+        note: "Caribbean Duty Free's Piarco stores went live on 15 October 2026.",
       },
       stats: [
         { value: "2", label: "Caribbean markets live" },
@@ -1289,7 +1311,7 @@ export const COPY = {
     projects: {
       eyebrow: "Proyectos en marcha",
       title: "Ya operativos en el Caribe.",
-      titleAccent: "Dos mercados, uno canjeando hoy.",
+      titleAccent: "Dos mercados, ambos canjeando hoy.",
       subtitle:
         "DutyBoost se expande por el Caribe y abre nuevas puertas en la región.",
       live: "Activo",
@@ -1331,17 +1353,39 @@ export const COPY = {
       tnt: {
         country: "Trinidad y Tobago",
         airport: "Piarco International (POS)",
-        status: "Integración de POS en curso — canje desde el 15 de octubre de 2026",
-        posTitle: "Integración de POS en curso",
+        status: "Activo — DutyCredits canjeándose en la caja",
+        partnersTitle: "DutyCredits canjeados en",
+        partners: [
+          {
+            name: "Licores y destilados",
+            detail: "Rones añejos, destilados premium y licores",
+            desc: "Rones añejos de Angostura y destilados premium — la categoría donde el DutyCredit genera las cestas incrementales más altas.",
+          },
+          {
+            name: "Perfumes y fragancias",
+            detail: "Fragancias de diseñador y cosmética",
+            desc: "Fragancias de prestigio y cosmética, canjeables en todas las cajas de la tienda.",
+          },
+        ],
+        posTitle: "Integración a nivel de POS (15 oct. 2026)",
         pos: "NCR CounterPoint",
         posNote:
-          "La validación del DutyCredit se está implantando de forma nativa dentro de NCR CounterPoint — sin integración aparte, sin hardware nuevo y sin cambios en la rutina del cajero.",
-        rolloutTitle: "Canje a partir del 15 de octubre de 2026",
-        rollout: "Tiendas Caribbean Duty Free en Piarco",
-        rolloutDesc:
-          "Las tiendas de Caribbean Duty Free en Piarco — licores y destilados, perfumes y fragancias y cigarros y cigarrillos — cubren toda la zona comercial, con DutyCredits canjeables en caja mediante el mismo flujo nativo de NCR CounterPoint que ya funciona en Sint Maarten.",
-        rolloutNote:
-          "La integración del POS sigue en curso — las tiendas entran en servicio el 15 de octubre de 2026.",
+          "La validación del DutyCredit funciona de forma nativa dentro de NCR CounterPoint — sin integración aparte, sin hardware nuevo y sin cambios en la rutina del cajero.",
+        redemptionsTitle: "DutyCredits canjeados / día",
+        redeemedLabel: "canjeados / día (media)",
+        preActivatedLine: (pre, pct, pax) => `${pre} preactivados (${pct}% de ${pax} pasajeros) / día`,
+        microCampaign: "Microcampaña Miami y Toronto",
+        basketsTitle: "Muestra de cestas canjeadas",
+        basketLabels: {
+          spirits: "Licores y destilados",
+          fragrance: "Perfumes y fragancias",
+          cigars: "Cigarros y cigarrillos",
+        },
+        sinceTitle: (days) => `${days} ${days === 1 ? "día" : "días"} activo — desde el 15 de octubre de 2026`,
+        revenueLabel: "valor minorista incremental",
+        sinceLine: (n) => `${n} DutyCredits canjeados en caja`,
+        feePill: (pct) => `Comisión de plataforma de DutyBoost (${pct}%)`,
+        note: "Las tiendas de Caribbean Duty Free en Piarco entraron en servicio el 15 de octubre de 2026.",
       },
       stats: [
         { value: "2", label: "mercados del Caribe activos" },
