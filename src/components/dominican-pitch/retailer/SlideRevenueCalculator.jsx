@@ -39,9 +39,9 @@ export default function SlideRevenueCalculator() {
 
   return (
     <SlideWrapper>
-      <div className="flex-1 flex flex-col px-5 py-4 md:px-10 md:py-4 relative overflow-hidden">
+      <div className="flex-1 flex flex-col px-5 py-4 md:px-10 md:py-4 relative">
         <GridBg />
-        <div className="relative z-10 flex-1 flex flex-col min-h-0">
+        <div className="relative z-10 flex-1 flex flex-col">
           <div className="mb-3 shrink-0">
             <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>
               {c.slideEyebrow}
@@ -74,7 +74,7 @@ export default function SlideRevenueCalculator() {
             </div>
           </div>
 
-          <div className="flex-1 min-h-0 flex">
+          <div className="flex-1 flex">
             <RetailerCalculator />
           </div>
         </div>

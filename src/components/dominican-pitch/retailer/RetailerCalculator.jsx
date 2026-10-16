@@ -76,7 +76,7 @@ export default function RetailerCalculator() {
 
   return (
     <div
-      className="w-full h-full flex flex-col rounded-2xl p-4 sm:p-5"
+      className="w-full flex flex-col rounded-2xl p-4 sm:p-5"
       style={{ background: `${ACCENT}0d`, border: `1px solid ${ACCENT}33` }}
     >
       <div className="flex flex-wrap items-center gap-2 mb-3 shrink-0">
@@ -186,11 +186,11 @@ export default function RetailerCalculator() {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 shrink-0">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 lg:gap-y-2 shrink-0">
         {ROWS.map((row) => (
           <div
             key={row.label}
-            className="bg-white/70 border border-slate-200 rounded-2xl px-4 py-3 flex flex-col justify-center"
+            className="bg-white/70 border border-slate-200 rounded-2xl px-4 py-3 lg:py-2 flex flex-col justify-center"
           >
             <div
               className={`font-bold text-2xl ${row.money ? "" : "text-slate-800"}`}
@@ -203,7 +203,7 @@ export default function RetailerCalculator() {
         ))}
       </div>
 
-      <div className="text-slate-800 text-xs mt-3 shrink-0 leading-snug">{c.note}</div>
+      <div className="text-slate-800 text-xs mt-3 lg:mt-2 shrink-0 leading-snug">{c.note}</div>
     </div>
   );
 }
