@@ -51,14 +51,14 @@ export default function SlideAcquisition() {
               <div className="rounded-2xl p-4" style={{ background: `${ACCENT}0d`, border: `1px solid ${ACCENT}33` }}>
                 <h3 className="font-bold text-sm md:text-base mb-1" style={{ color: ACCENT }}>{c.campaignTitle}</h3>
                 <p className="text-slate-600 text-xs italic mb-2">{c.campaignQuote}</p>
-                <div className="bg-white border rounded-lg px-2 py-1.5 text-center mb-2" style={{ borderColor: `${ACCENT}33` }}>
+                <div className="px-2 py-1.5 text-center mb-2">
                   <p className="text-xs text-slate-600 italic">{c.campaignQuestion}</p>
                 </div>
                 <div className="flex flex-wrap justify-center">
                   {c.channels.map((name, i) => {
                     const Icon = CHANNEL_ICONS[i];
                     return (
-                      <div key={name} className="inline-flex items-center whitespace-nowrap px-2 py-1 m-[3px] bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-700 leading-none">
+                      <div key={name} className="inline-flex items-center whitespace-nowrap px-2 py-1 m-[3px] text-xs font-medium text-slate-700 leading-none">
                         <Icon className="w-3.5 h-3.5 mr-1 flex-shrink-0" style={{ color: ACCENT }} />
                         <span>{name}</span>
                       </div>

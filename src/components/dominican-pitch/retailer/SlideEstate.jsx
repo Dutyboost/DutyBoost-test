@@ -53,10 +53,9 @@ export default function SlideEstate() {
                   return (
                     <div
                       key={a}
-                      className={`flex items-center justify-between py-1.5 px-3 rounded-lg border ${
-                        isCurrent ? "font-semibold" : "bg-white border-slate-100"
+                      className={`flex items-center justify-between py-1.5 border-b border-slate-100 last:border-b-0 ${
+                        isCurrent ? "font-semibold" : ""
                       }`}
-                      style={isCurrent ? { background: `${ACCENT}1a`, borderColor: `${ACCENT}33` } : undefined}
                     >
                       <span className="text-slate-600">{c.atActivation(Math.round(a * 100))}</span>
                       <span className="text-slate-700">{c.baskets(numShort(r.baskets))}</span>
