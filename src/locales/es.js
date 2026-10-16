@@ -873,7 +873,7 @@ export default {
       step3_desc: 'Entran en tu tienda con la intención ya fijada. En caja se escanea el QR y se aplica el descuento a través de tu integración POS existente.',
       step4_title: 'Venta verificada, tarifa por rendimiento',
       step4_desc: 'DutyBoost valida la transacción, liquida el descuento y lo reporta. Una factura mensual: 2,5% del valor bruto de los canjes, con un máximo de €25 por transacción.',
-      s2_note: 'Los viajeros también pueden generar su propio DutyCredit directamente en dutyboost.com, sin necesidad de un socio de viaje.',
+      s2_note: 'Los pasajeros también pueden generar su propio DutyCredit directamente en dutyboost.com, sin necesidad de un socio de viaje.',
       s3_title: '03 — El caso de negocio para socios minoristas',
       stat1_value: '2x',
       stat1_label: 'mejora de conversión vs. tráfico casual',
