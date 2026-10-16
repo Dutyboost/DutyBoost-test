@@ -138,7 +138,7 @@ export default function RetailPartnerOnePagerSheet() {
                 </div>
               ))}
             </div>
-            <p className="text-[10px] text-teal-800 bg-teal-50 border border-teal-100 rounded px-2 py-1 text-center mt-1">{p("s2_note")}</p>
+            <p className="text-[10px] leading-snug text-teal-800 bg-teal-50 border border-teal-100 rounded px-2 pt-[2px] pb-[4px] text-center mt-1">{p("s2_note")}</p>
           </div>
 
           {/* 03 — Business case */}
