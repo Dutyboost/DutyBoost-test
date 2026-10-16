@@ -29,7 +29,7 @@ export const COPY = {
       flywheel: "Growth Flywheel",
       getStarted: "Get Started",
       government: "Value to the Dominican Government",
-      nextSteps: "Next Steps",
+      closing: "Thank You",
       thankYou: "Thank You",
       projects: "Ongoing Projects",
     },
@@ -375,49 +375,15 @@ export const COPY = {
       closingBody:
         "The value is created in the terminal, on departure and on arrival, not redistributed from anyone in it.",
     },
-    nextSteps: {
-      eyebrow: "Next Steps",
-      title: "Five Steps.",
-      titleAccent: "The First One Is This Room.",
-      subtitle:
-        "No decision is required from the Dominican Republic today beyond interest. Everything that follows is a private commercial conversation between DutyBoost and the retail groups in the market.",
-      steps: [
-        {
-          when: "Today",
-          title: "Briefing and endorsement",
-          body: "The Embassy reviews the model with the DutyBoost team and confirms the country-level interest.",
-        },
-        {
-          when: "Weeks 1–4",
-          title: "Introductions",
-          body: "The Embassy opens doors to the operators of the three gateways and the retail concessionaires trading in them.",
-        },
-        {
-          when: "Weeks 4–8",
-          title: "A convening session in Santo Domingo",
-          body: "One room, one agenda: the operators and the retail concessionaires hear the model together, at the Embassy's invitation.",
-        },
-        {
-          when: "Months 3–6",
-          title: "A single-gateway pilot",
-          body: "One airport, one retail group, one store. The POS provider in use at that airport integrates DutyBoost so its stores can redeem DutyCredits. Ninety days, no upfront cost, no system replaced.",
-        },
-        {
-          when: "Months 6–12",
-          title: "National rollout",
-          body: "Punta Cana, Las Américas and Santiago live, with the retail groups trading in all three.",
-        },
-      ],
-      askTitle: "What we ask of the Embassy",
-      asks: [
-        "An endorsement of the model as a private-sector opportunity for the country",
-        "Introductions to the three airport operators and the retail concessionaires",
-        "Introductions to the duty-free and brand groups supplying the concourse",
-        "Support for one convening session in Santo Domingo",
-      ],
-      nobodyTitle: "What we ask of nobody",
-      nobodyBody:
-        "No public money, no legislation, no change to airport concessions and no cost to the travelling public. DutyBoost brings the technology, the retailer relationships and the operating model. The Dominican Republic brings what it already has: the busiest air market in the Caribbean, three world-class gateways, and an embassy willing to open the first door.",
+    closing: {
+      eyebrow: "Thank You",
+      title: "We Are Ready to Support",
+      titleAccent: "the Dominican Republic Travel Sector.",
+      body:
+        "DutyBoost is ready to work with the Dominican Republic's airports, retail groups and duty-free operators to turn non-purchasing passenger movements into incremental sales, at no cost to the country, the operators or the travelling public.",
+      closingTitle: "Thank you for your time and your consideration.",
+      closingBody:
+        "The next step is a private commercial conversation between DutyBoost and the retail groups trading in the Dominican Republic.",
     },
     thankYou: {
       title: "Thank you.",
@@ -960,7 +926,7 @@ export const COPY = {
       flywheel: "Volante de crecimiento",
       getStarted: "Empezar",
       government: "Valor para el Gobierno",
-      nextSteps: "Próximos pasos",
+      closing: "Gracias",
       thankYou: "Gracias",
       projects: "Proyectos en marcha",
     },
@@ -1306,49 +1272,15 @@ export const COPY = {
       closingBody:
         "El valor se crea en la terminal, a la salida y a la llegada, no se redistribuye entre quienes están en ella.",
     },
-    nextSteps: {
-      eyebrow: "Próximos pasos",
-      title: "Cinco pasos.",
-      titleAccent: "El primero es esta sala.",
-      subtitle:
-        "Hoy no se requiere ninguna decisión de la República Dominicana más allá del interés. Todo lo que sigue es una conversación comercial privada entre DutyBoost y los grupos minoristas del mercado.",
-      steps: [
-        {
-          when: "Hoy",
-          title: "Presentación y respaldo",
-          body: "La Embajada revisa el modelo con el equipo de DutyBoost y confirma el interés a nivel país.",
-        },
-        {
-          when: "Semanas 1–4",
-          title: "Presentaciones",
-          body: "La Embajada abre puertas a los operadores de las tres puertas y a los concesionarios minoristas que operan en ellas.",
-        },
-        {
-          when: "Semanas 4–8",
-          title: "Una sesión de encuentro en Santo Domingo",
-          body: "Una sala, una agenda: los operadores y los concesionarios minoristas conocen el modelo juntos, por invitación de la Embajada.",
-        },
-        {
-          when: "Meses 3–6",
-          title: "Un piloto en una sola puerta",
-          body: "Un aeropuerto, un grupo minorista, una tienda. El proveedor de POS de ese aeropuerto integra DutyBoost para que sus tiendas puedan canjear DutyCredits. Noventa días, sin coste inicial y sin sustituir ningún sistema.",
-        },
-        {
-          when: "Meses 6–12",
-          title: "Despliegue nacional",
-          body: "Punta Cana, Las Américas y Santiago activos, con los grupos minoristas que operan en los tres.",
-        },
-      ],
-      askTitle: "Qué pedimos a la Embajada",
-      asks: [
-        "Un respaldo al modelo como oportunidad de sector privado para el país",
-        "Presentaciones con los tres operadores aeroportuarios y los concesionarios minoristas",
-        "Presentaciones con los grupos de duty-free y las marcas que abastecen la zona comercial",
-        "Apoyo para una sesión de encuentro en Santo Domingo",
-      ],
-      nobodyTitle: "Qué no pedimos a nadie",
-      nobodyBody:
-        "Ni dinero público, ni legislación, ni cambios en las concesiones aeroportuarias, ni coste alguno para el pasajero. DutyBoost aporta la tecnología, las relaciones con los minoristas y el modelo operativo. La República Dominicana aporta lo que ya tiene: el mercado aéreo más activo del Caribe, tres puertas de primer nivel y una embajada dispuesta a abrir la primera puerta.",
+    closing: {
+      eyebrow: "Gracias",
+      title: "Estamos listos para apoyar",
+      titleAccent: "al sector turístico de la República Dominicana.",
+      body:
+        "DutyBoost está listo para trabajar con los aeropuertos, los grupos minoristas y los operadores de duty-free de la República Dominicana para convertir los movimientos de pasajeros que no compran en ventas incrementales, sin coste para el país, los operadores ni el pasajero.",
+      closingTitle: "Gracias por su tiempo y su consideración.",
+      closingBody:
+        "El siguiente paso es una conversación comercial privada entre DutyBoost y los grupos minoristas que operan en la República Dominicana.",
     },
     thankYou: {
       title: "Gracias.",
