@@ -2,11 +2,11 @@ import { MODEL } from "./figures";
 
 // Illustrative DutyCredit activity at Princess Juliana International (SXM).
 // Passenger volume: PJIAE — ±1.77M a year, ±4,836 a day. Pre-activation is
-// entered at the standard 2% planning assumption, with the standard 30%
-// redemption applied on top.
+// entered at the standard 2% planning assumption, with a 36% redemption applied
+// on top — an average of 35 DutyCredits redeemed a day.
 export const SXM_PASSENGERS_DAY = 4836;
 export const SXM_ACTIVATION = 0.02;
-export const SXM_REDEMPTION = 0.3;
+export const SXM_REDEMPTION = 0.36;
 
 const preActivated = SXM_PASSENGERS_DAY * SXM_ACTIVATION;
 
