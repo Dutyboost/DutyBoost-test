@@ -204,16 +204,19 @@ export async function captureSlide(node, { width = 1400, height = 788 } = {}) {
   }
 }
 
-// A slide can mark an element with data-pdf-link="https://…" so that it stays
-// clickable in the exported PDF: the element's position on the slide is measured
-// before capture and re-applied as a link annotation over the captured page image.
-function collectPdfLinks(node) {
+// Links stay clickable in the exported PDF: every real link on a slide (an anchor, or an
+// element marked with data-pdf-link="https://…") has its position measured before capture
+// and re-applied as a link annotation over the captured page image.
+const LINKABLE = /^(https?:|mailto:|tel:)/i;
+
+export function collectSlideLinks(node) {
   const base = node.getBoundingClientRect();
-  return Array.from(node.querySelectorAll("[data-pdf-link]"))
+  return Array.from(node.querySelectorAll("a[href], [data-pdf-link]"))
     .map((el) => {
-      const url = el.getAttribute("data-pdf-link");
-      if (!url) return null;
+      const url = (el.getAttribute("data-pdf-link") || el.getAttribute("href") || "").trim();
+      if (!LINKABLE.test(url)) return null;
       const rect = el.getBoundingClientRect();
+      if (rect.width < 1 || rect.height < 1) return null;
       return { url, x: rect.left - base.left, y: rect.top - base.top, w: rect.width, h: rect.height };
     })
     .filter(Boolean);
@@ -238,7 +241,7 @@ export async function exportSlideNodesToPdf(nodes, filename, { width = 1400, hei
   for (let i = 0; i < nodes.length; i += 1) {
     onProgress?.(i + 1, nodes.length);
 
-    const links = collectPdfLinks(nodes[i]);
+    const links = collectSlideLinks(nodes[i]);
     const canvas = await captureSlide(nodes[i], { width, height });
 
     if (i > 0) pdf.addPage([width, height], "landscape");
