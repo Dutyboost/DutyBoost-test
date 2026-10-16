@@ -80,6 +80,9 @@
   }
 }
 
+/* Hidden only while the one-pager is being captured for the PDF download. */
+.pdf-exporting .pdf-hide { display: none !important; }
+
 @media print {
   nav, footer, .print\:hidden { display: none !important; }
   pre { white-space: pre-wrap !important; }

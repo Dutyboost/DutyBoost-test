@@ -87,8 +87,10 @@ export default function RetailPartnerOnePagerSheet() {
           <OnePagerLogo height={40} />
           <div className="flex items-center gap-3">
             <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#1f69ff" }}>{p("badge")}</span>
-            <CurrencySelect className="print:hidden" />
-            <LanguageSwitcher className="print:hidden" />
+            <div className="flex items-center gap-3 pdf-hide">
+              <CurrencySelect className="print:hidden" />
+              <LanguageSwitcher className="print:hidden" />
+            </div>
           </div>
         </div>
         <GradientDivider />

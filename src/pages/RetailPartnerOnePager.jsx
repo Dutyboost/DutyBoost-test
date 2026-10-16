@@ -11,7 +11,9 @@ export default function RetailPartnerOnePager() {
 
   const handleDownloadPDF = async () => {
     const element = document.querySelector(".print-content");
+    element.classList.add("pdf-exporting");
     const canvas = await html2canvas(element, { scale: 2, allowTaint: true, useCORS: true });
+    element.classList.remove("pdf-exporting");
     const imgData = canvas.toDataURL("image/png");
     const imgWidth = 210;
     const imgHeight = (canvas.height * imgWidth) / canvas.width;
