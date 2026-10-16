@@ -92,78 +92,74 @@ function DominicanDeck() {
   const slide = SLIDES[current];
   const SlideComp = SLIDE_COMPONENTS[slide.type];
 
+  // The download host renders its own off-screen copies of the slides, so the
+  // providers wrap the whole deck: those copies read the same figures typed on
+  // screen instead of starting from a blank scenario.
   return (
-    <div className="min-h-screen bg-[#061024] flex flex-col items-center justify-start lg:justify-center p-2 py-1.5 overflow-x-hidden">
-      <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-2 mb-1.5">
-        <div className="text-white text-sm font-semibold opacity-60">
-          {t.chrome.title}{" "}
-          <span className="text-xs opacity-50 ml-2 hidden sm:inline">{t.chrome.confidential}</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <PitchDeckDownloadButtons
-            slides={SLIDES}
-            components={SLIDE_COMPONENTS}
-            filename="DutyBoost-Dominican-Republic-Retailer-Presentation"
-            renderSlide={(Slide) => (
-              <NetworkProvider>
-                <RetailerRevenueProvider>
-                  <Slide />
-                </RetailerRevenueProvider>
-              </NetworkProvider>
-            )}
-          />
-          <LanguageToggle />
-          <div className="text-slate-400 text-sm">
-            {current + 1} / {SLIDES.length}
+    <NetworkProvider>
+      <RetailerRevenueProvider>
+        <div className="min-h-screen bg-[#061024] flex flex-col items-center justify-start lg:justify-center p-2 py-1.5 overflow-x-hidden">
+          <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-2 mb-1.5">
+            <div className="text-white text-sm font-semibold opacity-60">
+              {t.chrome.title}{" "}
+              <span className="text-xs opacity-50 ml-2 hidden sm:inline">{t.chrome.confidential}</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <PitchDeckDownloadButtons
+                slides={SLIDES}
+                components={SLIDE_COMPONENTS}
+                filename="DutyBoost-Dominican-Republic-Retailer-Presentation"
+              />
+              <LanguageToggle />
+              <div className="text-slate-400 text-sm">
+                {current + 1} / {SLIDES.length}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div
-        ref={slideAreaRef}
-        className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[60vh] lg:h-[calc(100vh-128px)]"
-      >
-        <NetworkProvider>
-          <RetailerRevenueProvider>
+          <div
+            ref={slideAreaRef}
+            className="w-full max-w-[1400px] flex rounded-2xl overflow-hidden shadow-2xl border border-white/10 min-h-[60vh] lg:h-[calc(100vh-128px)]"
+          >
             <SlideComp />
-          </RetailerRevenueProvider>
-        </NetworkProvider>
-      </div>
+          </div>
 
-      <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-2 mt-2">
-        <button
-          onClick={prev}
-          disabled={current === 0}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-semibold cursor-pointer select-none"
-        >
-          <ChevronLeft size={18} /> {t.chrome.previous}
-        </button>
-        <div className="flex gap-1.5 flex-wrap justify-center max-w-lg">
-          {SLIDES.map((s, i) => (
+          <div className="w-full max-w-[1400px] flex flex-wrap items-center justify-between gap-2 mt-2">
             <button
-              key={s.id}
-              onClick={() => setCurrent(i)}
-              title={t.labels[s.type]}
-              className={`text-xs px-3 py-1 rounded-lg transition-all font-medium ${
-                i === current ? "text-white" : "bg-white/10 text-slate-400 hover:bg-white/20 hover:text-white"
-              }`}
-              style={i === current ? { background: ACCENT } : undefined}
+              onClick={prev}
+              disabled={current === 0}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-semibold cursor-pointer select-none"
             >
-              {i + 1}
+              <ChevronLeft size={18} /> {t.chrome.previous}
             </button>
-          ))}
+            <div className="flex gap-1.5 flex-wrap justify-center max-w-lg">
+              {SLIDES.map((s, i) => (
+                <button
+                  key={s.id}
+                  onClick={() => setCurrent(i)}
+                  title={t.labels[s.type]}
+                  className={`text-xs px-3 py-1 rounded-lg transition-all font-medium ${
+                    i === current ? "text-white" : "bg-white/10 text-slate-400 hover:bg-white/20 hover:text-white"
+                  }`}
+                  style={i === current ? { background: ACCENT } : undefined}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={next}
+              disabled={current === SLIDES.length - 1}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-semibold cursor-pointer select-none"
+              style={{ background: ACCENT }}
+            >
+              {t.chrome.next} <ChevronRight size={18} />
+            </button>
+          </div>
+          <div className="mt-1 text-slate-500 text-xs">{t.labels[slide.type]}</div>
         </div>
-        <button
-          onClick={next}
-          disabled={current === SLIDES.length - 1}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-semibold cursor-pointer select-none"
-          style={{ background: ACCENT }}
-        >
-          {t.chrome.next} <ChevronRight size={18} />
-        </button>
-      </div>
-      <div className="mt-1 text-slate-500 text-xs">{t.labels[slide.type]}</div>
-    </div>
+      </RetailerRevenueProvider>
+    </NetworkProvider>
   );
 }
 
