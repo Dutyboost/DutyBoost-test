@@ -143,26 +143,62 @@ function applyFlexLocks(clonedDoc, { heights }) {
 
 // Captures one rendered slide exactly as it appears on screen. Shared by the PDF and
 // the PowerPoint exporters, so both mirror the deck.
+// The tallest the slide's content really is: a slide frame is a fixed 16:9 box, so
+// content taller than the frame is clipped or hidden inside a scroll area.
+function measureContentHeight(node, fallback) {
+  const base = node.getBoundingClientRect().top;
+  let tallest = fallback;
+  node.querySelectorAll("*").forEach((el) => {
+    if (el.scrollHeight <= el.clientHeight + 2) return;
+    const top = el.getBoundingClientRect().top - base;
+    tallest = Math.max(tallest, Math.ceil(top + el.scrollHeight));
+  });
+  return tallest;
+}
+
+// A slide whose content is taller than the page is captured at its full height and
+// then scaled down (centred) so everything fits inside the page.
 export async function captureSlide(node, { width = 1400, height = 788 } = {}) {
   await inlineSvgImages(node);
   await waitForAssets(node);
   const restoreGradientText = flattenGradientText(node);
+
+  const natural = measureContentHeight(node, height);
+  const tall = natural > height + 2;
+  const previousHeight = node.style.height;
+  if (tall) node.style.height = `${natural}px`;
+  const captureHeight = tall ? natural : height;
   const flexLocks = lockFlexHeights(node);
 
   try {
-    return await html2canvas(node, {
+    const canvas = await html2canvas(node, {
       backgroundColor: "#ffffff",
       scale: 2,
       useCORS: true,
       allowTaint: false,
       logging: false,
       width,
-      height,
+      height: captureHeight,
       windowWidth: width,
-      windowHeight: height,
+      windowHeight: captureHeight,
       onclone: (clonedDoc) => applyFlexLocks(clonedDoc, flexLocks),
     });
+    if (!tall) return canvas;
+
+    const fit = height / natural;
+    const out = document.createElement("canvas");
+    out.width = Math.round(width * 2);
+    out.height = Math.round(height * 2);
+    const ctx = out.getContext("2d");
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, out.width, out.height);
+    const drawWidth = out.width * fit;
+    const offsetX = (out.width - drawWidth) / 2;
+    ctx.drawImage(canvas, offsetX, 0, drawWidth, out.height);
+    out.fit = { scale: fit, offsetX: offsetX / 2 };
+    return out;
   } finally {
+    node.style.height = previousHeight;
     flexLocks.release();
     restoreGradientText();
   }
@@ -207,7 +243,14 @@ export async function exportSlideNodesToPdf(nodes, filename, { width = 1400, hei
 
     if (i > 0) pdf.addPage([width, height], "landscape");
     pdf.addImage(canvas.toDataURL("image/jpeg", 0.92), "JPEG", 0, 0, width, height);
-    addPdfLinks(pdf, links, { width, height });
+    const fit = canvas.fit;
+    addPdfLinks(
+      pdf,
+      fit
+        ? links.map((l) => ({ url: l.url, x: l.x * fit.scale + fit.offsetX, y: l.y * fit.scale, w: l.w * fit.scale, h: l.h * fit.scale }))
+        : links,
+      { width, height }
+    );
 
     // Hand the frame back to the browser so the button's progress keeps up.
     await new Promise((resolve) => setTimeout(resolve, 20));
