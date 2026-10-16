@@ -130,7 +130,25 @@ function lockFlexHeights(root) {
   };
 }
 
+// html2canvas finds each font's baseline with a tiny helper <img>. Tailwind makes every
+// <img> display:block, which makes that measurement wrong and pushes ALL text a few pixels
+// below where it sits on screen (pills, circles and tight boxes then look misaligned or
+// clip their letters). The helper must stay inline, while the slide's real images keep
+// their on-screen display and alignment.
+function fixTextBaseline(clonedDoc) {
+  const view = clonedDoc.defaultView;
+  clonedDoc.querySelectorAll("img").forEach((img) => {
+    const cs = view.getComputedStyle(img);
+    img.style.display = cs.display;
+    img.style.verticalAlign = cs.verticalAlign;
+  });
+  const style = clonedDoc.createElement("style");
+  style.textContent = "img { display: inline; vertical-align: baseline; }";
+  clonedDoc.head.appendChild(style);
+}
+
 function applyFlexLocks(clonedDoc, { heights }) {
+  fixTextBaseline(clonedDoc);
   clonedDoc.querySelectorAll("[data-flex-lock]").forEach((el) => {
     const height = heights.get(el.getAttribute("data-flex-lock"));
     if (!height) return;
