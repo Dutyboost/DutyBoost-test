@@ -781,7 +781,7 @@ export const COPY = {
         footfall: "Fixed base: the 64% of international travellers who walk straight to their gates without entering a duty free store",
         footfallSource: "m1nd-set B1S 10-year analysis, 2026",
         note:
-          "Illustrative model, one day, at the figures entered above. A 2.5% platform fee on validated transactions only — the retailer keeps the rest of the sale. Volumes are counts; values in USD.",
+          "Illustrative model, one day, at the figures above. A 2.5% platform fee on validated transactions only; the retailer keeps the rest. Volumes are counts, values in USD.",
       },
       transaction: {
         eyebrow: "One Transaction — Three Beneficiaries",
@@ -1712,7 +1712,7 @@ export const COPY = {
         footfall: "Base fija: el 64% de los pasajeros internacionales que va directo a su puerta sin entrar en una tienda duty free",
         footfallSource: "análisis de 10 años B1S de m1nd-set, 2026",
         note:
-          "Modelo ilustrativo, un día, con las cifras introducidas arriba. Comisión de plataforma del 2.5% solo sobre transacciones validadas — el minorista conserva el resto de la venta. Los volúmenes son recuentos; los valores, en USD.",
+          "Modelo ilustrativo, un día, con las cifras de arriba. Comisión del 2.5% solo sobre transacciones validadas; el minorista conserva el resto. Volúmenes son recuentos, valores en USD.",
       },
       transaction: {
         eyebrow: "Una transacción — tres beneficiarios",

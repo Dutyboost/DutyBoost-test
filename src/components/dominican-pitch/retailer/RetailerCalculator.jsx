@@ -203,7 +203,7 @@ export default function RetailerCalculator() {
         ))}
       </div>
 
-      <div className="text-slate-800 text-xs mt-auto pt-3 shrink-0">{c.note}</div>
+      <div className="text-slate-800 text-xs mt-3 shrink-0 leading-snug">{c.note}</div>
     </div>
   );
 }
