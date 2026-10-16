@@ -65,7 +65,7 @@ export default function SlideConversion() {
                 {ROWS.map((row, i) => (
                   <div
                     key={row.label}
-                    className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 text-sm py-1.5 px-2 ${i === 3 ? "font-semibold" : ""}`}
+                    className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 text-sm py-1.5 px-2 rounded-lg ${i === 3 ? "bg-white font-semibold" : ""}`}
                   >
                     <span style={{ color: ACCENT }}>{row.label}</span>
                     <span className="text-slate-600">{numShort(row.txns)} txns</span>
@@ -84,9 +84,9 @@ export default function SlideConversion() {
               <div className="flex-1 flex flex-col justify-center gap-3">
                 {c.propositionRows.map((row) => (
                   <div key={row.from} className="grid grid-cols-[1fr,auto,1fr] gap-2 items-stretch text-sm">
-                    <span className="text-red-300 py-2.5 text-center flex items-center justify-center leading-snug">{row.from}</span>
+                    <span className="text-red-300 bg-red-900/30 rounded-lg px-3 py-2.5 text-center flex items-center justify-center leading-snug">{row.from}</span>
                     <ArrowRight size={16} className="text-slate-400 flex-shrink-0 self-center" />
-                    <span className="text-green-300 py-2.5 text-center flex items-center justify-center leading-snug">{row.to}</span>
+                    <span className="text-green-300 bg-green-900/30 rounded-lg px-3 py-2.5 text-center flex items-center justify-center leading-snug">{row.to}</span>
                   </div>
                 ))}
               </div>

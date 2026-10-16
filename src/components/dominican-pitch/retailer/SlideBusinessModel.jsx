@@ -30,7 +30,7 @@ export default function SlideBusinessModel() {
                 {TIER_ROWS.map((row, i) => (
                   <div
                     key={row.tier}
-                    className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 text-xs ${i === 0 ? "font-semibold" : ""}`}
+                    className={`grid grid-cols-2 sm:grid-cols-4 gap-x-2 gap-y-0.5 py-1.5 px-2 rounded-lg text-xs ${i === 0 ? "bg-white/10" : "hover:bg-white/5"}`}
                   >
                     <span className="text-slate-200 font-semibold">{row.tier}</span>
                     <span className="text-slate-300">{row.range}</span>

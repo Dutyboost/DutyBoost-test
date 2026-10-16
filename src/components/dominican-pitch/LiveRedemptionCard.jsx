@@ -62,8 +62,8 @@ export default function LiveRedemptionCard({ code, data, since, baskets, copy: c
           </div>
 
           <span
-            className="self-start flex items-center gap-2 px-3 py-1 text-xs font-bold uppercase tracking-wider"
-            style={{ color: "#f5d0fe" }}
+            className="self-start flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider"
+            style={{ background: `${ACCENT}22`, border: `1px solid ${ACCENT}55`, color: "#f5d0fe" }}
           >
             <Coins className="w-3.5 h-3.5" />
             {c.feePill(MODEL.platformFee * 100)} · {usd(since.platformFee)}
