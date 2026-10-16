@@ -100,8 +100,11 @@ export default function RetailPartnerOnePagerSheet() {
             <p className="text-muted-foreground text-xs max-w-xl mx-auto mt-0.5">{p("subtitle")}</p>
             <div className="flex flex-wrap items-center justify-center gap-1.5 mt-1.5">
               <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{p("audience_label")}</span>
-              {audience.map((label) => (
-                <span key={label} className="text-[10px] font-semibold text-blue-700 bg-blue-50 border border-blue-100 rounded-full px-2 py-0.5">{label}</span>
+              {audience.map((label, i) => (
+                <span key={label} className="text-[10px] font-semibold text-blue-700">
+                  {label}
+                  {i < audience.length - 1 && <span className="text-blue-300 mx-1">·</span>}
+                </span>
               ))}
             </div>
           </div>
