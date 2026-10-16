@@ -1638,7 +1638,7 @@ Le Parti dichiarano di stipulare questa Lettera di Intenti in uno spirito di fid
       step3_desc: 'Entrano nel tuo negozio con l\u2019intenzione già impostata. Alla cassa il QR viene scansionato e lo sconto applicato tramite la tua integrazione POS esistente.',
       step4_title: 'Vendita verificata, commissione di performance',
       step4_desc: 'DutyBoost valida la transazione, regola lo sconto e la riporta. Una fattura mensile: 2,5% del valore lordo dei riscatti, con un massimo di €25 per transazione.',
-      s2_note: 'I viaggiatori possono anche generare il proprio DutyCredit direttamente su dutyboost.com, senza un partner di viaggio.',
+      s2_note: 'I viaggiatori possono anche generare i propri DutyCredits direttamente su dutyboost.com, senza un partner di viaggio. In altre parole, possono generarne quanti ne vogliono, per negozi diversi.',
       s3_title: '03 — Il business case per i partner retail',
       stat1_value: '2x',
       stat1_label: 'aumento di conversione vs. traffico casuale',

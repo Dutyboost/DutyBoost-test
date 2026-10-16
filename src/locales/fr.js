@@ -1634,7 +1634,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
       step3_desc: "Ils entrent dans votre boutique avec l'intention déjà fixée. En caisse, le QR est scanné et la remise appliquée via votre intégration POS existante.",
       step4_title: "Vente vérifiée, commission de performance",
       step4_desc: "DutyBoost valide la transaction, règle la remise et la reporte. Une facture mensuelle : 2,5% de la valeur brute des échanges, plafonnée à €25 par transaction.",
-      s2_note: "Les voyageurs peuvent également générer leur propre DutyCredit directement sur dutyboost.com — sans passer par un partenaire de voyage.",
+      s2_note: "Les voyageurs peuvent également générer leurs propres DutyCredits directement sur dutyboost.com — sans passer par un partenaire de voyage. Autrement dit, ils peuvent en générer autant qu'ils le souhaitent, pour différentes boutiques.",
       s3_title: "03 — Le business case des partenaires retail",
       stat1_value: "2x",
       stat1_label: "gain de conversion vs trafic aléatoire",
