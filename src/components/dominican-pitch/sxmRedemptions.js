@@ -19,9 +19,9 @@ export const SXM_REDEMPTIONS = {
 };
 
 // Live since 25 September 2026. The reported window runs 25 September →
-// 8 October 2026 — 13 days of redemptions, totalling 377 DutyCredits.
+// 17 October 2026 — 22 days of redemptions, totalling 638 DutyCredits.
 export const SXM_LAUNCH = "2026-09-25";
-export const SXM_REPORT_END = "2026-10-08";
+export const SXM_REPORT_END = "2026-10-17";
 
 // Blended basket across the baskets redeemed, in USD.
 export const SXM_BASKET_AVG = 88;
