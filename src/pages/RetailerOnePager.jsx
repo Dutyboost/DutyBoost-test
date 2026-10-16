@@ -80,6 +80,12 @@ export default function RetailerOnePager() {
             <p className="text-muted-foreground text-xs max-w-xl mx-auto mt-0.5">
               {t('retaileronepager.subtitle')}
             </p>
+            <div className="flex flex-wrap items-center justify-center gap-1.5 mt-1.5">
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{t('retaileronepager.audience_label')}</span>
+              {[t('retaileronepager.audience1'), t('retaileronepager.audience2'), t('retaileronepager.audience3')].map((label) => (
+                <span key={label} className="text-[10px] font-semibold text-orange-700 bg-orange-50 border border-orange-100 rounded-full px-2 py-0.5">{label}</span>
+              ))}
+            </div>
           </div>
 
           {/* SECTION 1: WHY IT MATTERS */}
