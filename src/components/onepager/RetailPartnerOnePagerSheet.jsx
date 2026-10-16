@@ -1,6 +1,7 @@
 import { useState, useRef, useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
 import OnePagerLogo from "@/components/OnePagerLogo";
+import FitHeadline from "@/components/onepager/FitHeadline";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import CurrencySelect from "@/components/CurrencySelect";
 import { useCurrency } from "@/components/calculator/CurrencyContext";
@@ -98,7 +99,7 @@ export default function RetailPartnerOnePagerSheet() {
         <div className="flex-1 flex flex-col">
           {/* Headline */}
           <div className="text-center py-1">
-            <h1 className="text-base font-heading font-bold leading-tight">{p("headline")}</h1>
+            <FitHeadline text={p("headline")} />
             <p className="text-muted-foreground text-xs max-w-xl mx-auto mt-0.5">{p("subtitle")}</p>
             <div className="flex flex-wrap items-center justify-center gap-1.5 mt-1.5">
               <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{p("audience_label")}</span>
