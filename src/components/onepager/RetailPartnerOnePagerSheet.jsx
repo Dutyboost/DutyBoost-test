@@ -147,7 +147,7 @@ export default function RetailPartnerOnePagerSheet() {
             <div className="mb-1"><GradientDivider /></div>
             <div className="grid grid-cols-3 gap-1.5 flex-1 mb-1.5">
               {stats.map((s) => (
-                <div key={s.label} className="border border-border rounded p-2 text-center flex flex-col justify-center">
+                <div key={s.label} className="border border-border rounded p-2 flex flex-col justify-center">
                   <p className="text-xs font-bold text-slate-400 mb-0.5">{s.num}.</p>
                   <p className="text-xl font-heading font-bold leading-tight" style={{ color: s.color }}>{s.value}</p>
                   <p className="font-semibold text-xs mt-0.5">{s.label}</p>
