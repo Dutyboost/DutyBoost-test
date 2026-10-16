@@ -23,6 +23,7 @@ import { NetworkProvider } from "@/components/dominican-pitch/NetworkContext";
 import { RetailerRevenueProvider } from "@/components/dominican-pitch/retailer/RetailerRevenueContext";
 import { LanguageProvider, useDeckLang } from "@/components/dominican-pitch/LanguageContext";
 import LanguageToggle from "@/components/dominican-pitch/LanguageToggle";
+import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
 import { ACCENT } from "@/components/dominican-pitch/Shared";
 
 const SLIDES = [
@@ -99,6 +100,18 @@ function DominicanDeck() {
           <span className="text-xs opacity-50 ml-2 hidden sm:inline">{t.chrome.confidential}</span>
         </div>
         <div className="flex items-center gap-3">
+          <PitchDeckDownloadButtons
+            slides={SLIDES}
+            components={SLIDE_COMPONENTS}
+            filename="DutyBoost-Dominican-Republic-Retailer-Presentation"
+            renderSlide={(Slide) => (
+              <NetworkProvider>
+                <RetailerRevenueProvider>
+                  <Slide />
+                </RetailerRevenueProvider>
+              </NetworkProvider>
+            )}
+          />
           <LanguageToggle />
           <div className="text-slate-400 text-sm">
             {current + 1} / {SLIDES.length}

@@ -14,6 +14,7 @@ import SlideWhyItMatters from "@/components/caribbean-airline-pitch/SlideWhyItMa
 import SlideGetStarted from "@/components/caribbean-airline-pitch/SlideGetStarted";
 import SlideThankYou from "@/components/caribbean-airline-pitch/SlideThankYou";
 import { ACCENT } from "@/components/caribbean-airline-pitch/Shared";
+import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
 
 const SLIDES = [
   { id: "cover", type: "cover" },
@@ -85,7 +86,19 @@ export default function CaribbeanAirlinesPitchDeck() {
           DutyBoost — Caribbean Airlines Presentation 2026{" "}
           <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
-        <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
+        <div className="flex items-center gap-3">
+          <PitchDeckDownloadButtons
+            slides={SLIDES}
+            components={SLIDE_COMPONENTS}
+            filename="DutyBoost-Caribbean-Airlines-Presentation"
+            renderSlide={(Slide) => (
+              <DealProvider>
+                <Slide />
+              </DealProvider>
+            )}
+          />
+          <div className="text-slate-400 text-sm">{current + 1} / {SLIDES.length}</div>
+        </div>
       </div>
 
       <div

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SLIDES, SLIDE_LABELS, getSlideComponent } from "@/components/pos-pitch/PosPitchSlides";
+import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
 
 export default function PosProviderPitchDeck() {
   const [current, setCurrent] = useState(0);
@@ -28,7 +29,15 @@ export default function PosProviderPitchDeck() {
         <div className="text-slate-700 text-sm font-semibold opacity-80">
           DutyBoost — POS Provider Presentation 2026 <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
-        <div className="text-slate-500 text-sm">{current + 1} / {SLIDES.length}</div>
+        <div className="flex items-center gap-3">
+          <PitchDeckDownloadButtons
+            slides={SLIDES}
+            components={(type) => getSlideComponent(type, currency)}
+            filename="DutyBoost-POS-Provider-Presentation"
+            tone="light"
+          />
+          <div className="text-slate-500 text-sm">{current + 1} / {SLIDES.length}</div>
+        </div>
       </div>
 
       {/* Slide */}

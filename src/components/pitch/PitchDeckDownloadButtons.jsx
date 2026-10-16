@@ -7,6 +7,9 @@ import { exportSlideNodesToPptx } from "@/utils/exportSlidesPptx";
 // them as a PDF or a PowerPoint that mirrors the on-screen deck. Every deck page shares
 // this control: pass its SLIDES list, its slide-component map and the file name (without
 // extension). Use tone="light" on decks with a light page background.
+// `components` is a type → component map, or a function taking the slide type.
+// `renderSlide` optionally wraps each off-screen slide in the deck's providers.
+// `formats` limits which download buttons show (default: both).
 
 const FORMATS = {
   pdf: { label: "PDF", run: exportSlideNodesToPdf },
@@ -20,6 +23,8 @@ export default function PitchDeckDownloadButtons({
   tone = "dark",
   width = 1400,
   height = 788,
+  formats = ["pdf", "pptx"],
+  renderSlide,
 }) {
   const [format, setFormat] = useState(null);
   const [progress, setProgress] = useState(null);
@@ -66,7 +71,9 @@ export default function PitchDeckDownloadButtons({
   return (
     <>
       <div className="flex items-center gap-2">
-        {Object.entries(FORMATS).map(([key, { label }]) => (
+        {Object.entries(FORMATS)
+          .filter(([key]) => formats.includes(key))
+          .map(([key, { label }]) => (
           <button
             key={key}
             type="button"
@@ -93,7 +100,7 @@ export default function PitchDeckDownloadButtons({
         >
           {slides.map((slide) => {
             // Most decks keep a type → component map; a few store the component on the slide itself.
-            const SlideComp = components?.[slide.type] || slide.Component;
+            const SlideComp = (typeof components === "function" ? components(slide.type) : components?.[slide.type]) || slide.Component;
             if (!SlideComp) return null;
             return (
               <div
@@ -101,7 +108,7 @@ export default function PitchDeckDownloadButtons({
                 data-deck-slide
                 style={{ width: `${width}px`, height: `${height}px`, overflow: "hidden", background: "#ffffff", display: "flex" }}
               >
-                <SlideComp />
+                {renderSlide ? renderSlide(SlideComp) : <SlideComp />}
               </div>
             );
           })}

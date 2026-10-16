@@ -3,9 +3,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   SLIDES,
   SLIDE_LABELS,
+  SLIDE_COMPONENTS,
   getSlideComponent,
 } from "@/components/phygrid-pitch/PhygridSlides";
 import { EstateProvider } from "@/components/phygrid-pitch/EstateContext";
+import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
 
 export default function PhygridPitchDeck() {
   const [current, setCurrent] = useState(0);
@@ -33,6 +35,16 @@ export default function PhygridPitchDeck() {
           <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
         <div className="flex items-center gap-3">
+          <PitchDeckDownloadButtons
+            slides={SLIDES}
+            components={SLIDE_COMPONENTS}
+            filename="DutyBoost-Phygrid-Presentation"
+            renderSlide={(Slide) => (
+              <EstateProvider>
+                <Slide />
+              </EstateProvider>
+            )}
+          />
           <div className="text-slate-400 text-sm">
             {current + 1} / {SLIDES.length}
           </div>

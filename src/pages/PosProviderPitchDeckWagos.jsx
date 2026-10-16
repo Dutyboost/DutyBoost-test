@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SLIDES, SLIDE_LABELS, getSlideComponent } from "@/components/pos-pitch/WagosPosPitchSlides";
+import PitchDeckDownloadButtons from "@/components/pitch/PitchDeckDownloadButtons";
 
 export default function PosProviderPitchDeckWagos() {
   const [current, setCurrent] = useState(0);
@@ -27,7 +28,15 @@ export default function PosProviderPitchDeckWagos() {
         <div className="text-slate-700 text-sm font-semibold opacity-80">
           DutyBoost — POS Provider Presentation: Caribbean (Wagos) 2026 <span className="text-xs opacity-50 ml-2 hidden sm:inline">CONFIDENTIAL</span>
         </div>
-        <div className="text-slate-500 text-sm">{current + 1} / {SLIDES.length}</div>
+        <div className="flex items-center gap-3">
+          <PitchDeckDownloadButtons
+            slides={SLIDES}
+            components={(type) => getSlideComponent(type)}
+            filename="DutyBoost-POS-Provider-Presentation-Wagos"
+            tone="light"
+          />
+          <div className="text-slate-500 text-sm">{current + 1} / {SLIDES.length}</div>
+        </div>
       </div>
 
       {/* Slide */}
