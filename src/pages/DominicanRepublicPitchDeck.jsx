@@ -16,7 +16,6 @@ import SlideIntegrate from "@/components/dominican-pitch/retailer/SlideIntegrate
 import SlideFlywheel from "@/components/dominican-pitch/retailer/SlideFlywheel";
 import SlideGetStarted from "@/components/dominican-pitch/retailer/SlideGetStarted";
 import SlideThankYouRetail from "@/components/dominican-pitch/retailer/SlideThankYouRetail";
-import SlideThankYouSupport from "@/components/dominican-pitch/SlideThankYouSupport";
 import SlideProjects from "@/components/dominican-pitch/SlideProjects";
 import { NetworkProvider } from "@/components/dominican-pitch/NetworkContext";
 import { RetailerRevenueProvider } from "@/components/dominican-pitch/retailer/RetailerRevenueContext";
@@ -43,7 +42,6 @@ const SLIDES = [
   { id: "getStarted", type: "getStarted" },
   { id: "thankYou", type: "thankYou" },
   { id: "projects", type: "projects" },
-  { id: "closing", type: "closing" },
 ];
 
 const SLIDE_COMPONENTS = {
@@ -64,8 +62,6 @@ const SLIDE_COMPONENTS = {
   getStarted: SlideGetStarted,
   thankYou: SlideThankYouRetail,
   projects: SlideProjects,
-
-  closing: SlideThankYouSupport,
 };
 
 function DominicanDeck() {
