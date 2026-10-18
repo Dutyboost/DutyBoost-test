@@ -40,8 +40,8 @@ const SLIDES = [
   { id: "integrate", type: "integrate" },
   { id: "flywheel", type: "flywheel" },
   { id: "getStarted", type: "getStarted" },
-  { id: "thankYou", type: "thankYou" },
   { id: "projects", type: "projects" },
+  { id: "thankYou", type: "thankYou" },
 ];
 
 const SLIDE_COMPONENTS = {
