@@ -494,6 +494,12 @@ export default function ClaimDutyCredit() {
               </div>
             </div>
 
+            {/* Region availability disclaimer */}
+            <div className="flex items-start gap-2.5 bg-amber-50 border border-amber-200 rounded-xl p-3.5 print:hidden">
+              <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+              <p className="text-xs text-amber-900 leading-relaxed">{tr('region_disclaimer')}</p>
+            </div>
+
             {/* Discount tiers */}
             <div className="bg-card rounded-2xl border border-border p-6 space-y-3 print:p-3 print:space-y-1">
               <p className="text-sm font-semibold flex items-center gap-2">
