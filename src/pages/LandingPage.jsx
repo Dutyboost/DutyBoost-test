@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import { corporateStrings } from "@/lib/i18nCorporate";
-import { getAirportStrings } from "@/lib/i18nAirport";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
@@ -152,17 +151,16 @@ export default function LandingPage() {
               ];
 
               if (s.key === 'retailers') {
-                AdditionalIcons = [PlaneTakeoff, CruiseShipIcon, Route];
+                AdditionalIcons = [PlaneTakeoff, CruiseShipIcon, Route, TrainIcon];
                 title = eco.retailers.title;
                 description = eco.retailers.description;
                 benefits = [eco.retailers.b1, eco.retailers.b2, eco.retailers.b3];
               }
 
               if (s.key === 'airports') {
-                const ao = getAirportStrings(i18n.language).showcase;
-                AdditionalIcons = [Anchor];
+                AdditionalIcons = [Anchor, TrainIcon];
                 title = eco.airports.title;
-                description = ao.subtitle;
+                description = eco.airports.description;
                 benefits = [eco.airports.b1, eco.airports.b2, eco.airports.b3];
               }
 

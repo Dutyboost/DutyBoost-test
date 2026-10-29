@@ -5,17 +5,19 @@
 export const ecosystemCards = {
   en: {
     airports: {
-      title: 'Airports & Sea Ports',
-      b1: 'Concession on incremental sales',
+      title: 'Airports, Sea Ports & Train Stations',
+      description:
+        'Airports, sea ports and rail stations run the same model — retail concession above a guaranteed minimum. DutyBoost adds incremental sales on top of it.',
+      b1: 'Concession only on incremental sales',
       b2: 'No capex, no integration',
-      b3: 'Revenue above MAG, fully attributable',
+      b3: 'Above MAG — airport, port and rail alike',
     },
     retailers: {
       title: 'Travel Retail Partners',
       description:
-        'Airport, sea port and motorway service retailers convert passing travellers into paying customers — pre-activated shoppers who arrive with a DutyCredit already in hand.',
+        'Airport, sea port, cruise ship, motorway service and rail station retailers convert passing travellers into paying customers — pre-activated shoppers who arrive with a DutyCredit already in hand.',
       b1: 'Higher store conversion',
-      b2: 'Terminal and roadside in one network',
+      b2: 'Terminals, ships and stations in one network',
       b3: 'Pay only on results',
     },
     corporate: {
@@ -35,17 +37,19 @@ export const ecosystemCards = {
   },
   nl: {
     airports: {
-      title: 'Luchthavens & Zeehavens',
+      title: 'Luchthavens, Zeehavens & Treinstations',
+      description:
+        'Luchthavens, zeehavens en treinstations werken met hetzelfde model — retailconcessie boven een gegarandeerd minimum. DutyBoost voegt daar incrementele omzet aan toe.',
       b1: 'Concessie alleen op incrementele omzet',
       b2: 'Geen investering, geen integratie',
-      b3: 'Omzet boven MAG, volledig toe te rekenen',
+      b3: 'Boven MAG — luchthaven, haven én spoor',
     },
     retailers: {
       title: 'Reisretail Partners',
       description:
-        'Retailers op luchthavens, zeehavens en langs de snelweg zetten passerende reizigers om in betalende klanten — vooraf geactiveerde shoppers die al met een DutyCredit aankomen.',
+        'Retailers op luchthavens, zeehavens, cruiseschepen, langs de snelweg en op treinstations zetten passerende reizigers om in betalende klanten — vooraf geactiveerde shoppers die al met een DutyCredit aankomen.',
       b1: 'Hogere conversie in de winkel',
-      b2: 'Terminal en wegrestaurant in één netwerk',
+      b2: 'Terminal, schip en station in één netwerk',
       b3: 'Betaal alleen bij resultaat',
     },
     corporate: {
@@ -65,17 +69,19 @@ export const ecosystemCards = {
   },
   de: {
     airports: {
-      title: 'Flughäfen & Seehäfen',
+      title: 'Flughäfen, Seehäfen & Bahnhöfe',
+      description:
+        'Flughäfen, Seehäfen und Bahnhöfe folgen demselben Modell — Retail-Konzession über einem garantierten Minimum. DutyBoost schafft zusätzlichen Umsatz darüber hinaus.',
       b1: 'Konzession nur auf Zusatzumsatz',
       b2: 'Kein Capex, keine Integration',
-      b3: 'Umsatz über MAG, vollständig zuordenbar',
+      b3: 'Umsatz über MAG — Flughafen, Hafen und Bahn',
     },
     retailers: {
       title: 'Travel-Retail-Partner',
       description:
-        'Einzelhändler an Flughäfen, Seehäfen und Autobahnraststätten machen vorbeikommende Reisende zu zahlenden Kunden — vorab aktivierte Shopper, die mit einem DutyCredit ankommen.',
+        'Einzelhändler an Flughäfen, Seehäfen, auf Kreuzfahrtschiffen, an Autobahnraststätten und in Bahnhöfen machen vorbeikommende Reisende zu zahlenden Kunden — vorab aktivierte Shopper, die mit einem DutyCredit ankommen.',
       b1: 'Höhere Ladenkonversion',
-      b2: 'Terminal und Raststätte in einem Netzwerk',
+      b2: 'Terminal, Schiff und Bahnhof in einem Netzwerk',
       b3: 'Zahlung nur bei Ergebnis',
     },
     corporate: {
@@ -95,17 +101,19 @@ export const ecosystemCards = {
   },
   fr: {
     airports: {
-      title: 'Aéroports & Ports maritimes',
+      title: 'Aéroports, Ports & Gares',
+      description:
+        "Aéroports, ports et gares suivent le même modèle — une concession retail au-dessus d'un minimum garanti. DutyBoost y ajoute du chiffre d'affaires incrémental.",
       b1: "Concession uniquement sur le chiffre d'affaires incrémental",
       b2: 'Aucun investissement, aucune intégration',
-      b3: "Chiffre d'affaires au-dessus du MAG, entièrement attribuable",
+      b3: "Chiffre d'affaires au-dessus du MAG — aéroport, port et rail",
     },
     retailers: {
       title: 'Partenaires du retail de voyage',
       description:
-        "Les enseignes des aéroports, des ports maritimes et des aires d'autoroute transforment les voyageurs de passage en clients payants — des acheteurs pré-activés qui arrivent avec un DutyCredit en main.",
+        "Les enseignes des aéroports, des ports maritimes, des navires de croisière, des aires d'autoroute et des gares transforment les voyageurs de passage en clients payants — des acheteurs pré-activés qui arrivent avec un DutyCredit en main.",
       b1: 'Meilleure conversion en magasin',
-      b2: 'Terminal et aire de repos dans un seul réseau',
+      b2: 'Terminal, navire et gare dans un seul réseau',
       b3: 'Paiement au résultat uniquement',
     },
     corporate: {
@@ -125,17 +133,19 @@ export const ecosystemCards = {
   },
   es: {
     airports: {
-      title: 'Aeropuertos y Puertos Marítimos',
+      title: 'Aeropuertos, Puertos y Estaciones',
+      description:
+        'Aeropuertos, puertos y estaciones comparten el mismo modelo: concesión retail por encima de un mínimo garantizado. DutyBoost añade ventas incrementales por encima.',
       b1: 'Concesión solo sobre ventas incrementales',
       b2: 'Sin inversión, sin integración',
-      b3: 'Ingresos por encima del MAG, totalmente atribuibles',
+      b3: 'Por encima del MAG — aeropuerto, puerto y ferrocarril',
     },
     retailers: {
       title: 'Socios de retail de viaje',
       description:
-        'Los minoristas de aeropuertos, puertos marítimos y áreas de servicio convierten a los pasajeros en clientes que pagan — compradores preactivados que llegan con un DutyCredit en la mano.',
+        'Los minoristas de aeropuertos, puertos marítimos, cruceros, áreas de servicio y estaciones de tren convierten a los pasajeros en clientes que pagan — compradores preactivados que llegan con un DutyCredit en la mano.',
       b1: 'Mayor conversión en tienda',
-      b2: 'Terminal y área de servicio en una sola red',
+      b2: 'Terminal, barco y estación en una sola red',
       b3: 'Pague solo por resultados',
     },
     corporate: {
@@ -155,17 +165,19 @@ export const ecosystemCards = {
   },
   it: {
     airports: {
-      title: 'Aeroporti & Porti marittimi',
+      title: 'Aeroporti, Porti & Stazioni',
+      description:
+        'Aeroporti, porti e stazioni seguono lo stesso modello: concessione retail sopra un minimo garantito. DutyBoost aggiunge vendite incrementali.',
       b1: 'Concessione solo sulle vendite incrementali',
       b2: 'Nessun investimento, nessuna integrazione',
-      b3: 'Ricavi sopra il MAG, interamente attribuibili',
+      b3: 'Ricavi sopra il MAG — aeroporto, porto e ferrovia',
     },
     retailers: {
       title: 'Partner del retail di viaggio',
       description:
-        'I retailer di aeroporti, porti marittimi e aree di servizio trasformano i viaggiatori di passaggio in clienti paganti — acquirenti pre-attivati che arrivano con un DutyCredit.',
+        'I retailer di aeroporti, porti marittimi, navi da crociera, aree di servizio e stazioni ferroviarie trasformano i viaggiatori di passaggio in clienti paganti — acquirenti pre-attivati che arrivano con un DutyCredit.',
       b1: 'Maggiore conversione in negozio',
-      b2: "Terminal e area di servizio in un'unica rete",
+      b2: "Terminal, nave e stazione in un'unica rete",
       b3: 'Paghi solo sui risultati',
     },
     corporate: {
@@ -185,17 +197,19 @@ export const ecosystemCards = {
   },
   pt: {
     airports: {
-      title: 'Aeroportos e Portos Marítimos',
+      title: 'Aeroportos, Portos e Estações',
+      description:
+        'Aeroportos, portos e estações seguem o mesmo modelo: concessão de retalho acima de um mínimo garantido. O DutyBoost acrescenta vendas incrementais.',
       b1: 'Concessão apenas sobre vendas incrementais',
       b2: 'Sem investimento, sem integração',
-      b3: 'Receita acima do MAG, totalmente atribuível',
+      b3: 'Receita acima do MAG — aeroporto, porto e ferrovia',
     },
     retailers: {
       title: 'Parceiros de retalho de viagem',
       description:
-        'Os retalhistas de aeroportos, portos marítimos e áreas de serviço convertem passageiros em clientes pagantes — compradores pré-ativados que chegam com um DutyCredit.',
+        'Os retalhistas de aeroportos, portos marítimos, navios de cruzeiro, áreas de serviço e estações ferroviárias convertem passageiros em clientes pagantes — compradores pré-ativados que chegam com um DutyCredit.',
       b1: 'Maior conversão em loja',
-      b2: 'Terminal e área de serviço numa só rede',
+      b2: 'Terminal, navio e estação numa só rede',
       b3: 'Pague apenas pelos resultados',
     },
     corporate: {
@@ -215,17 +229,19 @@ export const ecosystemCards = {
   },
   ja: {
     airports: {
-      title: '空港・海港',
+      title: '空港・海港・鉄道駅',
+      description:
+        '空港・海港・鉄道駅はいずれも同じモデルです。保証最低額を超えた小売売上へのコンセッションで、DutyBoostはその上に増分売上を積み上げます。',
       b1: '増分売上のみへのコンセッション',
       b2: '設備投資も統合も不要',
-      b3: 'MAG超過分の売上を完全に帰属',
+      b3: 'MAG超過分の売上を完全に帰属 — 空港・港・鉄道',
     },
     retailers: {
       title: 'トラベルリテールパートナー',
       description:
-        '空港・海港・高速道路のサービスエリアの小売事業者が、通りすがりの旅行者を購買客に変えます。DutyCreditを手に到着する、事前に活性化された買い物客です。',
+        '空港・海港・クルーズ船内・高速道路のサービスエリア・鉄道駅の小売事業者が、通りすがりの旅行者を購買客に変えます。DutyCreditを手に到着する、事前に活性化された買い物客です。',
       b1: '店舗コンバージョンの向上',
-      b2: 'ターミナルとサービスエリアを1つのネットワークに',
+      b2: 'ターミナル・船内・駅を1つのネットワークに',
       b3: '成果があった分だけ支払い',
     },
     corporate: {
@@ -245,17 +261,19 @@ export const ecosystemCards = {
   },
   ko: {
     airports: {
-      title: '공항 및 해항',
+      title: '공항·해항·기차역',
+      description:
+        '공항·해항·기차역은 모두 같은 구조입니다. 보장 최소액을 넘는 소매 매출에 대한 수수료이며, DutyBoost가 그 위에 증분 매출을 더합니다.',
       b1: '증분 매출에만 적용되는 수수료',
       b2: '설비 투자와 연동 없음',
-      b3: 'MAG 초과 매출 전액 귀속',
+      b3: 'MAG 초과 매출 전액 귀속 — 공항·항만·철도',
     },
     retailers: {
       title: '트래블 리테일 파트너',
       description:
-        '공항, 해항, 고속도로 휴게소의 리테일러가 지나가는 여행자를 구매 고객으로 전환합니다. DutyCredit을 들고 도착하는 사전 활성화된 쇼퍼입니다.',
+        '공항, 해항, 크루즈 선내, 고속도로 휴게소, 기차역의 리테일러가 지나가는 여행자를 구매 고객으로 전환합니다. DutyCredit을 들고 도착하는 사전 활성화된 쇼퍼입니다.',
       b1: '매장 전환율 향상',
-      b2: '터미널과 휴게소를 하나의 네트워크로',
+      b2: '터미널·선내·역을 하나의 네트워크로',
       b3: '성과에 대해서만 지불',
     },
     corporate: {
@@ -275,17 +293,19 @@ export const ecosystemCards = {
   },
   zh: {
     airports: {
-      title: '机场与海港',
+      title: '机场、海港与火车站',
+      description:
+        '机场、海港和火车站采用同一模式：在保底金额之上的零售佣金。DutyBoost 在此之上带来增量销售。',
       b1: '仅对增量销售收取佣金',
       b2: '无需资本投入，无需系统集成',
-      b3: '超过 MAG 的收入全额归属',
+      b3: '超过 MAG 的收入全额归属——机场、港口与铁路',
     },
     retailers: {
       title: '旅行零售合作伙伴',
       description:
-        '机场、海港和高速公路服务区的零售商将过境旅客转化为付费顾客——他们抵达时已持有并激活了 DutyCredit。',
+        '机场、海港、邮轮、高速公路服务区和火车站的零售商将过境旅客转化为付费顾客——他们抵达时已持有并激活了 DutyCredit。',
       b1: '更高的门店转化率',
-      b2: '航站楼与服务区同属一个网络',
+      b2: '航站楼、船上与车站同属一个网络',
       b3: '只为结果付费',
     },
     corporate: {
