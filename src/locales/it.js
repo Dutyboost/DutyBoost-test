@@ -106,7 +106,7 @@ export default {
       },
       agencies: {
         title: 'Partner di viaggio',
-        description: 'I partner di viaggio possono premiare i loro clienti con crediti shopping esclusivi in aeroporto per ogni prenotazione — che operino come agenzia di viaggi, compagnia aerea, alloggio, autonoleggio o servizio di trasferimento. Una semplice integrazione genera automaticamente crediti personalizzati consegnati via e-mail ai clienti, offrendo un vantaggio fedeltà concreto.',
+        description: 'I partner di viaggio possono premiare i loro clienti con crediti shopping esclusivi in aeroporto per ogni prenotazione — che operino come agenzia di viaggi, compagnia aerea, alloggio, autonoleggio o operatore ferroviario. Una semplice integrazione genera automaticamente crediti personalizzati consegnati via e-mail ai clienti, offrendo un vantaggio fedeltà concreto.',
         b1: 'Fedeltà dei clienti più forte',
         b2: 'Zero sforzo operativo',
         b3: 'Nuovo flusso di ricavi passivi',

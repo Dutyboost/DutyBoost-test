@@ -107,7 +107,7 @@ export default {
       },
       agencies: {
         title: 'Reisepartner',
-        description: 'Reisepartner können ihre Kunden bei jeder Buchung mit exklusiven Flughafen-Shopping-Guthaben belohnen — ob sie als Reisebüro, Fluggesellschaft, Unterkunft, Mietwagenunternehmen oder Transferservice agieren. Eine einfache Integration erzeugt automatisch personalisierte Guthaben, die per E-Mail an Kunden geliefert werden, einen sinnvollen Treuevorteil bieten.',
+        description: 'Reisepartner können ihre Kunden bei jeder Buchung mit exklusiven Flughafen-Shopping-Guthaben belohnen — ob sie als Reisebüro, Fluggesellschaft, Unterkunft, Mietwagenunternehmen oder Bahnbetreiber agieren. Eine einfache Integration erzeugt automatisch personalisierte Guthaben, die per E-Mail an Kunden geliefert werden, einen sinnvollen Treuevorteil bieten.',
         b1: 'Stärkere Kundenbindung',
         b2: 'Null operativer Aufwand',
         b3: 'Neuer passiver Einnahmestrom',

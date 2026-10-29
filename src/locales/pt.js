@@ -112,7 +112,7 @@ export default {
       },
       agencies: {
         title: 'Parceiros de Viagens',
-        description: 'Os parceiros de viagens podem recompensar os seus clientes com créditos exclusivos de compras de aeroporto em cada reserva — quer atuem como agência de viagens, companhia aérea, alojamento, aluguer de automóveis ou serviço de transfers. Uma integração simples gera automaticamente créditos personalizados, entregues aos clientes por email, proporcionando um benefício de fidelização com valor real.',
+        description: 'Os parceiros de viagens podem recompensar os seus clientes com créditos exclusivos de compras de aeroporto em cada reserva — quer atuem como agência de viagens, companhia aérea, alojamento, aluguer de automóveis ou operador ferroviário. Uma integração simples gera automaticamente créditos personalizados, entregues aos clientes por email, proporcionando um benefício de fidelização com valor real.',
         b1: 'Maior fidelização de clientes',
         b2: 'Zero esforço operacional',
         b3: 'Nova fonte de receita passiva',

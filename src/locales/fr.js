@@ -107,7 +107,7 @@ export default {
       },
       agencies: {
         title: 'Partenaires de voyage',
-        description: 'Les partenaires de voyage peuvent récompenser leurs clients avec des crédits shopping exclusifs à l\'aéroport sur chaque réservation — qu\'ils opèrent en tant qu\'agence de voyage, compagnie aérienne, hébergement, loueur de voitures ou service de transfert. Une intégration simple génère automatiquement des crédits personnalisés livrés par e-mail aux clients, offrant un avantage de fidélité concret.',
+        description: 'Les partenaires de voyage peuvent récompenser leurs clients avec des crédits shopping exclusifs à l\'aéroport sur chaque réservation — qu\'ils opèrent en tant qu\'agence de voyage, compagnie aérienne, hébergement, loueur de voitures ou opérateur ferroviaire. Une intégration simple génère automatiquement des crédits personnalisés livrés par e-mail aux clients, offrant un avantage de fidélité concret.',
         b1: 'Fidélité client renforcée',
         b2: 'Zéro effort opérationnel',
         b3: 'Nouveau flux de revenus passifs',
