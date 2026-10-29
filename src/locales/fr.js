@@ -45,7 +45,7 @@ export default {
       hub_subtitle: "L'étape finale qui rassemble tout l'écosystème.",
       nodes: {
         pos: 'Partenaires POS',
-        retailers: "Détaillants en Terminal",
+        retailers: "Retail de voyage",
         airports: "Partenaires Aéroports et Ports Maritimes",
         travelers: 'Voyageurs',
         local: 'Partenaires Détaillants Locaux',

@@ -50,7 +50,7 @@ export default {
       hub_subtitle: 'The final step that brings the entire ecosystem together.',
       nodes: {
         pos: 'POS Partners',
-        retailers: 'Terminal Retailers',
+        retailers: 'Travel Retailers',
         airports: 'Airport & Sea Port Partners',
         travelers: 'Travellers',
         local: 'Local Retail Partners',

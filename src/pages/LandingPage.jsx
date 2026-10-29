@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight, Menu, X, Cpu, Building2, Anchor, PlaneTakeoff
+  ArrowRight, Menu, X, Cpu, Building2, Anchor, PlaneTakeoff, Route
 } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import { corporateStrings } from "@/lib/i18nCorporate";
@@ -15,6 +15,8 @@ import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
+import TrainIcon from "../components/TrainIcon";
+import { getEcosystemCardsStrings } from "@/lib/i18nEcosystemCards";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
 import TravellerJourneyOval from "../components/TravellerJourneyOval";
@@ -25,6 +27,7 @@ export default function LandingPage() {
   const navigate = useNavigate();
   const corporateLang = (i18n.language || "en").split("-")[0];
   const corporateOne = (corporateStrings[corporateLang] || corporateStrings.en).onepager;
+  const eco = getEcosystemCardsStrings(i18n.language);
 
 
 
@@ -149,45 +152,35 @@ export default function LandingPage() {
               ];
 
               if (s.key === 'retailers') {
-                AdditionalIcons = [PlaneTakeoff, CruiseShipIcon];
-                title = 'Terminal Retail Partners';
+                AdditionalIcons = [PlaneTakeoff, CruiseShipIcon, Route];
+                title = eco.retailers.title;
+                description = eco.retailers.description;
+                benefits = [eco.retailers.b1, eco.retailers.b2, eco.retailers.b3];
               }
 
               if (s.key === 'airports') {
                 const ao = getAirportStrings(i18n.language).showcase;
                 AdditionalIcons = [Anchor];
-                title = 'Airports & Sea Ports';
+                title = eco.airports.title;
                 description = ao.subtitle;
-                benefits = [
-                  ao.why2_title + ' — concession on incremental sales.',
-                  ao.why1_title + ' — no capex, no integration.',
-                  ao.why3_title + ' — revenue realised above MAG.',
-                ];
+                benefits = [eco.airports.b1, eco.airports.b2, eco.airports.b3];
               }
 
               if (s.key === 'corporate') {
-                title = 'Corporate Travel Partners';
+                title = eco.corporate.title;
                 description = corporateOne.subtitle;
-                benefits = [
-                  'Earn 20% on every validated airport basket — paid monthly.',
-                  'Zero cost, zero risk: you only earn, never pay.',
-                  'One snippet activates every business trip — no system change.',
-                ];
+                benefits = [eco.corporate.b1, eco.corporate.b2, eco.corporate.b3];
               }
               
               if (s.key === 'agencies') {
-                         AdditionalIcons = [CruiseShipIcon, HotelIcon, CarRentalIcon];
-                       }
+                AdditionalIcons = [CruiseShipIcon, TrainIcon, HotelIcon, CarRentalIcon];
+              }
 
               if (s.key === 'portsRetailers') {
                 AdditionalIcons = [PlaneTakeoff, CruiseShipIcon];
-                title = 'Local Retail Partners';
-                description = 'Cruise passengers and air travellers all end up down town — this is where both flows meet. Airport shops and cruise terminals are one stop on the way; your store is where every traveller arrives, ready to redeem a DutyCredit however they got here.';
-                benefits = [
-                  'Cruise and air travellers in one flow',
-                  'Redeem DutyCredits on any arrival route',
-                  'Pay only on results',
-                ];
+                title = eco.local.title;
+                description = eco.local.description;
+                benefits = [eco.local.b1, eco.local.b2, eco.local.b3];
               }
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'portsRetailers' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
@@ -205,7 +198,7 @@ export default function LandingPage() {
                       </div>
                     ))}
                   </div>
-                  <h3 className="font-heading font-bold text-sm whitespace-nowrap mb-1">{title}</h3>
+                  <h3 className="font-heading font-bold text-sm leading-tight mb-1">{title}</h3>
                   <p className="text-muted-foreground text-xs leading-snug mb-2">{description}</p>
                   <ul className="space-y-1">
                     {benefits.map((b) => (

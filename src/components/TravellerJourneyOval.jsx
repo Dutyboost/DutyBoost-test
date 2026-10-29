@@ -5,6 +5,7 @@ import TravelAgencyIcon from "./TravelAgencyIcon";
 import AirportRetailerIcon from "./AirportRetailerIcon";
 import HotelIcon from "./HotelIcon";
 import CarRentalIcon from "./CarRentalIcon";
+import TrainIcon from "./TrainIcon";
 import StakeholderNodeCard from "./StakeholderNodeCard";
 import TravellerTransactionHub from "./TravellerTransactionHub";
 
@@ -16,7 +17,7 @@ const NODES = [
   { key: 'airports', Icon: PlaneTakeoff, bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", link: "/airport-showcase", extraIcons: [Anchor] },
   { key: 'local', Icon: AirportRetailerIcon, bg: "bg-violet-50", border: "border-violet-200", fg: "text-violet-600", link: "/local-retailers", extraIcons: [] },
   { key: 'corporate', Icon: Building2, bg: "bg-slate-50", border: "border-slate-200", fg: "text-slate-600", link: "/corporate-partner-showcase", extraIcons: [] },
-  { key: 'travel', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", link: "/get-started?from=agency", extraIcons: [CruiseShipIcon, HotelIcon, CarRentalIcon] },
+  { key: 'travel', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", link: "/get-started?from=agency", extraIcons: [CruiseShipIcon, TrainIcon, HotelIcon, CarRentalIcon] },
 ];
 
 export default function TravellerJourneyOval() {

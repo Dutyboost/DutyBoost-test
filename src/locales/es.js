@@ -44,7 +44,7 @@ export default {
       hub_subtitle: 'El paso final que reúne a todo el ecosistema.',
       nodes: {
         pos: 'Socios POS',
-        retailers: 'Minoristas de Terminal',
+        retailers: 'Minoristas de viaje',
         airports: 'Socios de Aeropuerto y Puerto Marítimo',
         travelers: 'Pasajeros',
         local: 'Socios Minoristas Locales',

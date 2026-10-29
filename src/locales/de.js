@@ -45,7 +45,7 @@ export default {
       hub_subtitle: 'Der letzte Schritt, der das gesamte Ökosystem zusammenbringt.',
       nodes: {
         pos: 'POS-Partner',
-        retailers: 'Terminal-Einzelhändler',
+        retailers: 'Travel-Retail-Partner',
         airports: 'Flughafen- & Seehafen-Partner',
         travelers: 'Reisende',
         local: 'Lokale Einzelhandelspartner',

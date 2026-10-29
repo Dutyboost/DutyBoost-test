@@ -1,0 +1,309 @@
+// Card copy for the ecosystem stakeholder grid on the landing page.
+// Travel retail (terminal + en-route/roadside) sits on the redeem side;
+// rail sits inside the travel-partner family on the issue side.
+
+export const ecosystemCards = {
+  en: {
+    airports: {
+      title: 'Airports & Sea Ports',
+      b1: 'Concession on incremental sales',
+      b2: 'No capex, no integration',
+      b3: 'Revenue above MAG, fully attributable',
+    },
+    retailers: {
+      title: 'Travel Retail Partners',
+      description:
+        'Airport, sea port and motorway service retailers convert passing travellers into paying customers — pre-activated shoppers who arrive with a DutyCredit already in hand.',
+      b1: 'Higher store conversion',
+      b2: 'Terminal and roadside in one network',
+      b3: 'Pay only on results',
+    },
+    corporate: {
+      title: 'Corporate Travel Partners',
+      b1: 'Earn 20% on every validated basket — paid monthly',
+      b2: 'Zero cost, zero risk: you only earn, never pay',
+      b3: 'One snippet activates every business trip — no system change',
+    },
+    local: {
+      title: 'Local Retail Partners',
+      description:
+        'Cruise passengers and air travellers all end up down town — this is where both flows meet. Airport shops and cruise terminals are one stop on the way; your store is where every traveller arrives, ready to redeem a DutyCredit however they got here.',
+      b1: 'Cruise and air travellers in one flow',
+      b2: 'Redeem DutyCredits on any arrival route',
+      b3: 'Pay only on results',
+    },
+  },
+  nl: {
+    airports: {
+      title: 'Luchthavens & Zeehavens',
+      b1: 'Concessie alleen op incrementele omzet',
+      b2: 'Geen investering, geen integratie',
+      b3: 'Omzet boven MAG, volledig toe te rekenen',
+    },
+    retailers: {
+      title: 'Reisretail Partners',
+      description:
+        'Retailers op luchthavens, zeehavens en langs de snelweg zetten passerende reizigers om in betalende klanten — vooraf geactiveerde shoppers die al met een DutyCredit aankomen.',
+      b1: 'Hogere conversie in de winkel',
+      b2: 'Terminal en wegrestaurant in één netwerk',
+      b3: 'Betaal alleen bij resultaat',
+    },
+    corporate: {
+      title: 'Zakelijke Reispartners',
+      b1: '20% op elke gevalideerde basket — maandelijks uitbetaald',
+      b2: 'Nul kosten, nul risico: u verdient alleen, u betaalt nooit',
+      b3: 'Eén snippet activeert elke zakenreis — geen systeemwijziging',
+    },
+    local: {
+      title: 'Lokale Retailpartners',
+      description:
+        'Cruisepassagiers en luchtreizigers komen allemaal in het centrum uit — hier komen beide stromen samen. Luchthavenwinkels en cruiseterminals zijn een stop onderweg; uw winkel is waar elke reiziger aankomt, klaar om een DutyCredit te verzilveren, ongeacht de route.',
+      b1: 'Cruise- en luchtreizigers in één stroom',
+      b2: 'Verzilver DutyCredits op elke aankomstroute',
+      b3: 'Betaal alleen bij resultaat',
+    },
+  },
+  de: {
+    airports: {
+      title: 'Flughäfen & Seehäfen',
+      b1: 'Konzession nur auf Zusatzumsatz',
+      b2: 'Kein Capex, keine Integration',
+      b3: 'Umsatz über MAG, vollständig zuordenbar',
+    },
+    retailers: {
+      title: 'Travel-Retail-Partner',
+      description:
+        'Einzelhändler an Flughäfen, Seehäfen und Autobahnraststätten machen vorbeikommende Reisende zu zahlenden Kunden — vorab aktivierte Shopper, die mit einem DutyCredit ankommen.',
+      b1: 'Höhere Ladenkonversion',
+      b2: 'Terminal und Raststätte in einem Netzwerk',
+      b3: 'Zahlung nur bei Ergebnis',
+    },
+    corporate: {
+      title: 'Geschäftsreise-Partner',
+      b1: '20 % auf jeden validierten Warenkorb — monatlich ausgezahlt',
+      b2: 'Null Kosten, null Risiko: Sie verdienen nur, Sie zahlen nie',
+      b3: 'Ein Snippet aktiviert jede Geschäftsreise — keine Systemänderung',
+    },
+    local: {
+      title: 'Lokale Einzelhandelspartner',
+      description:
+        'Kreuzfahrt- und Flugreisende landen alle in der Innenstadt — hier treffen beide Ströme zusammen. Flughafenshops und Kreuzfahrtterminals sind ein Zwischenstopp; Ihr Geschäft ist der Ort, an dem jeder Reisende ankommt, bereit, einen DutyCredit einzulösen, egal wie er hierhergekommen ist.',
+      b1: 'Kreuzfahrt- und Flugreisende in einem Fluss',
+      b2: 'DutyCredits auf jeder Ankunftsroute einlösen',
+      b3: 'Zahlung nur bei Ergebnis',
+    },
+  },
+  fr: {
+    airports: {
+      title: 'Aéroports & Ports maritimes',
+      b1: "Concession uniquement sur le chiffre d'affaires incrémental",
+      b2: 'Aucun investissement, aucune intégration',
+      b3: "Chiffre d'affaires au-dessus du MAG, entièrement attribuable",
+    },
+    retailers: {
+      title: 'Partenaires du retail de voyage',
+      description:
+        "Les enseignes des aéroports, des ports maritimes et des aires d'autoroute transforment les voyageurs de passage en clients payants — des acheteurs pré-activés qui arrivent avec un DutyCredit en main.",
+      b1: 'Meilleure conversion en magasin',
+      b2: 'Terminal et aire de repos dans un seul réseau',
+      b3: 'Paiement au résultat uniquement',
+    },
+    corporate: {
+      title: "Partenaires voyages d'affaires",
+      b1: '20 % sur chaque panier validé — versé mensuellement',
+      b2: 'Zéro coût, zéro risque : vous ne faites que gagner',
+      b3: "Un seul snippet active chaque voyage d'affaires — sans changer de système",
+    },
+    local: {
+      title: 'Partenaires retail locaux',
+      description:
+        "Les passagers de croisière et les voyageurs aériens finissent tous en centre-ville — c'est là que les deux flux se rencontrent. Les boutiques d'aéroport et les terminaux de croisière sont une étape ; votre magasin est le point d'arrivée de chaque voyageur, prêt à utiliser un DutyCredit quel que soit son itinéraire.",
+      b1: 'Croisière et air dans un seul flux',
+      b2: "Utilisez les DutyCredits sur toute route d'arrivée",
+      b3: 'Paiement au résultat uniquement',
+    },
+  },
+  es: {
+    airports: {
+      title: 'Aeropuertos y Puertos Marítimos',
+      b1: 'Concesión solo sobre ventas incrementales',
+      b2: 'Sin inversión, sin integración',
+      b3: 'Ingresos por encima del MAG, totalmente atribuibles',
+    },
+    retailers: {
+      title: 'Socios de retail de viaje',
+      description:
+        'Los minoristas de aeropuertos, puertos marítimos y áreas de servicio convierten a los pasajeros en clientes que pagan — compradores preactivados que llegan con un DutyCredit en la mano.',
+      b1: 'Mayor conversión en tienda',
+      b2: 'Terminal y área de servicio en una sola red',
+      b3: 'Pague solo por resultados',
+    },
+    corporate: {
+      title: 'Socios de viajes corporativos',
+      b1: 'Gane un 20 % en cada cesta validada — pagado mensualmente',
+      b2: 'Cero coste, cero riesgo: solo gana, nunca paga',
+      b3: 'Un solo snippet activa cada viaje de empresa — sin cambiar de sistema',
+    },
+    local: {
+      title: 'Minoristas locales',
+      description:
+        'Los pasajeros de crucero y los pasajeros aéreos acaban todos en el centro — aquí se encuentran ambos flujos. Las tiendas del aeropuerto y las terminales de crucero son una parada; su tienda es donde llega cada pasajero, listo para canjear un DutyCredit venga de donde venga.',
+      b1: 'Pasajeros de crucero y aéreos en un solo flujo',
+      b2: 'Canjee DutyCredits en cualquier ruta de llegada',
+      b3: 'Pague solo por resultados',
+    },
+  },
+  it: {
+    airports: {
+      title: 'Aeroporti & Porti marittimi',
+      b1: 'Concessione solo sulle vendite incrementali',
+      b2: 'Nessun investimento, nessuna integrazione',
+      b3: 'Ricavi sopra il MAG, interamente attribuibili',
+    },
+    retailers: {
+      title: 'Partner del retail di viaggio',
+      description:
+        'I retailer di aeroporti, porti marittimi e aree di servizio trasformano i viaggiatori di passaggio in clienti paganti — acquirenti pre-attivati che arrivano con un DutyCredit.',
+      b1: 'Maggiore conversione in negozio',
+      b2: "Terminal e area di servizio in un'unica rete",
+      b3: 'Paghi solo sui risultati',
+    },
+    corporate: {
+      title: 'Partner viaggi aziendali',
+      b1: 'Guadagni il 20% su ogni carrello validato — pagato mensilmente',
+      b2: 'Zero costi, zero rischi: guadagni e non paghi mai',
+      b3: "Un solo snippet attiva ogni viaggio d'affari — nessun cambio di sistema",
+    },
+    local: {
+      title: 'Partner retail locali',
+      description:
+        'I passeggeri delle crociere e i viaggiatori aerei finiscono tutti in centro — è qui che i due flussi si incontrano. I negozi in aeroporto e i terminal crociere sono una tappa; il tuo negozio è dove arriva ogni viaggiatore, pronto a utilizzare un DutyCredit qualunque sia il percorso.',
+      b1: 'Crociera e volo in un unico flusso',
+      b2: 'Utilizza i DutyCredit su ogni rotta di arrivo',
+      b3: 'Paghi solo sui risultati',
+    },
+  },
+  pt: {
+    airports: {
+      title: 'Aeroportos e Portos Marítimos',
+      b1: 'Concessão apenas sobre vendas incrementais',
+      b2: 'Sem investimento, sem integração',
+      b3: 'Receita acima do MAG, totalmente atribuível',
+    },
+    retailers: {
+      title: 'Parceiros de retalho de viagem',
+      description:
+        'Os retalhistas de aeroportos, portos marítimos e áreas de serviço convertem passageiros em clientes pagantes — compradores pré-ativados que chegam com um DutyCredit.',
+      b1: 'Maior conversão em loja',
+      b2: 'Terminal e área de serviço numa só rede',
+      b3: 'Pague apenas pelos resultados',
+    },
+    corporate: {
+      title: 'Parceiros de viagens corporativas',
+      b1: 'Ganhe 20% em cada cesto validado — pago mensalmente',
+      b2: 'Custo zero, risco zero: só ganha, nunca paga',
+      b3: 'Um único snippet ativa cada viagem de negócios — sem alterar o sistema',
+    },
+    local: {
+      title: 'Parceiros de retalho locais',
+      description:
+        'Os passageiros de cruzeiro e os passageiros aéreos acabam todos no centro — é aqui que os dois fluxos se encontram. As lojas do aeroporto e os terminais de cruzeiro são uma paragem; a sua loja é onde cada passageiro chega, pronto para utilizar um DutyCredit, seja qual for a rota.',
+      b1: 'Cruzeiro e avião num só fluxo',
+      b2: 'Utilize DutyCredits em qualquer rota de chegada',
+      b3: 'Pague apenas pelos resultados',
+    },
+  },
+  ja: {
+    airports: {
+      title: '空港・海港',
+      b1: '増分売上のみへのコンセッション',
+      b2: '設備投資も統合も不要',
+      b3: 'MAG超過分の売上を完全に帰属',
+    },
+    retailers: {
+      title: 'トラベルリテールパートナー',
+      description:
+        '空港・海港・高速道路のサービスエリアの小売事業者が、通りすがりの旅行者を購買客に変えます。DutyCreditを手に到着する、事前に活性化された買い物客です。',
+      b1: '店舗コンバージョンの向上',
+      b2: 'ターミナルとサービスエリアを1つのネットワークに',
+      b3: '成果があった分だけ支払い',
+    },
+    corporate: {
+      title: '法人旅行パートナー',
+      b1: '検証済みの買い物ごとに20%を獲得 — 毎月支払い',
+      b2: 'コストもリスクもゼロ：受け取るだけで支払いはありません',
+      b3: '1つのスニペットで全ての出張を活性化 — システム変更不要',
+    },
+    local: {
+      title: '地域リテールパートナー',
+      description:
+        'クルーズ客も航空客も最終的には中心街に到着します。ここで2つの流れが出会います。空港の店舗やクルーズターミナルは通過点であり、お客様の店舗はどのルートで来ても旅行者が到着する場所です。',
+      b1: 'クルーズと航空の旅行者を1つの流れに',
+      b2: 'どの到着ルートでもDutyCreditを利用可能',
+      b3: '成果があった分だけ支払い',
+    },
+  },
+  ko: {
+    airports: {
+      title: '공항 및 해항',
+      b1: '증분 매출에만 적용되는 수수료',
+      b2: '설비 투자와 연동 없음',
+      b3: 'MAG 초과 매출 전액 귀속',
+    },
+    retailers: {
+      title: '트래블 리테일 파트너',
+      description:
+        '공항, 해항, 고속도로 휴게소의 리테일러가 지나가는 여행자를 구매 고객으로 전환합니다. DutyCredit을 들고 도착하는 사전 활성화된 쇼퍼입니다.',
+      b1: '매장 전환율 향상',
+      b2: '터미널과 휴게소를 하나의 네트워크로',
+      b3: '성과에 대해서만 지불',
+    },
+    corporate: {
+      title: '기업 출장 파트너',
+      b1: '검증된 장바구니마다 20% 수익 — 매월 지급',
+      b2: '비용도 리스크도 없음: 수익만 얻고 결제하지 않음',
+      b3: '스니펫 하나로 모든 출장 활성화 — 시스템 변경 없음',
+    },
+    local: {
+      title: '지역 리테일 파트너',
+      description:
+        '크루즈 승객과 항공 여행자는 모두 결국 도심에 도착합니다. 두 흐름이 만나는 지점입니다. 공항 매장과 크루즈 터미널은 경유지이며, 어떤 경로로 오더라도 모든 여행자가 도착하는 곳이 바로 매장입니다.',
+      b1: '크루즈와 항공 여행자를 하나의 흐름으로',
+      b2: '모든 도착 경로에서 DutyCredit 사용',
+      b3: '성과에 대해서만 지불',
+    },
+  },
+  zh: {
+    airports: {
+      title: '机场与海港',
+      b1: '仅对增量销售收取佣金',
+      b2: '无需资本投入，无需系统集成',
+      b3: '超过 MAG 的收入全额归属',
+    },
+    retailers: {
+      title: '旅行零售合作伙伴',
+      description:
+        '机场、海港和高速公路服务区的零售商将过境旅客转化为付费顾客——他们抵达时已持有并激活了 DutyCredit。',
+      b1: '更高的门店转化率',
+      b2: '航站楼与服务区同属一个网络',
+      b3: '只为结果付费',
+    },
+    corporate: {
+      title: '企业差旅合作伙伴',
+      b1: '每笔验证订单获得 20% 收益——按月结算',
+      b2: '零成本、零风险：只赚不赔',
+      b3: '一个代码片段激活每次商务出行——无需更改系统',
+    },
+    local: {
+      title: '本地零售合作伙伴',
+      description:
+        '邮轮乘客与航空旅客最终都会来到市中心——两种客流在此交汇。机场商店和邮轮码头只是途经点，而无论走哪条路线，旅客最终都会抵达您的门店。',
+      b1: '邮轮与航空旅客汇于一个客流',
+      b2: '在任何抵达路线上核销 DutyCredit',
+      b3: '只为结果付费',
+    },
+  },
+};
+
+export const getEcosystemCardsStrings = (lang) =>
+  ecosystemCards[(lang || 'en').split('-')[0]] || ecosystemCards.en;
