@@ -28,7 +28,7 @@ export default {
    tagline: '',
      },
     ecosystem: {
-      title: 'Un ecosistema comercial, ocho ganadores',
+      title: 'Un ecosistema comercial, siete ganadores',
       subtitle: 'Una solución compartida que convierte a cada participante en ganador a través de un único sistema operativo comercial — una solución de adquisición de clientes basada en el rendimiento para el sector de viajes global.',
       platform_fee_note: 'Cada canje impulsa todo el ecosistema. Una única comisión basada en el rendimiento se comparte automáticamente entre el socio de viaje, el socio POS y DutyBoost—creando valor para todos, sin coste adicional para el minorista aeroportuario.',
     },

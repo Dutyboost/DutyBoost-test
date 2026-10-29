@@ -16,7 +16,7 @@ export default {
     },
     ecosystem: {
       badge: '生态系统',
-      title: '一个平台，八方共赢',
+      title: '一个平台，七方共赢',
       sub: 'DutyBoost协调机场零售旅程中所有利益相关者的激励措施——在每个接触点创造价值。',
     },
     stakeholders: {

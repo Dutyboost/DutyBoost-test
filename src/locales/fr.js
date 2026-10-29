@@ -29,7 +29,7 @@ export default {
       tagline: '',
     },
     ecosystem: {
-      title: 'Un écosystème commercial, huit gagnants',
+      title: 'Un écosystème commercial, sept gagnants',
       subtitle: 'Une solution partagée qui fait de chaque participant un gagnant via un seul système d\'exploitation commercial — la solution d\'acquisition de clients basée sur la performance pour le secteur du voyage mondial.',
       platform_fee_note: "Chaque remboursement alimente tout l'écosystème. Une seule commission basée sur la performance est automatiquement partagée entre le partenaire de voyage, le partenaire POS et DutyBoost—créant de la valeur pour tous, sans coût supplémentaire pour le détaillant aéroportuaire.",
     },

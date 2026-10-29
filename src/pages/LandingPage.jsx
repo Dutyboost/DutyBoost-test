@@ -10,7 +10,6 @@ import {
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import { corporateStrings } from "@/lib/i18nCorporate";
 import { getAirportStrings } from "@/lib/i18nAirport";
-import { getPortsStrings } from "@/lib/i18nPorts";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
@@ -37,13 +36,6 @@ export default function LandingPage() {
       color: "from-cyan-400 to-sky-600",
       bg: "bg-cyan-50",
       iconColor: "text-cyan-600",
-    },
-    {
-      key: 'ports',
-      icon: Anchor,
-      color: "from-blue-500 to-indigo-700",
-      bg: "bg-blue-50",
-      iconColor: "text-indigo-600",
     },
     {
       key: 'retailers',
@@ -163,10 +155,11 @@ export default function LandingPage() {
 
               if (s.key === 'airports') {
                 const ao = getAirportStrings(i18n.language).showcase;
-                title = 'Airports';
+                AdditionalIcons = [Anchor];
+                title = 'Airports & Sea Ports';
                 description = ao.subtitle;
                 benefits = [
-                  ao.why2_title + ' — 15% concession on incremental sales.',
+                  ao.why2_title + ' — concession on incremental sales.',
                   ao.why1_title + ' — no capex, no integration.',
                   ao.why3_title + ' — revenue realised above MAG.',
                 ];
@@ -186,17 +179,6 @@ export default function LandingPage() {
                          AdditionalIcons = [CruiseShipIcon, HotelIcon, CarRentalIcon];
                        }
 
-              if (s.key === 'ports') {
-                const po = getPortsStrings(i18n.language).showcase;
-                title = 'Sea Ports';
-                description = po.subtitle;
-                benefits = [
-                  po.why2_title + ' — 15% concession on incremental sales.',
-                  po.why1_title + ' — no capex, no integration.',
-                  po.why3_title + ' — revenue realised above MAG.',
-                ];
-              }
-
               if (s.key === 'portsRetailers') {
                 AdditionalIcons = [PlaneTakeoff, CruiseShipIcon];
                 title = 'Local Retail Partners';
@@ -208,8 +190,8 @@ export default function LandingPage() {
                 ];
               }
 
-              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'ports' || s.key === 'portsRetailers' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
-              const cardLink = s.key === 'retailers' ? '/terminal-retailers' : s.key === 'airports' ? '/airport-showcase' : s.key === 'ports' ? '/ports-showcase' : s.key === 'portsRetailers' ? '/local-retailers' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
+              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'portsRetailers' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
+              const cardLink = s.key === 'retailers' ? '/terminal-retailers' : s.key === 'airports' ? '/airport-showcase' : s.key === 'portsRetailers' ? '/local-retailers' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
 
               const cardContent = (
                 <>

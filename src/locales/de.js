@@ -29,7 +29,7 @@ export default {
       tagline: '',
     },
     ecosystem: {
-      title: 'Ein kommerzielles Ökosystem, acht Gewinner',
+      title: 'Ein kommerzielles Ökosystem, sieben Gewinner',
       subtitle: 'Eine gemeinsame Lösung, die jeden Teilnehmer zum Gewinner macht, über ein kommerzielles Betriebssystem — eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche.',
       platform_fee_note: 'Jede Einlösung treibt das gesamte Ökosystem an. Eine einzige leistungsbasierte Gebühr wird automatisch zwischen dem Reisepartner, dem POS-Partner und DutyBoost geteilt—schafft Wert für alle, ohne zusätzliche Kosten für den Flughafeneinzelhändler.',
     },

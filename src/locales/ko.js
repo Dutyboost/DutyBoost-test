@@ -16,7 +16,7 @@ export default {
     },
     ecosystem: {
       badge: '생태계',
-      title: '하나의 플랫폼, 여덟 승자',
+      title: '하나의 플랫폼, 일곱 승자',
       sub: 'DutyBoost는 공항 소매 여정의 모든 이해관계자들의 인센티브를 조정합니다 — 모든 접점에서 가치를 창출합니다.',
     },
     stakeholders: {

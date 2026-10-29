@@ -28,7 +28,7 @@ export default {
        tagline: '',
      },
     ecosystem: {
-      title: 'Eén Commercieel ecosysteem, acht winnaars',
+      title: 'Eén Commercieel ecosysteem, zeven winnaars',
       subtitle: 'Een gedeelde oplossing die elke deelnemer tot winnaar maakt via één commercieel besturingssysteem — een prestatiegerichte oplossing voor klantacquisitie voor de wereldwijde reissector.',
       platform_fee_note: 'Elke inwisseling drijft het hele ecosysteem. Eén prestatiegebonden fee wordt automatisch gedeeld tussen de reispartner, POS-partner en DutyBoost—waarde creërend voor iedereen, zonder extra kosten voor de luchthavenretailer.',
     },

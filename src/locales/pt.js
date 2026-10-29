@@ -34,7 +34,7 @@ export default {
       tagline: '',
     },
     ecosystem: {
-      title: 'Um ecossistema comercial, oito vencedores',
+      title: 'Um ecossistema comercial, sete vencedores',
       subtitle: 'Uma solução partilhada que faz de cada participante um vencedor através de um único ecossistema operativo comercial.',
       platform_fee_note: 'Cada resgate alimenta todo o ecossistema. Uma única taxa baseada no desempenho é partilhada automaticamente entre os participantes da transação e a DutyBoost — criando valor para todos, sem qualquer custo inicial adicional para o retalhista de aeroporto.',
     },
