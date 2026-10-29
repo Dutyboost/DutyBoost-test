@@ -5,12 +5,11 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight, Menu, X, Cpu, Building2, Anchor, PlaneTakeoff, Route
+  ArrowRight, Menu, X, Cpu, Building2, Anchor, PlaneTakeoff, Route, TrainTrack
 } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import { corporateStrings } from "@/lib/i18nCorporate";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
-import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import TravelerIcon from "../components/TravelerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
@@ -41,14 +40,14 @@ export default function LandingPage() {
     },
     {
       key: 'retailers',
-      icon: AirportRetailerIcon,
+      icon: null,
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
       iconColor: "text-orange-600",
     },
     {
       key: 'portsRetailers',
-      icon: AirportRetailerIcon,
+      icon: null,
       color: "from-indigo-400 to-blue-600",
       bg: "bg-indigo-50",
       iconColor: "text-indigo-600",
@@ -158,7 +157,7 @@ export default function LandingPage() {
               }
 
               if (s.key === 'airports') {
-                AdditionalIcons = [Anchor, TrainIcon];
+                AdditionalIcons = [Anchor, TrainTrack];
                 title = eco.airports.title;
                 description = eco.airports.description;
                 benefits = [eco.airports.b1, eco.airports.b2, eco.airports.b3];
@@ -187,9 +186,11 @@ export default function LandingPage() {
               const cardContent = (
                 <>
                   <div className={`flex items-center gap-2 mb-2`}>
-                    <div className={`w-10 h-10 rounded-xl ${s.bg} flex items-center justify-center`}>
-                      <Icon className={`w-5 h-5 ${s.iconColor}`} />
-                    </div>
+                    {Icon && (
+                      <div className={`w-10 h-10 rounded-xl ${s.bg} flex items-center justify-center`}>
+                        <Icon className={`w-5 h-5 ${s.iconColor}`} />
+                      </div>
+                    )}
                     {AdditionalIcons.map((AdIcon, idx) => (
                       <div key={idx} className={`w-10 h-10 rounded-xl ${s.bg} flex items-center justify-center`}>
                         <AdIcon className={`w-5 h-5 ${s.iconColor}`} />
