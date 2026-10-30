@@ -659,8 +659,8 @@ export default {
     },
     calculator: {
       badge: 'Calculateur ROI DutyBoost',
-      title: 'Voyez les chiffres vous-même',
-      subtitle: "DutyBoost atteint les voyageurs avant qu'ils n'arrivent à l'aéroport, transformant plus de visiteurs en acheteurs. Aucuns frais d'installation. Aucun abonnement. 100% basé sur les résultats. Estimez vos revenus potentiels ci-dessous.",
+      title: 'Voyez les chiffres pour votre canal',
+      subtitle: "DutyBoost atteint les voyageurs avant qu'ils n'arrivent dans votre point de vente, transformant plus de visiteurs en acheteurs. Choisissez votre canal : aéroport, port maritime, croisière, autoroute ou rail. Aucuns frais d'installation. Aucun abonnement. 100% basé sur les résultats.",
       tab_retailer: 'Détaillant aéroportuaire',
       tab_partner: 'Partenaire de voyage',
       retailer_title: 'Découvrez combien de revenus supplémentaires DutyBoost pourrait générer sur votre réseau aéroportuaire mondial',

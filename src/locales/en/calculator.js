@@ -1,7 +1,7 @@
 export default {
   badge: 'DutyBoost ROI Calculator',
-  title: 'See the numbers for yourself',
-  subtitle: "DutyBoost reaches travellers before they reach the airport, turning more visitors into buyers. Zero setup fees. No subscriptions. 100% performance-based. Estimate your potential revenue below.",
+  title: 'See the numbers for your channel',
+  subtitle: "DutyBoost reaches travellers before they reach your store, turning more visitors into buyers. Choose your channel: airport, sea port, cruise line, motorway or railway. Zero setup fees. No subscriptions. 100% performance-based.",
   tab_retailer: 'Airport Retailer',
   tab_partner: 'Travel Partner',
   retailer_title: 'Discover how much incremental revenue DutyBoost could generate across your global airport network',
