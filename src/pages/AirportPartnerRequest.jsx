@@ -55,7 +55,7 @@ export default function AirportPartnerRequest() {
                 <tr><td style="padding:6px 0; color:#666;">Hub type</td><td><strong>${form.hubType}</strong></td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Website</td><td>${form.website}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Country</td><td>${form.country}</td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Hub name & code</td><td>${form.airport}</td></tr>
+                <tr><td style="padding:6px 0; color:#666;">Hub name</td><td>${form.airport}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Annual travellers</td><td>${form.passengers}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Message</td><td>${form.message || "—"}</td></tr>
               </table>
