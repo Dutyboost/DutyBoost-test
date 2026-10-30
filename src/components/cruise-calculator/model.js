@@ -40,6 +40,8 @@ export const defaultStore = (n, country = "", port = "") => ({
   country,
   port,
   passengersPerShip: "",
+  passengersPerCoach: "",
+  tripsPerCoach: "",
   passengersPerCall: "",
   callsPerYear: "",
   arrivalsPerYear: "",
@@ -56,19 +58,28 @@ const n = (v) => (v === "" || v === null || v === undefined ? 0 : Number(v));
 // mode "local" models every traveller arriving in the market, however they
 // travel; "seaport" models one terminal's ship calls; "fleet" models a cruise
 // line's own ships: the fleet, the passengers each ship carries, the length of
-// a cruise (which sets how many cruises a ship sails a year) and its shops.
+// a cruise (which sets how many cruises a ship sails a year) and its shops;
+// "coach" models a touring coach fleet: the coaches, the trips each one runs a
+// year and the passengers it carries.
 export const computeStore = (store, mode = "seaport") => {
   const isFleet = mode === "fleet";
+  const isCoach = mode === "coach";
   const ships = Math.max(1, n(store.fleet) || 1);
   const shopsPerShip = Math.max(1, n(store.shopsPerShip) || 1);
-  const units = isFleet ? ships * shopsPerShip : Math.max(1, n(store.stores) || 1);
+  const units = isCoach
+    ? ships
+    : isFleet
+      ? ships * shopsPerShip
+      : Math.max(1, n(store.stores) || 1);
   const cruiseDays = Math.max(1, n(store.cruiseDays) || 7);
   const cruisesPerYear = isFleet ? 365 / cruiseDays : 0;
-  const annualPassengers = isFleet
-    ? ships * n(store.passengersPerShip) * cruisesPerYear
-    : mode === "local"
-      ? n(store.arrivalsPerYear) * units
-      : n(store.passengersPerCall) * n(store.callsPerYear) * units;
+  const annualPassengers = isCoach
+    ? ships * n(store.passengersPerCoach) * n(store.tripsPerCoach)
+    : isFleet
+      ? ships * n(store.passengersPerShip) * cruisesPerYear
+      : mode === "local"
+        ? n(store.arrivalsPerYear) * units
+        : n(store.passengersPerCall) * n(store.callsPerYear) * units;
   const traffic = annualPassengers * (n(store.passRate) / 100);
   const activated = traffic * (n(store.activation) / 100);
   const redemptions = activated * (n(store.redemption) / 100);

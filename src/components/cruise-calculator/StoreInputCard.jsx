@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { Copy, Trash2, Store as StoreIcon, Ship } from "lucide-react";
+import CoachOnRoadIcon from "@/components/CoachOnRoadIcon";
 import { useTranslation } from "react-i18next";
 import { useCurrency } from "@/components/calculator/CurrencyContext";
 import SearchCombobox from "@/components/onboarding/SearchCombobox";
@@ -20,13 +21,21 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
   const s = strings.card;
   const isLocal = ["local", "motorway", "rail"].includes(variant);
   const isFleet = variant === "cruise";
+  const isCoach = variant === "coach";
   const v = strings.variants[variant] || strings.variants.cruise;
   const { rate, symbol, fmt, fmtCompact } = useCurrency();
 
   // A local retailer models the travellers arriving in their market, whatever
   // their mode of travel; a sea port retailer models one terminal's ship calls;
   // a cruise line models its own fleet and the shops on board.
-  const numFields = isLocal
+  const numFields = isCoach
+    ? [
+        { key: "passengersPerCoach", label: v.card.passengersPerCoach, step: 1 },
+        { key: "passRate", label: v.card.passRate, suffix: "%", step: 1 },
+        { key: "activation", label: s.activation, suffix: "%", step: 0.1 },
+        { key: "redemption", label: s.redemption, suffix: "%", step: 1 },
+      ]
+    : isLocal
     ? [
         { key: "arrivalsPerYear", label: v.card.arrivals, step: 10000 },
         { key: "passRate", label: v.card.passRate, suffix: "%", step: 1 },
@@ -77,9 +86,15 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
     <div className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5">
       <div className="flex items-start gap-2 mb-3">
         <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${th.softBg}`}>
-          {isFleet ? <Ship className={`w-4 h-4 ${th.accentText}`} /> : <StoreIcon className={`w-4 h-4 ${th.accentText}`} />}
+          {isFleet ? (
+            <Ship className={`w-4 h-4 ${th.accentText}`} />
+          ) : isCoach ? (
+            <CoachOnRoadIcon className={`w-4 h-4 ${th.accentText}`} />
+          ) : (
+            <StoreIcon className={`w-4 h-4 ${th.accentText}`} />
+          )}
         </div>
-        <div className={`flex-1 grid gap-2 items-end ${isLocal ? "sm:grid-cols-2" : isFleet ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}>
+        <div className={`flex-1 grid gap-2 items-end ${isLocal ? "sm:grid-cols-2" : isFleet || isCoach ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}>
           {isFleet ? (
             <>
               <label className="flex flex-col">
@@ -101,6 +116,31 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
                   step="any"
                   value={store.shopsPerShip}
                   onChange={(e) => onChange(store.id, "shopsPerShip", e.target.value)}
+                  className={`w-full h-[34px] rounded-lg border border-slate-300 bg-white px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
+                />
+              </label>
+            </>
+          ) : isCoach ? (
+            <>
+              <label className="flex flex-col">
+                <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight text-center">{v.card.coaches}</span>
+                <input
+                  type="number"
+                  min="1"
+                  step="1"
+                  value={store.fleet}
+                  onChange={(e) => onChange(store.id, "fleet", e.target.value)}
+                  className={`w-full h-[34px] rounded-lg border border-slate-300 bg-white px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
+                />
+              </label>
+              <label className="flex flex-col">
+                <span className="text-[11px] font-semibold text-slate-500 mb-1 leading-tight text-center">{v.card.tripsPerCoach}</span>
+                <input
+                  type="number"
+                  min="1"
+                  step="1"
+                  value={store.tripsPerCoach}
+                  onChange={(e) => onChange(store.id, "tripsPerCoach", e.target.value)}
                   className={`w-full h-[34px] rounded-lg border border-slate-300 bg-white px-2.5 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 ${th.inputRing}`}
                 />
               </label>
@@ -199,7 +239,7 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
 
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
         {[
-          { label: isLocal ? v.card.kArrivals : s.kPassengers, val: numShort(result.annualPassengers) },
+          { label: isLocal ? v.card.kArrivals : v.card?.kPassengers || s.kPassengers, val: numShort(result.annualPassengers) },
           { label: v.card?.kTraffic || s.kTraffic, val: numShort(result.traffic) },
           { label: s.kBaskets, val: numShort(result.redemptions) },
           { label: s.kSales, val: fmtCompact(result.gross) },

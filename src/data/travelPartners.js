@@ -4,6 +4,7 @@
  * Airlines:          data/airlines.js          — all commercial airlines
  * Hotel Chains:      data/hotelChains.js        — international hotel chains only
  * Car Rentals:       data/carRentalCompanies.js — airport-based car rentals only
+ * Rail Operators:    data/railOperators.js      — national, high-speed and regional rail
  * OTAs/Tour Ops:     inline below               — flight ticket sellers, tour operators, cruise lines
  *
  * Each entry: company_name, country, continent, vertical, annual_bookings, booking_unit, hubs, description
@@ -12,6 +13,7 @@
 import { AIRLINES } from "./airlines";
 import { HOTEL_CHAINS } from "./hotelChains";
 import { CAR_RENTAL_COMPANIES } from "./carRentalCompanies";
+import { RAIL_OPERATORS } from "./railOperators";
 
 /**
  * OTAs, Tour Operators & Travel Agencies.
@@ -190,6 +192,7 @@ const ALL_PARTNERS = [
   ...AIRLINES.map((p) => ({ ...p, vertical: "flight" })),
   ...HOTEL_CHAINS.map((p) => ({ ...p, vertical: "accommodation" })),
   ...CAR_RENTAL_COMPANIES.map((p) => ({ ...p, vertical: "car" })),
+  ...RAIL_OPERATORS.map((p) => ({ ...p, vertical: "train" })),
   ...OTA_ENTRIES,
   ...FLIGHT_ONLY_PARTNERS,
 ];

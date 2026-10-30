@@ -41,6 +41,31 @@ export const cruiseCalculatorStrings = {
         },
         totalsTraffic: "Not entering all shops / yr",
       },
+      coach: {
+        badge: "Touring Coach Partners",
+        title: "Your fleet's travel retail calculator",
+        intro:
+          "Built around the revenue your passengers already generate at the stops they make. Enter your coaches, the trips each one runs a year and the passengers it carries — DutyBoost pre-activates those passengers before they travel, so they reach participating retailers with purchase intent, and you pay only on the sales it brings.",
+        focus:
+          "Every touring coach trip passes retail: service areas, terminals and drop-off points where travellers already wait. DutyBoost turns a share of that footfall into incremental sales, and you pay only on the sales it brings.",
+        ctaLabel: "Apply as a touring coach partner",
+        ctaTitle: "Want these numbers validated for your fleet?",
+        ctaDesc: "Send us your fleet and route profile and we will model the full picture with you.",
+        disclaimer:
+          "Illustrative model. Figures are shown in the selected currency and recalculate as you edit. The platform fee applies only to DutyBoost-validated transactions.",
+        totalsStores: "Coaches modelled",
+        totalsSub: "Every coach in the fleet and its trips, added together.",
+        totalsPassengers: "Passengers carried / yr",
+        totalsTraffic: "Passing a retail point / yr",
+        card: {
+          coaches: "Coaches in fleet",
+          tripsPerCoach: "Trips per coach / yr",
+          passengersPerCoach: "Avg. passengers per coach",
+          passRate: "Share of passengers passing a retail point",
+          kTraffic: "Passing a retail point / yr",
+          kPassengers: "Passengers carried / yr",
+        },
+      },
       seaport: {
         badge: "Sea Port Retailers",
         intro:
@@ -136,6 +161,31 @@ export const cruiseCalculatorStrings = {
           kTraffic: "Betreedt de winkels niet / jaar",
         },
         totalsTraffic: "Betreedt geen enkele winkel / jaar",
+      },
+      coach: {
+        badge: "Touringcar-partners",
+        title: "Calculator voor reisretail van uw vloot",
+        intro:
+          "Gebouwd rond de omzet die uw passagiers al opbrengen bij de stops onderweg. Vul uw bussen in, het aantal ritten per bus per jaar en het aantal passagiers per bus — DutyBoost activeert die passagiers voordat ze reizen, zodat ze met koopintentie bij deelnemende retailers aankomen, en u betaalt alleen op de omzet die het oplevert.",
+        focus:
+          "Elke touringcarrit komt langs retail: verzorgingsplaatsen, terminals en uitstapplaatsen waar reizigers toch al wachten. DutyBoost zet een deel van die passanten om in incrementele omzet, en u betaalt alleen op de omzet die het oplevert.",
+        ctaLabel: "Aanmelden als touringcarpartner",
+        ctaTitle: "Wilt u deze cijfers laten valideren voor uw vloot?",
+        ctaDesc: "Stuur ons uw vloot- en routeprofiel en we modelleren samen het volledige beeld.",
+        disclaimer:
+          "Illustratief model. Bedragen worden weergegeven in de gekozen valuta en herberekend terwijl u invoert. De platformvergoeding geldt alleen voor door DutyBoost gevalideerde transacties.",
+        totalsStores: "Gemodelleerde bussen",
+        totalsSub: "Elke bus van de vloot en de bijbehorende ritten, samengeteld.",
+        totalsPassengers: "Vervoerde passagiers / jaar",
+        totalsTraffic: "Langs een verkooppunt / jaar",
+        card: {
+          coaches: "Bussen in de vloot",
+          tripsPerCoach: "Ritten per bus / jaar",
+          passengersPerCoach: "Gem. passagiers per bus",
+          passRate: "Deel van de passagiers dat langs een verkooppunt komt",
+          kTraffic: "Langs een verkooppunt / jaar",
+          kPassengers: "Vervoerde passagiers / jaar",
+        },
       },
       seaport: {
         badge: "Zeehavenretailers",
@@ -233,6 +283,31 @@ export const cruiseCalculatorStrings = {
         },
         totalsTraffic: "N'entrent dans aucune boutique / an",
       },
+      coach: {
+        badge: "Partenaires autocaristes",
+        title: "Calculateur de retail voyage de votre flotte",
+        intro:
+          "Construit autour des revenus que vos passagers génèrent déjà lors des arrêts du circuit. Saisissez vos autocars, le nombre de trajets par autocar et par an et les passagers transportés — DutyBoost active ces passagers avant le départ, afin qu'ils arrivent chez les enseignes partenaires avec une intention d'achat, et vous ne payez que sur les ventes générées.",
+        focus:
+          "Chaque circuit en autocar passe devant des commerces : aires de service, terminaux et points de dépose où les voyageurs attendent déjà. DutyBoost transforme une part de ce passage en ventes incrémentales, et vous ne payez que sur les ventes générées.",
+        ctaLabel: "Candidater comme partenaire autocariste",
+        ctaTitle: "Vous souhaitez faire valider ces chiffres pour votre flotte ?",
+        ctaDesc: "Envoyez-nous votre flotte et le profil de vos circuits, nous modéliserons ensemble la vue complète.",
+        disclaimer:
+          "Modèle illustratif. Les montants sont affichés dans la devise choisie et recalculés à chaque saisie. La commission de plateforme ne s'applique qu'aux transactions validées par DutyBoost.",
+        totalsStores: "Autocars modélisés",
+        totalsSub: "Chaque autocar de la flotte et ses trajets, additionnés.",
+        totalsPassengers: "Passagers transportés / an",
+        totalsTraffic: "Passages devant un point de vente / an",
+        card: {
+          coaches: "Autocars dans la flotte",
+          tripsPerCoach: "Trajets par autocar / an",
+          passengersPerCoach: "Passagers moyens par autocar",
+          passRate: "Part des passagers passant un point de vente",
+          kTraffic: "Passages devant un point de vente / an",
+          kPassengers: "Passagers transportés / an",
+        },
+      },
       seaport: {
         badge: "Détaillants portuaires",
         intro:
@@ -328,6 +403,31 @@ export const cruiseCalculatorStrings = {
           kTraffic: "Betreten die Shops nicht / Jahr",
         },
         totalsTraffic: "Betreten keinen Shop / Jahr",
+      },
+      coach: {
+        badge: "Reisebus-Partner",
+        title: "Reisetail-Rechner für Ihre Flotte",
+        intro:
+          "Aufgebaut um den Umsatz, den Ihre Fahrgäste an den Halten unterwegs bereits erzeugen. Geben Sie Ihre Busse, die Fahrten pro Bus und Jahr und die Fahrgäste pro Bus ein — DutyBoost aktiviert diese Fahrgäste vor der Reise, sodass sie mit Kaufabsicht bei teilnehmenden Händlern ankommen, und Sie zahlen nur auf den erzielten Umsatz.",
+        focus:
+          "Jede Reisebusfahrt kommt an Retail vorbei: Raststätten, Terminals und Ausstiegspunkte, an denen Reisende ohnehin warten. DutyBoost wandelt einen Teil dieser Frequenz in Zusatzumsatz um, und Sie zahlen nur auf den erzielten Umsatz.",
+        ctaLabel: "Als Reisebuspartner bewerben",
+        ctaTitle: "Möchten Sie diese Zahlen für Ihre Flotte prüfen lassen?",
+        ctaDesc: "Senden Sie uns Ihre Flotte und Ihr Streckenprofil, wir modellieren das Gesamtbild gemeinsam.",
+        disclaimer:
+          "Illustratives Modell. Beträge werden in der gewählten Währung angezeigt und bei jeder Eingabe neu berechnet. Die Plattformgebühr gilt nur für von DutyBoost validierte Transaktionen.",
+        totalsStores: "Modellierte Busse",
+        totalsSub: "Jeder Bus der Flotte und seine Fahrten, zusammengezählt.",
+        totalsPassengers: "Beförderte Fahrgäste / Jahr",
+        totalsTraffic: "Am Verkaufspunkt / Jahr",
+        card: {
+          coaches: "Busse in der Flotte",
+          tripsPerCoach: "Fahrten pro Bus / Jahr",
+          passengersPerCoach: "Ø Fahrgäste pro Bus",
+          passRate: "Anteil der Fahrgäste an einem Verkaufspunkt",
+          kTraffic: "Am Verkaufspunkt / Jahr",
+          kPassengers: "Beförderte Fahrgäste / Jahr",
+        },
       },
       seaport: {
         badge: "Seehafen-Händler",
@@ -425,6 +525,31 @@ export const cruiseCalculatorStrings = {
         },
         totalsTraffic: "No entran en ninguna tienda / año",
       },
+      coach: {
+        badge: "Socios de autocares",
+        title: "Calculadora de retail de viaje de su flota",
+        intro:
+          "Construida en torno a los ingresos que sus pasajeros ya generan en las paradas del recorrido. Introduzca sus autocares, los viajes por autocar y año y los pasajeros que transporta — DutyBoost activa a esos pasajeros antes de viajar, de modo que llegan a los comercios participantes con intención de compra, y solo paga por las ventas que genera.",
+        focus:
+          "Todo circuito en autocar pasa por retail: áreas de servicio, terminales y puntos de bajada donde los viajeros ya esperan. DutyBoost convierte parte de ese paso en ventas incrementales, y solo paga por las ventas que genera.",
+        ctaLabel: "Solicitar como socio de autocares",
+        ctaTitle: "¿Desea validar estas cifras para su flota?",
+        ctaDesc: "Envíenos su flota y el perfil de sus rutas y modelaremos juntos la imagen completa.",
+        disclaimer:
+          "Modelo ilustrativo. Los importes se muestran en la divisa seleccionada y se recalculan al editar. La comisión de plataforma se aplica solo a transacciones validadas por DutyBoost.",
+        totalsStores: "Autocares modelados",
+        totalsSub: "Todos los autocares de la flota y sus viajes, sumados.",
+        totalsPassengers: "Pasajeros transportados / año",
+        totalsTraffic: "Pasan por un punto de venta / año",
+        card: {
+          coaches: "Autocares en la flota",
+          tripsPerCoach: "Viajes por autocar / año",
+          passengersPerCoach: "Pasajeros medios por autocar",
+          passRate: "Porcentaje de pasajeros que pasan por un punto de venta",
+          kTraffic: "Pasan por un punto de venta / año",
+          kPassengers: "Pasajeros transportados / año",
+        },
+      },
       seaport: {
         badge: "Minoristas de puerto marítimo",
         intro:
@@ -521,6 +646,31 @@ export const cruiseCalculatorStrings = {
         },
         totalsTraffic: "Non entrano in nessun negozio / anno",
       },
+      coach: {
+        badge: "Partner pullman",
+        title: "Calcolatore retail di viaggio della sua flotta",
+        intro:
+          "Costruito intorno ai ricavi che i suoi passeggeri già generano durante le soste. Inserisca i pullman, i viaggi per pullman all'anno e i passeggeri trasportati — DutyBoost attiva questi passeggeri prima della partenza, così arrivano nei punti vendita aderenti con intenzione d'acquisto, e paga solo sulle vendite generate.",
+        focus:
+          "Ogni viaggio in pullman passa davanti al retail: aree di servizio, terminal e punti di discesa dove i viaggiatori attendono comunque. DutyBoost trasforma una parte di questo passaggio in vendite incrementali, e paga solo sulle vendite generate.",
+        ctaLabel: "Candidarsi come partner pullman",
+        ctaTitle: "Vuole validare questi numeri per la sua flotta?",
+        ctaDesc: "Ci invii la flotta e il profilo dei percorsi e modelleremo insieme il quadro completo.",
+        disclaimer:
+          "Modello illustrativo. Gli importi sono mostrati nella valuta selezionata e ricalcolati mentre modifica. La commissione di piattaforma si applica solo alle transazioni validate da DutyBoost.",
+        totalsStores: "Pullman modellati",
+        totalsSub: "Ogni pullman della flotta e i suoi viaggi, sommati.",
+        totalsPassengers: "Passeggeri trasportati / anno",
+        totalsTraffic: "Passaggi da un punto vendita / anno",
+        card: {
+          coaches: "Pullman in flotta",
+          tripsPerCoach: "Viaggi per pullman / anno",
+          passengersPerCoach: "Passeggeri medi per pullman",
+          passRate: "Quota di passeggeri che passa da un punto vendita",
+          kTraffic: "Passaggi da un punto vendita / anno",
+          kPassengers: "Passeggeri trasportati / anno",
+        },
+      },
       seaport: {
         badge: "Rivenditori portuali",
         intro:
@@ -616,6 +766,31 @@ export const cruiseCalculatorStrings = {
           kTraffic: "Não entram nas lojas / ano",
         },
         totalsTraffic: "Não entram em nenhuma loja / ano",
+      },
+      coach: {
+        badge: "Parceiros de autocarros",
+        title: "Calculadora de retalho de viagem da sua frota",
+        intro:
+          "Construída em torno da receita que os seus passageiros já geram nas paragens do percurso. Introduza os autocarros, as viagens por autocarro e ano e os passageiros transportados — a DutyBoost ativa esses passageiros antes da viagem, para que cheguem às lojas aderentes com intenção de compra, e paga apenas sobre as vendas geradas.",
+        focus:
+          "Cada viagem em autocarro passa pelo retalho: áreas de serviço, terminais e pontos de desembarque onde os viajantes já esperam. A DutyBoost converte parte dessa passagem em vendas incrementais, e paga apenas sobre as vendas geradas.",
+        ctaLabel: "Candidatar-se como parceiro de autocarros",
+        ctaTitle: "Pretende validar estes números para a sua frota?",
+        ctaDesc: "Envie-nos a sua frota e o perfil dos percursos e modelamos o quadro completo consigo.",
+        disclaimer:
+          "Modelo ilustrativo. Os valores são apresentados na moeda selecionada e recalculados à medida que edita. A comissão de plataforma aplica-se apenas a transações validadas pela DutyBoost.",
+        totalsStores: "Autocarros modelados",
+        totalsSub: "Todos os autocarros da frota e as suas viagens, somados.",
+        totalsPassengers: "Passageiros transportados / ano",
+        totalsTraffic: "Passam por um ponto de venda / ano",
+        card: {
+          coaches: "Autocarros na frota",
+          tripsPerCoach: "Viagens por autocarro / ano",
+          passengersPerCoach: "Passageiros médios por autocarro",
+          passRate: "Percentagem de passageiros que passam por um ponto de venda",
+          kTraffic: "Passam por um ponto de venda / ano",
+          kPassengers: "Passageiros transportados / ano",
+        },
       },
       seaport: {
         badge: "Retalhistas portuários",

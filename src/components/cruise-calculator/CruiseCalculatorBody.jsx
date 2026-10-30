@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Info, Anchor, Store, Ship, Route, Train, ArrowRight } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import CoachOnRoadIcon from "@/components/CoachOnRoadIcon";
 import { useCurrency } from "@/components/calculator/CurrencyContext";
 import { getCurrencyInfo } from "@/data/countryCurrencies";
 import StoreInputCard from "./StoreInputCard";
@@ -34,8 +35,19 @@ export default function CruiseCalculatorBody({
   const v = s.variants[variant] || s.variants.cruise;
   const isLocal = LOCAL_VARIANTS.includes(variant);
   const isFleet = variant === "cruise";
-  const mode = isLocal ? "local" : isFleet ? "fleet" : "seaport";
-  const BadgeIcon = isFleet ? Ship : variant === "rail" ? Train : variant === "motorway" ? Route : isLocal ? Store : Anchor;
+  const isCoach = variant === "coach";
+  const mode = isCoach ? "coach" : isLocal ? "local" : isFleet ? "fleet" : "seaport";
+  const BadgeIcon = isFleet
+    ? Ship
+    : isCoach
+      ? CoachOnRoadIcon
+      : variant === "rail"
+        ? Train
+        : variant === "motorway"
+          ? Route
+          : isLocal
+            ? Store
+            : Anchor;
   const { currency, setCurrency } = useCurrency();
   const [stores, setStores] = useState(() => [defaultStore(1)]);
 
@@ -137,7 +149,7 @@ export default function CruiseCalculatorBody({
 
       <CruiseTotals totals={totals} variant={variant} />
 
-      {stores.length > 1 && !isFleet && <RegionBreakdown regions={regions} />}
+      {stores.length > 1 && !isFleet && !isCoach && <RegionBreakdown regions={regions} />}
 
       <div className={`bg-gradient-to-r rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 ${th.ctaGradient}`}>
         <div className="text-center sm:text-left">
