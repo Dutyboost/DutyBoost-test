@@ -29,8 +29,8 @@ export const ecosystemCards = {
     local: {
       title: 'Local Retail Partners',
       description:
-        'Cruise passengers and air travellers all end up down town — this is where both flows meet. Airport shops and cruise terminals are one stop on the way; your store is where every traveller arrives, ready to redeem a DutyCredit however they got here.',
-      b1: 'Cruise and air travellers in one flow',
+        'Cruise passengers, air travellers and rail arrivals all end up down town — this is where every flow meets. Airport shops, cruise terminals and stations are one stop on the way; your store is where every traveller arrives, ready to redeem a DutyCredit however they got here, tourists arriving by train in a new city included.',
+      b1: 'Cruise, air and rail travellers in one flow',
       b2: 'Redeem DutyCredits on any arrival route',
       b3: 'Pay only on results',
     },
@@ -61,8 +61,8 @@ export const ecosystemCards = {
     local: {
       title: 'Lokale Retailpartners',
       description:
-        'Cruisepassagiers en luchtreizigers komen allemaal in het centrum uit — hier komen beide stromen samen. Luchthavenwinkels en cruiseterminals zijn een stop onderweg; uw winkel is waar elke reiziger aankomt, klaar om een DutyCredit te verzilveren, ongeacht de route.',
-      b1: 'Cruise- en luchtreizigers in één stroom',
+        'Cruisepassagiers, luchtreizigers en treinreizigers komen allemaal in het centrum uit — hier komen alle stromen samen. Luchthavenwinkels, cruiseterminals en stations zijn een stop onderweg; uw winkel is waar elke reiziger aankomt, klaar om een DutyCredit te verzilveren, ongeacht de route, inclusief toeristen die met de trein in een nieuwe stad arriveren.',
+      b1: 'Cruise-, lucht- en treinreizigers in één stroom',
       b2: 'Verzilver DutyCredits op elke aankomstroute',
       b3: 'Betaal alleen bij resultaat',
     },
@@ -93,8 +93,8 @@ export const ecosystemCards = {
     local: {
       title: 'Lokale Einzelhandelspartner',
       description:
-        'Kreuzfahrt- und Flugreisende landen alle in der Innenstadt — hier treffen beide Ströme zusammen. Flughafenshops und Kreuzfahrtterminals sind ein Zwischenstopp; Ihr Geschäft ist der Ort, an dem jeder Reisende ankommt, bereit, einen DutyCredit einzulösen, egal wie er hierhergekommen ist.',
-      b1: 'Kreuzfahrt- und Flugreisende in einem Fluss',
+        'Kreuzfahrt-, Flug- und Bahnreisende landen alle in der Innenstadt — hier treffen alle Ströme zusammen. Flughafenshops, Kreuzfahrtterminals und Bahnhöfe sind ein Zwischenstopp; Ihr Geschäft ist der Ort, an dem jeder Reisende ankommt, bereit, einen DutyCredit einzulösen, egal wie er hierhergekommen ist, auch Touristen, die mit dem Zug in einer neuen Stadt ankommen.',
+      b1: 'Kreuzfahrt-, Flug- und Bahnreisende in einem Fluss',
       b2: 'DutyCredits auf jeder Ankunftsroute einlösen',
       b3: 'Zahlung nur bei Ergebnis',
     },
@@ -125,8 +125,8 @@ export const ecosystemCards = {
     local: {
       title: 'Partenaires retail locaux',
       description:
-        "Les passagers de croisière et les voyageurs aériens finissent tous en centre-ville — c'est là que les deux flux se rencontrent. Les boutiques d'aéroport et les terminaux de croisière sont une étape ; votre magasin est le point d'arrivée de chaque voyageur, prêt à utiliser un DutyCredit quel que soit son itinéraire.",
-      b1: 'Croisière et air dans un seul flux',
+        "Les passagers de croisière, les voyageurs aériens et les arrivées en train finissent tous en centre-ville — c'est là que tous les flux se rencontrent. Les boutiques d'aéroport, les terminaux de croisière et les gares sont une étape ; votre magasin est le point d'arrivée de chaque voyageur, prêt à utiliser un DutyCredit quel que soit son itinéraire, y compris les touristes arrivant en train dans une nouvelle ville.",
+      b1: 'Croisière, air et rail dans un seul flux',
       b2: "Utilisez les DutyCredits sur toute route d'arrivée",
       b3: 'Paiement au résultat uniquement',
     },
@@ -157,8 +157,8 @@ export const ecosystemCards = {
     local: {
       title: 'Minoristas locales',
       description:
-        'Los pasajeros de crucero y los pasajeros aéreos acaban todos en el centro — aquí se encuentran ambos flujos. Las tiendas del aeropuerto y las terminales de crucero son una parada; su tienda es donde llega cada pasajero, listo para canjear un DutyCredit venga de donde venga.',
-      b1: 'Pasajeros de crucero y aéreos en un solo flujo',
+        'Los pasajeros de crucero, los pasajeros aéreos y los viajeros en tren acaban todos en el centro: aquí se encuentran todos los flujos. Las tiendas del aeropuerto, las terminales de crucero y las estaciones son una parada; su tienda es donde llega cada pasajero, listo para canjear un DutyCredit venga de donde venga, incluidos los turistas que llegan en tren a otra ciudad.',
+      b1: 'Pasajeros de crucero, aéreos y de tren en un solo flujo',
       b2: 'Canjee DutyCredits en cualquier ruta de llegada',
       b3: 'Pague solo por resultados',
     },
@@ -189,8 +189,8 @@ export const ecosystemCards = {
     local: {
       title: 'Partner retail locali',
       description:
-        'I passeggeri delle crociere e i viaggiatori aerei finiscono tutti in centro — è qui che i due flussi si incontrano. I negozi in aeroporto e i terminal crociere sono una tappa; il tuo negozio è dove arriva ogni viaggiatore, pronto a utilizzare un DutyCredit qualunque sia il percorso.',
-      b1: 'Crociera e volo in un unico flusso',
+        "I passeggeri delle crociere, i viaggiatori aerei e chi arriva in treno finiscono tutti in centro — è qui che tutti i flussi si incontrano. I negozi in aeroporto, i terminal crociere e le stazioni sono una tappa; il tuo negozio è dove arriva ogni viaggiatore, pronto a utilizzare un DutyCredit qualunque sia il percorso, turisti in arrivo in treno in un'altra città compresi.",
+      b1: 'Crociera, volo e treno in un unico flusso',
       b2: 'Utilizza i DutyCredit su ogni rotta di arrivo',
       b3: 'Paghi solo sui risultati',
     },
@@ -221,8 +221,8 @@ export const ecosystemCards = {
     local: {
       title: 'Parceiros de retalho locais',
       description:
-        'Os passageiros de cruzeiro e os passageiros aéreos acabam todos no centro — é aqui que os dois fluxos se encontram. As lojas do aeroporto e os terminais de cruzeiro são uma paragem; a sua loja é onde cada passageiro chega, pronto para utilizar um DutyCredit, seja qual for a rota.',
-      b1: 'Cruzeiro e avião num só fluxo',
+        'Os passageiros de cruzeiro, os passageiros aéreos e os viajantes de comboio acabam todos no centro — é aqui que todos os fluxos se encontram. As lojas do aeroporto, os terminais de cruzeiro e as estações são uma paragem; a sua loja é onde cada passageiro chega, pronto para utilizar um DutyCredit, seja qual for a rota, incluindo turistas que chegam de comboio a outra cidade.',
+      b1: 'Cruzeiro, avião e comboio num só fluxo',
       b2: 'Utilize DutyCredits em qualquer rota de chegada',
       b3: 'Pague apenas pelos resultados',
     },
@@ -253,8 +253,8 @@ export const ecosystemCards = {
     local: {
       title: '地域リテールパートナー',
       description:
-        'クルーズ客も航空客も最終的には中心街に到着します。ここで2つの流れが出会います。空港の店舗やクルーズターミナルは通過点であり、お客様の店舗はどのルートで来ても旅行者が到着する場所です。',
-      b1: 'クルーズと航空の旅行者を1つの流れに',
+        'クルーズ客も航空客も、そして鉄道で到着する旅行者も最終的には中心街に集まります。ここで全ての流れが出会います。空港の店舗やクルーズターミナル、駅は通過点であり、お客様の店舗はどのルートで来ても旅行者が到着する場所です。別の街へ列車で到着する観光客も含まれます。',
+      b1: 'クルーズ・航空・鉄道の旅行者を1つの流れに',
       b2: 'どの到着ルートでもDutyCreditを利用可能',
       b3: '成果があった分だけ支払い',
     },
@@ -285,8 +285,8 @@ export const ecosystemCards = {
     local: {
       title: '지역 리테일 파트너',
       description:
-        '크루즈 승객과 항공 여행자는 모두 결국 도심에 도착합니다. 두 흐름이 만나는 지점입니다. 공항 매장과 크루즈 터미널은 경유지이며, 어떤 경로로 오더라도 모든 여행자가 도착하는 곳이 바로 매장입니다.',
-      b1: '크루즈와 항공 여행자를 하나의 흐름으로',
+        '크루즈 승객과 항공 여행자, 그리고 기차로 도착하는 여행자 모두 결국 도심에 도착합니다. 모든 흐름이 만나는 지점입니다. 공항 매장과 크루즈 터미널, 기차역은 경유지이며, 어떤 경로로 오더라도 모든 여행자가 도착하는 곳이 바로 매장입니다. 다른 도시에 기차로 도착하는 관광객도 포함됩니다.',
+      b1: '크루즈·항공·철도 여행자를 하나의 흐름으로',
       b2: '모든 도착 경로에서 DutyCredit 사용',
       b3: '성과에 대해서만 지불',
     },
@@ -317,8 +317,8 @@ export const ecosystemCards = {
     local: {
       title: '本地零售合作伙伴',
       description:
-        '邮轮乘客与航空旅客最终都会来到市中心——两种客流在此交汇。机场商店和邮轮码头只是途经点，而无论走哪条路线，旅客最终都会抵达您的门店。',
-      b1: '邮轮与航空旅客汇于一个客流',
+        '邮轮乘客、航空旅客以及乘火车抵达的旅客最终都会来到市中心——所有客流在此交汇。机场商店、邮轮码头和火车站只是途经点，而无论走哪条路线（包括乘火车抵达另一座城市的游客），旅客最终都会抵达您的门店。',
+      b1: '邮轮、航空与铁路旅客汇于一个客流',
       b2: '在任何抵达路线上核销 DutyCredit',
       b3: '只为结果付费',
     },

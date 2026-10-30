@@ -174,7 +174,7 @@ export default function LandingPage() {
               }
 
               if (s.key === 'portsRetailers') {
-                AdditionalIcons = [PlaneTakeoff, CruiseShipIcon];
+                AdditionalIcons = [PlaneTakeoff, CruiseShipIcon, TrainTrack];
                 title = eco.local.title;
                 description = eco.local.description;
                 benefits = [eco.local.b1, eco.local.b2, eco.local.b3];
