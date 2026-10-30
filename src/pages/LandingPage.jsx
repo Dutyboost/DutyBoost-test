@@ -141,7 +141,7 @@ export default function LandingPage() {
               ];
 
               if (s.key === 'retailers') {
-                AdditionalIcons = [PlaneTakeoff, Anchor, CruiseShipIcon, Route, TrainIcon];
+                AdditionalIcons = [PlaneTakeoff, CruiseShipIcon, Route, TrainIcon];
                 title = eco.retailers.title;
                 description = eco.retailers.description;
                 benefits = [eco.retailers.b1, eco.retailers.b2, eco.retailers.b3];
