@@ -28,13 +28,13 @@ export default {
     hero: {
       title_1: 'A Performance-based Customer Acquisition Solution for Global Travel',
       title_2: '',
-      subtitle_1: "Connecting POS Providers, Airport Retailers, Airports, Travellers, Travel Partners, Corporate Travel Partners, and Cruise Ship Partners through a shared performance-based commercial ecosystem",
+      subtitle_1: "Connecting POS Providers, Travel Retailers, Local Retailers, Airports, Travel Partners, and Travellers through a shared performance-based commercial ecosystem",
       subtitle_2: "",
       subtitle_3: "",
       tagline: "",
     },
     ecosystem: {
-      title: 'One Commercial ecosystem, seven winners',
+      title: 'One Commercial ecosystem, six winners',
       subtitle: 'A shared solution that makes every participant a winner via one commercial operating ecosystem.',
       platform_fee_note: 'Every redemption powers the entire ecosystem. A single performance-based fee is automatically shared between the transaction participants and DutyBoost—creating value for everyone at no additional upfront cost to the airport retailer.',
     },

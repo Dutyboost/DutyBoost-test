@@ -23,13 +23,13 @@ export default {
     hero: {
       title_1: "La solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
       title_2: '',
-      subtitle_1: "Connecter les fournisseurs POS, les détaillants d'aéroport, les aéroports, les voyageurs, les partenaires de voyage, les partenaires corporate et les partenaires de croisière à travers un écosystème commercial partagé basé sur la performance",
+      subtitle_1: "Connecter les fournisseurs POS, les détaillants du voyage, les détaillants locaux, les aéroports, les partenaires de voyage et les voyageurs à travers un écosystème commercial partagé basé sur la performance",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',
     },
     ecosystem: {
-      title: 'Un écosystème commercial, sept gagnants',
+      title: 'Un écosystème commercial, six gagnants',
       subtitle: 'Une solution partagée qui fait de chaque participant un gagnant via un seul système d\'exploitation commercial — la solution d\'acquisition de clients basée sur la performance pour le secteur du voyage mondial.',
       platform_fee_note: "Chaque remboursement alimente tout l'écosystème. Une seule commission basée sur la performance est automatiquement partagée entre le partenaire de voyage, le partenaire POS et DutyBoost—créant de la valeur pour tous, sans coût supplémentaire pour le détaillant aéroportuaire.",
     },

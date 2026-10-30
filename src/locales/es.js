@@ -22,13 +22,13 @@ export default {
     hero: {
        title_1: "Una Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector de Viajes Global",
        title_2: '',
-       subtitle_1: "Conectando a proveedores POS, minoristas aeroportuarios, aeropuertos, pasajeros, socios de viaje, socios corporativos y socios de cruceros a través de un ecosistema comercial compartido basado en el rendimiento",
+       subtitle_1: "Conectando a proveedores POS, minoristas de viaje, minoristas locales, aeropuertos, socios de viaje y pasajeros a través de un ecosistema comercial compartido basado en el rendimiento",
    subtitle_2: '',
    subtitle_3: '',
    tagline: '',
      },
     ecosystem: {
-      title: 'Un ecosistema comercial, siete ganadores',
+      title: 'Un ecosistema comercial, seis ganadores',
       subtitle: 'Una solución compartida que convierte a cada participante en ganador a través de un único sistema operativo comercial — una solución de adquisición de clientes basada en el rendimiento para el sector de viajes global.',
       platform_fee_note: 'Cada canje impulsa todo el ecosistema. Una única comisión basada en el rendimiento se comparte automáticamente entre el socio de viaje, el socio POS y DutyBoost—creando valor para todos, sin coste adicional para el minorista aeroportuario.',
     },

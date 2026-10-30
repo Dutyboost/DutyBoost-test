@@ -23,13 +23,13 @@ export default {
     hero: {
       title_1: "Eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche",
       title_2: '',
-      subtitle_1: "POS-Anbieter, Flughafen-Einzelhändler, Flughäfen, Reisende, Reisepartner, Corporate Partner und Kreuzfahrtpartner verbunden durch ein gemeinsames leistungsorientiertes kommerzielles Ökosystem",
+      subtitle_1: "POS-Anbieter, Reise-Einzelhändler, lokale Einzelhändler, Flughäfen, Reisepartner und Reisende verbunden durch ein gemeinsames leistungsorientiertes kommerzielles Ökosystem",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',
     },
     ecosystem: {
-      title: 'Ein kommerzielles Ökosystem, sieben Gewinner',
+      title: 'Ein kommerzielles Ökosystem, sechs Gewinner',
       subtitle: 'Eine gemeinsame Lösung, die jeden Teilnehmer zum Gewinner macht, über ein kommerzielles Betriebssystem — eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche.',
       platform_fee_note: 'Jede Einlösung treibt das gesamte Ökosystem an. Eine einzige leistungsbasierte Gebühr wird automatisch zwischen dem Reisepartner, dem POS-Partner und DutyBoost geteilt—schafft Wert für alle, ohne zusätzliche Kosten für den Flughafeneinzelhändler.',
     },

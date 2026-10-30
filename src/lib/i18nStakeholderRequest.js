@@ -3,7 +3,7 @@
 // shared i18next `corporaterequest.*` keys so only the stakeholder-specific
 // text lives here. Volume options are pure numeric ranges (language-neutral).
 
-import { Store, Plane, BedDouble, Car, Train } from "lucide-react";
+import { Store, Plane, PlaneTakeoff, BedDouble, Car, Train } from "lucide-react";
 import CoachOnRoadIcon from "@/components/CoachOnRoadIcon";
 
 const VOLUME_STORES = ["1 – 5", "6 – 20", "21 – 50", "51 – 150", "150+"];
@@ -65,6 +65,20 @@ export const STAKEHOLDER_CONFIG = {
     iconClass: "text-indigo-600",
     emailSubject: "Rail Partner enquiry",
     positionSuffix: "Rail Partner",
+    industry: "Agency",
+    volumes: ["0 – 1M", "1M – 5M", "5M – 20M", "20M+"],
+  },
+  airportPartner: {
+    Icon: PlaneTakeoff,
+    gradient: "linear-gradient(to bottom, #22d3ee, #0284c7)",
+    calculatorTo: "/travel-hubs-calculator",
+    backTo: "/airport-showcase",
+    badgeClass: "bg-cyan-500/10 text-cyan-700",
+    buttonClass: "bg-cyan-600 hover:bg-cyan-700",
+    iconCircleClass: "bg-cyan-500/10",
+    iconClass: "text-cyan-600",
+    emailSubject: "Airport Concession Partner enquiry",
+    positionSuffix: "Airport Concession Partner",
     industry: "Agency",
     volumes: ["0 – 1M", "1M – 5M", "5M – 20M", "20M+"],
   },
@@ -427,6 +441,57 @@ export const stakeholderRequestStrings = {
       label_volume: "Passageiros anuais",
       placeholder_volume: "Selecione o volume de passageiros",
       success_desc: "Recebemos o seu pedido e entraremos em contacto em breve com uma estimativa à medida para a sua rede ferroviária.",
+    },
+  },
+  airportPartner: {
+    en: {
+      badge: "Airport Concession Partner",
+      subtitle: "Tell us about your airport and its passenger volume, and we'll prepare a tailored concession revenue estimate — no commitment, no cost.",
+      label_volume: "Annual travellers",
+      placeholder_volume: "Select traveller volume",
+      success_desc: "We've received your request and will be in touch shortly with a tailored concession estimate for your airport.",
+    },
+    nl: {
+      badge: "Luchthaven-concessiepartner",
+      subtitle: "Vertel ons over uw luchthaven en het passagiersvolume, en we maken een op maat gemaakte schatting van de concessie-inkomsten — zonder verplichting, zonder kosten.",
+      label_volume: "Jaarlijkse reizigers",
+      placeholder_volume: "Selecteer reizigersvolume",
+      success_desc: "We hebben uw aanvraag ontvangen en nemen binnenkort contact op met een op maat gemaakte concessieschatting voor uw luchthaven.",
+    },
+    es: {
+      badge: "Socio concesionario de aeropuerto",
+      subtitle: "Cuéntanos sobre tu aeropuerto y su volumen de pasajeros y prepararemos una estimación de ingresos por concesión a medida — sin compromiso, sin coste.",
+      label_volume: "Pasajeros anuales",
+      placeholder_volume: "Selecciona el volumen de pasajeros",
+      success_desc: "Hemos recibido tu solicitud y nos pondremos en contacto en breve con una estimación de concesión a medida para tu aeropuerto.",
+    },
+    de: {
+      badge: "Flughafen-Konzessionspartner",
+      subtitle: "Erzählen Sie uns von Ihrem Flughafen und seinem Passagiervolumen, und wir erstellen eine maßgeschneiderte Schätzung der Konzessionsumsätze — ohne Verpflichtung, ohne Kosten.",
+      label_volume: "Jährliche Reisende",
+      placeholder_volume: "Reisendenvolumen auswählen",
+      success_desc: "Wir haben Ihre Anfrage erhalten und melden uns in Kürze mit einer maßgeschneiderten Konzessionsschätzung für Ihren Flughafen.",
+    },
+    fr: {
+      badge: "Partenaire concessionnaire aéroport",
+      subtitle: "Parlez-nous de votre aéroport et de son volume de passagers et nous préparerons une estimation de revenus de concession sur mesure — sans engagement, sans coût.",
+      label_volume: "Passagers annuels",
+      placeholder_volume: "Sélectionnez le volume de passagers",
+      success_desc: "Nous avons reçu votre demande et vous contacterons prochainement avec une estimation de concession sur mesure pour votre aéroport.",
+    },
+    it: {
+      badge: "Partner concessionario aeroportuale",
+      subtitle: "Raccontaci del tuo aeroporto e del volume di passeggeri e prepareremo una stima dei ricavi di concessione su misura — nessun impegno, nessun costo.",
+      label_volume: "Passeggeri annuali",
+      placeholder_volume: "Seleziona il volume di passeggeri",
+      success_desc: "Abbiamo ricevuto la tua richiesta e ti contatteremo a breve con una stima di concessione su misura per il tuo aeroporto.",
+    },
+    pt: {
+      badge: "Parceiro concessionário aeroportuário",
+      subtitle: "Fale-nos do seu aeroporto e do seu volume de passageiros e prepararemos uma estimativa de receita de concessão à medida — sem compromisso, sem custos.",
+      label_volume: "Passageiros anuais",
+      placeholder_volume: "Selecione o volume de passageiros",
+      success_desc: "Recebemos o seu pedido e entraremos em contacto em breve com uma estimativa de concessão à medida para o seu aeroporto.",
     },
   },
   coachPartner: {

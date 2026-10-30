@@ -146,6 +146,8 @@ import TravelPartnerPitchDeckAFKLM from './pages/TravelPartnerPitchDeckAFKLM';
 import PartnerDashboard from './pages/PartnerDashboard';
 
 import AirportShowcase from './pages/AirportShowcase';
+import AirportOnlyShowcase from './pages/AirportOnlyShowcase';
+import AirportSignup from './pages/AirportSignup';
 import PortsShowcase from './pages/PortsShowcase';
 import PortsCalculator from './pages/PortsCalculator';
 import PortDowntownCalculator from './pages/PortDowntownCalculator';
@@ -340,11 +342,11 @@ const AuthenticatedApp = () => {
         <Route path="/travel-partner-pitch-afklm" element={<TravelPartnerPitchDeckAFKLM />} />
         <Route path="/travellers-transaction" element={<TravellersTransactionShowcase />} />
         <Route path="/travel-hubs-showcase" element={<AirportShowcase />} />
-        <Route path="/airport-showcase" element={<Navigate to="/travel-hubs-showcase" replace />} />
+        <Route path="/airport-showcase" element={<AirportOnlyShowcase />} />
+        <Route path="/airport-partner-request" element={<AirportSignup />} />
         <Route path="/travel-hubs-calculator" element={<AirportCalculator />} />
         <Route path="/airport-calculator" element={<Navigate to="/travel-hubs-calculator" replace />} />
         <Route path="/travel-hubs-partner-request" element={<AirportPartnerRequest />} />
-        <Route path="/airport-partner-request" element={<Navigate to="/travel-hubs-partner-request" replace />} />
         <Route path="/ports-showcase" element={<PortsShowcase />} />
         <Route path="/ports-calculator" element={<PortsCalculator />} />
         <Route path="/ports-partner-request" element={<PortsPartnerRequest />} />

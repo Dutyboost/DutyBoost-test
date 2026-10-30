@@ -28,13 +28,13 @@ export default {
     hero: {
       title_1: 'Uma Solução de Aquisição de Clientes Baseada no Desempenho para o Setor de Viagens Global',
       title_2: '',
-      subtitle_1: 'Ligando fornecedores de POS, retalhistas de aeroporto, aeroportos, passageiros, parceiros de viagens, parceiros corporativos e parceiros de cruzeiros através de um ecossistema comercial partilhado baseado no desempenho',
+      subtitle_1: 'Ligando fornecedores de POS, retalhistas de viagem, retalhistas locais, aeroportos, parceiros de viagens e passageiros através de um ecossistema comercial partilhado baseado no desempenho',
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',
     },
     ecosystem: {
-      title: 'Um ecossistema comercial, sete vencedores',
+      title: 'Um ecossistema comercial, seis vencedores',
       subtitle: 'Uma solução partilhada que faz de cada participante um vencedor através de um único ecossistema operativo comercial.',
       platform_fee_note: 'Cada resgate alimenta todo o ecossistema. Uma única taxa baseada no desempenho é partilhada automaticamente entre os participantes da transação e a DutyBoost — criando valor para todos, sem qualquer custo inicial adicional para o retalhista de aeroporto.',
     },

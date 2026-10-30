@@ -31,7 +31,7 @@ export default function SelectUserType({ travelPartnerOnly = false }) {
       color: "from-cyan-400 to-sky-600",
       bg: "bg-cyan-50",
       iconColor: "text-cyan-600",
-      path: "/travel-hubs-showcase",
+      path: "/airport-showcase",
     },
     {
       id: "retailer",

@@ -18,7 +18,6 @@ import CoachOnRoadIcon from "../components/CoachOnRoadIcon";
 import { getEcosystemCardsStrings } from "@/lib/i18nEcosystemCards";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
-import TravellerJourneyOval from "../components/TravellerJourneyOval";
 
 export default function LandingPage() {
   const { t, i18n } = useTranslation();
@@ -129,7 +128,7 @@ export default function LandingPage() {
             <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t('ecosystem.title')}</h2>
             <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">{t('ecosystem.subtitle')}</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {stakeholders.map((s) => {
               let Icon = s.icon;
               let AdditionalIcons = [];
@@ -212,9 +211,6 @@ export default function LandingPage() {
           <p className="text-center text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto mt-4 leading-relaxed">{t('ecosystem.platform_fee_note')}</p>
         </div>
       </section>
-
-      {/* Traveller Journey Oval */}
-      <TravellerJourneyOval />
 
       {/* CTA */}
       <section className="py-10 sm:py-14 px-4 sm:px-6">
