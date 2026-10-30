@@ -159,7 +159,7 @@ export default function LandingPage() {
               }
 
               if (s.key === 'airports') {
-                AdditionalIcons = [Anchor, TrainOnTrackIcon, CoachOnRoadIcon];
+                AdditionalIcons = [Anchor, TrainOnTrackIcon];
                 title = eco.airports.title;
                 description = eco.airports.description;
                 benefits = [eco.airports.b1, eco.airports.b2, eco.airports.b3];
@@ -172,7 +172,7 @@ export default function LandingPage() {
               }
               
               if (s.key === 'agencies') {
-                AdditionalIcons = [CruiseShipIcon, TrainIcon, HotelIcon, CarRentalIcon];
+                AdditionalIcons = [CruiseShipIcon, TrainIcon, HotelIcon, CarRentalIcon, CoachOnRoadIcon];
               }
 
               if (s.key === 'portsRetailers') {
