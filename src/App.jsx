@@ -284,7 +284,7 @@ const AuthenticatedApp = () => {
         <Route path="/train-showcase" element={<TrainShowcase />} />
         <Route path="/coach-showcase" element={<CoachShowcase />} />
         <Route path="/train-portal" element={<TrainPortal />} />
-        <Route path="/train-signup" element={<Navigate to="/get-started" replace />} />
+        <Route path="/train-signup" element={<TrainSignup />} />
         <Route path="/dev-wireframe" element={<DevWireframe />} />
         <Route path="/request-more-information" element={<RequestDemoPage />} />
         <Route path="/retailer-presentation" element={<AirportRetailerPresentation />} />
