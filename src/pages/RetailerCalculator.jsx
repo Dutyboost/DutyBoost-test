@@ -11,6 +11,8 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
+import TrainIcon from "../components/TrainIcon";
+import CoachOnRoadIcon from "../components/CoachOnRoadIcon";
 import SliderInput from "../components/SliderInput";
 import TravelPartnerSelector from "../components/TravelPartnerSelector";
 import ConversionRateInput from "../components/calculator/ConversionRateInput";
@@ -146,7 +148,46 @@ const VERTICALS_CONFIG = [
     defaultBasket: 170,
     creditsPerBooking: 2, // booking + car return
   },
+  {
+    key: "train",
+    labelKey: "vertical_train",
+    Icon: TrainIcon,
+    color: "#6366F1",
+    bgClass: "bg-indigo-600",
+    bgLightClass: "bg-indigo-50",
+    borderClass: "border-indigo-200",
+    textClass: "text-indigo-700",
+    activeClass: "bg-indigo-600 text-white border-indigo-600",
+    inactiveClass: "bg-white text-slate-600 border-slate-300",
+    commissionNote: "0.5% of basket spend (max €5/tx)",
+    defaultBookings: 20000,
+    defaultConversion: 3,
+    defaultBasket: 60,
+    creditsPerBooking: 1,
+  },
+  {
+    key: "coach",
+    labelKey: "vertical_coach",
+    Icon: CoachOnRoadIcon,
+    color: "#F59E0B",
+    bgClass: "bg-amber-500",
+    bgLightClass: "bg-amber-50",
+    borderClass: "border-amber-200",
+    textClass: "text-amber-700",
+    activeClass: "bg-amber-500 text-white border-amber-500",
+    inactiveClass: "bg-white text-slate-600 border-slate-300",
+    commissionNote: "0.5% of basket spend (max €5/tx)",
+    defaultBookings: 5000,
+    defaultConversion: 3,
+    defaultBasket: 60,
+    creditsPerBooking: 1,
+  },
 ];
+
+// Every vertical gets its own state slot, so a locked (single-vertical) partner
+// calculator keeps working when new travel verticals are added.
+const VERTICAL_KEYS = VERTICALS_CONFIG.map((v) => v.key);
+const filledMap = (val) => VERTICAL_KEYS.reduce((acc, k) => ({ ...acc, [k]: val }), {});
 
 // ── Travel Partner tab ────────────────────────────────────────────────────────
 export function TravelPartnerTab({ t, vertical }) {
@@ -155,29 +196,23 @@ export function TravelPartnerTab({ t, vertical }) {
   const locked = vertical || null;
   const initialBookings = locked
     ? {
-        flight: 0,
-        accommodation: 0,
-        car: 0,
+        ...filledMap(0),
         [locked]: VERTICALS_CONFIG.find((v) => v.key === locked)?.defaultBookings ?? 0,
       }
-    : { flight: 10000, accommodation: 0, car: 0 };
+    : { ...filledMap(0), flight: 10000 };
 
   const [selected, setSelected] = useState(
-    locked
-      ? { flight: locked === "flight", accommodation: locked === "accommodation", car: locked === "car" }
-      : { flight: false, accommodation: false, car: false }
+    locked ? { ...filledMap(false), [locked]: true } : filledMap(false)
   );
   const [bookings, setBookings] = useState(initialBookings);
-  const [bookingsInput, setBookingsInput] = useState({
-    flight: fmtNum(initialBookings.flight),
-    accommodation: fmtNum(initialBookings.accommodation),
-    car: fmtNum(initialBookings.car),
-  });
-  const [bookingsError, setBookingsError] = useState({ flight: "", accommodation: "", car: "" });
-  const [selectedPartners, setSelectedPartners] = useState({ flight: null, accommodation: null, car: null });
-  const [conversion, setConversion] = useState({ flight: 0.01, accommodation: 0.01, car: 0.01 });
+  const [bookingsInput, setBookingsInput] = useState(
+    VERTICAL_KEYS.reduce((acc, k) => ({ ...acc, [k]: fmtNum(initialBookings[k]) }), {})
+  );
+  const [bookingsError, setBookingsError] = useState(filledMap(""));
+  const [selectedPartners, setSelectedPartners] = useState(filledMap(null));
+  const [conversion, setConversion] = useState(filledMap(0.01));
   const FIXED_AVG_BASKET = 60; // blended: midpoint between €20 minimum and €100 global average
-  const avgBasket = useMemo(() => ({ flight: FIXED_AVG_BASKET, accommodation: FIXED_AVG_BASKET, car: FIXED_AVG_BASKET }), []);
+  const avgBasket = useMemo(() => filledMap(FIXED_AVG_BASKET), []);
 
   const activeVerticals = VERTICALS_CONFIG.filter((v) => selected[v.key]);
 

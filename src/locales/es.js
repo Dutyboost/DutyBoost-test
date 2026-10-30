@@ -1015,6 +1015,8 @@ export default {
       vertical_flight: '✈️ Vuelo',
       vertical_accommodation: '🏨 Alojamiento',
       vertical_car: '🚗 Alquiler & Traslados',
+      vertical_train: '🚆 Tren',
+      vertical_coach: '🚌 Autocar',
       dutycredits_issued_month: 'DutyCredits emitidos / mes',
       two_x_per_booking: '2× por reserva',
       bookings_x2_note_prefix: 'reservas',

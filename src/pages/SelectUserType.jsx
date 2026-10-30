@@ -6,7 +6,7 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
-import { ArrowRight, Cpu, PlaneTakeoff, Anchor, Calculator } from "lucide-react";
+import { ArrowRight, Cpu, PlaneTakeoff, Anchor } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import TrainIcon from "../components/TrainIcon";
 import CoachOnRoadIcon from "../components/CoachOnRoadIcon";
@@ -62,7 +62,6 @@ export default function SelectUserType({ travelPartnerOnly = false }) {
       bg: "bg-teal-50",
       iconColor: "text-teal-600",
       path: "/cruise-showcase",
-      calculator: "/cruise-partner-calculator",
     },
     {
       id: "agency",
@@ -73,7 +72,6 @@ export default function SelectUserType({ travelPartnerOnly = false }) {
       bg: "bg-green-50",
       iconColor: "text-green-600",
       path: "/flight-showcase",
-      calculator: "/roi-calculator-travel-partner?vertical=flight",
     },
     {
       id: "hotel",
@@ -84,7 +82,6 @@ export default function SelectUserType({ travelPartnerOnly = false }) {
       bg: "bg-blue-50",
       iconColor: "text-blue-600",
       path: "/accommodation-showcase",
-      calculator: "/roi-calculator-travel-partner?vertical=accommodation",
     },
     {
       id: "carrental",
@@ -95,7 +92,6 @@ export default function SelectUserType({ travelPartnerOnly = false }) {
       bg: "bg-red-50",
       iconColor: "text-red-600",
       path: "/car-rental-showcase",
-      calculator: "/roi-calculator-travel-partner?vertical=car",
     },
     {
       id: "train",
@@ -106,7 +102,6 @@ export default function SelectUserType({ travelPartnerOnly = false }) {
       bg: "bg-indigo-50",
       iconColor: "text-indigo-600",
       path: "/train-showcase",
-      calculator: "/roi-calculator-travel-partner",
     },
     {
       id: "coach",
@@ -116,8 +111,7 @@ export default function SelectUserType({ travelPartnerOnly = false }) {
       color: "from-amber-400 to-orange-600",
       bg: "bg-amber-50",
       iconColor: "text-amber-600",
-      path: "/travel-partner-request",
-      calculator: "/roi-calculator-travel-partner",
+      path: "/coach-showcase",
     },
     {
       id: "pos",
@@ -178,15 +172,6 @@ export default function SelectUserType({ travelPartnerOnly = false }) {
                   >
                     {t('getstarted.get_started')} <ArrowRight className="w-4 h-4" />
                   </Button>
-                  {fromAgency && option.calculator && (
-                    <button
-                      type="button"
-                      onClick={(e) => { e.stopPropagation(); navigate(option.calculator); }}
-                      className="mt-3 inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      <Calculator className="w-3.5 h-3.5" /> {tp.calculator}
-                    </button>
-                  )}
                 </div>
               );
             })}

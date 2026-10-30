@@ -791,6 +791,8 @@ export default {
       vertical_flight: '✈️ Vlucht',
       vertical_accommodation: '🏨 Accommodatie',
       vertical_car: '🚗 Autoverhuur & Transfer',
+      vertical_train: '🚆 Trein',
+      vertical_coach: '🚌 Touringcar',
       dutycredits_issued_month: 'Uitgegeven DutyCredits / maand',
       two_x_per_booking: '2× per boeking',
       bookings_x2_note_prefix: 'boekingen',

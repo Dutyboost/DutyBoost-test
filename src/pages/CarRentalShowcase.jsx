@@ -13,7 +13,7 @@ export default function CarRentalShowcase() {
   const { t } = useTranslation();
   // This is the car rental travel-partner showcase: its calculator is always
   // the car rental travel-partner ROI calculator, never the terminal retailer one.
-  const calculatorTo = '/roi-calculator-travel-partner?vertical=car';
+  const calculatorTo = '/car-rental-partner-calculator';
 
   const flowSteps = [
     { num: '01', titleKey: 'showcase.car.step1', descKey: 'showcase.car.step1Desc' },

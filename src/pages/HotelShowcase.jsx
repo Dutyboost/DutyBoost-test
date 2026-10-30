@@ -13,7 +13,7 @@ export default function HotelShowcase() {
   const { t } = useTranslation();
   // This is the accommodation travel-partner showcase: its calculator is always
   // the accommodation travel-partner ROI calculator, never the terminal retailer one.
-  const calculatorTo = '/roi-calculator-travel-partner?vertical=accommodation';
+  const calculatorTo = '/accommodation-partner-calculator';
 
   const flowSteps = [
     { num: '01', titleKey: 'showcase.accommodation.step1', descKey: 'showcase.accommodation.step1Desc' },

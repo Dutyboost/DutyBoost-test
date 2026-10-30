@@ -78,6 +78,12 @@ import GTMTestingChecklist from './pages/GTMTestingChecklist';
 import StagingValidationGuide from './pages/StagingValidationGuide';
 import RetailerCalculator from './pages/RetailerCalculator';
 import TravelPartnerCalculator from './pages/TravelPartnerCalculator';
+import FlightPartnerCalculator from './pages/FlightPartnerCalculator';
+import AccommodationPartnerCalculator from './pages/AccommodationPartnerCalculator';
+import CarRentalPartnerCalculator from './pages/CarRentalPartnerCalculator';
+import TrainPartnerCalculator from './pages/TrainPartnerCalculator';
+import CoachPartnerCalculator from './pages/CoachPartnerCalculator';
+import CoachShowcase from './pages/CoachShowcase';
 import SurveyDashboard from './pages/SurveyDashboard';
 import CruiseShowcase from './pages/CruiseShowcase.jsx';
 import CruisePartnerCalculator from './pages/CruisePartnerCalculator.jsx';
@@ -259,6 +265,11 @@ const AuthenticatedApp = () => {
         <Route path="/retailer-calculator" element={<Navigate to="/travel-retailers-calculator" replace />} />
         <Route path="/roi-calculator" element={<RetailerCalculator />} />
         <Route path="/roi-calculator-travel-partner" element={<TravelPartnerCalculator />} />
+        <Route path="/flight-partner-calculator" element={<FlightPartnerCalculator />} />
+        <Route path="/accommodation-partner-calculator" element={<AccommodationPartnerCalculator />} />
+        <Route path="/car-rental-partner-calculator" element={<CarRentalPartnerCalculator />} />
+        <Route path="/train-partner-calculator" element={<TrainPartnerCalculator />} />
+        <Route path="/coach-partner-calculator" element={<CoachPartnerCalculator />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
         <Route path="/retailer-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/retailer-scan-only" element={<RetailerScanOnly />} />
@@ -273,6 +284,7 @@ const AuthenticatedApp = () => {
         <Route path="/cruise-portal" element={<CruisePortal />} />
         <Route path="/cruise-signup" element={<CruiseSignup />} />
         <Route path="/train-showcase" element={<TrainShowcase />} />
+        <Route path="/coach-showcase" element={<CoachShowcase />} />
         <Route path="/train-portal" element={<TrainPortal />} />
         <Route path="/train-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/dev-wireframe" element={<DevWireframe />} />

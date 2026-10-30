@@ -1,91 +1,48 @@
-import { Link, useNavigate } from "react-router-dom";
-import { ArrowRight, Ship, Gift, QrCode, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import DutyBoostLogo from "../components/DutyBoostLogo";
-import LanguageSwitcher from "../components/LanguageSwitcher";
-import ShowcaseMobileNav from "../components/ShowcaseMobileNav";
-import PageFooter from "../components/PageFooter";
-import { Button } from "@/components/ui/button";
+import TravelPartnerShowcase from "@/components/showcase/TravelPartnerShowcase";
+import CruiseShipIcon from "@/components/CruiseShipIcon";
+import { getTravelPartnerCardStrings } from "@/lib/i18nTravelPartnerCards";
 
 export default function CruiseShowcase() {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
-
-  const steps = [
-    { icon: Ship, title: t('showcase.cruise.step1'), desc: t('showcase.cruise.step1Desc') },
-    { icon: Gift, title: t('showcase.cruise.step2'), desc: t('showcase.cruise.step2Desc') },
-    { icon: QrCode, title: t('showcase.cruise.step3'), desc: t('showcase.cruise.step3Desc') },
-    { icon: TrendingUp, title: t('showcase.cruise.step4'), desc: t('showcase.cruise.step4Desc') },
-  ];
+  const { t, i18n } = useTranslation();
+  const tp = getTravelPartnerCardStrings(i18n.language);
+  const headline = t('showcase.cruise.headline');
+  const words = headline.trim().split(/\s+/);
+  const titleHighlight = words.length > 1 ? words.pop() : headline;
+  const titleBefore = words.join(' ');
 
   return (
-    <div className="min-h-screen bg-background">
-      <ShowcaseMobileNav calculatorTo="/cruise-partner-calculator" gradient="linear-gradient(to bottom, #2dd4bf, #0891b2)" />
-      <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
-          <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">
-            <DutyBoostLogo height={55} />
-          </button>
-          <div className="flex items-center gap-4">
-            <Link to="/cruise-partner-calculator">
-              <Button variant="outline" size="sm">{t('nav.roi_calculator_cruise')}</Button>
-            </Link>
-            <LanguageSwitcher />
-          </div>
-        </div>
-      </nav>
-
-      <section className="py-20 px-4 sm:px-6 max-w-6xl mx-auto">
-        <div className="text-center space-y-6 mb-16">
-          <h1 className="text-5xl sm:text-6xl font-heading font-bold">
-            {t('showcase.cruise.headline').split('&')[0]}&{" "}
-            <span className="text-teal-600">{t('showcase.cruise.headline').split('& ')[1]}</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            {t('showcase.cruise.subtitle')}
-          </p>
-        </div>
-
-        <div className="space-y-20">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-heading font-bold">{t('showcase.cruise.howItWorks')}</h2>
-              <p className="text-muted-foreground">{t('showcase.cruise.description')}</p>
-            </div>
-            <div className="grid gap-4">
-              {steps.map((step, i) => {
-                const Icon = step.icon;
-                return (
-                  <div key={i} className="bg-card border border-border rounded-xl p-6 flex gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-teal-50 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-5 h-5 text-teal-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-sm">{step.title}</h3>
-                      <p className="text-xs text-muted-foreground mt-1">{step.desc}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-teal-400 to-cyan-600 rounded-2xl p-12 text-white text-center space-y-6">
-            <h2 className="text-3xl font-heading font-bold">{t('showcase.cruise.ctaTitle')}</h2>
-            <p className="text-lg opacity-90 max-w-2xl mx-auto">{t('showcase.cruise.ctaDesc')}</p>
-            <div className="flex justify-center">
-              <Button
-                size="lg"
-                className="bg-white text-teal-600 hover:bg-teal-50 gap-2"
-                onClick={() => navigate("/cruise-portal")}
-              >
-                {t('showcase.cruise.ctaButton')} <ArrowRight className="w-4 h-4" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <PageFooter />
-    </div>
+    <TravelPartnerShowcase
+      icon={CruiseShipIcon}
+      secondIcon={CruiseShipIcon}
+      pill1Text={`${t('travelstackonepager.pill_1st')} DutyCredit — ${t('travelstackonepager.at_booking')}`}
+      pill2Text={`${t('travelstackonepager.pill_2nd')} DutyCredit — ${tp.cruise_pill_2}`}
+      pill1Class="bg-blue-100 text-blue-700 border-blue-200"
+      pill2Class="bg-teal-100 text-teal-700 border-teal-200"
+      titleBefore={titleBefore}
+      titleHighlight={titleHighlight}
+      highlightClass="from-teal-400 to-cyan-600"
+      subtitle={t('showcase.cruise.subtitle')}
+      heroFromClass="from-teal-50"
+      blobClass="bg-teal-500/10"
+      numClass="text-teal-400/30"
+      flowHeading={t('showcase.cruise.howItWorks')}
+      flowSubtitle={t('showcase.cruise.description')}
+      steps={[
+        { num: '01', title: t('showcase.cruise.step1'), desc: t('showcase.cruise.step1Desc') },
+        { num: '02', title: t('showcase.cruise.step2'), desc: t('showcase.cruise.step2Desc') },
+        { num: '03', title: t('showcase.cruise.step3'), desc: t('showcase.cruise.step3Desc') },
+        { num: '04', title: t('showcase.cruise.step4'), desc: t('showcase.cruise.step4Desc') },
+      ]}
+      dashboardRole="retailer"
+      ctaFromClass="from-teal-400 to-cyan-600"
+      ctaTitle={t('showcase.cruise.ctaTitle')}
+      ctaDesc={t('showcase.cruise.ctaDesc')}
+      ctaLabel={t('showcase.cruise.ctaButton')}
+      ctaTo="/cruise-portal"
+      ctaTextClass="text-teal-600"
+      calculatorTo="/cruise-partner-calculator"
+      mobileNavGradient="linear-gradient(to bottom, #2dd4bf, #0891b2)"
+    />
   );
 }

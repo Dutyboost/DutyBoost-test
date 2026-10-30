@@ -16,7 +16,7 @@ export default function AgencyShowcase() {
   const { t } = useTranslation();
   // This is the flight travel-partner showcase: its calculator is always the
   // flight travel-partner ROI calculator, never the terminal retailer one.
-  const calculatorTo = '/roi-calculator-travel-partner?vertical=flight';
+  const calculatorTo = '/flight-partner-calculator';
 
   const flowSteps = [
     { num: '01', titleKey: 'showcase.agency.step1', descKey: 'showcase.agency.step1Desc' },

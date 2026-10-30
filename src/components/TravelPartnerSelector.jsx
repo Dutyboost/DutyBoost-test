@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
-import { Search, MapPin, X, Plane, Globe, Loader2, BedDouble, Car } from "lucide-react";
+import { Search, MapPin, X, Plane, Globe, Loader2, BedDouble, Car, Train, Bus } from "lucide-react";
 import { TRAVEL_PARTNERS, PARTNER_CONTINENTS } from "../data/travelPartners";
 import { fmtNum } from "../utils/formatNumber";
 import { base44 } from "@/api/base44Client";
@@ -28,6 +28,20 @@ const VERTICAL_CONFIG = {
     searchHeading: "Search your company to calculate your potential revenue",
     searchDesc: "Not listed above? Search any car rental company worldwide",
     Icon: Car,
+  },
+  train: {
+    label: "rail operator",
+    placeholder: "Search rail operators…",
+    searchHeading: "Search your organisation to calculate your potential revenue",
+    searchDesc: "Not listed above? Search any rail operator worldwide",
+    Icon: Train,
+  },
+  coach: {
+    label: "touring coach operator",
+    placeholder: "Search touring coach operators…",
+    searchHeading: "Search your organisation to calculate your potential revenue",
+    searchDesc: "Not listed above? Search any touring coach operator worldwide",
+    Icon: Bus,
   },
 };
 
