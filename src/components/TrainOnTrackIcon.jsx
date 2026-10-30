@@ -23,6 +23,11 @@ export default function TrainOnTrackIcon({ className }) {
       <path d="M8.3 16.4h7.4" />
       <path d="M7.4 19h9.2" />
       <path d="M6.5 21.6h11" />
+      {/* station building beside the platform */}
+      <path d="M1 15h5.4" />
+      <path d="M1.8 15V9.8h3.6V15" />
+      <path d="M1.2 9.8 3.6 7.2 6 9.8" />
+      <path d="M2.9 11.9h1.4v1.4H2.9z" />
     </svg>
   );
 }
