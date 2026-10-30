@@ -34,7 +34,6 @@ export default function CruiseShowcase() {
         { num: '03', title: t('showcase.cruise.step3'), desc: t('showcase.cruise.step3Desc') },
         { num: '04', title: t('showcase.cruise.step4'), desc: t('showcase.cruise.step4Desc') },
       ]}
-      dashboardRole="retailer"
       ctaFromClass="from-teal-400 to-cyan-600"
       ctaTitle={t('showcase.cruise.ctaTitle')}
       ctaDesc={t('showcase.cruise.ctaDesc')}

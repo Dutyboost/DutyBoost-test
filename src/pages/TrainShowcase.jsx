@@ -33,7 +33,6 @@ export default function TrainShowcase() {
         { num: '03', title: t('showcase.train.step3'), desc: t('showcase.train.step3Desc') },
         { num: '04', title: t('showcase.train.step4'), desc: t('showcase.train.step4Desc') },
       ]}
-      dashboardRole="agency"
       ctaFromClass="from-indigo-600 to-violet-500"
       ctaTitle={t('showcase.train.cta_title')}
       ctaDesc={t('showcase.train.cta_desc')}

@@ -6,7 +6,6 @@ import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PageFooter from "@/components/PageFooter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
-import DashboardPreview3D from "@/components/showcase/DashboardPreview3D";
 
 /**
  * Shared layout for every travel-partner showcase (flight, accommodation,
@@ -31,7 +30,6 @@ export default function TravelPartnerShowcase({
   flowHeading,
   flowSubtitle,
   steps = [],
-  dashboardRole = "agency",
   ctaFromClass,
   ctaTitle,
   ctaDesc,
@@ -107,9 +105,6 @@ export default function TravelPartnerShowcase({
           </div>
         </div>
       </section>
-
-      {/* 3D Dashboard Preview */}
-      <DashboardPreview3D role={dashboardRole} />
 
       {/* CTA */}
       <section className="py-10 sm:py-14 px-4 sm:px-6">

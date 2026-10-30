@@ -33,7 +33,6 @@ export default function CoachShowcase() {
         { num: '03', title: tp.coach_step3, desc: tp.coach_step3Desc },
         { num: '04', title: tp.coach_step4, desc: tp.coach_step4Desc },
       ]}
-      dashboardRole="agency"
       ctaFromClass="from-amber-400 to-orange-600"
       ctaTitle={tp.coach_cta_title}
       ctaDesc={tp.coach_cta_desc}

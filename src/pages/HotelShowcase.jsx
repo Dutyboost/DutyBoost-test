@@ -6,7 +6,6 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import ShowcaseMobileNav from "../components/ShowcaseMobileNav";
-import DashboardPreview3D from "../components/showcase/DashboardPreview3D";
 import HotelIcon from "../components/HotelIcon";
 
 export default function HotelShowcase() {
@@ -79,9 +78,6 @@ export default function HotelShowcase() {
           </div>
         </div>
       </section>
-
-      {/* 3D Dashboard Preview */}
-      <DashboardPreview3D role="accommodation" />
 
       {/* CTA */}
       <section className="py-10 sm:py-14 px-4 sm:px-6">
