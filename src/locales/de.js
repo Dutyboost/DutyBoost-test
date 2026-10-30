@@ -14,7 +14,7 @@ export default {
       partner_with_us: 'Partner mit uns',
       we_call_you: 'Wir rufen Sie an',
       live_demo: 'Live-Demo',
-      roi_calculator: 'ROI-Rechner für Terminal-Einzelhändler',
+      roi_calculator: 'ROI-Rechner für Reise-Einzelhändler',
       roi_calculator_travel_partner: 'ROI-Rechner für Reisepartner',
       roi_calculator_cruise: 'ROI-Rechner für Kreuzfahrtpartner',
       letter_of_intent: 'Absichtserklärung',

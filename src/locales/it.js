@@ -13,7 +13,7 @@ export default {
       partner_with_us: 'Diventa partner con noi',
       we_call_you: 'Ti chiamiamo',
       live_demo: 'Demo dal vivo',
-      roi_calculator: 'Calcolatore ROI per rivenditori di terminal',
+      roi_calculator: 'Calcolatore ROI per rivenditori di viaggio',
       roi_calculator_travel_partner: 'Calcolatore ROI per partner di viaggio',
       roi_calculator_cruise: 'Calcolatore ROI per partner crocieristici',
       letter_of_intent: 'Lettera di Intenti',

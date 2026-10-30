@@ -62,7 +62,7 @@ export default function RetailerPortal() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <div className="border-b border-border px-5 py-6 flex items-center justify-between">
-        <button onClick={() => navigate("/terminal-retailers")} className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+        <button onClick={() => navigate("/travel-retailers")} className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
           <ChevronLeft className="w-4 h-4" /> {t('common.back')}
         </button>
         <button onClick={() => navigate("/")} className="hover:opacity-80 transition-opacity">

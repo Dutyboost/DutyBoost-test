@@ -237,9 +237,10 @@ const AuthenticatedApp = () => {
         <Route path="/registration" element={<GetStarted />} />
         <Route path="/travel-partner-portal" element={<AgencyPortal />} />
         <Route path="/travel-partner-signup" element={<Navigate to="/get-started" replace />} />
-        <Route path="/terminal-retailers" element={<RetailerShowcase />} />
-        <Route path="/airport-seaport-retailers" element={<Navigate to="/terminal-retailers" replace />} />
-        <Route path="/retailer-showcase" element={<Navigate to="/terminal-retailers" replace />} />
+        <Route path="/travel-retailers" element={<RetailerShowcase />} />
+        <Route path="/terminal-retailers" element={<Navigate to="/travel-retailers" replace />} />
+        <Route path="/airport-seaport-retailers" element={<Navigate to="/travel-retailers" replace />} />
+        <Route path="/retailer-showcase" element={<Navigate to="/travel-retailers" replace />} />
         <Route path="/flight-showcase" element={<AgencyShowcase />} />
         <Route path="/registration-flow" element={<RegistrationFlow />} />
         <Route path="/email-preview" element={<EmailPreview />} />
@@ -342,9 +343,10 @@ const AuthenticatedApp = () => {
         <Route path="/wholesale-showcase" element={<WholesaleShowcase />} />
         <Route path="/wholesale-calculator" element={<WholesaleCalculator />} />
         <Route path="/wholesale-partner-request" element={<WholesalePartnerRequest />} />
-        <Route path="/terminal-retailers-request" element={<RetailerRequest />} />
-        <Route path="/airport-seaport-retailers-request" element={<Navigate to="/terminal-retailers-request" replace />} />
-        <Route path="/retailer-request" element={<Navigate to="/terminal-retailers-request" replace />} />
+        <Route path="/travel-retailers-request" element={<RetailerRequest />} />
+        <Route path="/terminal-retailers-request" element={<Navigate to="/travel-retailers-request" replace />} />
+        <Route path="/airport-seaport-retailers-request" element={<Navigate to="/travel-retailers-request" replace />} />
+        <Route path="/retailer-request" element={<Navigate to="/travel-retailers-request" replace />} />
         <Route path="/retailer-confirmation" element={<RetailerConfirmation />} />
         <Route path="/travel-partner-request" element={<TravelPartnerRequest />} />
         <Route path="/accommodation-request" element={<AccommodationRequest />} />

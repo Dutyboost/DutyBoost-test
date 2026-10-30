@@ -56,7 +56,7 @@ export default function RetailerShowcase() {
         <div className="absolute top-10 right-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-8">
           <div className="inline-flex items-center gap-2 bg-orange-500/10 text-orange-600 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
-            <Plane className="w-3.5 h-3.5" /> <Anchor className="w-3.5 h-3.5" /> Terminal Retail Partners
+            <Plane className="w-3.5 h-3.5" /> <Anchor className="w-3.5 h-3.5" /> Travel Retail Partners
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold tracking-tight leading-tight">
             {t('showcase.retailer.titlePart1')} <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">{t('showcase.retailer.titlePart2')}</span>
@@ -101,7 +101,7 @@ export default function RetailerShowcase() {
                 {t('showcase.retailer.ctaDesc')}
               </p>
               <div className="flex justify-center">
-                <Link to="/terminal-retailers-request">
+                <Link to="/travel-retailers-request">
                   <Button size="lg" className="bg-white text-orange-600 hover:bg-white/90 gap-2 px-8 text-base mt-2">
                     {t('common.request_more_info')} <ArrowRight className="w-4 h-4" />
                   </Button>

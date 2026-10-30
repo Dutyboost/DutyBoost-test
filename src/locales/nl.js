@@ -13,7 +13,7 @@ export default {
       partner_with_us: 'Partner met ons',
       we_call_you: 'Wij bellen u',
       live_demo: 'Live Demo',
-      roi_calculator: 'ROI-calculator voor terminalretailers',
+      roi_calculator: 'ROI-calculator voor reisretailers',
       roi_calculator_travel_partner: 'ROI-calculator voor reispartners',
       roi_calculator_cruise: 'ROI-calculator voor cruisepartners',
       letter_of_intent: 'Intentieverklaring',

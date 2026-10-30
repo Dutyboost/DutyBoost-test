@@ -409,7 +409,7 @@ export function TravelPartnerTab({ t, vertical }) {
           <p className="text-green-50 text-sm mt-0.5">{t('calculator.partner_cta_desc')}</p>
         </div>
         <Link
-          to="/terminal-retailers-request"
+          to="/travel-retailers-request"
           className="inline-flex items-center gap-2 bg-white text-green-600 font-bold px-6 py-3 rounded-xl hover:bg-green-50 transition-colors shrink-0"
         >
           <MessageCircle className="w-5 h-5" />
@@ -476,7 +476,7 @@ export default function RetailerCalculator() {
             theme={CHANNEL_THEMES[channel]}
             variant={channel}
             prefillByCountry={channel === "seaport"}
-            ctaTo="/terminal-retailers-request"
+            ctaTo="/travel-retailers-request"
             showBrandBar={false}
           />
         )}

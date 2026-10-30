@@ -15,7 +15,7 @@ import { hubShowcaseStrings } from "@/lib/i18nHubShowcase";
 
 const STAKEHOLDERS = [
   { key: 'pos', Icon: Cpu, bg: "bg-violet-50", border: "border-violet-200", fg: "text-violet-600", iconWrap: "bg-violet-100", link: "/pos-partner" },
-  { key: 'retailers', Icon: AirportRetailerIcon, bg: "bg-orange-50", border: "border-orange-200", fg: "text-orange-600", iconWrap: "bg-orange-100", link: "/terminal-retailers" },
+  { key: 'retailers', Icon: AirportRetailerIcon, bg: "bg-orange-50", border: "border-orange-200", fg: "text-orange-600", iconWrap: "bg-orange-100", link: "/travel-retailers" },
   { key: 'airports', Icon: PlaneTakeoff, bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", iconWrap: "bg-cyan-100", link: "/travel-hubs-showcase" },
   { key: 'wholesale', Icon: Package, bg: "bg-amber-50", border: "border-amber-200", fg: "text-amber-600", iconWrap: "bg-amber-100", link: "/wholesale-showcase" },
   { key: 'travel', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", iconWrap: "bg-green-100", link: "/get-started?from=agency", extraIcons: [HotelIcon, CarRentalIcon] },
