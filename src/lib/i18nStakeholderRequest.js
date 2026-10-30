@@ -3,7 +3,7 @@
 // shared i18next `corporaterequest.*` keys so only the stakeholder-specific
 // text lives here. Volume options are pure numeric ranges (language-neutral).
 
-import { Store, Plane, BedDouble, Car } from "lucide-react";
+import { Store, Plane, BedDouble, Car, Train } from "lucide-react";
 
 const VOLUME_STORES = ["1 – 5", "6 – 20", "21 – 50", "51 – 150", "150+"];
 const VOLUME_BOOKINGS = ["0 – 10k", "10k – 50k", "50k – 250k", "250k – 1M", "1M+"];
@@ -52,6 +52,20 @@ export const STAKEHOLDER_CONFIG = {
     positionSuffix: "Travel Partner",
     industry: "Agency",
     volumes: VOLUME_BOOKINGS,
+  },
+  trainPartner: {
+    Icon: Train,
+    gradient: "linear-gradient(to bottom, #6366f1, #8b5cf6)",
+    calculatorTo: "/train-partner-calculator",
+    backTo: "/train-showcase",
+    badgeClass: "bg-indigo-500/10 text-indigo-700",
+    buttonClass: "bg-indigo-600 hover:bg-indigo-700",
+    iconCircleClass: "bg-indigo-500/10",
+    iconClass: "text-indigo-600",
+    emailSubject: "Rail Partner enquiry",
+    positionSuffix: "Rail Partner",
+    industry: "Agency",
+    volumes: ["0 – 1M", "1M – 5M", "5M – 20M", "20M+"],
   },
   accommodation: {
     Icon: BedDouble,
@@ -347,6 +361,57 @@ export const stakeholderRequestStrings = {
       label_volume: "Reservas anuais",
       placeholder_volume: "Selecione o volume de reservas",
       success_desc: "Recebemos o seu pedido e entraremos em contacto em breve com uma estimativa à medida para o seu fluxo de reservas.",
+    },
+  },
+  trainPartner: {
+    en: {
+      badge: "Rail Partner",
+      subtitle: "Tell us about your network, and we'll prepare a tailored DutyBoost estimate — no commitment, no cost.",
+      label_volume: "Annual passengers",
+      placeholder_volume: "Select passenger volume",
+      success_desc: "We've received your request and will be in touch shortly with a tailored estimate for your rail network.",
+    },
+    nl: {
+      badge: "Spoorpartner",
+      subtitle: "Vertel ons over je netwerk, en we maken een op maat gemaakte DutyBoost-schatting — zonder verplichting, zonder kosten.",
+      label_volume: "Jaarlijkse reizigers",
+      placeholder_volume: "Selecteer reizigersvolume",
+      success_desc: "We hebben je aanvraag ontvangen en nemen binnenkort contact op met een op maat gemaakte schatting voor je spoorwegnetwerk.",
+    },
+    es: {
+      badge: "Socio ferroviario",
+      subtitle: "Cuéntanos tu red y prepararemos una estimación de DutyBoost a medida — sin compromiso, sin coste.",
+      label_volume: "Pasajeros anuales",
+      placeholder_volume: "Selecciona el volumen de pasajeros",
+      success_desc: "Hemos recibido tu solicitud y nos pondremos en contacto en breve con una estimación a medida para tu red ferroviaria.",
+    },
+    de: {
+      badge: "Bahnpartner",
+      subtitle: "Erzählen Sie uns von Ihrem Netzwerk, und wir erstellen eine maßgeschneiderte DutyBoost-Schätzung — ohne Verpflichtung, ohne Kosten.",
+      label_volume: "Jährliche Fahrgäste",
+      placeholder_volume: "Fahrgastvolumen auswählen",
+      success_desc: "Wir haben Ihre Anfrage erhalten und melden uns in Kürze mit einer maßgeschneiderten Schätzung für Ihr Bahnnetz.",
+    },
+    fr: {
+      badge: "Partenaire ferroviaire",
+      subtitle: "Parlez-nous de votre réseau et nous préparerons une estimation DutyBoost sur mesure — sans engagement, sans coût.",
+      label_volume: "Passagers annuels",
+      placeholder_volume: "Sélectionnez le volume de passagers",
+      success_desc: "Nous avons reçu votre demande et vous contacterons prochainement avec une estimation sur mesure pour votre réseau ferroviaire.",
+    },
+    it: {
+      badge: "Partner ferroviario",
+      subtitle: "Raccontaci la tua rete e prepareremo una stima DutyBoost su misura — nessun impegno, nessun costo.",
+      label_volume: "Passeggeri annuali",
+      placeholder_volume: "Seleziona il volume di passeggeri",
+      success_desc: "Abbiamo ricevuto la tua richiesta e ti contatteremo a breve con una stima su misura per la tua rete ferroviaria.",
+    },
+    pt: {
+      badge: "Parceiro ferroviário",
+      subtitle: "Fale-nos da sua rede e prepararemos uma estimativa DutyBoost à medida — sem compromisso, sem custos.",
+      label_volume: "Passageiros anuais",
+      placeholder_volume: "Selecione o volume de passageiros",
+      success_desc: "Recebemos o seu pedido e entraremos em contacto em breve com uma estimativa à medida para a sua rede ferroviária.",
     },
   },
   accommodation: {
