@@ -13,13 +13,16 @@ export default function TrainOnTrackIcon({ className }) {
       aria-hidden="true"
     >
       {/* train body */}
-      <path d="M7.5 9.5v-3A3 3 0 0 1 10.5 3.5h3a3 3 0 0 1 3 3v6a1.5 1.5 0 0 1-1.5 1.5h-6A1.5 1.5 0 0 1 7.5 12.5Z" />
+      <path d="M7.5 9.5v-3A3 3 0 0 1 10.5 3.5h3a3 3 0 0 1 3 3v5.5a1.5 1.5 0 0 1-1.5 1.5h-6A1.5 1.5 0 0 1 7.5 12.5Z" />
       {/* window */}
       <path d="M10 6.4h4" />
-      {/* rails with sleepers */}
-      <path d="M3 16.6h18" />
-      <path d="M3 20.6h18" />
-      <path d="M6.5 15.6v6M12 15.6v6M17.5 15.6v6" />
+      {/* rails running under the train, receding in perspective */}
+      <path d="M9.9 14.4 6.4 22.2" />
+      <path d="M14.1 14.4 17.6 22.2" />
+      {/* sleepers under the rails */}
+      <path d="M8.3 16.4h7.4" />
+      <path d="M7.4 19h9.2" />
+      <path d="M6.5 21.6h11" />
     </svg>
   );
 }
