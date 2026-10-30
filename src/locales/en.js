@@ -90,10 +90,10 @@ export default {
     stakeholders: {
       travelers: {
         title: 'Travellers',
-        description: 'Travellers whose travel partner didn\'t include a credit in their booking confirmation or return email can claim one easily here — no sign-up, no boarding pass upload. They enter their flight details, select their departure airport, and scan to save at participating retailers.',
-        b1: '€1–€60 airport shopping credit',
-        b2: 'Claim here if your partner didn\'t send one',
-        b3: 'No sign-up — scan & save',
+        description: 'Travellers whose booking confirmation arrived without a shopping credit can claim one here in under a minute: enter the flight details, pick the departure airport, then scan and save at participating stores.',
+        b1: '€1–€60 shopping credit at the airport',
+        b2: 'For travellers whose partner did not send one',
+        b3: 'No sign-up, no boarding pass upload',
         demo_note: 'DutyCredits can only be redeemed at participating airport retailer stores.',
       },
       retailers: {
@@ -105,17 +105,17 @@ export default {
       },
       posPartner: {
         title: 'POS Partners',
-        description: 'Enterprise POS providers plug into the commercial network. Every terminal connected becomes a redemption point — partners earn a share of every transaction that flows through their infrastructure, with no sales effort required.',
+        description: 'Enterprise POS providers integrate once and turn every connected terminal into a DutyBoost redemption point, earning a share of each transaction that runs through it.',
         b1: 'Revenue share on every redemption',
-        b2: 'Zero sales effort — plug in and earn',
-        b3: 'One integration, thousands of stores',
+        b2: 'No sales effort — the network brings the volume',
+        b3: 'One integration covers all connected stores',
       },
       agencies: {
         title: 'Travel Partners',
-        description: 'Travel partners can reward their customers with exclusive airport, sea port, rail station and motorways shopping credits on every booking — whether operating as an OTA, airline, cruise line, accommodation, car rental, rail or touring coach operator. A simple integration automatically generates personalised credits delivered to customers in their email confirmation, providing a meaningful loyalty perk.',
-        b1: 'Stronger customer loyalty',
-        b2: 'Zero operational effort',
-        b3: 'New passive revenue stream',
+        description: 'OTAs, airlines, cruise lines, hotels, car rental, rail and coach operators attach a personalised shopping credit to every booking, delivered automatically in the customer\'s confirmation email.',
+        b1: 'A loyalty perk customers actually use',
+        b2: 'Credits issued automatically, no manual work',
+        b3: 'Commission earned on every redeemed credit',
       },
       dutyboost: {
         title: 'DutyBoost',

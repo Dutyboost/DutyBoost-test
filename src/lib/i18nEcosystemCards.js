@@ -7,18 +7,18 @@ export const ecosystemCards = {
     airports: {
       title: 'Travel Hubs',
       description:
-        'Airports, sea ports and rail stations run the same model — retail concession above a guaranteed minimum. DutyBoost adds incremental sales on top of it.',
-      b1: 'Concession only on incremental sales',
-      b2: 'No capex, no integration',
-      b3: 'Above MAG — airport, port and rail alike',
+        'Airports, sea ports and rail stations already collect retail concession above a guaranteed minimum. DutyBoost adds incremental sales on top, so concession income grows without extra space or staff.',
+      b1: 'Concession on sales that did not exist before',
+      b2: 'No capex — runs on the POS already in place',
+      b3: 'Airport, sea port and rail station on equal terms',
     },
     retailers: {
       title: 'Travel Retail Partners',
       description:
-        'Airport, sea port, cruise ship, motorway service and rail station retailers convert passing travellers into paying customers — pre-activated shoppers who arrive with a DutyCredit already in hand.',
-      b1: 'Higher store conversion',
-      b2: 'Terminals, ships and stations in one network',
-      b3: 'Pay only on results',
+        'Airport, cruise, motorway and rail station retailers sell to travellers who already hold a DutyCredit — shoppers arriving with purchase intent instead of passing browsers.',
+      b1: 'Higher conversion from the same footfall',
+      b2: 'One network across terminals, ships and stations',
+      b3: 'Pay a fee only when a sale is redeemed',
     },
     corporate: {
       title: 'Corporate Travel Partners',
@@ -29,10 +29,10 @@ export const ecosystemCards = {
     local: {
       title: 'Local Retail Partners',
       description:
-        'However they arrive — by air, by sea or by rail — every traveller ends up down town, and they arrive already holding a DutyCredit with the intent to buy. Airport shops, cruise terminals and stations are one stop on the way; your store is where the journey ends in a purchase. Tourists arriving by train in a new city are part of the same flow.',
-      b1: 'Air, sea and rail arrivals in one flow',
-      b2: 'Every arrival route ends down town, at your till',
-      b3: 'Travellers arrive ready to buy',
+        'Every arrival route ends down town. Local stores redeem the DutyCredits brought in by air, sea and rail travellers, turning passing tourists into paying customers at the till.',
+      b1: 'Shares the same traveller flow as the terminal',
+      b2: 'Redemptions from every arrival route',
+      b3: 'Travellers arrive already intending to buy',
     },
   },
   nl: {
