@@ -19,12 +19,12 @@ export default function AirportPartnerRequest() {
   const r = getAirportRequestStrings(i18n.language);
   const COUNTRIES = t('corporaterequest.countries', { returnObjects: true });
   const [form, setForm] = useState({
-    fullName: "", email: "", jobTitle: "", hubType: "", company: "", website: "", country: "", airport: "", passengers: "", message: "",
+    fullName: "", email: "", jobTitle: "", hubType: "", website: "", country: "", airport: "", passengers: "", message: "",
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const isValid = form.fullName && form.email && form.jobTitle && form.hubType && form.company && form.website && form.country && form.airport && form.passengers;
+  const isValid = form.fullName && form.email && form.jobTitle && form.hubType && form.website && form.country && form.airport && form.passengers;
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   const handleSubmit = async (e) => {
@@ -35,7 +35,7 @@ export default function AirportPartnerRequest() {
       await base44.entities.Lead.create({
         full_name: form.fullName,
         email: form.email,
-        company_name: form.company,
+        company_name: form.airport,
         website: form.website,
         industry: "Agency",
         position: `${form.jobTitle} — Travel Hub Partner (${form.hubType})`,
@@ -44,7 +44,7 @@ export default function AirportPartnerRequest() {
       try {
         await base44.integrations.Core.SendEmail({
           to: "hello@dutyboost.com",
-          subject: `Travel Hub Partner enquiry (${form.hubType}) — ${form.company}`,
+          subject: `Travel Hub Partner enquiry (${form.hubType}) — ${form.airport}`,
           body: `
             <div style="font-family: sans-serif; max-width: 560px;">
               <h2>Travel Hub Partner — Request More Information</h2>
@@ -53,7 +53,6 @@ export default function AirportPartnerRequest() {
                 <tr><td style="padding:6px 0; color:#666;">Title</td><td>${form.jobTitle}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Email</td><td><strong>${form.email}</strong></td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Hub type</td><td><strong>${form.hubType}</strong></td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Hub / Company</td><td><strong>${form.company}</strong></td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Website</td><td>${form.website}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Country</td><td>${form.country}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Hub name & code</td><td>${form.airport}</td></tr>
@@ -133,12 +132,12 @@ export default function AirportPartnerRequest() {
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label>{r.label_company} <span className="text-red-500">*</span></Label>
-                    <Input required placeholder={r.placeholder_company} value={form.company} onChange={(e) => set("company", e.target.value)} />
+                    <Label>{r.label_airport} <span className="text-red-500">*</span></Label>
+                    <Input required placeholder={r.placeholder_airport} value={form.airport} onChange={(e) => set("airport", e.target.value)} />
                   </div>
                   <div className="space-y-1.5">
                     <Label>{r.label_website} <span className="text-red-500">*</span></Label>
-                    <Input required placeholder="https://yourairport.com" value={form.website} onChange={(e) => set("website", e.target.value)} />
+                    <Input required placeholder="https://yourcompany.com" value={form.website} onChange={(e) => set("website", e.target.value)} />
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -154,16 +153,12 @@ export default function AirportPartnerRequest() {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <Label>{r.label_airport} <span className="text-red-500">*</span></Label>
-                    <Input required placeholder={r.placeholder_airport} value={form.airport} onChange={(e) => set("airport", e.target.value)} />
+                    <Label>{r.label_passengers} <span className="text-red-500">*</span></Label>
+                    <Select value={form.passengers} onValueChange={(v) => set("passengers", v)}>
+                      <SelectTrigger><SelectValue placeholder={r.label_passengers} /></SelectTrigger>
+                      <SelectContent>{r.passenger_volumes.map((p) => <SelectItem key={p} value={p}>{p}</SelectItem>)}</SelectContent>
+                    </Select>
                   </div>
-                </div>
-                <div className="space-y-1.5">
-                  <Label>{r.label_passengers} <span className="text-red-500">*</span></Label>
-                  <Select value={form.passengers} onValueChange={(v) => set("passengers", v)}>
-                    <SelectTrigger><SelectValue placeholder={r.label_passengers} /></SelectTrigger>
-                    <SelectContent>{r.passenger_volumes.map((p) => <SelectItem key={p} value={p}>{p}</SelectItem>)}</SelectContent>
-                  </Select>
                 </div>
                 <div className="space-y-1.5">
                   <Label>{r.label_message} <span className="text-muted-foreground text-xs">{r.optional}</span></Label>
