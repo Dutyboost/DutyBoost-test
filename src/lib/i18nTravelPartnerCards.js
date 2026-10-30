@@ -6,6 +6,8 @@ export const travelPartnerCardStrings = {
     coach_title: "Touring Coach Partners",
     coach_description:
       "DutyBoost turns every coach journey into travel retail revenue — a personalised DutyCredit for your passengers in the booking confirmation, redeemable at the motorway service areas, coach stations and roadside retail where your coaches already stop. Commission for you, zero operational effort.",
+    coach_card_description:
+      "DutyBoost turns every coach journey into travel retail revenue — a personalised DutyCredit for your passengers in the booking confirmation, redeemable at the motorway service areas, coach stations and roadside outlets your coaches already stop at. The credit is generated from your booking confirmation, so there is nothing to install in your coaches. Commission for you, zero operational effort.",
     coach_step1: "Passenger Books a Coach Seat",
     coach_step1Desc: "A seat is booked through your website, app, or an OTA. DutyBoost automatically generates a personalised DutyCredit and delivers it in your booking confirmation email.",
     coach_step2: "DutyCredit Unlocked Before Departure",
@@ -25,6 +27,8 @@ export const travelPartnerCardStrings = {
     coach_title: "Touringcarpartners",
     coach_description:
       "DutyBoost maakt van elke touringcarreis een retailomzetmoment onderweg — een persoonlijke DutyCredit voor uw passagiers in de boekingsbevestiging, te verzilveren bij de verzorgingsplaatsen langs de snelweg, busstations en winkels waar uw bussen toch al stoppen. Commissie voor u, zonder operationele inspanning.",
+    coach_card_description:
+      "DutyBoost maakt van elke touringcarreis een retailomzetmoment onderweg — een persoonlijke DutyCredit voor uw passagiers in de boekingsbevestiging, te verzilveren bij de verzorgingsplaatsen langs de snelweg, busstations en winkels waar uw bussen toch al stoppen. De credit wordt aangemaakt vanuit uw boekingsbevestiging, dus in uw bussen hoeft niets te worden geïnstalleerd. Commissie voor u, zonder operationele inspanning.",
     coach_step1: "Passagier boekt een touringcarstoel",
     coach_step1Desc: "Een stoel wordt geboekt via uw website, app of een OTA. DutyBoost genereert automatisch een persoonlijke DutyCredit en levert deze mee in uw boekingsbevestiging.",
     coach_step2: "DutyCredit ontgrendeld vóór vertrek",
@@ -44,6 +48,8 @@ export const travelPartnerCardStrings = {
     coach_title: "Partenaires autocars",
     coach_description:
       "DutyBoost transforme chaque trajet en autocar en revenus retail — un DutyCredit personnalisé pour vos passagers dans la confirmation de réservation, échangeable dans les aires de service, gares routières et commerces où vos autocars s'arrêtent déjà. Une commission pour vous, sans effort opérationnel.",
+    coach_card_description:
+      "DutyBoost transforme chaque trajet en autocar en revenus retail — un DutyCredit personnalisé pour vos passagers dans la confirmation de réservation, échangeable dans les aires de service, gares routières et commerces où vos autocars s'arrêtent déjà. Le crédit est généré depuis votre confirmation de réservation : rien à installer dans vos autocars. Une commission pour vous, sans effort opérationnel.",
     coach_step1: "Le passager réserve une place d'autocar",
     coach_step1Desc: "Une place est réservée via votre site, votre application ou une OTA. DutyBoost génère automatiquement un DutyCredit personnalisé et le transmet dans votre e-mail de confirmation.",
     coach_step2: "DutyCredit débloqué avant le départ",
@@ -63,6 +69,8 @@ export const travelPartnerCardStrings = {
     coach_title: "Reisebus-Partner",
     coach_description:
       "DutyBoost macht jede Busreise zu Retail-Umsatz unterwegs — ein personalisiertes DutyCredit für Ihre Fahrgäste in der Buchungsbestätigung, einlösbar an Raststätten, Busbahnhöfen und den Händlern, an denen Ihre Busse ohnehin halten. Provision für Sie, ohne operativen Aufwand.",
+    coach_card_description:
+      "DutyBoost macht jede Busreise zu Retail-Umsatz unterwegs — ein personalisiertes DutyCredit für Ihre Fahrgäste in der Buchungsbestätigung, einlösbar an Raststätten, Busbahnhöfen und den Händlern, an denen Ihre Busse ohnehin halten. Das Guthaben entsteht aus Ihrer Buchungsbestätigung, in Ihren Bussen ist nichts zu installieren. Provision für Sie, ohne operativen Aufwand.",
     coach_step1: "Fahrgast bucht einen Busplatz",
     coach_step1Desc: "Ein Platz wird über Ihre Website, App oder eine OTA gebucht. DutyBoost erzeugt automatisch ein personalisiertes DutyCredit und liefert es in Ihrer Buchungsbestätigung mit.",
     coach_step2: "DutyCredit vor der Abfahrt freigeschaltet",
@@ -82,6 +90,8 @@ export const travelPartnerCardStrings = {
     coach_title: "Socios de autocares",
     coach_description:
       "DutyBoost convierte cada viaje en autocar en ingresos retail — un DutyCredit personalizado para sus pasajeros en la confirmación de reserva, canjeable en las áreas de servicio, estaciones de autobuses y comercios donde sus autocares ya paran. Comisión para usted, sin esfuerzo operativo.",
+    coach_card_description:
+      "DutyBoost convierte cada viaje en autocar en ingresos retail — un DutyCredit personalizado para sus pasajeros en la confirmación de reserva, canjeable en las áreas de servicio, estaciones de autobuses y comercios donde sus autocares ya paran. El crédito se genera desde su confirmación de reserva, así que no hay nada que instalar en sus autocares. Comisión para usted, sin esfuerzo operativo.",
     coach_step1: "El pasajero reserva un asiento de autocar",
     coach_step1Desc: "El asiento se reserva a través de su web, su app o una OTA. DutyBoost genera automáticamente un DutyCredit personalizado y lo entrega en su correo de confirmación de reserva.",
     coach_step2: "DutyCredit desbloqueado antes de la salida",
@@ -101,6 +111,8 @@ export const travelPartnerCardStrings = {
     coach_title: "Partner pullman",
     coach_description:
       "DutyBoost trasforma ogni viaggio in pullman in ricavi retail — un DutyCredit personalizzato per i suoi passeggeri nella conferma di prenotazione, riscattabile nelle aree di servizio, nelle autostazioni e nei negozi dove i suoi pullman si fermano già. Commissioni per lei, senza impegno operativo.",
+    coach_card_description:
+      "DutyBoost trasforma ogni viaggio in pullman in ricavi retail — un DutyCredit personalizzato per i suoi passeggeri nella conferma di prenotazione, riscattabile nelle aree di servizio, nelle autostazioni e nei negozi dove i suoi pullman si fermano già. Il credito viene generato dalla sua conferma di prenotazione: nulla da installare sui pullman. Commissioni per lei, senza impegno operativo.",
     coach_step1: "Il passeggero prenota un posto in pullman",
     coach_step1Desc: "Il posto viene prenotato tramite il suo sito, la sua app o un'OTA. DutyBoost genera automaticamente un DutyCredit personalizzato e lo inserisce nella sua e-mail di conferma.",
     coach_step2: "DutyCredit sbloccato prima della partenza",
@@ -120,6 +132,8 @@ export const travelPartnerCardStrings = {
     coach_title: "Parceiros de autocarros",
     coach_description:
       "A DutyBoost transforma cada viagem de autocarro em receita de retalho — um DutyCredit personalizado para os seus passageiros na confirmação da reserva, resgatável nas áreas de serviço, nas estações rodoviárias e nas lojas onde os seus autocarros já param. Comissão para si, sem esforço operacional.",
+    coach_card_description:
+      "A DutyBoost transforma cada viagem de autocarro em receita de retalho — um DutyCredit personalizado para os seus passageiros na confirmação da reserva, resgatável nas áreas de serviço, nas estações rodoviárias e nas lojas onde os seus autocarros já param. O crédito é gerado a partir da sua confirmação de reserva, pelo que não há nada a instalar nos seus autocarros. Comissão para si, sem esforço operacional.",
     coach_step1: "O passageiro reserva um lugar de autocarro",
     coach_step1Desc: "O lugar é reservado através do seu site, da sua app ou de uma OTA. A DutyBoost gera automaticamente um DutyCredit personalizado e entrega-o no seu e-mail de confirmação da reserva.",
     coach_step2: "DutyCredit desbloqueado antes da partida",

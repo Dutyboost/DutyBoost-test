@@ -106,7 +106,7 @@ export default function SelectUserType({ travelPartnerOnly = false }) {
     {
       id: "coach",
       title: tp.coach_title,
-      description: tp.coach_description,
+      description: tp.coach_card_description,
       icon: CoachOnRoadIcon,
       color: "from-amber-400 to-orange-600",
       bg: "bg-amber-50",
