@@ -18,7 +18,7 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
   const { i18n } = useTranslation();
   const strings = getCruiseCalculatorStrings(i18n.language);
   const s = strings.card;
-  const isLocal = variant === "local";
+  const isLocal = ["local", "motorway", "rail"].includes(variant);
   const isFleet = variant === "cruise";
   const v = strings.variants[variant] || strings.variants.cruise;
   const { rate, symbol, fmt, fmtCompact } = useCurrency();

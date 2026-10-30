@@ -680,6 +680,289 @@ export const cruiseCalculatorStrings = {
   },
 };
 
+// ── Motorway & railway channels ───────────────────────────────────────────────
+// Two more retail channels run on the same local-retailer model: the partner
+// enters the footfall passing its sites, the share that stops at the store, the
+// activation and redemption rates and the basket. Only the wording differs, so
+// these variants and the channel-selection labels are merged in here instead of
+// being repeated inside every language block above.
+const EXTRA_CHANNELS = {
+  en: {
+    labels: { airport: "Airport Retailer", seaport: "Sea Port Retailer", cruise: "Cruise Line Retailer", motorway: "Motorway Retailer", rail: "Railway Retailer" },
+    hint: "Select the retail channel you operate in",
+    motorway: {
+      badge: "Motorway Retailers",
+      title: "Your motorway retail calculator",
+      intro:
+        "Drivers and coach passengers pull in with time to spare, and DutyBoost has already pre-activated them before they arrive. Enter the footfall passing your service areas and the share that stops at your store — you pay only on the sales it brings.",
+      focus:
+        "Most traffic on the motorway never walks into the shop. DutyBoost does not depend on more cars — it converts a share of the travellers already passing into incremental sales, and you pay only on the sales it brings.",
+      ctaLabel: "Apply as a motorway retailer",
+      totalsStores: "Stores modelled",
+      totalsPassengers: "Travellers passing / yr",
+      totalsTraffic: "Stopping at your stores / yr",
+      card: {
+        arrivals: "Travellers passing your service areas / yr",
+        passRate: "Share stopping at your store",
+        kArrivals: "Travellers passing / yr",
+      },
+    },
+    rail: {
+      badge: "Railway Retailers",
+      title: "Your station retail calculator",
+      intro:
+        "Rail passengers wait on the platform with time to spend, and DutyBoost has already pre-activated them. Enter the footfall through your stations and the share that passes your store — you pay only on the sales it brings.",
+      focus:
+        "Most rail passengers walk past the shops without buying. DutyBoost does not depend on more passengers — it converts a share of the travellers already passing into incremental sales, and you pay only on the sales it brings.",
+      ctaLabel: "Apply as a railway retailer",
+      totalsStores: "Stores modelled",
+      totalsPassengers: "Passengers through your stations / yr",
+      totalsTraffic: "Passing your stores / yr",
+      card: {
+        arrivals: "Passengers through your stations / yr",
+        passRate: "Share passing your store",
+        kArrivals: "Passengers through / yr",
+      },
+    },
+  },
+  nl: {
+    labels: { airport: "Luchthavenretailer", seaport: "Zeehavenretailer", cruise: "Cruisemaatschappij", motorway: "Snelwegretailer", rail: "Spoorwegretailer" },
+    hint: "Kies het verkoopkanaal waarin u actief bent",
+    motorway: {
+      badge: "Snelwegretailers",
+      title: "Uw rekenhulp voor snelwegretail",
+      intro:
+        "Automobilisten en touringcarpassagiers stoppen met tijd over, en DutyBoost heeft hen al vóór aankomst geactiveerd. Vul het aantal reizigers dat langs uw verzorgingsplaatsen komt en het deel dat uw winkel binnenloopt in — u betaalt alleen over de omzet die het oplevert.",
+      focus:
+        "De meeste reizigers op de snelweg komen nooit in de winkel. DutyBoost is niet afhankelijk van meer auto's — het zet een deel van de reizigers die al langskomen om in extra omzet, en u betaalt alleen over die omzet.",
+      ctaLabel: "Aanmelden als snelwegretailer",
+      totalsStores: "Gemodelleerde winkels",
+      totalsPassengers: "Reizigers die langskomen / jaar",
+      totalsTraffic: "Stoppen bij uw winkels / jaar",
+      card: {
+        arrivals: "Reizigers langs uw verzorgingsplaatsen / jaar",
+        passRate: "Deel dat uw winkel binnenloopt",
+        kArrivals: "Reizigers die langskomen / jaar",
+      },
+    },
+    rail: {
+      badge: "Spoorwegretailers",
+      title: "Uw rekenhulp voor stationsretail",
+      intro:
+        "Treinreizigers wachten op het perron met tijd om te besteden, en DutyBoost heeft hen al geactiveerd. Vul het aantal reizigers door uw stations en het deel dat uw winkel passeert in — u betaalt alleen over de omzet die het oplevert.",
+      focus:
+        "De meeste treinreizigers lopen langs de winkels zonder te kopen. DutyBoost is niet afhankelijk van meer reizigers — het zet een deel van hen om in extra omzet, en u betaalt alleen over die omzet.",
+      ctaLabel: "Aanmelden als spoorwegretailer",
+      totalsStores: "Gemodelleerde winkels",
+      totalsPassengers: "Reizigers door uw stations / jaar",
+      totalsTraffic: "Passeren uw winkels / jaar",
+      card: {
+        arrivals: "Reizigers door uw stations / jaar",
+        passRate: "Deel dat uw winkel passeert",
+        kArrivals: "Reizigers door uw stations / jaar",
+      },
+    },
+  },
+  fr: {
+    labels: { airport: "Détaillant aéroportuaire", seaport: "Détaillant portuaire", cruise: "Compagnie de croisière", motorway: "Détaillant d'autoroute", rail: "Détaillant ferroviaire" },
+    hint: "Sélectionnez le canal de vente dans lequel vous opérez",
+    motorway: {
+      badge: "Détaillants d'autoroute",
+      title: "Votre calculateur pour les aires de service",
+      intro:
+        "Les automobilistes et les passagers de cars s'arrêtent avec du temps devant eux, et DutyBoost les a déjà pré-activés avant leur arrivée. Saisissez la fréquentation devant vos aires de service et la part qui s'arrête dans votre magasin — vous ne payez que sur les ventes générées.",
+      focus:
+        "La majorité du trafic autoroutier n'entre jamais dans la boutique. DutyBoost ne dépend pas de plus de voitures — il convertit une part des voyageurs déjà présents en ventes incrémentales, et vous ne payez que sur ces ventes.",
+      ctaLabel: "Candidater comme détaillant d'autoroute",
+      totalsStores: "Magasins modélisés",
+      totalsPassengers: "Voyageurs de passage / an",
+      totalsTraffic: "S'arrêtent dans vos magasins / an",
+      card: {
+        arrivals: "Voyageurs devant vos aires de service / an",
+        passRate: "Part s'arrêtant dans votre magasin",
+        kArrivals: "Voyageurs de passage / an",
+      },
+    },
+    rail: {
+      badge: "Détaillants ferroviaires",
+      title: "Votre calculateur pour les gares",
+      intro:
+        "Les voyageurs attendent sur le quai avec du temps à dépenser, et DutyBoost les a déjà pré-activés. Saisissez la fréquentation de vos gares et la part qui passe devant votre magasin — vous ne payez que sur les ventes générées.",
+      focus:
+        "La plupart des voyageurs passent devant les boutiques sans acheter. DutyBoost ne dépend pas de plus de voyageurs — il convertit une part de ceux qui passent déjà en ventes incrémentales, et vous ne payez que sur ces ventes.",
+      ctaLabel: "Candidater comme détaillant ferroviaire",
+      totalsStores: "Magasins modélisés",
+      totalsPassengers: "Voyageurs dans vos gares / an",
+      totalsTraffic: "Passent devant vos magasins / an",
+      card: {
+        arrivals: "Voyageurs dans vos gares / an",
+        passRate: "Part passant devant votre magasin",
+        kArrivals: "Voyageurs dans vos gares / an",
+      },
+    },
+  },
+  de: {
+    labels: { airport: "Flughafen-Händler", seaport: "Seehafen-Händler", cruise: "Kreuzfahrtreederei", motorway: "Autobahn-Händler", rail: "Bahnhofs-Händler" },
+    hint: "Wählen Sie den Vertriebskanal, in dem Sie tätig sind",
+    motorway: {
+      badge: "Autobahn-Händler",
+      title: "Ihr Rechner für die Autobahn",
+      intro:
+        "Autofahrer und Reisebusgäste halten mit Zeit im Gepäck an, und DutyBoost hat sie bereits vor der Ankunft voraktiviert. Geben Sie die Frequenz an Ihren Raststätten und den Anteil, der in Ihrem Geschäft hält, ein — Sie zahlen nur auf die erzielten Umsätze.",
+      focus:
+        "Der Großteil des Verkehrs auf der Autobahn betritt das Geschäft nie. DutyBoost ist nicht auf mehr Autos angewiesen — es wandelt einen Teil der bereits vorbeikommenden Reisenden in Zusatzumsatz um, und Sie zahlen nur darauf.",
+      ctaLabel: "Als Autobahn-Händler bewerben",
+      totalsStores: "Modellierte Geschäfte",
+      totalsPassengers: "Vorbeireisende / Jahr",
+      totalsTraffic: "Halten an Ihren Geschäften / Jahr",
+      card: {
+        arrivals: "Reisende an Ihren Raststätten / Jahr",
+        passRate: "Anteil, der in Ihrem Geschäft hält",
+        kArrivals: "Vorbeireisende / Jahr",
+      },
+    },
+    rail: {
+      badge: "Bahnhofs-Händler",
+      title: "Ihr Rechner für Bahnhöfe",
+      intro:
+        "Bahnreisende warten mit Zeit zum Ausgeben auf dem Bahnsteig, und DutyBoost hat sie bereits voraktiviert. Geben Sie die Frequenz an Ihren Bahnhöfen und den Anteil, der an Ihrem Geschäft vorbeikommt, ein — Sie zahlen nur auf die erzielten Umsätze.",
+      focus:
+        "Die meisten Bahnreisenden gehen an den Geschäften vorbei, ohne zu kaufen. DutyBoost ist nicht auf mehr Reisende angewiesen — es wandelt einen Teil der Vorbeikommenden in Zusatzumsatz um, und Sie zahlen nur darauf.",
+      ctaLabel: "Als Bahnhofs-Händler bewerben",
+      totalsStores: "Modellierte Geschäfte",
+      totalsPassengers: "Reisende an Ihren Bahnhöfen / Jahr",
+      totalsTraffic: "Passieren Ihre Geschäfte / Jahr",
+      card: {
+        arrivals: "Reisende an Ihren Bahnhöfen / Jahr",
+        passRate: "Anteil, der an Ihrem Geschäft vorbeikommt",
+        kArrivals: "Reisende an Ihren Bahnhöfen / Jahr",
+      },
+    },
+  },
+  es: {
+    labels: { airport: "Minorista de aeropuerto", seaport: "Minorista de puerto marítimo", cruise: "Naviera de cruceros", motorway: "Minorista de autopista", rail: "Minorista ferroviario" },
+    hint: "Seleccione el canal minorista en el que opera",
+    motorway: {
+      badge: "Minoristas de autopista",
+      title: "Su calculadora para áreas de servicio",
+      intro:
+        "Los conductores y los pasajeros de autocar se detienen con tiempo de sobra, y DutyBoost ya los ha preactivado antes de que lleguen. Introduzca el tráfico que pasa por sus áreas de servicio y la proporción que se detiene en su tienda: solo paga sobre las ventas que genere.",
+      focus:
+        "La mayor parte del tráfico de la autopista nunca entra en la tienda. DutyBoost no depende de más coches: convierte una parte de los pasajeros que ya pasan en ventas incrementales, y solo paga sobre esas ventas.",
+      ctaLabel: "Solicitar como minorista de autopista",
+      totalsStores: "Tiendas modeladas",
+      totalsPassengers: "Pasajeros en tránsito / año",
+      totalsTraffic: "Se detienen en sus tiendas / año",
+      card: {
+        arrivals: "Pasajeros que pasan por sus áreas de servicio / año",
+        passRate: "Proporción que se detiene en su tienda",
+        kArrivals: "Pasajeros en tránsito / año",
+      },
+    },
+    rail: {
+      badge: "Minoristas ferroviarios",
+      title: "Su calculadora para estaciones",
+      intro:
+        "Los pasajeros de tren esperan en el andén con tiempo para gastar, y DutyBoost ya los ha preactivado. Introduzca el tráfico de sus estaciones y la proporción que pasa por su tienda: solo paga sobre las ventas que genere.",
+      focus:
+        "La mayoría de los pasajeros de tren pasan por delante de las tiendas sin comprar. DutyBoost no depende de más pasajeros: convierte una parte de los que ya pasan en ventas incrementales, y solo paga sobre esas ventas.",
+      ctaLabel: "Solicitar como minorista ferroviario",
+      totalsStores: "Tiendas modeladas",
+      totalsPassengers: "Pasajeros en sus estaciones / año",
+      totalsTraffic: "Pasan por sus tiendas / año",
+      card: {
+        arrivals: "Pasajeros en sus estaciones / año",
+        passRate: "Proporción que pasa por su tienda",
+        kArrivals: "Pasajeros en sus estaciones / año",
+      },
+    },
+  },
+  it: {
+    labels: { airport: "Rivenditore aeroportuale", seaport: "Rivenditore portuale", cruise: "Compagnia di crociere", motorway: "Rivenditore autostradale", rail: "Rivenditore ferroviario" },
+    hint: "Selezioni il canale retail in cui opera",
+    motorway: {
+      badge: "Rivenditori autostradali",
+      title: "Il suo calcolatore per le aree di servizio",
+      intro:
+        "Automobilisti e passeggeri di pullman si fermano con tempo a disposizione, e DutyBoost li ha già pre-attivati prima dell'arrivo. Inserisca il traffico che passa dalle sue aree di servizio e la quota che si ferma nel suo punto vendita: paga solo sulle vendite generate.",
+      focus:
+        "La maggior parte del traffico autostradale non entra mai nel punto vendita. DutyBoost non dipende da più auto: converte una quota dei viaggiatori già in transito in vendite incrementali, e paga solo su quelle vendite.",
+      ctaLabel: "Candidarsi come rivenditore autostradale",
+      totalsStores: "Punti vendita modellati",
+      totalsPassengers: "Viaggiatori in transito / anno",
+      totalsTraffic: "Si fermano nei suoi punti vendita / anno",
+      card: {
+        arrivals: "Viaggiatori dalle sue aree di servizio / anno",
+        passRate: "Quota che si ferma nel suo punto vendita",
+        kArrivals: "Viaggiatori in transito / anno",
+      },
+    },
+    rail: {
+      badge: "Rivenditori ferroviari",
+      title: "Il suo calcolatore per le stazioni",
+      intro:
+        "I viaggiatori attendono in banchina con tempo da spendere, e DutyBoost li ha già pre-attivati. Inserisca il traffico delle sue stazioni e la quota che passa dal suo punto vendita: paga solo sulle vendite generate.",
+      focus:
+        "La maggior parte dei viaggiatori passa davanti ai negozi senza acquistare. DutyBoost non dipende da più viaggiatori: converte una quota di chi passa già in vendite incrementali, e paga solo su quelle vendite.",
+      ctaLabel: "Candidarsi come rivenditore ferroviario",
+      totalsStores: "Punti vendita modellati",
+      totalsPassengers: "Viaggiatori nelle sue stazioni / anno",
+      totalsTraffic: "Passano dai suoi punti vendita / anno",
+      card: {
+        arrivals: "Viaggiatori nelle sue stazioni / anno",
+        passRate: "Quota che passa dal suo punto vendita",
+        kArrivals: "Viaggiatori nelle sue stazioni / anno",
+      },
+    },
+  },
+  pt: {
+    labels: { airport: "Retalhista de aeroporto", seaport: "Retalhista portuário", cruise: "Companhia de cruzeiros", motorway: "Retalhista de autoestrada", rail: "Retalhista ferroviário" },
+    hint: "Selecione o canal de retalho em que opera",
+    motorway: {
+      badge: "Retalhistas de autoestrada",
+      title: "A sua calculadora para áreas de serviço",
+      intro:
+        "Automobilistas e passageiros de autocarros param com tempo de sobra, e a DutyBoost já os pré-ativou antes da chegada. Introduza o tráfego que passa pelas suas áreas de serviço e a proporção que para na sua loja — paga apenas sobre as vendas que gera.",
+      focus:
+        "A maior parte do tráfego da autoestrada nunca entra na loja. A DutyBoost não depende de mais carros — converte uma parte dos viajantes que já passam em vendas incrementais, e paga apenas sobre essas vendas.",
+      ctaLabel: "Candidatar-me como retalhista de autoestrada",
+      totalsStores: "Lojas modeladas",
+      totalsPassengers: "Viajantes em trânsito / ano",
+      totalsTraffic: "Param nas suas lojas / ano",
+      card: {
+        arrivals: "Viajantes que passam nas suas áreas de serviço / ano",
+        passRate: "Proporção que para na sua loja",
+        kArrivals: "Viajantes em trânsito / ano",
+      },
+    },
+    rail: {
+      badge: "Retalhistas ferroviários",
+      title: "A sua calculadora para estações",
+      intro:
+        "Os passageiros esperam na plataforma com tempo para gastar, e a DutyBoost já os pré-ativou. Introduza o tráfego das suas estações e a proporção que passa pela sua loja — paga apenas sobre as vendas que gera.",
+      focus:
+        "A maioria dos passageiros passa pelas lojas sem comprar. A DutyBoost não depende de mais passageiros — converte uma parte dos que já passam em vendas incrementais, e paga apenas sobre essas vendas.",
+      ctaLabel: "Candidatar-me como retalhista ferroviário",
+      totalsStores: "Lojas modeladas",
+      totalsPassengers: "Passageiros nas suas estações / ano",
+      totalsTraffic: "Passam pelas suas lojas / ano",
+      card: {
+        arrivals: "Passageiros nas suas estações / ano",
+        passRate: "Proporção que passa pela sua loja",
+        kArrivals: "Passageiros nas suas estações / ano",
+      },
+    },
+  },
+};
+
+Object.entries(EXTRA_CHANNELS).forEach(([code, cfg]) => {
+  const block = cruiseCalculatorStrings[code];
+  if (!block) return;
+  block.variants.motorway = cfg.motorway;
+  block.variants.rail = cfg.rail;
+  block.channels = { labels: cfg.labels, hint: cfg.hint };
+});
+
 export function getCruiseCalculatorStrings(lang) {
   const code = (lang || "en").split("-")[0];
   return cruiseCalculatorStrings[code] || cruiseCalculatorStrings.en;

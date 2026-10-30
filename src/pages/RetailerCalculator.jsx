@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Check, MessageCircle, PlaneTakeoff, Anchor } from "lucide-react";
+import { TrendingUp, ShoppingBag, Percent, Euro, Info, Users, Check, MessageCircle } from "lucide-react";
 import { fmtNum, fmtEur } from "../utils/formatNumber";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageFooter from "../components/PageFooter";
@@ -22,6 +22,8 @@ import EnterpriseCalculator from "../components/calculator/EnterpriseCalculator"
 import CruiseCalculatorBody from "../components/cruise-calculator/CruiseCalculatorBody";
 import { CurrencyProvider } from "../components/calculator/CurrencyContext";
 import CurrencySwitcher from "../components/calculator/CurrencySwitcher";
+import RetailChannelTabs from "../components/calculator/RetailChannelTabs";
+import { getCruiseCalculatorStrings } from "../lib/i18nCruiseCalculator";
 
 // ── Responsive font size for large numbers ─────────────────────────────────────
 function numFontClass(str) {
@@ -419,16 +421,20 @@ export function TravelPartnerTab({ t, vertical }) {
 }
 
 // ── Main page ──────────────────────────────────────────────────────────────────
-// The same model serves both terminal types: an airport retailer models its
-// airport network, a sea port retailer models the cruise terminals it trades in.
-const TERMINALS = [
-  { key: "airport", label: "Airport Retailer", Icon: PlaneTakeoff },
-  { key: "seaport", label: "Sea Port Retailer", Icon: Anchor },
-];
+// One calculator per retail channel: an airport retailer models its airport
+// network, a sea port retailer the terminals it trades in, a cruise line its
+// fleet, and a motorway or railway retailer the footfall passing its sites.
+const CHANNEL_THEMES = {
+  seaport: "orange",
+  cruise: "teal",
+  motorway: "green",
+  rail: "purple",
+};
 
 export default function RetailerCalculator() {
-  const { t } = useTranslation();
-  const [terminal, setTerminal] = useState("airport");
+  const { t, i18n } = useTranslation();
+  const [channel, setChannel] = useState("airport");
+  const channels = getCruiseCalculatorStrings(i18n.language).channels;
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 px-4 py-10">
@@ -454,30 +460,22 @@ export default function RetailerCalculator() {
           </p>
         </div>
 
-        {/* Terminal type — airport or sea port */}
-        <div className="flex justify-center">
-          <div className="inline-flex bg-white border border-slate-200 rounded-xl p-1 gap-1">
-            {TERMINALS.map((tab) => (
-              <button
-                key={tab.key}
-                onClick={() => setTerminal(tab.key)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
-                  terminal === tab.key ? "bg-blue-600 text-white" : "text-slate-600 hover:bg-slate-100"
-                }`}
-              >
-                <tab.Icon className="w-4 h-4" /> {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
+        {/* Retail channel — all five side by side */}
+        <RetailChannelTabs
+          value={channel}
+          onChange={setChannel}
+          labels={channels.labels}
+          hint={channels.hint}
+        />
 
-        {terminal === "airport" ? (
+        {channel === "airport" ? (
           <EnterpriseCalculator />
         ) : (
           <CruiseCalculatorBody
-            theme="orange"
-            variant="seaport"
-            prefillByCountry
+            key={channel}
+            theme={CHANNEL_THEMES[channel]}
+            variant={channel}
+            prefillByCountry={channel === "seaport"}
             ctaTo="/terminal-retailers-request"
             showBrandBar={false}
           />

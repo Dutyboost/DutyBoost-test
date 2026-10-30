@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Info, Anchor, Store, Ship, ArrowRight } from "lucide-react";
+import { Info, Anchor, Store, Ship, Route, Train, ArrowRight } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useCurrency } from "@/components/calculator/CurrencyContext";
@@ -16,6 +16,11 @@ import { localTrafficFor } from "@/data/localRetailerTraffic";
 import { getCruiseCalculatorStrings } from "@/lib/i18nCruiseCalculator";
 import { CALCULATOR_THEMES, CalculatorThemeProvider } from "./theme";
 
+// Variants that model the footfall passing a partner's own sites rather than a
+// single terminal's ship calls: local retailers, motorway service areas and
+// railway stations all share the same arrival-based model.
+const LOCAL_VARIANTS = ["local", "motorway", "rail"];
+
 export default function CruiseCalculatorBody({
   theme = "teal",
   variant = "cruise",
@@ -27,9 +32,10 @@ export default function CruiseCalculatorBody({
   const { i18n } = useTranslation();
   const s = getCruiseCalculatorStrings(i18n.language);
   const v = s.variants[variant] || s.variants.cruise;
-  const isLocal = variant === "local";
+  const isLocal = LOCAL_VARIANTS.includes(variant);
   const isFleet = variant === "cruise";
   const mode = isLocal ? "local" : isFleet ? "fleet" : "seaport";
+  const BadgeIcon = isFleet ? Ship : variant === "rail" ? Train : variant === "motorway" ? Route : isLocal ? Store : Anchor;
   const { currency, setCurrency } = useCurrency();
   const [stores, setStores] = useState(() => [defaultStore(1)]);
 
@@ -92,7 +98,7 @@ export default function CruiseCalculatorBody({
         </div>
         )}
         <span className={`inline-flex items-center gap-1.5 border rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest ${th.badge}`}>
-          {isLocal ? <Store className="w-3.5 h-3.5" /> : isFleet ? <Ship className="w-3.5 h-3.5" /> : <Anchor className="w-3.5 h-3.5" />} {v.badge}
+          <BadgeIcon className="w-3.5 h-3.5" /> {v.badge}
         </span>
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900">{v.title || s.title}</h1>
         <p className="text-slate-600 text-sm max-w-2xl mx-auto">{v.intro}</p>
