@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowRight, CheckCircle2, Plane } from "lucide-react";
+import { ArrowRight, CheckCircle2, Plane, Anchor, Train } from "lucide-react";
 import PageFooter from "@/components/PageFooter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ShowcaseMobileNav from "@/components/ShowcaseMobileNav";
@@ -19,12 +19,12 @@ export default function AirportPartnerRequest() {
   const r = getAirportRequestStrings(i18n.language);
   const COUNTRIES = t('corporaterequest.countries', { returnObjects: true });
   const [form, setForm] = useState({
-    fullName: "", email: "", jobTitle: "", company: "", website: "", country: "", airport: "", passengers: "", message: "",
+    fullName: "", email: "", jobTitle: "", hubType: "", company: "", website: "", country: "", airport: "", passengers: "", message: "",
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const isValid = form.fullName && form.email && form.jobTitle && form.company && form.website && form.country && form.airport && form.passengers;
+  const isValid = form.fullName && form.email && form.jobTitle && form.hubType && form.company && form.website && form.country && form.airport && form.passengers;
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
   const handleSubmit = async (e) => {
@@ -38,25 +38,26 @@ export default function AirportPartnerRequest() {
         company_name: form.company,
         website: form.website,
         industry: "Agency",
-        position: `${form.jobTitle} — Airport Partner`,
+        position: `${form.jobTitle} — Travel Hub Partner (${form.hubType})`,
         phone: form.passengers,
       });
       try {
         await base44.integrations.Core.SendEmail({
           to: "hello@dutyboost.com",
-          subject: `Airport Partner enquiry — ${form.company}`,
+          subject: `Travel Hub Partner enquiry (${form.hubType}) — ${form.company}`,
           body: `
             <div style="font-family: sans-serif; max-width: 560px;">
-              <h2>Airport Partner — Request More Information</h2>
+              <h2>Travel Hub Partner — Request More Information</h2>
               <table style="width:100%; border-collapse:collapse;">
                 <tr><td style="padding:6px 0; color:#666;">Name</td><td><strong>${form.fullName}</strong></td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Title</td><td>${form.jobTitle}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Email</td><td><strong>${form.email}</strong></td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Airport / Company</td><td><strong>${form.company}</strong></td></tr>
+                <tr><td style="padding:6px 0; color:#666;">Hub type</td><td><strong>${form.hubType}</strong></td></tr>
+                <tr><td style="padding:6px 0; color:#666;">Hub / Company</td><td><strong>${form.company}</strong></td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Website</td><td>${form.website}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Country</td><td>${form.country}</td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Airport & IATA</td><td>${form.airport}</td></tr>
-                <tr><td style="padding:6px 0; color:#666;">Annual passengers</td><td>${form.passengers}</td></tr>
+                <tr><td style="padding:6px 0; color:#666;">Hub name & code</td><td>${form.airport}</td></tr>
+                <tr><td style="padding:6px 0; color:#666;">Annual travellers</td><td>${form.passengers}</td></tr>
                 <tr><td style="padding:6px 0; color:#666;">Message</td><td>${form.message || "—"}</td></tr>
               </table>
             </div>
@@ -100,7 +101,7 @@ export default function AirportPartnerRequest() {
             <div className="space-y-6">
               <div className="text-center space-y-2">
                 <div className="inline-flex items-center gap-2 bg-cyan-500/10 text-cyan-700 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-widest">
-                  <Plane className="w-3.5 h-3.5" /> Airport Partner
+                  <Plane className="w-3.5 h-3.5" /> <Anchor className="w-3.5 h-3.5" /> <Train className="w-3.5 h-3.5" /> {r.badge}
                 </div>
                 <h2 className="text-3xl font-heading font-bold">{t('common.request_more_info')}</h2>
                 <p className="text-muted-foreground text-sm">{r.subtitle}</p>
@@ -113,7 +114,7 @@ export default function AirportPartnerRequest() {
                   </div>
                   <div className="space-y-1.5">
                     <Label>{r.label_work_email} <span className="text-red-500">*</span></Label>
-                    <Input required type="email" placeholder="jane@airport.com" value={form.email} onChange={(e) => set("email", e.target.value)} />
+                    <Input required type="email" placeholder="jane@company.com" value={form.email} onChange={(e) => set("email", e.target.value)} />
                   </div>
                 </div>
                 <div className="space-y-1.5">
@@ -121,6 +122,13 @@ export default function AirportPartnerRequest() {
                   <Select value={form.jobTitle} onValueChange={(v) => set("jobTitle", v)}>
                     <SelectTrigger><SelectValue placeholder={r.placeholder_job_title} /></SelectTrigger>
                     <SelectContent>{r.job_titles.map((j) => <SelectItem key={j} value={j}>{j}</SelectItem>)}</SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-1.5">
+                  <Label>{r.label_hub_type} <span className="text-red-500">*</span></Label>
+                  <Select value={form.hubType} onValueChange={(v) => set("hubType", v)}>
+                    <SelectTrigger><SelectValue placeholder={r.placeholder_hub_type} /></SelectTrigger>
+                    <SelectContent>{r.hub_types.map((h) => <SelectItem key={h} value={h}>{h}</SelectItem>)}</SelectContent>
                   </Select>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
