@@ -15,8 +15,6 @@ import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import TrainIcon from "../components/TrainIcon";
 import TrainOnTrackIcon from "../components/TrainOnTrackIcon";
-import PlaneTakeoffTowerIcon from "../components/PlaneTakeoffTowerIcon";
-import AnchorDockIcon from "../components/AnchorDockIcon";
 import { getEcosystemCardsStrings } from "@/lib/i18nEcosystemCards";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
@@ -36,7 +34,7 @@ export default function LandingPage() {
   const stakeholders = [
     {
       key: 'airports',
-      icon: PlaneTakeoffTowerIcon,
+      icon: PlaneTakeoff,
       color: "from-cyan-400 to-sky-600",
       bg: "bg-cyan-50",
       iconColor: "text-cyan-600",
@@ -160,7 +158,7 @@ export default function LandingPage() {
               }
 
               if (s.key === 'airports') {
-                AdditionalIcons = [AnchorDockIcon, TrainOnTrackIcon];
+                AdditionalIcons = [Anchor, TrainOnTrackIcon];
                 title = eco.airports.title;
                 description = eco.airports.description;
                 benefits = [eco.airports.b1, eco.airports.b2, eco.airports.b3];
