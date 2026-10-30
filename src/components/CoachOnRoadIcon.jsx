@@ -1,24 +1,32 @@
-// Touring coach — side view, same horizontal orientation as the car rental icon.
+// Touring coach — side profile with raked windshield, window band, luggage bay and wheels.
 export default function CoachOnRoadIcon({ className }) {
   return (
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.8"
+      strokeWidth="1.4"
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
       aria-hidden="true"
     >
-      {/* coach body */}
-      <path d="M4 16h16a1 1 0 0 0 1-1V9.5A1.5 1.5 0 0 0 19.5 8h-15A1.5 1.5 0 0 0 3 9.5V15a1 1 0 0 0 1 1Z" />
+      {/* body with raked front */}
+      <path d="M3 9c0-1.1.9-2 2-2h11.1c.7 0 1.3.3 1.7.9l2.6 3.5c.3.4.4.9.4 1.4v1.3c0 .8-.6 1.4-1.4 1.4H4.4C3.6 15.5 3 14.9 3 14.1z" />
+      {/* windshield */}
+      <path d="M17.7 8.4 20.1 11.6" />
       {/* side windows */}
-      <path d="M6 10.9h4.2" />
-      <path d="M12.4 10.9h4.6" />
+      <path d="M4.6 8.6h11.5" />
+      <path d="M4.6 11.7h11.5" />
+      <path d="M8.3 8.6v3.1" />
+      <path d="M12 8.6v3.1" />
+      {/* luggage bay panel */}
+      <path d="M4.2 13.5h12.7" />
       {/* wheels */}
-      <circle cx="7.6" cy="17.6" r="1.6" />
-      <circle cx="16.4" cy="17.6" r="1.6" />
+      <circle cx="6.3" cy="15.8" r="1.85" />
+      <circle cx="17.3" cy="15.8" r="1.85" />
+      <circle cx="6.3" cy="15.8" r="0.5" />
+      <circle cx="17.3" cy="15.8" r="0.5" />
     </svg>
   );
 }
