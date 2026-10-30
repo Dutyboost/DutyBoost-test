@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Cpu, Building2, PlaneTakeoff, ShieldX, Rocket, Anchor } from "lucide-react";
+import { Cpu, PlaneTakeoff, ShieldX, Rocket, Anchor } from "lucide-react";
 import CruiseShipIcon from "./CruiseShipIcon";
 import TravelAgencyIcon from "./TravelAgencyIcon";
 import AirportRetailerIcon from "./AirportRetailerIcon";
@@ -9,14 +9,13 @@ import TrainIcon from "./TrainIcon";
 import StakeholderNodeCard from "./StakeholderNodeCard";
 import TravellerTransactionHub from "./TravellerTransactionHub";
 
-// 6 stakeholders orbit the central Traveller's Transaction.
+// 5 stakeholders orbit the central Traveller's Transaction.
 // DutyBoost is intentionally excluded from the oval layout.
 const NODES = [
   { key: 'pos', Icon: Cpu, bg: "bg-violet-50", border: "border-violet-200", fg: "text-violet-600", link: "/pos-partner", extraIcons: [] },
   { key: 'retailers', Icon: AirportRetailerIcon, bg: "bg-orange-50", border: "border-orange-200", fg: "text-orange-600", link: "/terminal-retailers", extraIcons: [] },
   { key: 'airports', Icon: PlaneTakeoff, bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", link: "/airport-showcase", extraIcons: [Anchor] },
   { key: 'local', Icon: AirportRetailerIcon, bg: "bg-violet-50", border: "border-violet-200", fg: "text-violet-600", link: "/local-retailers", extraIcons: [] },
-  { key: 'corporate', Icon: Building2, bg: "bg-slate-50", border: "border-slate-200", fg: "text-slate-600", link: "/corporate-partner-showcase", extraIcons: [] },
   { key: 'travel', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", link: "/get-started?from=agency", extraIcons: [CruiseShipIcon, TrainIcon, HotelIcon, CarRentalIcon] },
 ];
 

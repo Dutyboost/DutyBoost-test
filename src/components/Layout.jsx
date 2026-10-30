@@ -16,7 +16,6 @@ import {
   Code2,
   Building2,
   Car,
-  Briefcase,
   BarChart2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -28,7 +27,6 @@ const roleNavItems = {
     { label: "Airport Retailer Dashboard", path: "/retailer-dashboard", icon: Store },
     { label: "Travel Partner Dashboard", path: "/travel-partner-dashboard", icon: Plane },
     { label: "POS Partner Dashboard", path: "/pos-partner-dashboard", icon: Code2 },
-    { label: "Corporate Partner Dashboard", path: "/corporate-partner-dashboard", icon: Briefcase },
     { label: "Scan & Redeem", path: "/scan-redeem", icon: ScanLine },
     { label: "DutyBoost Dashboard", path: "/DutyBoost-Dashboard", icon: BarChart2 },
     { label: "Admin", path: "/admin", icon: ShieldCheck },
@@ -62,7 +60,6 @@ export default function Layout() {
       "/retailer-dashboard",
       "/travel-partner-dashboard",
       "/pos-partner-dashboard",
-      "/corporate-partner-dashboard",
     ];
     const isDemoPath = demoPaths.some(
       (p) => window.location.pathname === p || window.location.pathname.startsWith(`${p}/`)

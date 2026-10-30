@@ -306,7 +306,7 @@ While the flag is false, the eligibility page behaves exactly as before. Flip it
     icon: Building2,
     title: "Corporate Travel Partner (Cost-Recovery Model)",
     status: "hidden",
-    reason: "New partner segment — pages built, gated from public nav pending go-to-market",
+    reason: "Pulled from the entire app pending go-to-market — cards, oval, chooser, showcase, calculator and dashboard all hidden",
     description: `A fourth travel-partner variant: companies with travelling employees onboard as a Corporate Travel Partner (not a buyer). They reuse the standard circular revenue model — the retailer still funds the 2.5% fee and the discount; the company pays nothing and earns a 20% share (0.5% of every validated airport basket) as T&E cost recovery.
 
 The model adds a predictable, recurring traveller pool to the pipeline (each onboarded company = many scheduled business trips) without changing the money flow or requiring a Letter of Intent.
@@ -315,22 +315,37 @@ JOURNEY: Approve trip → issue DutyCredit via one snippet in the TMC/expense fl
 
 This is intentionally distinct from the existing "business-travel" hidden feature (which is a corporate-funded / per-diem-replacement model). That older module remains its own hidden feature; this one is the partner/cost-recovery variant.
 
-No Letter of Intent is used in this flow.`,
+No Letter of Intent is used in this flow.
+
+CURRENT STATE: hidden everywhere. The stakeholder card is gone from the landing page, the node is gone from the traveller journey oval and from the Travellers Transaction showcase, the option is gone from the Get Started chooser and from the request-more-information partner types, the admin sidebar no longer lists a Corporate Partner Dashboard, and the two deck entries were pulled from the pitch pipeline. Its routes are disabled, so the showcase, calculator, request form, one-pager, pitch deck and dashboard are no longer reachable by URL either. All page code and strings are untouched.`,
     pages: [
-      { label: "One-Pager", path: "/corporate-partner-one-pager" },
-      { label: "Pitch Deck", path: "/corporate-partner-pitch" },
+      { label: "Showcase (disabled)", path: "/corporate-partner-showcase" },
+      { label: "Calculator (disabled)", path: "/roi-calculator-corporate-partner" },
+      { label: "Request form (disabled)", path: "/corporate-partner-request" },
+      { label: "One-Pager (disabled)", path: "/corporate-partner-one-pager" },
+      { label: "Pitch Deck (disabled)", path: "/corporate-partner-pitch" },
+      { label: "Partner Dashboard (disabled)", path: "/corporate-partner-dashboard" },
     ],
     howToRestore: [
-      "Both pages are live at their routes but not linked from the landing page or any public nav — they are intentionally gated.",
-      "In pages/LandingPage.jsx: add a 'For Corporate Travel' stakeholder card/button linking to /corporate-partner-one-pager when ready to expose.",
-      "In pages/SelectUserType.jsx: add a 'Corporate Travel Partner' option linking to the onboarding flow once the per-trip DutyCredit issuance is wired.",
+      "In src/App.jsx: re-add the imports for CorporatePartnerShowcase, CorporatePartnerCalculator, CorporatePartnerRequest, CorporatePartnerOnePager and CorporatePartnerPitchDeck.",
+      "In src/App.jsx: re-add the six routes (/corporate-partner-showcase, /roi-calculator-corporate-partner, /corporate-partner-request, /corporate-partner-one-pager, /corporate-partner-pitch, and /corporate-partner-dashboard rendered as <PartnerDashboard type=\"corporate\" />).",
+      "In src/pages/LandingPage.jsx: re-add the 'corporate' entry to the stakeholders array (Building2 icon, slate palette), the if (s.key === 'corporate') block using eco.corporate + corporateOne, and 'corporate' to isClickable and cardLink → '/corporate-partner-showcase'.",
+      "In src/components/TravellerJourneyOval.jsx and src/pages/TravellersTransactionShowcase.jsx: re-add the corporate node (Building2, slate palette, link /corporate-partner-showcase).",
+      "In src/pages/SelectUserType.jsx: re-add the corporate option (id 'corporate', Building2 icon, slate palette, path /corporate-partner-showcase).",
+      "In src/components/Layout.jsx: re-add the 'Corporate Partner Dashboard' admin nav item, its route in the demoPaths list, and the Briefcase import.",
+      "In src/pages/RequestDemoPage.jsx: re-add 'Corporate Partners' to PARTNER_TYPES.",
+      "In src/data/pitchPipeline.js: re-add the Corporate Partner deck and one-pager entries.",
       "Wire the onboarding flow (partner record → per-trip DutyCredit issuance → attribution → monthly payout) to the existing corporate pages (BusinessTravel / BusinessTravelGetStarted / CorporateTravelDashboard) — no LOI step.",
       "Add 'Corporate Partner' as a business_type option in the SignupApplication entity when opening self-serve signup.",
       "Strings live in src/lib/i18nCorporate.js under the `corporate` namespace (one-pager + pitch deck, all 6 languages).",
     ],
     files: [
+      "pages/CorporatePartnerShowcase.jsx",
+      "pages/CorporatePartnerCalculator.jsx",
+      "pages/CorporatePartnerRequest.jsx",
       "pages/CorporatePartnerOnePager.jsx",
       "pages/CorporatePartnerPitchDeck.jsx",
+      "components/calculator/CorporateTravelPartnerTab.jsx",
       "lib/i18nCorporate.js",
     ],
   },

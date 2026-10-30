@@ -5,10 +5,9 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight, Menu, X, Cpu, Building2, Anchor, PlaneTakeoff, Route
+  ArrowRight, Menu, X, Cpu, Anchor, PlaneTakeoff, Route
 } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
-import { corporateStrings } from "@/lib/i18nCorporate";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import TravelerIcon from "../components/TravelerIcon";
 import HotelIcon from "../components/HotelIcon";
@@ -25,8 +24,6 @@ export default function LandingPage() {
   const { t, i18n } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const corporateLang = (i18n.language || "en").split("-")[0];
-  const corporateOne = (corporateStrings[corporateLang] || corporateStrings.en).onepager;
   const eco = getEcosystemCardsStrings(i18n.language);
 
 
@@ -74,13 +71,6 @@ export default function LandingPage() {
       color: "from-green-400 to-emerald-600",
       bg: "bg-green-50",
       iconColor: "text-green-600",
-    },
-    {
-      key: 'corporate',
-      icon: Building2,
-      color: "from-slate-500 to-slate-700",
-      bg: "bg-slate-50",
-      iconColor: "text-slate-700",
     },
   ];
 
@@ -165,12 +155,6 @@ export default function LandingPage() {
                 benefits = [eco.airports.b1, eco.airports.b2, eco.airports.b3];
               }
 
-              if (s.key === 'corporate') {
-                title = eco.corporate.title;
-                description = corporateOne.subtitle;
-                benefits = [eco.corporate.b1, eco.corporate.b2, eco.corporate.b3];
-              }
-              
               if (s.key === 'agencies') {
                 AdditionalIcons = [CruiseShipIcon, TrainIcon, HotelIcon, CarRentalIcon, CoachOnRoadIcon];
               }
@@ -182,8 +166,8 @@ export default function LandingPage() {
                 benefits = [eco.local.b1, eco.local.b2, eco.local.b3];
               }
 
-              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'portsRetailers' || s.key === 'travelers' || s.key === 'posPartner' || s.key === 'corporate';
-              const cardLink = s.key === 'retailers' ? '/terminal-retailers' : s.key === 'airports' ? '/airport-showcase' : s.key === 'portsRetailers' ? '/local-retailers' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : s.key === 'corporate' ? '/corporate-partner-showcase' : '/get-started';
+              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'portsRetailers' || s.key === 'travelers' || s.key === 'posPartner';
+              const cardLink = s.key === 'retailers' ? '/terminal-retailers' : s.key === 'airports' ? '/airport-showcase' : s.key === 'portsRetailers' ? '/local-retailers' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : '/get-started';
 
               const cardContent = (
                 <>

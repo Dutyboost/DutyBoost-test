@@ -35,7 +35,6 @@ const PARTNER_TYPES = [
   "Airport Retailers",
   "Airport Partners",
   "Wholesale / Suppliers",
-  "Corporate Partners",
   "Travel Partners",
   "Other",
 ];

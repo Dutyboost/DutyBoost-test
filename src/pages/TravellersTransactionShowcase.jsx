@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Cpu, Building2, PlaneTakeoff, Package, ShieldX, Rocket, ArrowRight, ArrowUpRight } from "lucide-react";
+import { Cpu, PlaneTakeoff, Package, ShieldX, Rocket, ArrowRight, ArrowUpRight } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PageFooter from "@/components/PageFooter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
@@ -18,7 +18,6 @@ const STAKEHOLDERS = [
   { key: 'retailers', Icon: AirportRetailerIcon, bg: "bg-orange-50", border: "border-orange-200", fg: "text-orange-600", iconWrap: "bg-orange-100", link: "/terminal-retailers" },
   { key: 'airports', Icon: PlaneTakeoff, bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", iconWrap: "bg-cyan-100", link: "/airport-showcase" },
   { key: 'wholesale', Icon: Package, bg: "bg-amber-50", border: "border-amber-200", fg: "text-amber-600", iconWrap: "bg-amber-100", link: "/wholesale-showcase" },
-  { key: 'corporate', Icon: Building2, bg: "bg-slate-50", border: "border-slate-200", fg: "text-slate-600", iconWrap: "bg-slate-100", link: "/corporate-partner-showcase" },
   { key: 'travel', Icon: TravelAgencyIcon, bg: "bg-green-50", border: "border-green-200", fg: "text-green-600", iconWrap: "bg-green-100", link: "/get-started?from=agency", extraIcons: [HotelIcon, CarRentalIcon] },
 ];
 

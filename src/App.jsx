@@ -73,7 +73,6 @@ import FlightPartnerOnePager from './pages/FlightPartnerOnePager';
 import AccommodationPartnerOnePager from './pages/AccommodationPartnerOnePager';
 import CarRentalPartnerOnePager from './pages/CarRentalPartnerOnePager';
 import RetailPartnerOnePager from './pages/RetailPartnerOnePager';
-import CorporatePartnerOnePager from './pages/CorporatePartnerOnePager';
 import AgglomerationTravelPartnerOnePager from './pages/TravelStackOnePager';
 import GTMTestingChecklist from './pages/GTMTestingChecklist';
 import StagingValidationGuide from './pages/StagingValidationGuide';
@@ -138,10 +137,6 @@ import PosProviderPitchDeckWagos from './pages/PosProviderPitchDeckWagos';
 import PhygridPitchDeck from './pages/PhygridPitchDeck';
 import TravelPartnerPitchDeck from './pages/TravelPartnerPitchDeck';
 import TravelPartnerPitchDeckAFKLM from './pages/TravelPartnerPitchDeckAFKLM';
-import CorporatePartnerPitchDeck from './pages/CorporatePartnerPitchDeck';
-import CorporatePartnerShowcase from './pages/CorporatePartnerShowcase';
-import CorporatePartnerRequest from './pages/CorporatePartnerRequest';
-import CorporatePartnerCalculator from './pages/CorporatePartnerCalculator';
 import PartnerDashboard from './pages/PartnerDashboard';
 
 import AirportShowcase from './pages/AirportShowcase';
@@ -328,9 +323,6 @@ const AuthenticatedApp = () => {
         <Route path="/phygrid-pitch" element={<PhygridPitchDeck />} />
         <Route path="/travel-partner-pitch" element={<TravelPartnerPitchDeck />} />
         <Route path="/travel-partner-pitch-afklm" element={<TravelPartnerPitchDeckAFKLM />} />
-        <Route path="/corporate-partner-one-pager" element={<CorporatePartnerOnePager />} />
-        <Route path="/corporate-partner-pitch" element={<CorporatePartnerPitchDeck />} />
-        <Route path="/corporate-partner-showcase" element={<CorporatePartnerShowcase />} />
         <Route path="/travellers-transaction" element={<TravellersTransactionShowcase />} />
         <Route path="/airport-showcase" element={<AirportShowcase />} />
         <Route path="/airport-calculator" element={<AirportCalculator />} />
@@ -354,8 +346,6 @@ const AuthenticatedApp = () => {
         <Route path="/travel-partner-request" element={<TravelPartnerRequest />} />
         <Route path="/accommodation-request" element={<AccommodationRequest />} />
         <Route path="/car-rental-request" element={<CarRentalRequest />} />
-        <Route path="/corporate-partner-request" element={<CorporatePartnerRequest />} />
-        <Route path="/roi-calculator-corporate-partner" element={<CorporatePartnerCalculator />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/refunds" element={<RefundPolicy />} />
@@ -380,7 +370,6 @@ const AuthenticatedApp = () => {
           <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
           <Route path="/retailer-dashboard/:company" element={<RetailerDashboard />} />
           <Route path="/pos-partner-dashboard" element={<PartnerDashboard type="pos" />} />
-          <Route path="/corporate-partner-dashboard" element={<PartnerDashboard type="corporate" />} />
           <Route path="/travel-partner-dashboard" element={<PartnerDashboard type="travel" />} />
           <Route path="/travel-partner-integration" element={<AgencyIntegrationPage />} />
           <Route path="/scan-redeem" element={<ScanVoucher />} />
