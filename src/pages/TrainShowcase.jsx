@@ -37,7 +37,7 @@ export default function TrainShowcase() {
       ctaFromClass="from-indigo-600 to-violet-500"
       ctaTitle={t('showcase.train.cta_title')}
       ctaDesc={t('showcase.train.cta_desc')}
-      ctaLabel={t('showcase.train.cta_apply')}
+      ctaLabel={t('common.request_more_info')}
       ctaTo="/train-signup"
       ctaTextClass="text-indigo-600"
       calculatorTo="/train-partner-calculator"

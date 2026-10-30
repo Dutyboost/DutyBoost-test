@@ -41,7 +41,7 @@ export default function TrainPortal() {
             {t('train.portal_subtitle')}
           </p>
           <Button size="lg" className="gap-2 px-8 bg-indigo-600 hover:bg-indigo-700 text-white" onClick={() => navigate("/train-signup")}>
-            {t('train.apply')} <ArrowRight className="w-4 h-4" />
+            {t('common.request_more_info')} <ArrowRight className="w-4 h-4" />
           </Button>
         </div>
 
@@ -68,7 +68,7 @@ export default function TrainPortal() {
             {t('train.portal_cta_desc')}
           </p>
           <Button size="lg" className="bg-white text-indigo-700 hover:bg-white/90 gap-2" onClick={() => navigate("/train-signup")}>
-            {t('train.apply')} <ArrowRight className="w-4 h-4" />
+            {t('common.request_more_info')} <ArrowRight className="w-4 h-4" />
           </Button>
         </div>
       </section>
