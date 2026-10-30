@@ -6,17 +6,21 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
-import { ArrowRight, Cpu, PlaneTakeoff, Anchor } from "lucide-react";
+import { ArrowRight, Cpu, PlaneTakeoff, Anchor, Calculator } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
+import TrainIcon from "../components/TrainIcon";
+import CoachOnRoadIcon from "../components/CoachOnRoadIcon";
 import PageFooter from "../components/PageFooter";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import ShowcaseMobileNav from "../components/ShowcaseMobileNav";
+import { getTravelPartnerCardStrings } from "@/lib/i18nTravelPartnerCards";
 
-export default function SelectUserType() {
+export default function SelectUserType({ travelPartnerOnly = false }) {
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const tp = getTravelPartnerCardStrings(i18n.language);
   const urlParams = new URLSearchParams(window.location.search);
-  const fromAgency = urlParams.get('from') === 'agency';
+  const fromAgency = travelPartnerOnly || urlParams.get('from') === 'agency';
 
   const options = [
     {
@@ -58,6 +62,7 @@ export default function SelectUserType() {
       bg: "bg-teal-50",
       iconColor: "text-teal-600",
       path: "/cruise-showcase",
+      calculator: "/cruise-partner-calculator",
     },
     {
       id: "agency",
@@ -68,6 +73,7 @@ export default function SelectUserType() {
       bg: "bg-green-50",
       iconColor: "text-green-600",
       path: "/flight-showcase",
+      calculator: "/roi-calculator-travel-partner?vertical=flight",
     },
     {
       id: "hotel",
@@ -78,6 +84,7 @@ export default function SelectUserType() {
       bg: "bg-blue-50",
       iconColor: "text-blue-600",
       path: "/accommodation-showcase",
+      calculator: "/roi-calculator-travel-partner?vertical=accommodation",
     },
     {
       id: "carrental",
@@ -88,6 +95,29 @@ export default function SelectUserType() {
       bg: "bg-red-50",
       iconColor: "text-red-600",
       path: "/car-rental-showcase",
+      calculator: "/roi-calculator-travel-partner?vertical=car",
+    },
+    {
+      id: "train",
+      title: t('getstarted.train'),
+      descKey: 'getstarted.train_description',
+      icon: TrainIcon,
+      color: "from-indigo-400 to-violet-600",
+      bg: "bg-indigo-50",
+      iconColor: "text-indigo-600",
+      path: "/train-showcase",
+      calculator: "/roi-calculator-travel-partner",
+    },
+    {
+      id: "coach",
+      title: tp.coach_title,
+      description: tp.coach_description,
+      icon: CoachOnRoadIcon,
+      color: "from-amber-400 to-orange-600",
+      bg: "bg-amber-50",
+      iconColor: "text-amber-600",
+      path: "/travel-partner-request",
+      calculator: "/roi-calculator-travel-partner",
     },
     {
       id: "pos",
@@ -126,7 +156,7 @@ export default function SelectUserType() {
             </p>
           </div>
 
-          <div className={`grid gap-4 mx-auto sm:grid-cols-2 ${fromAgency ? 'lg:grid-cols-4 max-w-6xl' : 'lg:grid-cols-4 max-w-7xl'}`}>
+          <div className={`grid gap-4 mx-auto sm:grid-cols-2 ${fromAgency ? 'lg:grid-cols-3 max-w-5xl' : 'lg:grid-cols-4 max-w-7xl'}`}>
             {options.filter(o => !(fromAgency && (o.id === 'retailer' || o.id === 'pos' || o.id === 'airports' || o.id === 'ports'))).map((option) => {
               const Icon = option.icon;
               return (
@@ -140,7 +170,7 @@ export default function SelectUserType() {
                   </div>
                   <h2 className="font-heading font-bold text-sm tracking-tight whitespace-nowrap mb-3">{option.title}</h2>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-grow">
-                    {t(option.descKey)}
+                    {option.description || t(option.descKey)}
                   </p>
                   <Button
                     size="lg"
@@ -148,6 +178,15 @@ export default function SelectUserType() {
                   >
                     {t('getstarted.get_started')} <ArrowRight className="w-4 h-4" />
                   </Button>
+                  {fromAgency && option.calculator && (
+                    <button
+                      type="button"
+                      onClick={(e) => { e.stopPropagation(); navigate(option.calculator); }}
+                      className="mt-3 inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <Calculator className="w-3.5 h-3.5" /> {tp.calculator}
+                    </button>
+                  )}
                 </div>
               );
             })}

@@ -167,7 +167,7 @@ export default function LandingPage() {
               }
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'portsRetailers' || s.key === 'travelers' || s.key === 'posPartner';
-              const cardLink = s.key === 'retailers' ? '/travel-retailers' : s.key === 'airports' ? '/travel-hubs-showcase' : s.key === 'portsRetailers' ? '/local-retailers' : s.key === 'agencies' ? '/get-started?from=agency' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : '/get-started';
+              const cardLink = s.key === 'retailers' ? '/travel-retailers' : s.key === 'airports' ? '/travel-hubs-showcase' : s.key === 'portsRetailers' ? '/local-retailers' : s.key === 'agencies' ? '/travel-partner-showcase' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : '/get-started';
 
               const cardContent = (
                 <>
