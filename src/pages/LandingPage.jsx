@@ -15,6 +15,7 @@ import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import TrainIcon from "../components/TrainIcon";
 import TrainOnTrackIcon from "../components/TrainOnTrackIcon";
+import CoachOnRoadIcon from "../components/CoachOnRoadIcon";
 import { getEcosystemCardsStrings } from "@/lib/i18nEcosystemCards";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
@@ -158,7 +159,7 @@ export default function LandingPage() {
               }
 
               if (s.key === 'airports') {
-                AdditionalIcons = [Anchor, TrainOnTrackIcon];
+                AdditionalIcons = [Anchor, TrainOnTrackIcon, CoachOnRoadIcon];
                 title = eco.airports.title;
                 description = eco.airports.description;
                 benefits = [eco.airports.b1, eco.airports.b2, eco.airports.b3];

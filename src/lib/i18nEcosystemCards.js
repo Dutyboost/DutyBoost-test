@@ -7,7 +7,7 @@ export const ecosystemCards = {
     airports: {
       title: 'Travel Hubs',
       description:
-        'Airports, sea ports and rail stations run the same model — retail concession above a guaranteed minimum. DutyBoost adds incremental sales on top of it.',
+        'Airports, sea ports, rail stations and touring-coach operators run the same model — retail concession above a guaranteed minimum. DutyBoost adds incremental sales on top of it.',
       b1: 'Concession only on incremental sales',
       b2: 'No capex, no integration',
       b3: 'Above MAG — airport, port and rail alike',
@@ -39,7 +39,7 @@ export const ecosystemCards = {
     airports: {
       title: 'Travel Hubs',
       description:
-        'Luchthavens, zeehavens en treinstations werken met hetzelfde model — retailconcessie boven een gegarandeerd minimum. DutyBoost voegt daar incrementele omzet aan toe.',
+        'Luchthavens, zeehavens, treinstations en touringcar-aanbieders werken met hetzelfde model — retailconcessie boven een gegarandeerd minimum. DutyBoost voegt daar incrementele omzet aan toe.',
       b1: 'Concessie alleen op incrementele omzet',
       b2: 'Geen investering, geen integratie',
       b3: 'Boven MAG — luchthaven, haven én spoor',
@@ -71,7 +71,7 @@ export const ecosystemCards = {
     airports: {
       title: 'Travel Hubs',
       description:
-        'Flughäfen, Seehäfen und Bahnhöfe folgen demselben Modell — Retail-Konzession über einem garantierten Minimum. DutyBoost schafft zusätzlichen Umsatz darüber hinaus.',
+        'Flughäfen, Seehäfen, Bahnhöfe und Reisebus-Anbieter folgen demselben Modell — Retail-Konzession über einem garantierten Minimum. DutyBoost schafft zusätzlichen Umsatz darüber hinaus.',
       b1: 'Konzession nur auf Zusatzumsatz',
       b2: 'Kein Capex, keine Integration',
       b3: 'Umsatz über MAG — Flughafen, Hafen und Bahn',
@@ -103,7 +103,7 @@ export const ecosystemCards = {
     airports: {
       title: 'Travel Hubs',
       description:
-        "Aéroports, ports et gares suivent le même modèle — une concession retail au-dessus d'un minimum garanti. DutyBoost y ajoute du chiffre d'affaires incrémental.",
+        "Aéroports, ports, gares et autocaristes suivent le même modèle — une concession retail au-dessus d'un minimum garanti. DutyBoost y ajoute du chiffre d'affaires incrémental.",
       b1: "Concession uniquement sur le chiffre d'affaires incrémental",
       b2: 'Aucun investissement, aucune intégration',
       b3: "Chiffre d'affaires au-dessus du MAG — aéroport, port et rail",
@@ -135,7 +135,7 @@ export const ecosystemCards = {
     airports: {
       title: 'Travel Hubs',
       description:
-        'Aeropuertos, puertos y estaciones comparten el mismo modelo: concesión retail por encima de un mínimo garantizado. DutyBoost añade ventas incrementales por encima.',
+        'Aeropuertos, puertos, estaciones y operadores de autocares comparten el mismo modelo: concesión retail por encima de un mínimo garantizado. DutyBoost añade ventas incrementales por encima.',
       b1: 'Concesión solo sobre ventas incrementales',
       b2: 'Sin inversión, sin integración',
       b3: 'Por encima del MAG — aeropuerto, puerto y ferrocarril',
@@ -167,7 +167,7 @@ export const ecosystemCards = {
     airports: {
       title: 'Travel Hubs',
       description:
-        'Aeroporti, porti e stazioni seguono lo stesso modello: concessione retail sopra un minimo garantito. DutyBoost aggiunge vendite incrementali.',
+        'Aeroporti, porti, stazioni e operatori di pullman seguono lo stesso modello: concessione retail sopra un minimo garantito. DutyBoost aggiunge vendite incrementali.',
       b1: 'Concessione solo sulle vendite incrementali',
       b2: 'Nessun investimento, nessuna integrazione',
       b3: 'Ricavi sopra il MAG — aeroporto, porto e ferrovia',
@@ -199,7 +199,7 @@ export const ecosystemCards = {
     airports: {
       title: 'Travel Hubs',
       description:
-        'Aeroportos, portos e estações seguem o mesmo modelo: concessão de retalho acima de um mínimo garantido. O DutyBoost acrescenta vendas incrementais.',
+        'Aeroportos, portos, estações e operadores de autocarros seguem o mesmo modelo: concessão de retalho acima de um mínimo garantido. O DutyBoost acrescenta vendas incrementais.',
       b1: 'Concessão apenas sobre vendas incrementais',
       b2: 'Sem investimento, sem integração',
       b3: 'Receita acima do MAG — aeroporto, porto e ferrovia',
@@ -231,7 +231,7 @@ export const ecosystemCards = {
     airports: {
       title: 'Travel Hubs',
       description:
-        '空港・海港・鉄道駅はいずれも同じモデルです。保証最低額を超えた小売売上へのコンセッションで、DutyBoostはその上に増分売上を積み上げます。',
+        '空港・海港・鉄道駅・観光バス事業者は、いずれも同じモデルです。保証最低額を超えた小売売上へのコンセッションで、DutyBoostはその上に増分売上を積み上げます。',
       b1: '増分売上のみへのコンセッション',
       b2: '設備投資も統合も不要',
       b3: 'MAG超過分の売上を完全に帰属 — 空港・港・鉄道',
@@ -263,7 +263,7 @@ export const ecosystemCards = {
     airports: {
       title: 'Travel Hubs',
       description:
-        '공항·해항·기차역은 모두 같은 구조입니다. 보장 최소액을 넘는 소매 매출에 대한 수수료이며, DutyBoost가 그 위에 증분 매출을 더합니다.',
+        '공항·해항·기차역·전세버스 사업자 모두 같은 구조입니다. 보장 최소액을 넘는 소매 매출에 대한 수수료이며, DutyBoost가 그 위에 증분 매출을 더합니다.',
       b1: '증분 매출에만 적용되는 수수료',
       b2: '설비 투자와 연동 없음',
       b3: 'MAG 초과 매출 전액 귀속 — 공항·항만·철도',
@@ -295,7 +295,7 @@ export const ecosystemCards = {
     airports: {
       title: 'Travel Hubs',
       description:
-        '机场、海港和火车站采用同一模式：在保底金额之上的零售佣金。DutyBoost 在此之上带来增量销售。',
+        '机场、海港、火车站与旅游大巴运营商采用同一模式：在保底金额之上的零售佣金。DutyBoost 在此之上带来增量销售。',
       b1: '仅对增量销售收取佣金',
       b2: '无需资本投入，无需系统集成',
       b3: '超过 MAG 的收入全额归属——机场、港口与铁路',
