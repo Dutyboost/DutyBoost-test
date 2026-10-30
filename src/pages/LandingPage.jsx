@@ -165,20 +165,25 @@ export default function LandingPage() {
                 benefits = [eco.local.b1, eco.local.b2, eco.local.b3];
               }
 
+              // Cards with many icons get a slightly smaller tile so the row stays on one line.
+              const manyIcons = s.key === 'agencies';
+              const tileClass = `rounded-lg ${s.bg} flex items-center justify-center shrink-0 ${manyIcons ? 'w-14 h-14' : 'w-[3.75rem] h-[3.75rem]'}`;
+              const glyphClass = `${s.iconColor} ${manyIcons ? 'w-6 h-6' : 'w-[2.0625rem] h-[2.0625rem]'}`;
+
               const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'portsRetailers' || s.key === 'travelers' || s.key === 'posPartner';
               const cardLink = s.key === 'retailers' ? '/travel-retailers' : s.key === 'airports' ? '/travel-hubs-showcase' : s.key === 'portsRetailers' ? '/local-retailers' : s.key === 'agencies' ? '/travel-partner-showcase' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : '/get-started';
 
               const cardContent = (
                 <>
-                  <div className={`flex flex-wrap items-center gap-1 mb-2`}>
+                  <div className="flex flex-nowrap items-center gap-1 sm:gap-1.5 mb-2">
                     {Icon && (
-                      <div className={`w-[3.75rem] h-[3.75rem] rounded-lg ${s.bg} flex items-center justify-center`}>
-                        <Icon className={`w-[2.0625rem] h-[2.0625rem] ${s.iconColor}`} />
+                      <div className={tileClass}>
+                        <Icon className={glyphClass} />
                       </div>
                     )}
                     {AdditionalIcons.map((AdIcon, idx) => (
-                      <div key={idx} className={`w-[3.75rem] h-[3.75rem] rounded-lg ${s.bg} flex items-center justify-center`}>
-                        <AdIcon className={`w-[2.0625rem] h-[2.0625rem] ${s.iconColor}`} />
+                      <div key={idx} className={tileClass}>
+                        <AdIcon className={glyphClass} />
                       </div>
                     ))}
                   </div>
