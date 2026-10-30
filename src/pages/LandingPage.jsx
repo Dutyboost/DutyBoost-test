@@ -187,15 +187,15 @@ export default function LandingPage() {
 
               const cardContent = (
                 <>
-                  <div className={`flex flex-wrap items-center gap-1.5 mb-2`}>
+                  <div className={`flex flex-wrap items-center gap-1 mb-2`}>
                     {Icon && (
-                      <div className={`w-[3.75rem] h-[3.75rem] rounded-xl ${s.bg} flex items-center justify-center`}>
-                        <Icon className={`w-[1.875rem] h-[1.875rem] ${s.iconColor}`} />
+                      <div className={`w-9 h-9 rounded-lg ${s.bg} flex items-center justify-center`}>
+                        <Icon className={`w-[1.125rem] h-[1.125rem] ${s.iconColor}`} />
                       </div>
                     )}
                     {AdditionalIcons.map((AdIcon, idx) => (
-                      <div key={idx} className={`w-[3.75rem] h-[3.75rem] rounded-xl ${s.bg} flex items-center justify-center`}>
-                        <AdIcon className={`w-[1.875rem] h-[1.875rem] ${s.iconColor}`} />
+                      <div key={idx} className={`w-9 h-9 rounded-lg ${s.bg} flex items-center justify-center`}>
+                        <AdIcon className={`w-[1.125rem] h-[1.125rem] ${s.iconColor}`} />
                       </div>
                     ))}
                   </div>
