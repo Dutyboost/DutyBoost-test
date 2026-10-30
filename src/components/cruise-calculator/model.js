@@ -5,6 +5,7 @@
 // displayed in the currency the partner selects.
 
 export const PLATFORM_FEE = 0.025; // the retailer's only cost, on validated transactions
+export const PARTNER_COMMISSION = 0.005; // travel partner commission, paid by DutyBoost (20% of the fee)
 export const BASKET_CAP = 1000; // qualifying spend cap (EUR)
 export const DISCOUNT_CAP = 60; // traveller discount cap (EUR)
 
@@ -87,8 +88,11 @@ export const computeStore = (store, mode = "seaport") => {
   const gross = redemptions * basket;
   const discountRate = discountFor(basket);
   const discount = gross * discountRate;
-  const fee = gross * PLATFORM_FEE;
-  const net = gross - discount - fee;
+  // A travel partner (touring coach) earns a commission and pays nothing; a
+  // retailer pays the platform fee on validated sales.
+  const fee = isCoach ? 0 : gross * PLATFORM_FEE;
+  const commission = isCoach ? gross * PARTNER_COMMISSION : 0;
+  const net = isCoach ? commission : gross - discount - fee;
 
   return {
     ...store,
@@ -104,6 +108,7 @@ export const computeStore = (store, mode = "seaport") => {
     discountRate,
     discount,
     fee,
+    commission,
     net,
     regionLabel: (store.country || "").trim() || "Unassigned",
   };
@@ -120,9 +125,10 @@ export const computeTotals = (results) =>
       gross: acc.gross + r.gross,
       discount: acc.discount + r.discount,
       fee: acc.fee + r.fee,
+      commission: acc.commission + r.commission,
       net: acc.net + r.net,
     }),
-    { stores: 0, annualPassengers: 0, traffic: 0, redemptions: 0, gross: 0, discount: 0, fee: 0, net: 0 }
+    { stores: 0, annualPassengers: 0, traffic: 0, redemptions: 0, gross: 0, discount: 0, fee: 0, commission: 0, net: 0 }
   );
 
 // Subtotals per island / country / region, in the order the stores were added.

@@ -10,7 +10,7 @@ import { getCurrencyInfo } from "@/data/countryCurrencies";
 import StoreInputCard from "./StoreInputCard";
 import RegionBreakdown from "./RegionBreakdown";
 import CruiseTotals from "./CruiseTotals";
-import { CURRENCIES, PLATFORM_FEE, TIERS, defaultStore, computeStore, computeTotals, groupByRegion } from "./model";
+import { CURRENCIES, PLATFORM_FEE, PARTNER_COMMISSION, TIERS, defaultStore, computeStore, computeTotals, groupByRegion } from "./model";
 import { trafficDefaultsFor } from "@/data/cruiseTrafficDefaults";
 import { terminalTrafficFor } from "@/data/cruiseTerminalTraffic";
 import { localTrafficFor } from "@/data/localRetailerTraffic";
@@ -125,15 +125,16 @@ export default function CruiseCalculatorBody({
       <div className={`border rounded-xl px-4 py-3 flex items-start gap-2.5 ${th.infoBox}`}>
         <Info className={`w-4 h-4 shrink-0 mt-0.5 ${th.accentText}`} />
         <p className="text-xs text-slate-600 leading-relaxed">
-          {s.info
+          {(v.info || s.info)
             .replace("{fee}", PLATFORM_FEE * 100)
+            .replace("{commission}", PARTNER_COMMISSION * 100)
             .replace("{min}", TIERS[0].discMin * 100)
             .replace("{max}", TIERS[TIERS.length - 1].discMax * 100)}
         </p>
       </div>
 
       <div className="space-y-4">
-        <h2 className="font-heading font-bold text-slate-900">{s.stores}</h2>
+        <h2 className="font-heading font-bold text-slate-900">{v.rowsLabel || s.stores}</h2>
         {results.map((r) => (
           <StoreInputCard
             key={r.id}

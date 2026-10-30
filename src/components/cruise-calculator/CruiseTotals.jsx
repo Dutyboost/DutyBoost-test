@@ -13,6 +13,9 @@ export default function CruiseTotals({ totals, variant = "cruise" }) {
   const v = strings.variants[variant] || strings.variants.cruise;
   const { fmt, fmtCompact } = useCurrency();
 
+  // A travel partner earns commission instead of paying the platform fee.
+  const isPartner = variant === "coach";
+
   const cards = [
     { label: v.totalsStores || s.stores, val: numShort(totals.stores) },
     { label: v.totalsPassengers || s.passengers, val: numShort(totals.annualPassengers) },
@@ -20,8 +23,10 @@ export default function CruiseTotals({ totals, variant = "cruise" }) {
     { label: s.baskets, val: numShort(totals.redemptions) },
     { label: s.sales, val: fmtCompact(totals.gross) },
     { label: s.discounts, val: fmtCompact(totals.discount) },
-    { label: s.fee.replace("{fee}", PLATFORM_FEE * 100), val: fmtCompact(totals.fee) },
-    { label: s.net, val: fmt(totals.net), highlight: true },
+    isPartner
+      ? { label: v.commissionLabel, val: fmtCompact(totals.commission) }
+      : { label: s.fee.replace("{fee}", PLATFORM_FEE * 100), val: fmtCompact(totals.fee) },
+    { label: isPartner ? v.commissionNetLabel : s.net, val: fmt(totals.net), highlight: true },
   ];
 
   return (

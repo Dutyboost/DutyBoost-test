@@ -43,16 +43,20 @@ export const cruiseCalculatorStrings = {
       },
       coach: {
         badge: "Touring Coach Partners",
-        title: "Your fleet's travel retail calculator",
+        title: "Commission calculator for your fleet",
         intro:
-          "Built around the revenue your passengers already generate at the stops they make. Enter your coaches, the trips each one runs a year and the passengers it carries — DutyBoost pre-activates those passengers before they travel, so they reach participating retailers with purchase intent, and you pay only on the sales it brings.",
+          "A touring coach operator earns a commission on the retail spend its passengers make at the stops along the route. Enter your coaches, the trips each one runs a year and the passengers it carries — DutyBoost pre-activates those passengers before they travel, so they arrive at participating retailers with purchase intent, and you earn a commission on every validated sale. Nothing is charged to the operator.",
         focus:
-          "Every touring coach trip passes retail: service areas, terminals and drop-off points where travellers already wait. DutyBoost turns a share of that footfall into incremental sales, and you pay only on the sales it brings.",
+          "Every touring coach trip passes retail: service areas, terminals and drop-off points where travellers already wait. DutyBoost converts part of that footfall into validated retail sales and pays the operator a commission on each one, with no technology to install and no change to your operation.",
+        info: "DutyBoost pre-activates travellers before they reach the retail point. There is no cost to the operator: you earn a {commission} % commission on every DutyBoost-validated transaction, paid monthly. Traveller discounts follow the DutyCredit tiers ({min} %–{max} % depending on the basket, capped at the qualifying spend limit) and are funded by the participating retailer.",
+        rowsLabel: "Your coaches",
+        commissionLabel: "Commission on validated sales",
+        commissionNetLabel: "Commission earned / yr",
         ctaLabel: "Apply as a touring coach partner",
         ctaTitle: "Want these numbers validated for your fleet?",
         ctaDesc: "Send us your fleet and route profile and we will model the full picture with you.",
         disclaimer:
-          "Illustrative model. Figures are shown in the selected currency and recalculate as you edit. The platform fee applies only to DutyBoost-validated transactions.",
+          "Illustrative model. Figures are shown in the selected currency and recalculate as you edit. The operator is never charged: commission is paid by DutyBoost on validated transactions only.",
         totalsStores: "Coaches modelled",
         totalsSub: "Every coach in the fleet and its trips, added together.",
         totalsPassengers: "Passengers carried / yr",
@@ -64,6 +68,7 @@ export const cruiseCalculatorStrings = {
           passRate: "Share of passengers passing a retail point",
           kTraffic: "Passing a retail point / yr",
           kPassengers: "Passengers carried / yr",
+          kNet: "Commission earned",
         },
       },
       seaport: {
@@ -164,16 +169,20 @@ export const cruiseCalculatorStrings = {
       },
       coach: {
         badge: "Touringcar-partners",
-        title: "Calculator voor reisretail van uw vloot",
+        title: "Commissiecalculator voor uw vloot",
         intro:
-          "Gebouwd rond de omzet die uw passagiers al opbrengen bij de stops onderweg. Vul uw bussen in, het aantal ritten per bus per jaar en het aantal passagiers per bus — DutyBoost activeert die passagiers voordat ze reizen, zodat ze met koopintentie bij deelnemende retailers aankomen, en u betaalt alleen op de omzet die het oplevert.",
+          "Een touringcarondernemer verdient een commissie op de retailbestedingen van zijn passagiers bij de stops onderweg. Vul uw bussen in, het aantal ritten per bus per jaar en het aantal passagiers per bus — DutyBoost activeert die passagiers voordat ze reizen, zodat ze met koopintentie bij deelnemende retailers aankomen, en u verdient commissie op elke gevalideerde transactie. Voor de vervoerder zijn er geen kosten.",
         focus:
-          "Elke touringcarrit komt langs retail: verzorgingsplaatsen, terminals en uitstapplaatsen waar reizigers toch al wachten. DutyBoost zet een deel van die passanten om in incrementele omzet, en u betaalt alleen op de omzet die het oplevert.",
+          "Elke touringcarrit komt langs retail: verzorgingsplaatsen, terminals en uitstapplaatsen waar reizigers toch al wachten. DutyBoost zet een deel van die passanten om in gevalideerde retailomzet en betaalt de vervoerder daarop commissie, zonder technologie te installeren en zonder wijziging in uw bedrijfsvoering.",
+        info: "DutyBoost activeert reizigers voordat ze bij het verkooppunt aankomen. Voor de vervoerder zijn er geen kosten: u verdient {commission} % commissie op elke door DutyBoost gevalideerde transactie, maandelijks uitbetaald. De reizigerskorting volgt de DutyCredit-fasen ({min} %–{max} %, afhankelijk van de besteding, met een maximum aan het bestedingsplafond) en wordt gedragen door de deelnemende retailer.",
+        rowsLabel: "Uw bussen",
+        commissionLabel: "Commissie op gevalideerde omzet",
+        commissionNetLabel: "Verdiende commissie / jaar",
         ctaLabel: "Aanmelden als touringcarpartner",
         ctaTitle: "Wilt u deze cijfers laten valideren voor uw vloot?",
         ctaDesc: "Stuur ons uw vloot- en routeprofiel en we modelleren samen het volledige beeld.",
         disclaimer:
-          "Illustratief model. Bedragen worden weergegeven in de gekozen valuta en herberekend terwijl u invoert. De platformvergoeding geldt alleen voor door DutyBoost gevalideerde transacties.",
+          "Illustratief model. Bedragen worden weergegeven in de gekozen valuta en herberekend terwijl u invoert. De vervoerder betaalt nooit: de commissie wordt door DutyBoost betaald, uitsluitend op gevalideerde transacties.",
         totalsStores: "Gemodelleerde bussen",
         totalsSub: "Elke bus van de vloot en de bijbehorende ritten, samengeteld.",
         totalsPassengers: "Vervoerde passagiers / jaar",
@@ -185,6 +194,7 @@ export const cruiseCalculatorStrings = {
           passRate: "Deel van de passagiers dat langs een verkooppunt komt",
           kTraffic: "Langs een verkooppunt / jaar",
           kPassengers: "Vervoerde passagiers / jaar",
+          kNet: "Verdiende commissie",
         },
       },
       seaport: {
@@ -285,16 +295,20 @@ export const cruiseCalculatorStrings = {
       },
       coach: {
         badge: "Partenaires autocaristes",
-        title: "Calculateur de retail voyage de votre flotte",
+        title: "Calculateur de commission pour votre flotte",
         intro:
-          "Construit autour des revenus que vos passagers génèrent déjà lors des arrêts du circuit. Saisissez vos autocars, le nombre de trajets par autocar et par an et les passagers transportés — DutyBoost active ces passagers avant le départ, afin qu'ils arrivent chez les enseignes partenaires avec une intention d'achat, et vous ne payez que sur les ventes générées.",
+          "Un autocariste perçoit une commission sur les dépenses retail de ses passagers lors des arrêts du circuit. Saisissez vos autocars, le nombre de trajets par autocar et par an et les passagers transportés — DutyBoost active ces passagers avant le départ, afin qu'ils arrivent chez les enseignes partenaires avec une intention d'achat, et vous percevez une commission sur chaque vente validée. Aucun frais n'est facturé à l'exploitant.",
         focus:
-          "Chaque circuit en autocar passe devant des commerces : aires de service, terminaux et points de dépose où les voyageurs attendent déjà. DutyBoost transforme une part de ce passage en ventes incrémentales, et vous ne payez que sur les ventes générées.",
+          "Chaque circuit en autocar passe devant des commerces : aires de service, terminaux et points de dépose où les voyageurs attendent déjà. DutyBoost transforme une part de ce passage en ventes retail validées et verse à l'exploitant une commission sur chacune, sans technologie à installer ni changement dans votre exploitation.",
+        info: "DutyBoost active les voyageurs avant qu'ils n'arrivent au point de vente. Aucun frais pour l'exploitant : vous percevez une commission de {commission} % sur chaque transaction validée par DutyBoost, versée chaque mois. La remise voyageur suit les paliers DutyCredit ({min} %–{max} % selon le panier, plafonnée au plafond de dépense éligible) et est financée par l'enseigne participante.",
+        rowsLabel: "Vos autocars",
+        commissionLabel: "Commission sur ventes validées",
+        commissionNetLabel: "Commission perçue / an",
         ctaLabel: "Candidater comme partenaire autocariste",
         ctaTitle: "Vous souhaitez faire valider ces chiffres pour votre flotte ?",
         ctaDesc: "Envoyez-nous votre flotte et le profil de vos circuits, nous modéliserons ensemble la vue complète.",
         disclaimer:
-          "Modèle illustratif. Les montants sont affichés dans la devise choisie et recalculés à chaque saisie. La commission de plateforme ne s'applique qu'aux transactions validées par DutyBoost.",
+          "Modèle illustratif. Les montants sont affichés dans la devise choisie et recalculés à chaque saisie. L'exploitant n'est jamais facturé : la commission est versée par DutyBoost, uniquement sur les transactions validées.",
         totalsStores: "Autocars modélisés",
         totalsSub: "Chaque autocar de la flotte et ses trajets, additionnés.",
         totalsPassengers: "Passagers transportés / an",
@@ -306,6 +320,7 @@ export const cruiseCalculatorStrings = {
           passRate: "Part des passagers passant un point de vente",
           kTraffic: "Passages devant un point de vente / an",
           kPassengers: "Passagers transportés / an",
+          kNet: "Commission perçue",
         },
       },
       seaport: {
@@ -406,16 +421,20 @@ export const cruiseCalculatorStrings = {
       },
       coach: {
         badge: "Reisebus-Partner",
-        title: "Reisetail-Rechner für Ihre Flotte",
+        title: "Provisionsrechner für Ihre Flotte",
         intro:
-          "Aufgebaut um den Umsatz, den Ihre Fahrgäste an den Halten unterwegs bereits erzeugen. Geben Sie Ihre Busse, die Fahrten pro Bus und Jahr und die Fahrgäste pro Bus ein — DutyBoost aktiviert diese Fahrgäste vor der Reise, sodass sie mit Kaufabsicht bei teilnehmenden Händlern ankommen, und Sie zahlen nur auf den erzielten Umsatz.",
+          "Ein Reisebusunternehmen erhält eine Provision auf die Retail-Ausgaben seiner Fahrgäste an den Halten der Strecke. Geben Sie Ihre Busse, die Fahrten pro Bus und Jahr und die Fahrgäste pro Bus ein — DutyBoost aktiviert diese Fahrgäste vor der Reise, sodass sie mit Kaufabsicht bei teilnehmenden Händlern ankommen, und Sie erhalten eine Provision auf jeden validierten Umsatz. Für den Betreiber entstehen keine Kosten.",
         focus:
-          "Jede Reisebusfahrt kommt an Retail vorbei: Raststätten, Terminals und Ausstiegspunkte, an denen Reisende ohnehin warten. DutyBoost wandelt einen Teil dieser Frequenz in Zusatzumsatz um, und Sie zahlen nur auf den erzielten Umsatz.",
+          "Jede Reisebusfahrt kommt an Retail vorbei: Raststätten, Terminals und Ausstiegspunkte, an denen Reisende ohnehin warten. DutyBoost wandelt einen Teil dieser Frequenz in validierten Retailumsatz um und zahlt dem Betreiber darauf eine Provision — ohne zu installierende Technik und ohne Änderung Ihres Betriebs.",
+        info: "DutyBoost aktiviert Reisende, bevor sie am Verkaufspunkt ankommen. Für den Betreiber entstehen keine Kosten: Sie erhalten {commission} % Provision auf jede von DutyBoost validierte Transaktion, monatlich ausgezahlt. Der Reisendenrabatt folgt den DutyCredit-Stufen ({min} %–{max} % je nach Warenkorb, begrenzt durch die Obergrenze für qualifizierte Ausgaben) und wird vom teilnehmenden Händler getragen.",
+        rowsLabel: "Ihre Busse",
+        commissionLabel: "Provision auf validierten Umsatz",
+        commissionNetLabel: "Erzielte Provision / Jahr",
         ctaLabel: "Als Reisebuspartner bewerben",
         ctaTitle: "Möchten Sie diese Zahlen für Ihre Flotte prüfen lassen?",
         ctaDesc: "Senden Sie uns Ihre Flotte und Ihr Streckenprofil, wir modellieren das Gesamtbild gemeinsam.",
         disclaimer:
-          "Illustratives Modell. Beträge werden in der gewählten Währung angezeigt und bei jeder Eingabe neu berechnet. Die Plattformgebühr gilt nur für von DutyBoost validierte Transaktionen.",
+          "Illustratives Modell. Beträge werden in der gewählten Währung angezeigt und bei jeder Eingabe neu berechnet. Dem Betreiber wird nichts berechnet: Die Provision wird von DutyBoost gezahlt, ausschließlich auf validierte Transaktionen.",
         totalsStores: "Modellierte Busse",
         totalsSub: "Jeder Bus der Flotte und seine Fahrten, zusammengezählt.",
         totalsPassengers: "Beförderte Fahrgäste / Jahr",
@@ -427,6 +446,7 @@ export const cruiseCalculatorStrings = {
           passRate: "Anteil der Fahrgäste an einem Verkaufspunkt",
           kTraffic: "Am Verkaufspunkt / Jahr",
           kPassengers: "Beförderte Fahrgäste / Jahr",
+          kNet: "Erzielte Provision",
         },
       },
       seaport: {
@@ -527,16 +547,20 @@ export const cruiseCalculatorStrings = {
       },
       coach: {
         badge: "Socios de autocares",
-        title: "Calculadora de retail de viaje de su flota",
+        title: "Calculadora de comisión para su flota",
         intro:
-          "Construida en torno a los ingresos que sus pasajeros ya generan en las paradas del recorrido. Introduzca sus autocares, los viajes por autocar y año y los pasajeros que transporta — DutyBoost activa a esos pasajeros antes de viajar, de modo que llegan a los comercios participantes con intención de compra, y solo paga por las ventas que genera.",
+          "Un operador de autocares obtiene una comisión sobre el gasto retail de sus pasajeros en las paradas del recorrido. Introduzca sus autocares, los viajes por autocar y año y los pasajeros que transporta — DutyBoost activa a esos pasajeros antes de viajar, de modo que llegan a los comercios participantes con intención de compra, y usted obtiene una comisión por cada venta validada. No hay ningún coste para el operador.",
         focus:
-          "Todo circuito en autocar pasa por retail: áreas de servicio, terminales y puntos de bajada donde los viajeros ya esperan. DutyBoost convierte parte de ese paso en ventas incrementales, y solo paga por las ventas que genera.",
+          "Todo circuito en autocar pasa por retail: áreas de servicio, terminales y puntos de bajada donde los viajeros ya esperan. DutyBoost convierte parte de ese paso en ventas retail validadas y paga al operador una comisión por cada una, sin tecnología que instalar y sin cambios en su operación.",
+        info: "DutyBoost activa a los viajeros antes de que lleguen al punto de venta. Sin coste para el operador: usted obtiene una comisión del {commission} % sobre cada transacción validada por DutyBoost, abonada mensualmente. El descuento al viajero sigue los tramos DutyCredit ({min} %–{max} % según la cesta, con el límite de gasto elegible) y lo financia el comercio participante.",
+        rowsLabel: "Sus autocares",
+        commissionLabel: "Comisión sobre ventas validadas",
+        commissionNetLabel: "Comisión obtenida / año",
         ctaLabel: "Solicitar como socio de autocares",
         ctaTitle: "¿Desea validar estas cifras para su flota?",
         ctaDesc: "Envíenos su flota y el perfil de sus rutas y modelaremos juntos la imagen completa.",
         disclaimer:
-          "Modelo ilustrativo. Los importes se muestran en la divisa seleccionada y se recalculan al editar. La comisión de plataforma se aplica solo a transacciones validadas por DutyBoost.",
+          "Modelo ilustrativo. Los importes se muestran en la divisa seleccionada y se recalculan al editar. Al operador nunca se le cobra: la comisión la abona DutyBoost, solo sobre transacciones validadas.",
         totalsStores: "Autocares modelados",
         totalsSub: "Todos los autocares de la flota y sus viajes, sumados.",
         totalsPassengers: "Pasajeros transportados / año",
@@ -548,6 +572,7 @@ export const cruiseCalculatorStrings = {
           passRate: "Porcentaje de pasajeros que pasan por un punto de venta",
           kTraffic: "Pasan por un punto de venta / año",
           kPassengers: "Pasajeros transportados / año",
+          kNet: "Comisión obtenida",
         },
       },
       seaport: {
@@ -648,16 +673,20 @@ export const cruiseCalculatorStrings = {
       },
       coach: {
         badge: "Partner pullman",
-        title: "Calcolatore retail di viaggio della sua flotta",
+        title: "Calcolatore di provvigioni per la sua flotta",
         intro:
-          "Costruito intorno ai ricavi che i suoi passeggeri già generano durante le soste. Inserisca i pullman, i viaggi per pullman all'anno e i passeggeri trasportati — DutyBoost attiva questi passeggeri prima della partenza, così arrivano nei punti vendita aderenti con intenzione d'acquisto, e paga solo sulle vendite generate.",
+          "Un operatore di pullman riceve una provvigione sulla spesa retail dei propri passeggeri durante le soste del percorso. Inserisca i pullman, i viaggi per pullman all'anno e i passeggeri trasportati — DutyBoost attiva questi passeggeri prima della partenza, così arrivano nei punti vendita aderenti con intenzione d'acquisto, e lei riceve una provvigione su ogni vendita validata. Nessun costo per l'operatore.",
         focus:
-          "Ogni viaggio in pullman passa davanti al retail: aree di servizio, terminal e punti di discesa dove i viaggiatori attendono comunque. DutyBoost trasforma una parte di questo passaggio in vendite incrementali, e paga solo sulle vendite generate.",
+          "Ogni viaggio in pullman passa davanti al retail: aree di servizio, terminal e punti di discesa dove i viaggiatori attendono comunque. DutyBoost trasforma una parte di questo passaggio in vendite retail validate e riconosce all'operatore una provvigione su ciascuna, senza tecnologia da installare e senza modifiche alla sua operatività.",
+        info: "DutyBoost attiva i viaggiatori prima che arrivino al punto vendita. Nessun costo per l'operatore: riceve una provvigione dello {commission} % su ogni transazione validata da DutyBoost, liquidata ogni mese. Lo sconto al viaggiatore segue le fasce DutyCredit ({min} %–{max} % in base allo scontrino, con il limite di spesa idonea) ed è sostenuto dal punto vendita aderente.",
+        rowsLabel: "I suoi pullman",
+        commissionLabel: "Provvigione su vendite validate",
+        commissionNetLabel: "Provvigioni maturate / anno",
         ctaLabel: "Candidarsi come partner pullman",
         ctaTitle: "Vuole validare questi numeri per la sua flotta?",
         ctaDesc: "Ci invii la flotta e il profilo dei percorsi e modelleremo insieme il quadro completo.",
         disclaimer:
-          "Modello illustrativo. Gli importi sono mostrati nella valuta selezionata e ricalcolati mentre modifica. La commissione di piattaforma si applica solo alle transazioni validate da DutyBoost.",
+          "Modello illustrativo. Gli importi sono mostrati nella valuta selezionata e ricalcolati mentre modifica. All'operatore non viene mai addebitato nulla: la provvigione è corrisposta da DutyBoost, solo sulle transazioni validate.",
         totalsStores: "Pullman modellati",
         totalsSub: "Ogni pullman della flotta e i suoi viaggi, sommati.",
         totalsPassengers: "Passeggeri trasportati / anno",
@@ -669,6 +698,7 @@ export const cruiseCalculatorStrings = {
           passRate: "Quota di passeggeri che passa da un punto vendita",
           kTraffic: "Passaggi da un punto vendita / anno",
           kPassengers: "Passeggeri trasportati / anno",
+          kNet: "Provvigioni maturate",
         },
       },
       seaport: {
@@ -769,16 +799,20 @@ export const cruiseCalculatorStrings = {
       },
       coach: {
         badge: "Parceiros de autocarros",
-        title: "Calculadora de retalho de viagem da sua frota",
+        title: "Calculadora de comissões para a sua frota",
         intro:
-          "Construída em torno da receita que os seus passageiros já geram nas paragens do percurso. Introduza os autocarros, as viagens por autocarro e ano e os passageiros transportados — a DutyBoost ativa esses passageiros antes da viagem, para que cheguem às lojas aderentes com intenção de compra, e paga apenas sobre as vendas geradas.",
+          "Um operador de autocarros recebe uma comissão sobre o gasto de retalho dos seus passageiros nas paragens do percurso. Introduza os autocarros, as viagens por autocarro e ano e os passageiros transportados — a DutyBoost ativa esses passageiros antes da viagem, para que cheguem às lojas aderentes com intenção de compra, e recebe uma comissão sobre cada venda validada. Não há qualquer custo para o operador.",
         focus:
-          "Cada viagem em autocarro passa pelo retalho: áreas de serviço, terminais e pontos de desembarque onde os viajantes já esperam. A DutyBoost converte parte dessa passagem em vendas incrementais, e paga apenas sobre as vendas geradas.",
+          "Cada viagem em autocarro passa pelo retalho: áreas de serviço, terminais e pontos de desembarque onde os viajantes já esperam. A DutyBoost converte parte dessa passagem em vendas de retalho validadas e paga ao operador uma comissão por cada uma, sem tecnologia a instalar e sem alterações na sua operação.",
+        info: "A DutyBoost ativa os viajantes antes de chegarem ao ponto de venda. Sem custos para o operador: recebe uma comissão de {commission} % sobre cada transação validada pela DutyBoost, paga mensalmente. O desconto ao viajante segue os escalões DutyCredit ({min} %–{max} % consoante o cabaz, com o limite de despesa elegível) e é suportado pela loja aderente.",
+        rowsLabel: "Os seus autocarros",
+        commissionLabel: "Comissão sobre vendas validadas",
+        commissionNetLabel: "Comissão auferida / ano",
         ctaLabel: "Candidatar-se como parceiro de autocarros",
         ctaTitle: "Pretende validar estes números para a sua frota?",
         ctaDesc: "Envie-nos a sua frota e o perfil dos percursos e modelamos o quadro completo consigo.",
         disclaimer:
-          "Modelo ilustrativo. Os valores são apresentados na moeda selecionada e recalculados à medida que edita. A comissão de plataforma aplica-se apenas a transações validadas pela DutyBoost.",
+          "Modelo ilustrativo. Os valores são apresentados na moeda selecionada e recalculados à medida que edita. O operador nunca paga nada: a comissão é paga pela DutyBoost, apenas sobre transações validadas.",
         totalsStores: "Autocarros modelados",
         totalsSub: "Todos os autocarros da frota e as suas viagens, somados.",
         totalsPassengers: "Passageiros transportados / ano",
@@ -790,6 +824,7 @@ export const cruiseCalculatorStrings = {
           passRate: "Percentagem de passageiros que passam por um ponto de venda",
           kTraffic: "Passam por um ponto de venda / ano",
           kPassengers: "Passageiros transportados / ano",
+          kNet: "Comissão auferida",
         },
       },
       seaport: {

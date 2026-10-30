@@ -243,7 +243,7 @@ export default function StoreInputCard({ store, result, variant = "cruise", onCh
           { label: v.card?.kTraffic || s.kTraffic, val: numShort(result.traffic) },
           { label: s.kBaskets, val: numShort(result.redemptions) },
           { label: s.kSales, val: fmtCompact(result.gross) },
-          { label: s.kNet, val: fmt(result.net), highlight: true },
+          { label: v.card?.kNet || s.kNet, val: fmt(result.net), highlight: true },
         ].map((row) => (
           <div
             key={row.label}
