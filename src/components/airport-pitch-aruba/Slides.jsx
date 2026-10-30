@@ -70,7 +70,7 @@ export function SlideCover() {
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
         <div className="relative z-10 flex flex-col items-center gap-8">
           <div className="bg-white rounded-2xl px-8 py-4 shadow-2xl border border-slate-200">
-            <DutyBoostLogo height={50} linkTo="/airport-showcase" />
+            <DutyBoostLogo height={50} linkTo="/travel-hubs-showcase" />
           </div>
           <div>
             <PositioningLine className="mb-3" />
@@ -1014,7 +1014,7 @@ export function SlideThankYou() {
           style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)" }} />
         <div className="relative z-10 flex flex-col items-center text-center">
           <div className="bg-white rounded-2xl px-8 py-4 shadow-2xl border border-slate-200 mb-6">
-            <DutyBoostLogo height={48} linkTo="/airport-showcase" />
+            <DutyBoostLogo height={48} linkTo="/travel-hubs-showcase" />
           </div>
           <div className="mb-4">
             <span className="text-blue-600 text-sm font-semibold uppercase tracking-widest">Thank You</span>

@@ -32,14 +32,14 @@ export default function AirportCalculator() {
 
   return (
     <div className="min-h-screen bg-background font-body">
-      <ShowcaseMobileNav calculatorTo="/airport-showcase" gradient="linear-gradient(to bottom, #0891b2, #0284c7)" />
+      <ShowcaseMobileNav calculatorTo="/travel-hubs-showcase" gradient="linear-gradient(to bottom, #0891b2, #0284c7)" />
       <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={55} />
           </Link>
           <div className="flex items-center gap-4">
-            <Link to="/airport-showcase">
+            <Link to="/travel-hubs-showcase">
               <Button variant="outline" size="sm" className="gap-1.5 text-cyan-600 border-cyan-600 hover:text-cyan-700 hover:bg-cyan-50">
                 <PlaneTakeoff className="w-4 h-4 shrink-0" /> {c.aboutBtn}
               </Button>
@@ -140,7 +140,7 @@ export default function AirportCalculator() {
               <p>{c.magNote}</p>
             </div>
 
-            <Link to="/airport-showcase">
+            <Link to="/travel-hubs-showcase">
               <Button className="w-full gap-2" size="lg">
                 {c.cta} <ArrowRight className="w-4 h-4 shrink-0" />
               </Button>

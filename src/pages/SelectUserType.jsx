@@ -27,7 +27,7 @@ export default function SelectUserType() {
       color: "from-cyan-400 to-sky-600",
       bg: "bg-cyan-50",
       iconColor: "text-cyan-600",
-      path: "/airport-showcase",
+      path: "/travel-hubs-showcase",
     },
     {
       id: "retailer",

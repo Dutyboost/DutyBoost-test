@@ -324,7 +324,8 @@ const AuthenticatedApp = () => {
         <Route path="/travel-partner-pitch" element={<TravelPartnerPitchDeck />} />
         <Route path="/travel-partner-pitch-afklm" element={<TravelPartnerPitchDeckAFKLM />} />
         <Route path="/travellers-transaction" element={<TravellersTransactionShowcase />} />
-        <Route path="/airport-showcase" element={<AirportShowcase />} />
+        <Route path="/travel-hubs-showcase" element={<AirportShowcase />} />
+        <Route path="/airport-showcase" element={<Navigate to="/travel-hubs-showcase" replace />} />
         <Route path="/airport-calculator" element={<AirportCalculator />} />
         <Route path="/airport-partner-request" element={<AirportPartnerRequest />} />
         <Route path="/ports-showcase" element={<PortsShowcase />} />
