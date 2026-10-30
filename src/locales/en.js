@@ -127,7 +127,7 @@ export default {
     },
     cta: {
       title: 'One Traveller. One Journey. Revenue for Everyone.',
-      description: "A Performance-based Customer Acquisition Solution for Global Travel transforms every traveller's journey into a new source of measurable incremental revenue. Connecting enterprise POS providers, airport retailers, airports, travellers, travel partners, corporate partners and wholesale/retail suppliers in one shared ecosystem, DutyBoost creates new value with no upfront costs for all participants through a 100% performance-based pricing model.",
+      description: "A performance-based commercial layer that turns every traveller journey into a source of measurable incremental revenue. Connecting POS providers, travel retailers, local retailers, airports, travel partners and travellers in one shared ecosystem, DutyBoost creates new value for all six participants with no upfront costs through a 100% performance-based pricing model.",
       button: 'Join a Performance-based Customer Acquisition Solution for Global Travel Today!',
     },
     footer: {

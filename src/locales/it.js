@@ -121,7 +121,7 @@ export default {
     },
     cta: {
        title: 'Un viaggiatore. Un viaggio. Ricavi per tutti.',
-       description: "Una soluzione di acquisizione clienti basata sulla performance per il settore globale dei viaggi trasforma il viaggio di ogni viaggiatore in una nuova fonte di entrate incrementali misurabili. Connessione di provider POS aziendali, retailer aeroportuali, aeroporti, viaggiatori, partner di viaggio, partner corporate e fornitori all'ingrosso/dettaglio in un unico ecosistema condiviso, DutyBoost crea nuovo valore senza costi iniziali per tutti i partecipanti tramite un modello di prezzo 100% basato sulle prestazioni.",
+       description: "Uno strato commerciale basato sulle performance che trasforma ogni viaggio in una fonte di ricavi incrementali misurabili. Collegando fornitori POS, dettaglianti di viaggio, dettaglianti locali, aeroporti, partner di viaggio e viaggiatori in un unico ecosistema condiviso, DutyBoost crea valore per tutti e sei i partecipanti senza costi iniziali, grazie a un modello di prezzo 100% basato sulle performance.",
        button: "Unisciti oggi alla soluzione di acquisizione clienti basata sulla performance per il settore globale dei viaggi!",
        },
     wecallyou: {

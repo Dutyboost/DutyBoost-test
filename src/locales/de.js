@@ -122,7 +122,7 @@ export default {
     },
     cta: {
       title: 'Ein Reisender. Eine Reise. Erlös für alle.',
-      description: 'Eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche verwandelt die Reise jedes Reisenden in eine neue Quelle messbarer zusätzlicher Erlöse. Indem es Enterprise-POS-Anbieter, Flughafen-Einzelhändler, Flughäfen, Reisende, Reisepartner, Corporate Partner und Groß-/Einzelhandelslieferanten in einem gemeinsamen Ökosystem verbindet, schafft DutyBoost neuen Wert ohne Vorabkosten für alle Teilnehmer durch ein 100% leistungsbasiertes Preismodell.',
+      description: 'Eine leistungsbasierte kommerzielle Ebene, die jede Reise in eine Quelle messbarer Zusatzumsätze verwandelt. Durch die Verbindung von POS-Anbietern, Reise-Einzelhändlern, lokalen Einzelhändlern, Flughäfen, Reisepartnern und Reisenden in einem gemeinsamen Ökosystem schafft DutyBoost neuen Wert für alle sechs Teilnehmer ohne Vorabkosten, über ein zu 100 % leistungsbasiertes Preismodell.',
       button: "Treten Sie heute der performancebasierten Kundenakquise-Lösung für die globale Reisebranche bei!",
     },
     wecallyou: {

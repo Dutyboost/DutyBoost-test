@@ -127,7 +127,7 @@ export default {
     },
     cta: {
       title: 'Um Viajante. Uma Viagem. Receita para Todos.',
-      description: 'Uma Solução de Aquisição de Clientes Baseada no Desempenho para o Setor de Viagens Global transforma a viagem de cada viajante numa nova fonte de receita incremental mensurável. Ligando fornecedores de POS empresariais, retalhistas de aeroporto, aeroportos, viajantes, parceiros de viagens, parceiros corporativos e fornecedores grossistas/retalhistas num único ecossistema partilhado, a DutyBoost cria novo valor sem custos iniciais para todos os participantes, através de um modelo de preços 100% baseado no desempenho.',
+      description: 'Uma camada comercial baseada no desempenho que transforma cada viagem numa fonte de receita incremental mensurável. Ligando fornecedores de POS, retalhistas de viagem, retalhistas locais, aeroportos, parceiros de viagens e viajantes num único ecossistema partilhado, a DutyBoost cria novo valor para os seis participantes sem custos iniciais, através de um modelo de preços 100% baseado no desempenho.',
       button: 'Junte-se hoje a uma Solução de Aquisição de Clientes Baseada no Desempenho para o Setor de Viagens Global!',
     },
     footer: {

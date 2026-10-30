@@ -121,7 +121,7 @@ export default {
     },
     cta: {
        title: 'Un pasajero. Un viaje. Ingresos para todos.',
-       description: 'Una Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector de Viajes Global transforma el viaje de cada pasajero en una nueva fuente de ingresos incrementales medibles. Conectando a proveedores POS empresariales, minoristas aeroportuarios, aeropuertos, pasajeros, socios de viaje, socios corporativos y proveedores mayoristas/minoristas en un único ecosistema compartido, DutyBoost crea nuevo valor sin costes iniciales para todos los participantes mediante un modelo de precios 100% basado en el rendimiento.',
+       description: 'Una capa comercial basada en el rendimiento que convierte cada viaje en una fuente de ingresos incrementales medibles. Conectando a proveedores POS, minoristas de viaje, minoristas locales, aeropuertos, socios de viaje y pasajeros en un único ecosistema compartido, DutyBoost crea valor para los seis participantes sin costes iniciales mediante un modelo de precios 100% basado en el rendimiento.',
        button: "¡Únete hoy a una solución de adquisición de clientes basada en el rendimiento para el sector de viajes global!",
      },
     wecallyou: {

@@ -122,7 +122,7 @@ export default {
     },
     cta: {
       title: 'Un voyageur. Un voyage. Des revenus pour tous.',
-      description: "La solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial transforme le voyage de chaque voyageur en une nouvelle source de revenus incrémentaux mesurables. En reliant fournisseurs POS d'entreprise, détaillants aéroportuaires, aéroports, voyageurs, partenaires de voyage, partenaires corporate et fournisseurs de gros/détail dans un seul écosystème partagé, DutyBoost crée de la valeur sans aucun coût initial pour tous les participants grâce à un modèle de tarification 100% basé sur la performance.",
+      description: "Une couche commerciale basée sur la performance qui transforme chaque voyage en une source de revenus incrémentaux mesurables. En reliant fournisseurs POS, détaillants du voyage, détaillants locaux, aéroports, partenaires de voyage et voyageurs dans un seul écosystème partagé, DutyBoost crée de la valeur pour les six participants sans aucun coût initial, grâce à un modèle de tarification 100% basé sur la performance.",
       button: "Rejoignez aujourd'hui la solution d'acquisition de clients basée sur la performance pour le voyage mondial !",
     },
     wecallyou: {

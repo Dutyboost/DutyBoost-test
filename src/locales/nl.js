@@ -121,7 +121,7 @@ export default {
     },
     cta: {
        title: 'Eén reiziger. Eén reis. Inkomsten voor iedereen.',
-       description: 'Een prestatiegerichte oplossing voor klantacquisitie voor de wereldwijde reissector transformeert de reis van elke reiziger tot een nieuwe bron van meetbare aanvullende omzet. Door enterprise POS-providers, luchthavenretailers, luchthavens, reizigers, reispartners, corporate partners en groothandel/retail leveranciers te verbinden in één gedeeld ecosysteem, creëert DutyBoost nieuwe waarde zonder voorafgaande kosten voor alle deelnemers via een 100% prestatiegebonden prijsmodel.',
+       description: 'Een prestatiegerichte commerciële laag die elke reis van een reiziger omzet in een bron van meetbare aanvullende omzet. Door POS-aanbieders, reisretailers, lokale retailers, luchthavens, reispartners en reizigers te verbinden in één gedeeld ecosysteem, creëert DutyBoost nieuwe waarde voor alle zes deelnemers zonder voorafgaande kosten via een 100% prestatiegebonden prijsmodel.',
        button: "Sluit u vandaag aan bij een prestatiegerichte oplossing voor klantacquisitie voor de wereldwijde reissector!",
 
      },
