@@ -29,10 +29,10 @@ export const ecosystemCards = {
     local: {
       title: 'Local Retail Partners',
       description:
-        'Cruise passengers, air travellers and rail arrivals all end up down town — this is where every flow meets. Airport shops, cruise terminals and stations are one stop on the way; your store is where every traveller arrives, ready to redeem a DutyCredit however they got here, tourists arriving by train in a new city included.',
-      b1: 'Cruise, air and rail travellers in one flow',
-      b2: 'Redeem DutyCredits on any arrival route',
-      b3: 'Pay only on results',
+        'However they arrive — by air, by sea or by rail — every traveller ends up down town, and they arrive already holding a DutyCredit with the intent to buy. Airport shops, cruise terminals and stations are one stop on the way; your store is where the journey ends in a purchase. Tourists arriving by train in a new city are part of the same flow.',
+      b1: 'Air, sea and rail arrivals in one flow',
+      b2: 'Every arrival route ends down town, at your till',
+      b3: 'Travellers arrive ready to buy',
     },
   },
   nl: {
