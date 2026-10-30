@@ -41,7 +41,7 @@ export default function AirportCalculator() {
           <div className="flex items-center gap-4">
             <Link to="/travel-hubs-showcase">
               <Button variant="outline" size="sm" className="gap-1.5 text-cyan-600 border-cyan-600 hover:text-cyan-700 hover:bg-cyan-50">
-                <PlaneTakeoff className="w-4 h-4 shrink-0" /> {c.aboutBtn}
+                {c.aboutBtn}
               </Button>
             </Link>
             <LanguageSwitcher />
