@@ -2,7 +2,7 @@
 export default function CoachOnRoadIcon({ className }) {
   return (
     <svg
-      viewBox="0 0 24 24"
+      viewBox="2.6 6.5 18.6 11.6"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.4"
