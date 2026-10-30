@@ -251,9 +251,10 @@ const AuthenticatedApp = () => {
         <Route path="/agglomeration-travel-partner-one-pager" element={<AgglomerationTravelPartnerOnePager />} />
         <Route path="/gtm-checklist" element={<GTMTestingChecklist />} />
         <Route path="/staging-validation" element={<StagingValidationGuide />} />
-        <Route path="/terminal-retailers-calculator" element={<RetailerCalculator />} />
-        <Route path="/airport-seaport-retailers-calculator" element={<Navigate to="/terminal-retailers-calculator" replace />} />
-        <Route path="/retailer-calculator" element={<Navigate to="/terminal-retailers-calculator" replace />} />
+        <Route path="/travel-retailers-calculator" element={<RetailerCalculator />} />
+        <Route path="/terminal-retailers-calculator" element={<Navigate to="/travel-retailers-calculator" replace />} />
+        <Route path="/airport-seaport-retailers-calculator" element={<Navigate to="/travel-retailers-calculator" replace />} />
+        <Route path="/retailer-calculator" element={<Navigate to="/travel-retailers-calculator" replace />} />
         <Route path="/roi-calculator" element={<RetailerCalculator />} />
         <Route path="/roi-calculator-travel-partner" element={<TravelPartnerCalculator />} />
         <Route path="/retailer-portal" element={<RetailerPortal />} />
