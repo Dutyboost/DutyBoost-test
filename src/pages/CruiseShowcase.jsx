@@ -39,7 +39,7 @@ export default function CruiseShowcase() {
       ctaTitle={t('showcase.cruise.ctaTitle')}
       ctaDesc={t('showcase.cruise.ctaDesc')}
       ctaLabel={t('showcase.cruise.ctaButton')}
-      ctaTo="/cruise-portal"
+      ctaTo="/cruise-signup"
       ctaTextClass="text-teal-600"
       calculatorTo="/cruise-partner-calculator"
       mobileNavGradient="linear-gradient(to bottom, #2dd4bf, #0891b2)"

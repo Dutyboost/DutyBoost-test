@@ -87,7 +87,6 @@ import CoachShowcase from './pages/CoachShowcase';
 import SurveyDashboard from './pages/SurveyDashboard';
 import CruiseShowcase from './pages/CruiseShowcase.jsx';
 import CruisePartnerCalculator from './pages/CruisePartnerCalculator.jsx';
-import CruisePortal from './pages/CruisePortal.jsx';
 import CruiseSignup from './pages/CruiseSignup.jsx';
 import DemoCruiseDashboard from './pages/DemoCruiseDashboard.jsx';
 import TrainShowcase from './pages/TrainShowcase.jsx';
@@ -281,7 +280,6 @@ const AuthenticatedApp = () => {
         <Route path="/car-rental-signup" element={<Navigate to="/get-started" replace />} />
         <Route path="/cruise-showcase" element={<CruiseShowcase />} />
         <Route path="/cruise-partner-calculator" element={<CruisePartnerCalculator />} />
-        <Route path="/cruise-portal" element={<CruisePortal />} />
         <Route path="/cruise-signup" element={<CruiseSignup />} />
         <Route path="/train-showcase" element={<TrainShowcase />} />
         <Route path="/coach-showcase" element={<CoachShowcase />} />

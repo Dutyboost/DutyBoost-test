@@ -77,7 +77,6 @@ export default function CruiseSignup() {
             </div>
             <h1 className="text-3xl font-heading font-bold">{t('cruisesignup.success_title')}</h1>
             <p className="text-muted-foreground">{t('cruisesignup.success_desc')}</p>
-            <Link to="/cruise-portal"><Button className="w-full bg-teal-600 hover:bg-teal-700 text-white">{t('cruisesignup.success_button')}</Button></Link>
           </div>
         </div>
       </div>
