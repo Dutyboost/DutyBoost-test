@@ -35,7 +35,7 @@ export default {
     },
     ecosystem: {
       title: 'One Commercial ecosystem, six winners',
-      subtitle: 'A shared solution that makes every participant a winner via one commercial operating ecosystem.',
+      subtitle: 'Every transaction that runs through the ecosystem pays every stakeholder in it — travel partner, retail partner and traveller all win on the same sale.',
       platform_fee_note: 'Every redemption powers the entire ecosystem. A single performance-based fee is automatically shared between the transaction participants and DutyBoost—creating value for everyone at no additional upfront cost to the retailer.',
     },
     oval: {
