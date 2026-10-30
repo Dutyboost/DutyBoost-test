@@ -84,6 +84,7 @@ import CarRentalPartnerCalculator from './pages/CarRentalPartnerCalculator';
 import TrainPartnerCalculator from './pages/TrainPartnerCalculator';
 import CoachPartnerCalculator from './pages/CoachPartnerCalculator';
 import CoachShowcase from './pages/CoachShowcase';
+import CoachSignup from './pages/CoachSignup';
 import SurveyDashboard from './pages/SurveyDashboard';
 import CruiseShowcase from './pages/CruiseShowcase.jsx';
 import CruisePartnerCalculator from './pages/CruisePartnerCalculator.jsx';
@@ -285,6 +286,7 @@ const AuthenticatedApp = () => {
         <Route path="/coach-showcase" element={<CoachShowcase />} />
         <Route path="/train-portal" element={<TrainPortal />} />
         <Route path="/train-signup" element={<TrainSignup />} />
+        <Route path="/coach-signup" element={<CoachSignup />} />
         <Route path="/dev-wireframe" element={<DevWireframe />} />
         <Route path="/request-more-information" element={<RequestDemoPage />} />
         <Route path="/retailer-presentation" element={<AirportRetailerPresentation />} />

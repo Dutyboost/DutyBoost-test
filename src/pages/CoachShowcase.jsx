@@ -38,7 +38,7 @@ export default function CoachShowcase() {
       ctaTitle={tp.coach_cta_title}
       ctaDesc={tp.coach_cta_desc}
       ctaLabel={t('common.request_more_info')}
-      ctaTo="/travel-partner-request"
+      ctaTo="/coach-signup"
       ctaTextClass="text-orange-600"
       calculatorTo="/coach-partner-calculator"
       mobileNavGradient="linear-gradient(to bottom, #fbbf24, #ea580c)"

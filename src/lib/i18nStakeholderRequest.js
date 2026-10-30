@@ -4,6 +4,7 @@
 // text lives here. Volume options are pure numeric ranges (language-neutral).
 
 import { Store, Plane, BedDouble, Car, Train } from "lucide-react";
+import CoachOnRoadIcon from "@/components/CoachOnRoadIcon";
 
 const VOLUME_STORES = ["1 – 5", "6 – 20", "21 – 50", "51 – 150", "150+"];
 const VOLUME_BOOKINGS = ["0 – 10k", "10k – 50k", "50k – 250k", "250k – 1M", "1M+"];
@@ -64,6 +65,20 @@ export const STAKEHOLDER_CONFIG = {
     iconClass: "text-indigo-600",
     emailSubject: "Rail Partner enquiry",
     positionSuffix: "Rail Partner",
+    industry: "Agency",
+    volumes: ["0 – 1M", "1M – 5M", "5M – 20M", "20M+"],
+  },
+  coachPartner: {
+    Icon: CoachOnRoadIcon,
+    gradient: "linear-gradient(to bottom, #fbbf24, #ea580c)",
+    calculatorTo: "/coach-partner-calculator",
+    backTo: "/coach-showcase",
+    badgeClass: "bg-amber-500/10 text-amber-700",
+    buttonClass: "bg-orange-600 hover:bg-orange-700",
+    iconCircleClass: "bg-amber-500/10",
+    iconClass: "text-amber-600",
+    emailSubject: "Touring Coach Partner enquiry",
+    positionSuffix: "Touring Coach Partner",
     industry: "Agency",
     volumes: ["0 – 1M", "1M – 5M", "5M – 20M", "20M+"],
   },
@@ -412,6 +427,57 @@ export const stakeholderRequestStrings = {
       label_volume: "Passageiros anuais",
       placeholder_volume: "Selecione o volume de passageiros",
       success_desc: "Recebemos o seu pedido e entraremos em contacto em breve com uma estimativa à medida para a sua rede ferroviária.",
+    },
+  },
+  coachPartner: {
+    en: {
+      badge: "Touring Coach Partner",
+      subtitle: "Tell us about your routes and passenger volume, and we'll prepare a tailored DutyBoost estimate — no commitment, no cost.",
+      label_volume: "Annual passengers",
+      placeholder_volume: "Select passenger volume",
+      success_desc: "We've received your request and will be in touch shortly with a tailored estimate for your coach operation.",
+    },
+    nl: {
+      badge: "Touringcar-partner",
+      subtitle: "Vertel ons over je routes en reizigersvolume, en we maken een op maat gemaakte DutyBoost-schatting — zonder verplichting, zonder kosten.",
+      label_volume: "Jaarlijkse reizigers",
+      placeholder_volume: "Selecteer reizigersvolume",
+      success_desc: "We hebben je aanvraag ontvangen en nemen binnenkort contact op met een op maat gemaakte schatting voor je touringcaractiviteiten.",
+    },
+    es: {
+      badge: "Socio de autocares",
+      subtitle: "Cuéntanos tus rutas y tu volumen de pasajeros y prepararemos una estimación de DutyBoost a medida — sin compromiso, sin coste.",
+      label_volume: "Pasajeros anuales",
+      placeholder_volume: "Selecciona el volumen de pasajeros",
+      success_desc: "Hemos recibido tu solicitud y nos pondremos en contacto en breve con una estimación a medida para tu operación de autocares.",
+    },
+    de: {
+      badge: "Reisebuspartner",
+      subtitle: "Erzählen Sie uns von Ihren Strecken und Ihrem Fahrgastvolumen, und wir erstellen eine maßgeschneiderte DutyBoost-Schätzung — ohne Verpflichtung, ohne Kosten.",
+      label_volume: "Jährliche Fahrgäste",
+      placeholder_volume: "Fahrgastvolumen auswählen",
+      success_desc: "Wir haben Ihre Anfrage erhalten und melden uns in Kürze mit einer maßgeschneiderten Schätzung für Ihren Reisebusbetrieb.",
+    },
+    fr: {
+      badge: "Partenaire autocar",
+      subtitle: "Parlez-nous de vos lignes et de votre volume de passagers et nous préparerons une estimation DutyBoost sur mesure — sans engagement, sans coût.",
+      label_volume: "Passagers annuels",
+      placeholder_volume: "Sélectionnez le volume de passagers",
+      success_desc: "Nous avons reçu votre demande et vous contacterons prochainement avec une estimation sur mesure pour votre activité d'autocar.",
+    },
+    it: {
+      badge: "Partner autobus granturismo",
+      subtitle: "Raccontaci le tue rotte e il tuo volume di passeggeri e prepareremo una stima DutyBoost su misura — nessun impegno, nessun costo.",
+      label_volume: "Passeggeri annuali",
+      placeholder_volume: "Seleziona il volume di passeggeri",
+      success_desc: "Abbiamo ricevuto la tua richiesta e ti contatteremo a breve con una stima su misura per la tua attività con autobus granturismo.",
+    },
+    pt: {
+      badge: "Parceiro de autocarros",
+      subtitle: "Fale-nos das suas rotas e do seu volume de passageiros e prepararemos uma estimativa DutyBoost à medida — sem compromisso, sem custos.",
+      label_volume: "Passageiros anuais",
+      placeholder_volume: "Selecione o volume de passageiros",
+      success_desc: "Recebemos o seu pedido e entraremos em contacto em breve com uma estimativa à medida para a sua operação de autocarros.",
     },
   },
   accommodation: {
