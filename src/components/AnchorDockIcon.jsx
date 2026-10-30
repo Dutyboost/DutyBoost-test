@@ -1,5 +1,6 @@
-// Anchor with a dock / jetty structure beside it, so the sea-side of the
+// Anchor with a dock / jetty station beside it, so the sea-side of the
 // Airports & Sea Ports card reads differently from a plain anchor.
+// The dock is deliberately the dominant element.
 export default function AnchorDockIcon({ className }) {
   return (
     <svg
@@ -13,18 +14,22 @@ export default function AnchorDockIcon({ className }) {
       aria-hidden="true"
     >
       {/* anchor */}
-      <path d="M12 22V8" />
-      <path d="M5 12H2a10 10 0 0 0 20 0h-3" />
-      <circle cx="12" cy="5" r="3" />
+      <g transform="translate(1 6.84) scale(0.68)" strokeWidth="2.65">
+        <path d="M12 22V8" />
+        <path d="M5 12H2a10 10 0 0 0 20 0h-3" />
+        <circle cx="12" cy="5" r="3" />
+      </g>
       {/* water line */}
-      <path d="M23.4 21.8h2.2M27 21.8h2.4" />
+      <path d="M21.8 21.4h2.2M25.2 21.4h1.6M28 21.4h2.4" />
       {/* dock deck */}
-      <path d="M23 14.5h8" />
+      <path d="M21.5 13.2h9" />
       {/* pilings */}
-      <path d="M24.6 14.5V21" />
-      <path d="M29.2 14.5V21" />
-      {/* dock shed roof */}
-      <path d="M24 14.5 26.9 11.2 29.8 14.5" />
+      <path d="M23.2 13.2V21.3" />
+      <path d="M28.8 13.2V21.3" />
+      {/* dock station building */}
+      <path d="M23.6 13.2V10.4h4.8v2.8" />
+      <path d="M22.9 10.4 26 6.2 29.1 10.4" />
+      <path d="M25.4 12.2h1.2" />
     </svg>
   );
 }
