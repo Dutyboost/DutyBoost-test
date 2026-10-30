@@ -162,6 +162,7 @@ import TravelPartnerRequest from './pages/TravelPartnerRequest';
 import AccommodationRequest from './pages/AccommodationRequest';
 import CarRentalRequest from './pages/CarRentalRequest';
 import AirportRetailersCampaignList from './pages/AirportRetailersCampaignList';
+import AirportRolloutTemplate from './pages/AirportRolloutTemplate';
 import PitchPipeline from './pages/PitchPipeline';
 import TravellersTransactionShowcase from './pages/TravellersTransactionShowcase';
 
@@ -247,6 +248,7 @@ const AuthenticatedApp = () => {
         <Route path="/flight-showcase" element={<AgencyShowcase />} />
         <Route path="/registration-flow" element={<RegistrationFlow />} />
         <Route path="/email-preview" element={<EmailPreview />} />
+        <Route path="/airport-rollout-template" element={<AirportRolloutTemplate />} />
         <Route path="/flight-partner-one-pager" element={<FlightPartnerOnePager />} />
         <Route path="/accommodation-partner-one-pager" element={<AccommodationPartnerOnePager />} />
         <Route path="/car-rental-partner-one-pager" element={<CarRentalPartnerOnePager />} />
