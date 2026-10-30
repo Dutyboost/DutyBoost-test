@@ -172,13 +172,13 @@ export default function LandingPage() {
                 <>
                   <div className={`flex flex-wrap items-center gap-1 mb-2`}>
                     {Icon && (
-                      <div className={`w-10 h-10 rounded-lg ${s.bg} flex items-center justify-center`}>
-                        <Icon className={`w-[1.375rem] h-[1.375rem] ${s.iconColor}`} />
+                      <div className={`w-[3.75rem] h-[3.75rem] rounded-lg ${s.bg} flex items-center justify-center`}>
+                        <Icon className={`w-[2.0625rem] h-[2.0625rem] ${s.iconColor}`} />
                       </div>
                     )}
                     {AdditionalIcons.map((AdIcon, idx) => (
-                      <div key={idx} className={`w-10 h-10 rounded-lg ${s.bg} flex items-center justify-center`}>
-                        <AdIcon className={`w-[1.375rem] h-[1.375rem] ${s.iconColor}`} />
+                      <div key={idx} className={`w-[3.75rem] h-[3.75rem] rounded-lg ${s.bg} flex items-center justify-center`}>
+                        <AdIcon className={`w-[2.0625rem] h-[2.0625rem] ${s.iconColor}`} />
                       </div>
                     ))}
                   </div>
