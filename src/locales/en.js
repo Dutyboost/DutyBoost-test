@@ -36,7 +36,7 @@ export default {
     ecosystem: {
       title: 'One Commercial ecosystem, six winners',
       subtitle: 'A shared solution that makes every participant a winner via one commercial operating ecosystem.',
-      platform_fee_note: 'Every redemption powers the entire ecosystem. A single performance-based fee is automatically shared between the transaction participants and DutyBoost—creating value for everyone at no additional upfront cost to the airport retailer.',
+      platform_fee_note: 'Every redemption powers the entire ecosystem. A single performance-based fee is automatically shared between the transaction participants and DutyBoost—creating value for everyone at no additional upfront cost to the retailer.',
     },
     oval: {
       badge: 'A Performance-based Customer Acquisition Solution for Global Travel',

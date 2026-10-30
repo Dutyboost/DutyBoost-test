@@ -36,7 +36,7 @@ export default {
     ecosystem: {
       title: 'Um ecossistema comercial, seis vencedores',
       subtitle: 'Uma solução partilhada que faz de cada participante um vencedor através de um único ecossistema operativo comercial.',
-      platform_fee_note: 'Cada resgate alimenta todo o ecossistema. Uma única taxa baseada no desempenho é partilhada automaticamente entre os participantes da transação e a DutyBoost — criando valor para todos, sem qualquer custo inicial adicional para o retalhista de aeroporto.',
+      platform_fee_note: 'Cada resgate alimenta todo o ecossistema. Uma única taxa baseada no desempenho é partilhada automaticamente entre os participantes da transação e a DutyBoost — criando valor para todos, sem qualquer custo inicial adicional para o retalhista.',
     },
     oval: {
       badge: 'Uma Solução de Aquisição de Clientes Baseada no Desempenho para o Setor de Viagens Global',
