@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight, Menu, X, Cpu, Building2, Anchor, PlaneTakeoff, Route, TrainTrack
+  ArrowRight, Menu, X, Cpu, Building2, Anchor, PlaneTakeoff, Route
 } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import { corporateStrings } from "@/lib/i18nCorporate";
@@ -14,6 +14,7 @@ import TravelerIcon from "../components/TravelerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import TrainIcon from "../components/TrainIcon";
+import TrainOnTrackIcon from "../components/TrainOnTrackIcon";
 import { getEcosystemCardsStrings } from "@/lib/i18nEcosystemCards";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
@@ -157,7 +158,7 @@ export default function LandingPage() {
               }
 
               if (s.key === 'airports') {
-                AdditionalIcons = [Anchor, TrainTrack];
+                AdditionalIcons = [Anchor, TrainOnTrackIcon];
                 title = eco.airports.title;
                 description = eco.airports.description;
                 benefits = [eco.airports.b1, eco.airports.b2, eco.airports.b3];
