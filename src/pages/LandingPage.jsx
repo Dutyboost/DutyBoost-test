@@ -166,9 +166,10 @@ export default function LandingPage() {
               }
 
               // Cards with many icons get a slightly smaller tile so the row stays on one line.
+              // Tiles shrink on phones so the icon row always stays inside the card.
               const manyIcons = s.key === 'agencies';
-              const tileClass = `rounded-lg ${s.bg} flex items-center justify-center shrink-0 ${manyIcons ? 'w-14 h-14' : 'w-[3.75rem] h-[3.75rem]'}`;
-              const glyphClass = `${s.iconColor} ${manyIcons ? 'w-6 h-6' : 'w-[2.0625rem] h-[2.0625rem]'}`;
+              const tileClass = `rounded-lg ${s.bg} flex items-center justify-center shrink-0 ${manyIcons ? 'w-10 h-10 sm:w-14 sm:h-14' : 'w-12 h-12 sm:w-[3.75rem] sm:h-[3.75rem]'}`;
+              const glyphClass = `${s.iconColor} ${manyIcons ? 'w-[1.375rem] h-[1.375rem] sm:w-6 sm:h-6' : 'w-[1.625rem] h-[1.625rem] sm:w-[2.0625rem] sm:h-[2.0625rem]'}`;
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'portsRetailers' || s.key === 'travelers' || s.key === 'posPartner';
               const cardLink = s.key === 'retailers' ? '/travel-retailers' : s.key === 'airports' ? '/travel-hubs-showcase' : s.key === 'portsRetailers' ? '/local-retailers' : s.key === 'agencies' ? '/travel-partner-showcase' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : '/get-started';
