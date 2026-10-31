@@ -464,6 +464,12 @@ const CHANNEL_THEMES = {
   cruise: "teal",
   motorway: "green",
   rail: "purple",
+  local: "purple",
+};
+
+// Each channel's call to action opens the request form for that retailer type.
+const CHANNEL_REQUEST_PAGES = {
+  local: "/local-retailers-request",
 };
 
 export default function RetailerCalculator() {
@@ -497,7 +503,7 @@ export default function RetailerCalculator() {
           </p>
         </div>
 
-        {/* Retail channel — all five side by side */}
+        {/* Retail channel — all six side by side */}
         <RetailChannelTabs
           value={channel}
           onChange={setChannel}
@@ -512,8 +518,8 @@ export default function RetailerCalculator() {
             key={channel}
             theme={CHANNEL_THEMES[channel]}
             variant={channel}
-            prefillByCountry={channel === "seaport"}
-            ctaTo="/travel-retailers-request"
+            prefillByCountry={channel === "seaport" || channel === "local"}
+            ctaTo={CHANNEL_REQUEST_PAGES[channel] || "/travel-retailers-request"}
             showBrandBar={false}
           />
         )}

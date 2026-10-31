@@ -898,7 +898,7 @@ export const cruiseCalculatorStrings = {
 // being repeated inside every language block above.
 const EXTRA_CHANNELS = {
   en: {
-    labels: { airport: "Airport Retailer", seaport: "Sea Port Retailer", cruise: "Cruise Line Retailer", motorway: "Motorway Retailer", rail: "Railway Retailer" },
+    labels: { airport: "Airport Retailer", seaport: "Sea Port Retailer", cruise: "Cruise Line Retailer", motorway: "Motorway Retailer", rail: "Railway Retailer", local: "Local Retailer" },
     hint: "Select the retail channel you operate in",
     motorway: {
       badge: "Motorway Retailers",
@@ -936,7 +936,7 @@ const EXTRA_CHANNELS = {
     },
   },
   nl: {
-    labels: { airport: "Luchthavenretailer", seaport: "Zeehavenretailer", cruise: "Cruisemaatschappij", motorway: "Snelwegretailer", rail: "Spoorwegretailer" },
+    labels: { airport: "Luchthavenretailer", seaport: "Zeehavenretailer", cruise: "Cruisemaatschappij", motorway: "Snelwegretailer", rail: "Spoorwegretailer", local: "Lokale retailer" },
     hint: "Kies het verkoopkanaal waarin u actief bent",
     motorway: {
       badge: "Snelwegretailers",
@@ -974,7 +974,7 @@ const EXTRA_CHANNELS = {
     },
   },
   fr: {
-    labels: { airport: "Détaillant aéroportuaire", seaport: "Détaillant portuaire", cruise: "Compagnie de croisière", motorway: "Détaillant d'autoroute", rail: "Détaillant ferroviaire" },
+    labels: { airport: "Détaillant aéroportuaire", seaport: "Détaillant portuaire", cruise: "Compagnie de croisière", motorway: "Détaillant d'autoroute", rail: "Détaillant ferroviaire", local: "Détaillant local" },
     hint: "Sélectionnez le canal de vente dans lequel vous opérez",
     motorway: {
       badge: "Détaillants d'autoroute",
@@ -1012,7 +1012,7 @@ const EXTRA_CHANNELS = {
     },
   },
   de: {
-    labels: { airport: "Flughafen-Händler", seaport: "Seehafen-Händler", cruise: "Kreuzfahrtreederei", motorway: "Autobahn-Händler", rail: "Bahnhofs-Händler" },
+    labels: { airport: "Flughafen-Händler", seaport: "Seehafen-Händler", cruise: "Kreuzfahrtreederei", motorway: "Autobahn-Händler", rail: "Bahnhofs-Händler", local: "Lokaler Händler" },
     hint: "Wählen Sie den Vertriebskanal, in dem Sie tätig sind",
     motorway: {
       badge: "Autobahn-Händler",
@@ -1050,7 +1050,7 @@ const EXTRA_CHANNELS = {
     },
   },
   es: {
-    labels: { airport: "Minorista de aeropuerto", seaport: "Minorista de puerto marítimo", cruise: "Naviera de cruceros", motorway: "Minorista de autopista", rail: "Minorista ferroviario" },
+    labels: { airport: "Minorista de aeropuerto", seaport: "Minorista de puerto marítimo", cruise: "Naviera de cruceros", motorway: "Minorista de autopista", rail: "Minorista ferroviario", local: "Minorista local" },
     hint: "Seleccione el canal minorista en el que opera",
     motorway: {
       badge: "Minoristas de autopista",
@@ -1088,7 +1088,7 @@ const EXTRA_CHANNELS = {
     },
   },
   it: {
-    labels: { airport: "Rivenditore aeroportuale", seaport: "Rivenditore portuale", cruise: "Compagnia di crociere", motorway: "Rivenditore autostradale", rail: "Rivenditore ferroviario" },
+    labels: { airport: "Rivenditore aeroportuale", seaport: "Rivenditore portuale", cruise: "Compagnia di crociere", motorway: "Rivenditore autostradale", rail: "Rivenditore ferroviario", local: "Rivenditore locale" },
     hint: "Selezioni il canale retail in cui opera",
     motorway: {
       badge: "Rivenditori autostradali",
@@ -1126,7 +1126,7 @@ const EXTRA_CHANNELS = {
     },
   },
   pt: {
-    labels: { airport: "Retalhista de aeroporto", seaport: "Retalhista portuário", cruise: "Companhia de cruzeiros", motorway: "Retalhista de autoestrada", rail: "Retalhista ferroviário" },
+    labels: { airport: "Retalhista de aeroporto", seaport: "Retalhista portuário", cruise: "Companhia de cruzeiros", motorway: "Retalhista de autoestrada", rail: "Retalhista ferroviário", local: "Retalhista local" },
     hint: "Selecione o canal de retalho em que opera",
     motorway: {
       badge: "Retalhistas de autoestrada",

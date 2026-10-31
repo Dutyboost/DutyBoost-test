@@ -15,9 +15,9 @@ export const ecosystemCards = {
     retailers: {
       title: 'Travel Retail Partners',
       description:
-        'Airport, cruise, motorway and rail station retailers sell to travellers who already hold a DutyCredit — shoppers arriving with purchase intent instead of passing browsers.',
+        'Airport, sea port, cruise, motorway, rail and local town-centre retailers all sell to travellers who already hold a DutyCredit — shoppers arriving with purchase intent instead of passing browsers.',
       b1: 'Higher conversion from the same footfall',
-      b2: 'One network across terminals, ships and stations',
+      b2: 'One network across terminals, ships, stations and town centres',
       b3: 'Pay a fee only when a sale is redeemed',
     },
     corporate: {
@@ -47,9 +47,9 @@ export const ecosystemCards = {
     retailers: {
       title: 'Reisretail Partners',
       description:
-        'Retailers op luchthavens, zeehavens, cruiseschepen, langs de snelweg en op treinstations zetten passerende reizigers om in betalende klanten — vooraf geactiveerde shoppers die al met een DutyCredit aankomen.',
+        'Retailers op luchthavens, zeehavens, cruiseschepen, langs de snelweg en op treinstations én lokale winkels in het centrum zetten passerende reizigers om in betalende klanten — vooraf geactiveerde shoppers die al met een DutyCredit aankomen.',
       b1: 'Hogere conversie in de winkel',
-      b2: 'Terminal, schip en station in één netwerk',
+      b2: 'Terminal, schip, station en binnenstad in één netwerk',
       b3: 'Betaal alleen bij resultaat',
     },
     corporate: {
@@ -79,9 +79,9 @@ export const ecosystemCards = {
     retailers: {
       title: 'Travel-Retail-Partner',
       description:
-        'Einzelhändler an Flughäfen, Seehäfen, auf Kreuzfahrtschiffen, an Autobahnraststätten und in Bahnhöfen machen vorbeikommende Reisende zu zahlenden Kunden — vorab aktivierte Shopper, die mit einem DutyCredit ankommen.',
+        'Einzelhändler an Flughäfen, Seehäfen, auf Kreuzfahrtschiffen, an Autobahnraststätten, in Bahnhöfen und lokale Geschäfte in der Innenstadt machen vorbeikommende Reisende zu zahlenden Kunden — vorab aktivierte Shopper, die mit einem DutyCredit ankommen.',
       b1: 'Höhere Ladenkonversion',
-      b2: 'Terminal, Schiff und Bahnhof in einem Netzwerk',
+      b2: 'Terminal, Schiff, Bahnhof und Innenstadt in einem Netzwerk',
       b3: 'Zahlung nur bei Ergebnis',
     },
     corporate: {
@@ -111,9 +111,9 @@ export const ecosystemCards = {
     retailers: {
       title: 'Partenaires du retail de voyage',
       description:
-        "Les enseignes des aéroports, des ports maritimes, des navires de croisière, des aires d'autoroute et des gares transforment les voyageurs de passage en clients payants — des acheteurs pré-activés qui arrivent avec un DutyCredit en main.",
+        "Les enseignes des aéroports, des ports maritimes, des navires de croisière, des aires d'autoroute et des gares, tout comme les commerces locaux du centre-ville, transforment les voyageurs de passage en clients payants — des acheteurs pré-activés qui arrivent avec un DutyCredit en main.",
       b1: 'Meilleure conversion en magasin',
-      b2: 'Terminal, navire et gare dans un seul réseau',
+      b2: 'Terminal, navire, gare et centre-ville dans un seul réseau',
       b3: 'Paiement au résultat uniquement',
     },
     corporate: {
@@ -143,9 +143,9 @@ export const ecosystemCards = {
     retailers: {
       title: 'Socios de retail de viaje',
       description:
-        'Los minoristas de aeropuertos, puertos marítimos, cruceros, áreas de servicio y estaciones de tren convierten a los pasajeros en clientes que pagan — compradores preactivados que llegan con un DutyCredit en la mano.',
+        'Los minoristas de aeropuertos, puertos marítimos, cruceros, áreas de servicio y estaciones de tren, junto con los comercios locales del centro urbano, convierten a los pasajeros en clientes que pagan — compradores preactivados que llegan con un DutyCredit en la mano.',
       b1: 'Mayor conversión en tienda',
-      b2: 'Terminal, barco y estación en una sola red',
+      b2: 'Terminal, barco, estación y centro urbano en una sola red',
       b3: 'Pague solo por resultados',
     },
     corporate: {
@@ -175,9 +175,9 @@ export const ecosystemCards = {
     retailers: {
       title: 'Partner del retail di viaggio',
       description:
-        'I retailer di aeroporti, porti marittimi, navi da crociera, aree di servizio e stazioni ferroviarie trasformano i viaggiatori di passaggio in clienti paganti — acquirenti pre-attivati che arrivano con un DutyCredit.',
+        'I retailer di aeroporti, porti marittimi, navi da crociera, aree di servizio e stazioni ferroviarie, insieme ai negozi locali del centro città, trasformano i viaggiatori di passaggio in clienti paganti — acquirenti pre-attivati che arrivano con un DutyCredit.',
       b1: 'Maggiore conversione in negozio',
-      b2: "Terminal, nave e stazione in un'unica rete",
+      b2: "Terminal, nave, stazione e centro città in un'unica rete",
       b3: 'Paghi solo sui risultati',
     },
     corporate: {
@@ -207,9 +207,9 @@ export const ecosystemCards = {
     retailers: {
       title: 'Parceiros de retalho de viagem',
       description:
-        'Os retalhistas de aeroportos, portos marítimos, navios de cruzeiro, áreas de serviço e estações ferroviárias convertem passageiros em clientes pagantes — compradores pré-ativados que chegam com um DutyCredit.',
+        'Os retalhistas de aeroportos, portos marítimos, navios de cruzeiro, áreas de serviço e estações ferroviárias, bem como o comércio local do centro da cidade, convertem passageiros em clientes pagantes — compradores pré-ativados que chegam com um DutyCredit.',
       b1: 'Maior conversão em loja',
-      b2: 'Terminal, navio e estação numa só rede',
+      b2: 'Terminal, navio, estação e centro da cidade numa só rede',
       b3: 'Pague apenas pelos resultados',
     },
     corporate: {
@@ -239,9 +239,9 @@ export const ecosystemCards = {
     retailers: {
       title: 'トラベルリテールパートナー',
       description:
-        '空港・海港・クルーズ船内・高速道路のサービスエリア・鉄道駅の小売事業者が、通りすがりの旅行者を購買客に変えます。DutyCreditを手に到着する、事前に活性化された買い物客です。',
+        '空港・海港・クルーズ船内・高速道路のサービスエリア・鉄道駅の小売事業者に加え、市街中心部の地域小売店も、通りすがりの旅行者を購買客に変えます。DutyCreditを手に到着する、事前に活性化された買い物客です。',
       b1: '店舗コンバージョンの向上',
-      b2: 'ターミナル・船内・駅を1つのネットワークに',
+      b2: 'ターミナル・船内・駅・市街中心部を1つのネットワークに',
       b3: '成果があった分だけ支払い',
     },
     corporate: {
@@ -271,9 +271,9 @@ export const ecosystemCards = {
     retailers: {
       title: '트래블 리테일 파트너',
       description:
-        '공항, 해항, 크루즈 선내, 고속도로 휴게소, 기차역의 리테일러가 지나가는 여행자를 구매 고객으로 전환합니다. DutyCredit을 들고 도착하는 사전 활성화된 쇼퍼입니다.',
+        '공항, 해항, 크루즈 선내, 고속도로 휴게소, 기차역의 리테일러와 도심 지역 상점이 지나가는 여행자를 구매 고객으로 전환합니다. DutyCredit을 들고 도착하는 사전 활성화된 쇼퍼입니다.',
       b1: '매장 전환율 향상',
-      b2: '터미널·선내·역을 하나의 네트워크로',
+      b2: '터미널·선내·역·도심을 하나의 네트워크로',
       b3: '성과에 대해서만 지불',
     },
     corporate: {
@@ -303,9 +303,9 @@ export const ecosystemCards = {
     retailers: {
       title: '旅行零售合作伙伴',
       description:
-        '机场、海港、邮轮、高速公路服务区和火车站的零售商将过境旅客转化为付费顾客——他们抵达时已持有并激活了 DutyCredit。',
+        '机场、海港、邮轮、高速公路服务区和火车站的零售商，以及市中心的本地零售商，将过境旅客转化为付费顾客——他们抵达时已持有并激活了 DutyCredit。',
       b1: '更高的门店转化率',
-      b2: '航站楼、船上与车站同属一个网络',
+      b2: '航站楼、船上、车站与市中心同属一个网络',
       b3: '只为结果付费',
     },
     corporate: {

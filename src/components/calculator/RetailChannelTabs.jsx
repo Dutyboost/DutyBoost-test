@@ -1,4 +1,4 @@
-import { PlaneTakeoff, Anchor, Route } from "lucide-react";
+import { PlaneTakeoff, Anchor, Route, Store } from "lucide-react";
 import CruiseShipIcon from "@/components/CruiseShipIcon";
 import TrainIcon from "@/components/TrainIcon";
 
@@ -35,15 +35,21 @@ const CHANNELS = [
     iconIdle: "bg-indigo-50 text-indigo-600",
     active: "border-indigo-600 bg-indigo-50 text-indigo-700",
   },
+  {
+    key: "local",
+    Icon: Store,
+    iconIdle: "bg-purple-50 text-purple-600",
+    active: "border-purple-600 bg-purple-50 text-purple-700",
+  },
 ];
 
-// The five retail channels side by side, so each partner opens the calculator
+// The six retail channels side by side, so each partner opens the calculator
 // that matches the sites they actually operate.
 export default function RetailChannelTabs({ value, onChange, labels = {}, hint }) {
   return (
     <div className="space-y-2">
       {hint && <p className="text-center text-xs font-semibold text-slate-500">{hint}</p>}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
         {CHANNELS.map(({ key, Icon, iconIdle, active }) => {
           const isOn = value === key;
           return (

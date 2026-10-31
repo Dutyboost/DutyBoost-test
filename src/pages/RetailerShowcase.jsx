@@ -32,14 +32,14 @@ export default function RetailerShowcase() {
   return (
     <div className="min-h-screen bg-background font-body">
       {/* Nav */}
-      <ShowcaseMobileNav calculatorTo="/travel-retailers-calculator" gradient="linear-gradient(to bottom, #fb923c, #ea580c)" />
+      <ShowcaseMobileNav calculatorTo="/retailers-calculator" gradient="linear-gradient(to bottom, #fb923c, #ea580c)" />
       <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <DutyBoostLogo height={55} />
           </Link>
           <div className="flex items-center gap-4">
-            <Link to="/travel-retailers-calculator">
+            <Link to="/retailers-calculator">
               <Button variant="outline" size="sm" className="gap-1.5">
                 <Calculator className="w-4 h-4 shrink-0" /> <span className="hidden sm:inline">{t('nav.roi_calculator')}</span>
               </Button>

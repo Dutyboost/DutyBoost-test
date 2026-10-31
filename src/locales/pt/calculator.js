@@ -1,7 +1,7 @@
 export default {
   badge: 'Calculadora de ROI DutyBoost',
   title: 'Veja os números para o seu canal',
-  subtitle: 'A DutyBoost chega aos viajantes antes de estes chegarem à sua loja, transformando mais visitantes em compradores. Escolha o seu canal: aeroporto, porto marítimo, cruzeiro, autoestrada ou ferrovia. Zero taxas de configuração. Sem subscrições. 100% baseado no desempenho.',
+  subtitle: 'A DutyBoost chega aos viajantes antes de estes chegarem à sua loja, transformando mais visitantes em compradores. Escolha o seu canal: aeroporto, porto marítimo, cruzeiro, autoestrada, ferrovia ou retalho local. Zero taxas de configuração. Sem subscrições. 100% baseado no desempenho.',
   tab_retailer: 'Retalhista de Aeroporto',
   tab_partner: 'Parceiro de Viagens',
   retailer_title: 'Descubra quanta receita incremental a DutyBoost poderia gerar na sua rede global de aeroportos',
