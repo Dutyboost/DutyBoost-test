@@ -1,3 +1,5 @@
+import { normalizeCountry, regionForAirportCountry } from "./countryRegions";
+
 // Comprehensive country → ISO 4217 currency code mapping.
 // Covers all ~180 sovereign states and territories with their own currency.
 // Euro (EUR) and dollarized (USD) countries are included so the calculator
@@ -250,6 +252,29 @@ export const CURRENCY_INFO = {
   BMD: { symbol: "BD$", flag: "🇧🇲", label: "Bermudian Dollar" },
   GIP: { symbol: "£", flag: "🇬🇮", label: "Gibraltar Pound" },
 };
+
+// European Union member states — the calculators show these in euro.
+const EU_MEMBERS = new Set(
+  [
+    "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic",
+    "Czechia", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece",
+    "Hungary", "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta",
+    "Netherlands", "Poland", "Portugal", "Romania", "Slovakia", "Slovenia",
+    "Spain", "Sweden",
+  ].map(normalizeCountry)
+);
+
+// Currency a calculator displays for a selected country:
+// EU member states → EUR, other European countries → their own currency,
+// everywhere else → USD.
+export function getCalculatorCurrency(country) {
+  if (!country) return "EUR";
+  if (EU_MEMBERS.has(normalizeCountry(country))) return "EUR";
+  if (regionForAirportCountry(country) === "Europe") {
+    return COUNTRY_TO_CURRENCY[country] || COUNTRY_TO_CURRENCY[country.toLowerCase()] || "EUR";
+  }
+  return "USD";
+}
 
 // Resolve a country name to its ISO currency code.
 // Falls back to EUR if the country is not found in the map.

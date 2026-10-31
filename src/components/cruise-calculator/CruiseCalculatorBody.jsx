@@ -48,7 +48,7 @@ export default function CruiseCalculatorBody({
           : isLocal
             ? Store
             : Anchor;
-  const { currency, setCurrency } = useCurrency();
+  const { currency, setCurrency, setCurrencyByCountry } = useCurrency();
   const [stores, setStores] = useState(() => [defaultStore(1)]);
 
   const results = useMemo(() => stores.map((st) => computeStore(st, mode)), [stores, mode]);
@@ -59,7 +59,9 @@ export default function CruiseCalculatorBody({
   // owner who does not know the local traffic still sees a full model. Picking
   // the terminal then replaces the traffic figures with that port's own, so
   // two ports in the same country never read the same.
-  const handleChange = (id, key, value) =>
+  const handleChange = (id, key, value) => {
+    // The displayed currency follows the country the partner selects.
+    if (key === "country" && value) setCurrencyByCountry(value);
     setStores((prev) =>
       prev.map((s) => {
         if (s.id !== id) return s;
@@ -74,6 +76,7 @@ export default function CruiseCalculatorBody({
         return { ...s, [key]: value };
       })
     );
+  };
 
   const handleDuplicate = (id) =>
     setStores((prev) => {

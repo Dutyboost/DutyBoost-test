@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
-import { getCurrencyByCountry, getCurrencyInfo, NO_DECIMAL_CURRENCIES } from "@/data/countryCurrencies";
+import { getCalculatorCurrency, getCurrencyInfo, NO_DECIMAL_CURRENCIES } from "@/data/countryCurrencies";
 
 const CurrencyContext = createContext(null);
 
@@ -23,15 +23,15 @@ export function CurrencyProvider({ children }) {
   const flag = info.flag;
   const noDecimal = NO_DECIMAL_CURRENCIES.has(currency);
 
-  // Auto-set currency from a country name (e.g., "Thailand" → THB).
+  // Auto-set currency from a country name: EU members in EUR, other European
+  // countries in their own currency, the rest of the world in USD.
   const setCurrencyByCountry = useCallback((country) => {
     if (!country) {
       setCurrency("EUR");
       setActiveCountry(null);
       return;
     }
-    const code = getCurrencyByCountry(country);
-    setCurrency(code);
+    setCurrency(getCalculatorCurrency(country));
     setActiveCountry(country);
   }, []);
 
