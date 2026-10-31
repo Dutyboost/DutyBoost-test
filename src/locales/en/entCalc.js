@@ -19,6 +19,7 @@ export default {
   analytics: 'Analytics',
   select_retailer_placeholder: 'Select an airport retailer above to auto-load network data',
   search_placeholder: 'Type a retailer name to search…',
+  network_in_calculator: 'Modelled here: {{airports}} airports in {{countries}} countries',
   no_results: 'No retailers found for "{{query}}"',
   hq: 'HQ',
   clear_selection: 'Clear selection',

@@ -19,6 +19,7 @@ export default {
   analytics: 'Análises',
   select_retailer_placeholder: 'Selecione um retalhista de aeroporto acima para carregar automaticamente os dados da rede',
   search_placeholder: 'Escreva o nome de um retalhista para pesquisar…',
+  network_in_calculator: 'Modelado aqui: {{airports}} aeroportos em {{countries}} países',
   no_results: 'Nenhum retalhista encontrado para "{{query}}"',
   hq: 'Sede',
   clear_selection: 'Limpar seleção',

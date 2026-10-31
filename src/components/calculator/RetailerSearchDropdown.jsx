@@ -32,6 +32,16 @@ export default function RetailerSearchDropdown({ selected, onSelect }) {
 
   const showResults = focused && q.length > 0;
 
+  // The description states the retailer's global footprint; this line makes clear
+  // how much of that network is actually modelled in the calculator.
+  const coverage =
+    selected && selected.airports?.length
+      ? {
+          airports: selected.airports.length,
+          countries: new Set(selected.airports.map((a) => a.country)).size,
+        }
+      : null;
+
   return (
     <div ref={ref} className="relative">
       <div className="relative">
@@ -54,6 +64,11 @@ export default function RetailerSearchDropdown({ selected, onSelect }) {
             <div className="min-w-0">
               <p className="font-semibold text-slate-900 text-sm truncate">{selected.name}</p>
               <p className="text-xs text-slate-500 truncate">{translateRetailerDesc(t, selected)}</p>
+              {coverage && (
+                <p className="text-xs text-slate-400 truncate">
+                  {t("entCalc.network_in_calculator", { airports: coverage.airports, countries: coverage.countries })}
+                </p>
+              )}
             </div>
           </div>
           <button

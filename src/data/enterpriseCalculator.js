@@ -2,6 +2,7 @@
 // benchmark estimation, and financial projections with confidence indicators.
 
 import { AIRPORT_RETAIL_COMPANIES, RETAIL_AIRPORTS } from "./airportRetailCompanies";
+import { regionForAirportCountry } from "./countryRegions";
 import { estimateAvgBasketSpend } from "../utils/airportBasketEstimate";
 import { calcSaving, calcPlatformFee, PLATFORM_FEE_PCT, PLATFORM_FEE_CAP } from "../utils/retailerCalc";
 
@@ -96,7 +97,7 @@ const REGION_ORDER = ["Europe", "Americas", "Asia-Pacific", "Middle East & Afric
 export function groupAirportsByRegion(airports) {
   const regions = {};
   airports.forEach((a) => {
-    const region = normalizeRegion(a.region || "Europe");
+    const region = normalizeRegion(a.region || regionForAirportCountry(a.country));
     if (!regions[region]) regions[region] = {};
     if (!regions[region][a.country]) regions[region][a.country] = [];
     regions[region][a.country].push(a);
