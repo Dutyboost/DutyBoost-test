@@ -23,15 +23,15 @@ export default {
     hero: {
       title_1: "La solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
       title_2: '',
-      subtitle_1: "Connecter les fournisseurs POS, les détaillants du voyage, les détaillants locaux, les aéroports, les partenaires de voyage et les voyageurs à travers un écosystème commercial partagé basé sur la performance",
+      subtitle_1: "Les hubs de voyage, les détaillants du voyage et les partenaires de voyage gagnent tous sur la même transaction du voyageur. Un achat validé en caisse paie chaque participant de ce parcours — et le voyageur y gagne une remise.",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',
     },
     ecosystem: {
-      title: 'Un écosystème commercial, six gagnants',
-      subtitle: 'Une solution partagée qui fait de chaque participant un gagnant via un seul système d\'exploitation commercial — la solution d\'acquisition de clients basée sur la performance pour le secteur du voyage mondial.',
-      platform_fee_note: "Chaque remboursement alimente tout l'écosystème. Une seule commission basée sur la performance est automatiquement partagée entre les participants à la transaction et DutyBoost—créant de la valeur pour tous, sans coût supplémentaire pour le détaillant.",
+      title: 'Un écosystème commercial, tous gagnants sur la même transaction',
+      subtitle: 'Les hubs de voyage, les détaillants du voyage, les partenaires de voyage et les voyageurs sont tous payés à partir du même achat validé — une seule transaction de voyageur qui rémunère chaque participant.',
+      platform_fee_note: "Chaque utilisation alimente tout l'écosystème : une seule commission basée sur la performance est partagée entre les participants de cette transaction et DutyBoost — sans coût initial et sans rien à payer si aucune vente n'a lieu.",
     },
     oval: {
       badge: "La solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
@@ -121,8 +121,8 @@ export default {
       },
     },
     cta: {
-      title: 'Un voyageur. Un voyage. Des revenus pour tous.',
-      description: "Une couche commerciale basée sur la performance qui transforme chaque voyage en une source de revenus incrémentaux mesurables. En reliant fournisseurs POS, détaillants du voyage, détaillants locaux, aéroports, partenaires de voyage et voyageurs dans un seul écosystème partagé, DutyBoost crée de la valeur pour les six participants sans aucun coût initial, grâce à un modèle de tarification 100% basé sur la performance.",
+      title: 'Un voyageur. Une transaction. Tout le monde y gagne.',
+      description: "Une couche commerciale basée sur la performance qui transforme chaque voyage en revenus incrémentaux mesurables. Les hubs de voyage, les détaillants du voyage et les partenaires de voyage gagnent tous sur la même vente validée : le voyageur économise en caisse, le détaillant réalise une vente qui n'aurait pas eu lieu, et le partenaire qui a envoyé le voyageur est rémunéré pour cela — sans aucun coût initial.",
       button: "Rejoignez aujourd'hui la solution d'acquisition de clients basée sur la performance pour le voyage mondial !",
     },
     wecallyou: {

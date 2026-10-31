@@ -22,15 +22,15 @@ export default {
     hero: {
        title_1: "Una Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector de Viajes Global",
        title_2: '',
-       subtitle_1: "Conectando a proveedores POS, minoristas de viaje, minoristas locales, aeropuertos, socios de viaje y pasajeros a través de un ecosistema comercial compartido basado en el rendimiento",
+       subtitle_1: "Los hubs de viaje, los minoristas de viaje y los socios de viaje ganan todos con la misma transacción del pasajero. Una compra validada en caja paga a cada participante de ese viaje — y el pasajero ahorra en ella.",
    subtitle_2: '',
    subtitle_3: '',
    tagline: '',
      },
     ecosystem: {
-      title: 'Un ecosistema comercial, seis ganadores',
-      subtitle: 'Una solución compartida que convierte a cada participante en ganador a través de un único sistema operativo comercial — una solución de adquisición de clientes basada en el rendimiento para el sector de viajes global.',
-      platform_fee_note: 'Cada canje impulsa todo el ecosistema. Una única comisión basada en el rendimiento se comparte automáticamente entre los participantes de la transacción y DutyBoost—creando valor para todos, sin coste adicional para el minorista.',
+      title: 'Un ecosistema comercial, todos ganan con la misma transacción',
+      subtitle: 'Los hubs de viaje, los minoristas de viaje, los socios de viaje y los pasajeros se pagan todos con la misma compra validada: una sola transacción del viajero que remunera a cada participante.',
+      platform_fee_note: 'Cada canje sostiene todo el ecosistema: una única comisión basada en el rendimiento se reparte entre los participantes de esa transacción y DutyBoost, sin coste inicial y sin pagar nada cuando no hay venta.',
     },
     oval: {
       badge: 'Una Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector de Viajes Global',
@@ -120,8 +120,8 @@ export default {
       },
     },
     cta: {
-       title: 'Un pasajero. Un viaje. Ingresos para todos.',
-       description: 'Una capa comercial basada en el rendimiento que convierte cada viaje en una fuente de ingresos incrementales medibles. Conectando a proveedores POS, minoristas de viaje, minoristas locales, aeropuertos, socios de viaje y pasajeros en un único ecosistema compartido, DutyBoost crea valor para los seis participantes sin costes iniciales mediante un modelo de precios 100% basado en el rendimiento.',
+       title: 'Un pasajero. Una transacción. Todos ganan.',
+       description: 'Una capa comercial basada en el rendimiento que convierte cada viaje en ingresos incrementales medibles. Los hubs de viaje, los minoristas de viaje y los socios de viaje ganan todos con la misma venta validada: el pasajero ahorra en caja, el minorista consigue una venta que antes no existía y el socio que envió al pasajero cobra por ello — sin coste inicial para nadie.',
        button: "¡Únete hoy a una solución de adquisición de clientes basada en el rendimiento para el sector de viajes global!",
      },
     wecallyou: {

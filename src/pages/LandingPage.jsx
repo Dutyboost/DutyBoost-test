@@ -114,7 +114,7 @@ export default function LandingPage() {
             <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t('ecosystem.title')}</h2>
             <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">{t('ecosystem.subtitle')}</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {stakeholders.map((s) => {
               let Icon = s.icon;
               let AdditionalIcons = [];
@@ -147,8 +147,8 @@ export default function LandingPage() {
               // Cards with many icons get a slightly smaller tile so the row stays on one line.
               // The six-icon card keeps smaller tiles at every breakpoint so the row stays inside the card.
               const manyIcons = s.key === 'agencies';
-              const tileClass = `rounded-lg ${s.bg} flex items-center justify-center shrink-0 ${manyIcons ? 'w-10 h-10' : 'w-12 h-12 sm:w-[3.75rem] sm:h-[3.75rem]'}`;
-              const glyphClass = `${s.iconColor} ${manyIcons ? 'w-5 h-5 sm:w-[1.375rem] sm:h-[1.375rem]' : 'w-[1.625rem] h-[1.625rem] sm:w-[2.0625rem] sm:h-[2.0625rem]'}`;
+              const tileClass = `rounded-lg ${s.bg} flex items-center justify-center shrink-0 ${manyIcons ? 'w-9 h-9' : 'w-10 h-10'}`;
+              const glyphClass = `${s.iconColor} ${manyIcons ? 'w-[1.125rem] h-[1.125rem]' : 'w-5 h-5'}`;
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'travelers';
               const cardLink = s.key === 'retailers' ? '/travel-retailers' : s.key === 'airports' ? '/travel-hubs-showcase' : s.key === 'agencies' ? '/travel-partner-showcase' : s.key === 'travelers' ? '/eligibility-showcase' : '/get-started';

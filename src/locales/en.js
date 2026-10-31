@@ -28,15 +28,15 @@ export default {
     hero: {
       title_1: 'A Performance-based Customer Acquisition Solution for Global Travel',
       title_2: '',
-      subtitle_1: "Connecting POS Providers, Travel Retailers, Local Retailers, Airports, Travel Partners, and Travellers through a shared performance-based commercial ecosystem",
+      subtitle_1: "Travel hubs, travel retailers and travel partners, all earning from the same traveller transaction. One validated purchase at the till pays every participant in that journey — and the traveller saves on it.",
       subtitle_2: "",
       subtitle_3: "",
       tagline: "",
     },
     ecosystem: {
-      title: 'One Commercial ecosystem, six winners',
-      subtitle: 'Every transaction that runs through the ecosystem pays every stakeholder in it — travel partner, retail partner and traveller all win on the same sale.',
-      platform_fee_note: 'Every redemption powers the entire ecosystem. A single performance-based fee is automatically shared between the transaction participants and DutyBoost—creating value for everyone at no additional upfront cost to the retailer.',
+      title: 'One commercial ecosystem, everyone wins on the same transaction',
+      subtitle: 'Travel hubs, travel retailers, travel partners and travellers are all paid out of the same validated purchase — one traveller transaction that funds every participant in it.',
+      platform_fee_note: 'Every redemption carries the whole ecosystem: one performance-based fee is shared between the participants in that transaction and DutyBoost — no upfront cost, and nothing to pay when no sale happens.',
     },
     oval: {
       badge: 'A Performance-based Customer Acquisition Solution for Global Travel',
@@ -126,8 +126,8 @@ export default {
       },
     },
     cta: {
-      title: 'One Traveller. One Journey. Revenue for Everyone.',
-      description: "A performance-based commercial layer that turns every traveller journey into a source of measurable incremental revenue. Connecting POS providers, travel retailers, local retailers, airports, travel partners and travellers in one shared ecosystem, DutyBoost creates new value for all six participants with no upfront costs through a 100% performance-based pricing model.",
+      title: 'One Traveller. One Transaction. Everyone Earns.',
+      description: "A performance-based commercial layer that turns every traveller journey into measurable incremental revenue. Travel hubs, travel retailers and travel partners all earn from the same validated sale: the traveller saves at the till, the retailer makes a sale that did not exist before, and the partner that sent the traveller in gets paid for it — with no upfront cost to anyone.",
       button: 'Join a Performance-based Customer Acquisition Solution for Global Travel Today!',
     },
     footer: {

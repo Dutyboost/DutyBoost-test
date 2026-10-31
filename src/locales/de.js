@@ -23,15 +23,15 @@ export default {
     hero: {
       title_1: "Eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche",
       title_2: '',
-      subtitle_1: "POS-Anbieter, Reise-Einzelhändler, lokale Einzelhändler, Flughäfen, Reisepartner und Reisende verbunden durch ein gemeinsames leistungsorientiertes kommerzielles Ökosystem",
+      subtitle_1: "Travel Hubs, Reise-Einzelhändler und Reisepartner verdienen alle am selben Umsatz des Reisenden. Ein validierter Einkauf an der Kasse bezahlt jeden Teilnehmer dieser Reise — und der Reisende spart dabei.",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',
     },
     ecosystem: {
-      title: 'Ein kommerzielles Ökosystem, sechs Gewinner',
-      subtitle: 'Eine gemeinsame Lösung, die jeden Teilnehmer zum Gewinner macht, über ein kommerzielles Betriebssystem — eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche.',
-      platform_fee_note: 'Jede Einlösung treibt das gesamte Ökosystem an. Eine einzige leistungsbasierte Gebühr wird automatisch zwischen den Teilnehmern der Transaktion und DutyBoost geteilt—schafft Wert für alle, ohne zusätzliche Kosten für den Einzelhändler.',
+      title: 'Ein kommerzielles Ökosystem, alle gewinnen an derselben Transaktion',
+      subtitle: 'Travel Hubs, Reise-Einzelhändler, Reisepartner und Reisende werden alle aus demselben validierten Einkauf bezahlt — eine Reisendentransaktion, die jeden Teilnehmer darin trägt.',
+      platform_fee_note: 'Jede Einlösung trägt das gesamte Ökosystem: Eine einzige leistungsbasierte Gebühr wird zwischen den Teilnehmern dieser Transaktion und DutyBoost geteilt — ohne Vorabkosten und ohne Zahlung, wenn kein Verkauf stattfindet.',
     },
     oval: {
       badge: 'Eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche',
@@ -121,8 +121,8 @@ export default {
       },
     },
     cta: {
-      title: 'Ein Reisender. Eine Reise. Erlös für alle.',
-      description: 'Eine leistungsbasierte kommerzielle Ebene, die jede Reise in eine Quelle messbarer Zusatzumsätze verwandelt. Durch die Verbindung von POS-Anbietern, Reise-Einzelhändlern, lokalen Einzelhändlern, Flughäfen, Reisepartnern und Reisenden in einem gemeinsamen Ökosystem schafft DutyBoost neuen Wert für alle sechs Teilnehmer ohne Vorabkosten, über ein zu 100 % leistungsbasiertes Preismodell.',
+      title: 'Ein Reisender. Eine Transaktion. Alle verdienen.',
+      description: 'Eine leistungsbasierte kommerzielle Ebene, die jede Reise in messbaren Zusatzumsatz verwandelt. Travel Hubs, Reise-Einzelhändler und Reisepartner verdienen alle am selben validierten Verkauf: der Reisende spart an der Kasse, der Händler gewinnt einen Verkauf, den es sonst nicht gäbe, und der Partner, der den Reisenden geschickt hat, wird dafür bezahlt — ohne Vorabkosten.',
       button: "Treten Sie heute der performancebasierten Kundenakquise-Lösung für die globale Reisebranche bei!",
     },
     wecallyou: {

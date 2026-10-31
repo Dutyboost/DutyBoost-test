@@ -22,15 +22,15 @@ export default {
     hero: {
        title_1: "Een prestatiegerichte oplossing voor klantacquisitie voor de wereldwijde reissector",
        title_2: '',
-       subtitle_1: "POS-aanbieders, reisretailers, lokale retailers, luchthavens, reispartners en reizigers verbonden via een gedeeld prestatiegebonden commercieel ecosysteem",
+       subtitle_1: "Reishubs, reisretailers en reispartners verdienen allemaal aan dezelfde transactie van de reiziger. Eén gevalideerde aankoop aan de kassa betaalt elke deelnemer in die reis — en de reiziger bespaart erop.",
        subtitle_2: '',
        subtitle_3: '',
        tagline: '',
      },
     ecosystem: {
-      title: 'Eén Commercieel ecosysteem, zes winnaars',
-      subtitle: 'Een gedeelde oplossing die elke deelnemer tot winnaar maakt via één commercieel besturingssysteem — een prestatiegerichte oplossing voor klantacquisitie voor de wereldwijde reissector.',
-      platform_fee_note: 'Elke inwisseling drijft het hele ecosysteem. Eén prestatiegebonden fee wordt automatisch gedeeld tussen de deelnemers aan de transactie en DutyBoost—waarde creërend voor iedereen, zonder extra kosten voor de retailer.',
+      title: 'Eén commercieel ecosysteem, iedereen wint op dezelfde transactie',
+      subtitle: 'Reishubs, reisretailers, reispartners en reizigers worden allemaal betaald uit dezelfde gevalideerde aankoop — één reizigerstransactie waaruit elke deelnemer wordt betaald.',
+      platform_fee_note: 'Elke inwisseling draagt het hele ecosysteem: één prestatiegebonden fee wordt gedeeld tussen de deelnemers aan die transactie en DutyBoost — geen voorafgaande kosten en niets te betalen als er geen verkoop plaatsvindt.',
     },
     oval: {
       badge: 'Een prestatiegerichte oplossing voor klantacquisitie voor de wereldwijde reissector',
@@ -120,8 +120,8 @@ export default {
       },
     },
     cta: {
-       title: 'Eén reiziger. Eén reis. Inkomsten voor iedereen.',
-       description: 'Een prestatiegerichte commerciële laag die elke reis van een reiziger omzet in een bron van meetbare aanvullende omzet. Door POS-aanbieders, reisretailers, lokale retailers, luchthavens, reispartners en reizigers te verbinden in één gedeeld ecosysteem, creëert DutyBoost nieuwe waarde voor alle zes deelnemers zonder voorafgaande kosten via een 100% prestatiegebonden prijsmodel.',
+       title: 'Eén reiziger. Eén transactie. Iedereen verdient.',
+       description: 'Een prestatiegerichte commerciële laag die elke reis omzet in meetbare aanvullende omzet. Reishubs, reisretailers en reispartners verdienen allemaal aan dezelfde gevalideerde verkoop: de reiziger bespaart aan de kassa, de retailer wint een verkoop die er anders niet was, en de partner die de reiziger stuurde wordt daarvoor betaald — zonder voorafgaande kosten.',
        button: "Sluit u vandaag aan bij een prestatiegerichte oplossing voor klantacquisitie voor de wereldwijde reissector!",
 
      },

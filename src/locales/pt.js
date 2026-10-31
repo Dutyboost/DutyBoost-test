@@ -28,15 +28,15 @@ export default {
     hero: {
       title_1: 'Uma Solução de Aquisição de Clientes Baseada no Desempenho para o Setor de Viagens Global',
       title_2: '',
-      subtitle_1: 'Ligando fornecedores de POS, retalhistas de viagem, retalhistas locais, aeroportos, parceiros de viagens e passageiros através de um ecossistema comercial partilhado baseado no desempenho',
+      subtitle_1: 'Os hubs de viagem, os retalhistas de viagem e os parceiros de viagem ganham todos com a mesma transação do passageiro. Uma compra validada na caixa paga cada participante dessa viagem — e o passageiro poupa nela.',
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',
     },
     ecosystem: {
-      title: 'Um ecossistema comercial, seis vencedores',
-      subtitle: 'Uma solução partilhada que faz de cada participante um vencedor através de um único ecossistema operativo comercial.',
-      platform_fee_note: 'Cada resgate alimenta todo o ecossistema. Uma única taxa baseada no desempenho é partilhada automaticamente entre os participantes da transação e a DutyBoost — criando valor para todos, sem qualquer custo inicial adicional para o retalhista.',
+      title: 'Um ecossistema comercial, todos ganham com a mesma transação',
+      subtitle: 'Hubs de viagem, retalhistas de viagem, parceiros de viagem e passageiros são todos pagos a partir da mesma compra validada — uma só transação do passageiro que remunera cada participante.',
+      platform_fee_note: 'Cada resgate sustenta todo o ecossistema: uma única taxa baseada no desempenho é partilhada entre os participantes dessa transação e a DutyBoost — sem custos iniciais e sem nada a pagar quando não há venda.',
     },
     oval: {
       badge: 'Uma Solução de Aquisição de Clientes Baseada no Desempenho para o Setor de Viagens Global',
@@ -126,8 +126,8 @@ export default {
       },
     },
     cta: {
-      title: 'Um Viajante. Uma Viagem. Receita para Todos.',
-      description: 'Uma camada comercial baseada no desempenho que transforma cada viagem numa fonte de receita incremental mensurável. Ligando fornecedores de POS, retalhistas de viagem, retalhistas locais, aeroportos, parceiros de viagens e viajantes num único ecossistema partilhado, a DutyBoost cria novo valor para os seis participantes sem custos iniciais, através de um modelo de preços 100% baseado no desempenho.',
+      title: 'Um passageiro. Uma transação. Todos ganham.',
+      description: 'Uma camada comercial baseada no desempenho que transforma cada viagem em receita incremental mensurável. Hubs de viagem, retalhistas de viagem e parceiros de viagem ganham todos com a mesma venda validada: o passageiro poupa na caixa, o retalhista concretiza uma venda que antes não existia e o parceiro que enviou o passageiro é pago por isso — sem custos iniciais para ninguém.',
       button: 'Junte-se hoje a uma Solução de Aquisição de Clientes Baseada no Desempenho para o Setor de Viagens Global!',
     },
     footer: {
