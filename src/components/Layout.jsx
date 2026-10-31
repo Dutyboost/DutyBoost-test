@@ -13,7 +13,6 @@ import {
   LogOut,
   ChevronRight,
   ScanLine,
-  Code2,
   Building2,
   Car,
   BarChart2
@@ -26,7 +25,6 @@ const roleNavItems = {
     { label: "DutyCredits", path: "/vouchers", icon: TicketPercent },
     { label: "Airport Retailer Dashboard", path: "/retailer-dashboard", icon: Store },
     { label: "Travel Partner Dashboard", path: "/travel-partner-dashboard", icon: Plane },
-    { label: "POS Partner Dashboard", path: "/pos-partner-dashboard", icon: Code2 },
     { label: "Scan & Redeem", path: "/scan-redeem", icon: ScanLine },
     { label: "DutyBoost Dashboard", path: "/DutyBoost-Dashboard", icon: BarChart2 },
     { label: "Admin", path: "/admin", icon: ShieldCheck },
@@ -59,7 +57,6 @@ export default function Layout() {
     const demoPaths = [
       "/retailer-dashboard",
       "/travel-partner-dashboard",
-      "/pos-partner-dashboard",
     ];
     const isDemoPath = demoPaths.some(
       (p) => window.location.pathname === p || window.location.pathname.startsWith(`${p}/`)

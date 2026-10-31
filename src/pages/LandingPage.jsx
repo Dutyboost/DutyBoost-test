@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight, Menu, X, Cpu, Anchor, PlaneTakeoff, Route, Store
+  ArrowRight, Menu, X, Anchor, PlaneTakeoff, Route, Store
 } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
@@ -42,13 +42,6 @@ export default function LandingPage() {
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
       iconColor: "text-orange-600",
-    },
-    {
-      key: 'posPartner',
-      icon: Cpu,
-      color: "from-violet-400 to-indigo-600",
-      bg: "bg-violet-50",
-      iconColor: "text-violet-600",
     },
     {
       key: 'travelers',
@@ -157,8 +150,8 @@ export default function LandingPage() {
               const tileClass = `rounded-lg ${s.bg} flex items-center justify-center shrink-0 ${manyIcons ? 'w-10 h-10' : 'w-12 h-12 sm:w-[3.75rem] sm:h-[3.75rem]'}`;
               const glyphClass = `${s.iconColor} ${manyIcons ? 'w-5 h-5 sm:w-[1.375rem] sm:h-[1.375rem]' : 'w-[1.625rem] h-[1.625rem] sm:w-[2.0625rem] sm:h-[2.0625rem]'}`;
 
-              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'travelers' || s.key === 'posPartner';
-              const cardLink = s.key === 'retailers' ? '/travel-retailers' : s.key === 'airports' ? '/travel-hubs-showcase' : s.key === 'agencies' ? '/travel-partner-showcase' : s.key === 'travelers' ? '/eligibility-showcase' : s.key === 'posPartner' ? '/pos-partner' : '/get-started';
+              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'travelers';
+              const cardLink = s.key === 'retailers' ? '/travel-retailers' : s.key === 'airports' ? '/travel-hubs-showcase' : s.key === 'agencies' ? '/travel-partner-showcase' : s.key === 'travelers' ? '/eligibility-showcase' : '/get-started';
 
               const cardContent = (
                 <>

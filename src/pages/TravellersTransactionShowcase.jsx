@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Cpu, PlaneTakeoff, Package, ShieldX, Rocket, ArrowRight, ArrowUpRight } from "lucide-react";
+import { PlaneTakeoff, Package, ShieldX, Rocket, ArrowRight, ArrowUpRight } from "lucide-react";
 import DutyBoostLogo from "@/components/DutyBoostLogo";
 import PageFooter from "@/components/PageFooter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
@@ -14,7 +14,6 @@ import CarRentalIcon from "@/components/CarRentalIcon";
 import { hubShowcaseStrings } from "@/lib/i18nHubShowcase";
 
 const STAKEHOLDERS = [
-  { key: 'pos', Icon: Cpu, bg: "bg-violet-50", border: "border-violet-200", fg: "text-violet-600", iconWrap: "bg-violet-100", link: "/pos-partner" },
   { key: 'retailers', Icon: AirportRetailerIcon, bg: "bg-orange-50", border: "border-orange-200", fg: "text-orange-600", iconWrap: "bg-orange-100", link: "/travel-retailers" },
   { key: 'airports', Icon: PlaneTakeoff, bg: "bg-cyan-50", border: "border-cyan-200", fg: "text-cyan-600", iconWrap: "bg-cyan-100", link: "/travel-hubs-showcase" },
   { key: 'wholesale', Icon: Package, bg: "bg-amber-50", border: "border-amber-200", fg: "text-amber-600", iconWrap: "bg-amber-100", link: "/wholesale-showcase" },

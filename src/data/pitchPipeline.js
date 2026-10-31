@@ -163,14 +163,10 @@ export const PITCHES = [
 // capacity, act as templates for a named account, or serve an internal purpose.
 export const ENABLER_GROUPS = [
   {
-    title: "POS & technology partners",
+    title: "Technology partners",
     note: "These unlock the retailers on a provider's estate — they carry no revenue line of their own.",
     items: [
       { name: "Phygrid — Store Technology Deck", route: "/phygrid-pitch", role: "±45,000-store global estate" },
-      { name: "POS Provider Deck", route: "/pos-provider-pitch", role: "Generic provider pitch" },
-      { name: "POS Provider Deck — USD", route: "/pos-provider-pitch-usd", role: "USD presentation" },
-      { name: "POS Provider — Antek (SXM)", route: "/pos-provider-pitch-Antek", role: "SXM activation partner, 0.25% of each basket" },
-      { name: "POS Provider — Wagos", route: "/pos-provider-pitch-wagos", role: "Provider pitch" },
     ],
   },
   {
@@ -193,7 +189,6 @@ export const ENABLER_GROUPS = [
       { name: "Accommodation Partner — One Pager", route: "/accommodation-partner-one-pager", role: "One-pager" },
       { name: "Car Rental Partner — One Pager", route: "/car-rental-partner-one-pager", role: "One-pager" },
       { name: "Retailer — One Pager", route: "/retailer-one-pager", role: "One-pager" },
-      { name: "POS Partner — One Pager", route: "/pos-partner-one-pager", role: "One-pager" },
       { name: "Travel Stack — One Pager", route: "/agglomeration-travel-partner-one-pager", role: "One-pager" },
     ],
   },

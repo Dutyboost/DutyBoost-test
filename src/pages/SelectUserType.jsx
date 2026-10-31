@@ -6,7 +6,7 @@ import TravelAgencyIcon from "../components/TravelAgencyIcon";
 import AirportRetailerIcon from "../components/AirportRetailerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
-import { ArrowRight, Cpu, PlaneTakeoff, Anchor } from "lucide-react";
+import { ArrowRight, PlaneTakeoff, Anchor } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import TrainIcon from "../components/TrainIcon";
 import CoachOnRoadIcon from "../components/CoachOnRoadIcon";
@@ -112,16 +112,6 @@ export default function SelectUserType({ travelPartnerOnly = false }) {
       bg: "bg-amber-50",
       iconColor: "text-amber-600",
       path: "/coach-showcase",
-    },
-    {
-      id: "pos",
-      title: t('getstarted.pos_partners'),
-      descKey: 'getstarted.pos_partners_description',
-      icon: Cpu,
-      color: "from-violet-400 to-indigo-600",
-      bg: "bg-violet-50",
-      iconColor: "text-violet-600",
-      path: "/pos-partner",
     },
   ];
 

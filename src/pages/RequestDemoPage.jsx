@@ -31,7 +31,6 @@ const JOB_TITLES = [
 // Mirrors the six stakeholders of the traveller's transaction ecosystem
 // (see TravellersTransactionShowcase) so the form reflects the same model.
 const PARTNER_TYPES = [
-  "POS Partners",
   "Airport Retailers",
   "Airport Partners",
   "Wholesale / Suppliers",

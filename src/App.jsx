@@ -110,9 +110,6 @@ import BrandGuidelines from './pages/BrandGuidelines';
 import BusinessCardRael from './pages/BusinessCardRael';
 import BusinessCardJaquelin from './pages/BusinessCardJaquelin';
 import ClaimDutyCredit from './pages/ClaimDutyCredit';
-import PosChannelPartner from './pages/PosChannelPartner';
-import PosPartnerCallback from './pages/PosPartnerCallback';
-import PosPartnerOnePager from './pages/PosPartnerOnePager';
 import WhyDutyBoostOnePager from './pages/WhyDutyBoostOnePager';
 import Team from './pages/Team';
 import EligibilityShowcase from './pages/EligibilityShowcase';
@@ -136,10 +133,6 @@ import CaribbeanAirlinesPitchDeck from './pages/CaribbeanAirlinesPitchDeck';
 import DominicanRepublicPitchDeck from './pages/DominicanRepublicPitchDeck';
 import AirportPitchDeck from './pages/AirportPitchDeck';
 import AirportPitchDeckAruba from './pages/AirportPitchDeckAruba';
-import PosProviderPitchDeck from './pages/PosProviderPitchDeck';
-import PosProviderPitchDeckUsd from './pages/PosProviderPitchDeckUsd';
-import PosProviderPitchDeckSxm from './pages/PosProviderPitchDeckSxm';
-import PosProviderPitchDeckWagos from './pages/PosProviderPitchDeckWagos';
 import PhygridPitchDeck from './pages/PhygridPitchDeck';
 import TravelPartnerPitchDeck from './pages/TravelPartnerPitchDeck';
 import TravelPartnerPitchDeckAFKLM from './pages/TravelPartnerPitchDeckAFKLM';
@@ -307,11 +300,8 @@ const AuthenticatedApp = () => {
         <Route path="/business-card-rael" element={<BusinessCardRael />} />
         <Route path="/business-card-jaquelin" element={<BusinessCardJaquelin />} />
         <Route path="/claim-duty-credit" element={<ClaimDutyCredit />} />
-        <Route path="/pos-partner" element={<PosChannelPartner />} />
-        <Route path="/pos-partner-one-pager" element={<PosPartnerOnePager />} />
         <Route path="/why-dutyboost" element={<WhyDutyBoostOnePager />} />
         <Route path="/team" element={<Team />} />
-        <Route path="/pos-partner-callback" element={<PosPartnerCallback />} />
         <Route path="/eligibility-showcase" element={<EligibilityShowcase />} />
         <Route path="/dutyboost-presentation" element={<DutyBoostPresentationGlobal />} />
         <Route path="/dutyboost-presentation-aruba" element={<DutyBoostPresentationAruba />} />
@@ -334,10 +324,6 @@ const AuthenticatedApp = () => {
         <Route path="/dominican-republic-pitch" element={<DominicanRepublicPitchDeck />} />
         <Route path="/airport-pitch" element={<AirportPitchDeck />} />
         <Route path="/airport-pitch-aruba" element={<AirportPitchDeckAruba />} />
-        <Route path="/pos-provider-pitch" element={<PosProviderPitchDeck />} />
-        <Route path="/pos-provider-pitch-usd" element={<PosProviderPitchDeckUsd />} />
-        <Route path="/pos-provider-pitch-Antek" element={<PosProviderPitchDeckSxm />} />
-        <Route path="/pos-provider-pitch-wagos" element={<PosProviderPitchDeckWagos />} />
         <Route path="/phygrid-pitch" element={<PhygridPitchDeck />} />
         <Route path="/travel-partner-pitch" element={<TravelPartnerPitchDeck />} />
         <Route path="/travel-partner-pitch-afklm" element={<TravelPartnerPitchDeckAFKLM />} />
@@ -391,7 +377,6 @@ const AuthenticatedApp = () => {
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
           <Route path="/retailer-dashboard/:company" element={<RetailerDashboard />} />
-          <Route path="/pos-partner-dashboard" element={<PartnerDashboard type="pos" />} />
           <Route path="/travel-partner-dashboard" element={<PartnerDashboard type="travel" />} />
           <Route path="/travel-partner-integration" element={<AgencyIntegrationPage />} />
           <Route path="/scan-redeem" element={<ScanVoucher />} />

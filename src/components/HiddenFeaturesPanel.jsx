@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { EyeOff, Briefcase, Plane, Package, Train, Bus, Store, Users, Building2 } from "lucide-react";
+import { EyeOff, Briefcase, Plane, Package, Train, Bus, Store, Users, Building2, Cpu } from "lucide-react";
 
 const HIDDEN_FEATURES = [
   {
@@ -123,6 +123,50 @@ The cruise ship channel took this slot on the landing page and the Get Started c
       "pages/WholesaleCalculator.jsx",
       "pages/WholesalePartnerRequest.jsx",
       "lib/i18nWholesale.js",
+    ],
+  },
+  {
+    id: "pos-channel-partners",
+    icon: Cpu,
+    title: "POS Channel Partners",
+    status: "hidden",
+    reason: "Pulled from every public surface pending go-to-market — card, showcase, calculator, one-pager, decks and dashboard all hidden, routes disabled",
+    description: `POS channel partners (POS providers and system integrators) resell DutyBoost to the retailers running on their estate and earn a share of each basket. The proposition: one integration per provider switches on every retailer they serve, with the provider taking a percentage of the validated basket.
+
+CURRENT STATE: hidden everywhere. The stakeholder card is gone from the landing page, the POS node is gone from the traveller transaction showcase, the option is gone from the Get Started chooser and from the request-more-information partner types, the admin sidebar no longer lists a POS Partner Dashboard, and the four provider decks plus the one-pager were pulled from the pitch pipeline. Their routes are disabled, so the showcase (with its embedded earnings calculator), callback form, decks, one-pager and dashboard are no longer reachable by URL either.
+
+The commercial plumbing is untouched and still live: the POS channel commission fields on retailers and transactions (pos_channel_partner, pos_channel_commission_rate, pos_channel_commission), the posWebhook backend function, the POS onboarding tab in the admin panel, and every page and string in the codebase.`,
+    pages: [
+      { label: "Showcase + calculator (disabled)", path: "/pos-partner" },
+      { label: "One-Pager (disabled)", path: "/pos-partner-one-pager" },
+      { label: "Callback form (disabled)", path: "/pos-partner-callback" },
+      { label: "Provider Deck (disabled)", path: "/pos-provider-pitch" },
+      { label: "Provider Deck — USD (disabled)", path: "/pos-provider-pitch-usd" },
+      { label: "Provider Deck — Antek (disabled)", path: "/pos-provider-pitch-Antek" },
+      { label: "Provider Deck — Wagos (disabled)", path: "/pos-provider-pitch-wagos" },
+      { label: "Partner Dashboard (disabled)", path: "/pos-partner-dashboard" },
+    ],
+    howToRestore: [
+      "In src/App.jsx: re-add the imports for PosChannelPartner, PosPartnerOnePager, PosPartnerCallback, PosProviderPitchDeck, PosProviderPitchDeckUsd, PosProviderPitchDeckSxm and PosProviderPitchDeckWagos.",
+      "In src/App.jsx: re-add the routes /pos-partner, /pos-partner-one-pager, /pos-partner-callback, /pos-provider-pitch, /pos-provider-pitch-usd, /pos-provider-pitch-Antek, /pos-provider-pitch-wagos, and /pos-partner-dashboard rendered as <PartnerDashboard type=\"pos\" /> inside the Layout route.",
+      "In src/pages/LandingPage.jsx: re-add the 'posPartner' entry to the stakeholders array (Cpu icon, violet palette), the Cpu import, 'posPartner' to isClickable and the cardLink branch → '/pos-partner'.",
+      "In src/pages/SelectUserType.jsx: re-add the 'pos' option (Cpu icon, violet palette, path '/pos-partner') and the Cpu import.",
+      "In src/pages/TravellersTransactionShowcase.jsx: re-add the 'pos' stakeholder node (Cpu, violet palette, link '/pos-partner').",
+      "In src/pages/RequestDemoPage.jsx: re-add 'POS Partners' to PARTNER_TYPES.",
+      "In src/components/Layout.jsx: re-add the 'POS Partner Dashboard' admin nav item, the '/pos-partner-dashboard' entry in demoPaths, and the Code2 import.",
+      "In src/data/pitchPipeline.js: re-add the four provider decks to the technology-partner group and the POS Partner one-pager to the collateral group.",
+      "Strings live in src/lib/i18nPosChannel.js (showcase + calculator, all languages).",
+    ],
+    files: [
+      "pages/PosChannelPartner.jsx",
+      "pages/PosPartnerOnePager.jsx",
+      "pages/PosPartnerCallback.jsx",
+      "pages/PosProviderPitchDeck.jsx",
+      "pages/PosProviderPitchDeckUsd.jsx",
+      "pages/PosProviderPitchDeckSxm.jsx",
+      "pages/PosProviderPitchDeckWagos.jsx",
+      "components/pos-pitch/",
+      "lib/i18nPosChannel.js",
     ],
   },
   {
