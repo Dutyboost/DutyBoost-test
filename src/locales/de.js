@@ -969,7 +969,7 @@ export default {
         dubai_df: 'Eine der größten Duty-Free-Operationen an einem einzelnen Flughafen der Welt',
         qatar_df: 'Luxus-Duty-Free am Hamad International Airport',
         whsmith: 'Reiseartikel und Duty-Free an weltweiten Flughäfen',
-        ari: 'Flughafenhandel-Spezialist in 30+ Ländern',
+        ari: 'Irischer Duty-Free- und Travel-Retail-Spezialist',
         flemingo: 'Duty-Free-Händler im Nahen Osten und Asien',
         emirates_leisure: 'In Dubai ansässiger F&B- und Flughafenhandel-Operator',
         tav: 'Türkischer Flughafenhandel-Operator',

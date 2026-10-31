@@ -1,5 +1,7 @@
-// Aer Rianta International (ARI) — Irish specialist with UK/Africa/Middle East presence
-// Airports: DUB, BFS, GLA, EDI, MAN, CMB, BEY, BAH, MUS
+// Aer Rianta International (ARI) — Irish duty free specialist.
+// Network taken from ARI's own location list (ari.ie): 26 airports in 12 countries —
+// Ireland, Portugal, Cyprus, Canada, USA, Barbados, Bahrain, Oman, UAE, Lebanon,
+// Montenegro and Indonesia. Traffic from the app's global airport dataset.
 
 const STORE_NAMES = [
   "Aer Rianta International",
@@ -28,17 +30,55 @@ function assignStoresToAirport(pax) {
   return stores;
 }
 
-export const AIRPORTS_FULL = [
-  { code: "DUB", name: "Dublin Airport", city: "Dublin", country: "Ireland", daily_pax: 90137, annual_pax: 32900050, stores: assignStoresToAirport(90137) },
-  { code: "BFS", name: "Belfast International", city: "Belfast", country: "United Kingdom", daily_pax: 16438, annual_pax: 5999880, stores: assignStoresToAirport(16438) },
-  { code: "GLA", name: "Glasgow", city: "Glasgow", country: "United Kingdom", daily_pax: 21096, annual_pax: 7699040, stores: assignStoresToAirport(21096) },
-  { code: "EDI", name: "Edinburgh", city: "Edinburgh", country: "United Kingdom", daily_pax: 39726, annual_pax: 14500590, stores: assignStoresToAirport(39726) },
-  { code: "MAN", name: "Manchester", city: "Manchester", country: "United Kingdom", daily_pax: 82192, annual_pax: 29999080, stores: assignStoresToAirport(82192) },
-  { code: "CMB", name: "Colombo Bandaranaike", city: "Colombo", country: "Sri Lanka", daily_pax: 21918, annual_pax: 7999770, stores: assignStoresToAirport(21918) },
-  { code: "BEY", name: "Beirut Rafic Hariri", city: "Beirut", country: "Lebanon", daily_pax: 21918, annual_pax: 7999770, stores: assignStoresToAirport(21918) },
-  { code: "BAH", name: "Bahrain International", city: "Manama", country: "Bahrain", daily_pax: 26849, annual_pax: 9799885, stores: assignStoresToAirport(26849) },
-  { code: "MUS", name: "Muscat International", city: "Muscat", country: "Oman", daily_pax: 27397, annual_pax: 9999805, stores: assignStoresToAirport(27397) },
+// code, name, city, country, annual passengers
+const NETWORK = [
+  // Ireland
+  ["DUB", "Dublin Airport", "Dublin", "Ireland", 32900050],
+  ["ORK", "Cork Airport", "Cork", "Ireland", 2700000],
+  // Portugal (mainland + Madeira + Azores)
+  ["LIS", "Lisbon Portela Airport", "Lisbon", "Portugal", 33100000],
+  ["OPO", "Porto Airport", "Porto", "Portugal", 13000000],
+  ["FAO", "Faro Airport", "Faro", "Portugal", 9000000],
+  ["FNC", "Madeira Airport", "Funchal", "Portugal", 2500000],
+  ["PDL", "João Paulo II Airport", "Ponta Delgada", "Portugal", 2000000],
+  ["HOR", "Horta Airport", "Horta", "Portugal", 350000],
+  ["PXO", "Porto Santo Airport", "Porto Santo", "Portugal", 300000],
+  ["SMA", "Santa Maria Airport", "Santa Maria", "Portugal", 130000],
+  // Canada
+  ["YVR", "Vancouver International Airport", "Vancouver", "Canada", 26000000],
+  ["YUL", "Montreal-Trudeau International Airport", "Montreal", "Canada", 21000000],
+  ["YEG", "Edmonton International Airport", "Edmonton", "Canada", 8000000],
+  ["YWG", "Winnipeg Richardson International Airport", "Winnipeg", "Canada", 4000000],
+  ["YQB", "Quebec City Jean Lesage Airport", "Quebec City", "Canada", 2000000],
+  // Cyprus
+  ["LCA", "Larnaca International Airport", "Larnaca", "Cyprus", 11000000],
+  ["PFO", "Paphos International Airport", "Paphos", "Cyprus", 3000000],
+  // Middle East
+  ["AUH", "Abu Dhabi International Airport", "Abu Dhabi", "United Arab Emirates", 22000000],
+  ["BAH", "Bahrain International Airport", "Manama", "Bahrain", 10000000],
+  ["MCT", "Muscat International Airport", "Muscat", "Oman", 10000000],
+  ["BEY", "Beirut Rafic Hariri International Airport", "Beirut", "Lebanon", 8000000],
+  // Americas
+  ["JFK", "John F. Kennedy International Airport", "New York", "United States", 62500000],
+  ["BGI", "Grantley Adams International Airport", "Bridgetown", "Barbados", 2200000],
+  // Europe & Asia
+  ["TIV", "Tivat Airport", "Tivat", "Montenegro", 1000000],
+  ["TGD", "Podgorica Airport", "Podgorica", "Montenegro", 1000000],
+  ["CGK", "Jakarta Soekarno-Hatta Airport", "Jakarta", "Indonesia", 54000000],
 ];
+
+export const AIRPORTS_FULL = NETWORK.map(([code, name, city, country, annualPax]) => {
+  const dailyPax = Math.round(annualPax / 365);
+  return {
+    code,
+    name,
+    city,
+    country,
+    daily_pax: dailyPax,
+    annual_pax: annualPax,
+    stores: assignStoresToAirport(dailyPax),
+  };
+});
 
 export function getARIRetailerData() {
   return {

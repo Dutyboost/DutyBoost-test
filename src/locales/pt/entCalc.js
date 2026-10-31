@@ -124,7 +124,7 @@ export default {
     dubai_df: 'Uma das maiores operações duty-free de aeroporto único do mundo',
     qatar_df: 'Duty-free de luxo no Aeroporto Internacional de Hamad',
     whsmith: 'Artigos de viagem essenciais e duty-free em aeroportos de todo o mundo',
-    ari: 'Especialista em retalho de aeroporto em mais de 30 países',
+    ari: 'Especialista irlandês em duty free e retalho de viagem',
     flemingo: 'Retalhista duty-free no Médio Oriente e na Ásia',
     emirates_leisure: 'Operador de restauração e retalho de aeroporto com sede no Dubai',
     tav: 'Operador turco de retalho de aeroporto',

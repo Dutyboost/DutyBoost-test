@@ -982,7 +982,7 @@ export default {
         dubai_df: "Een van 's werelds grootste dutyfree-operaties op één luchthaven",
         qatar_df: 'Luxe dutyfree op Hamad International Airport',
         whsmith: 'Reisbenodigdheden en dutyfree op wereldwijde luchthavens',
-        ari: 'Luchthavenretail-specialist in 30+ landen',
+        ari: 'Ierse duty free- en travelretailspecialist',
         flemingo: 'Dutyfree-retailer in het Midden-Oosten en Azië',
         emirates_leisure: 'Op Dubai gebaseerde F&B- en retailoperator op luchthavens',
         tav: 'Turkse luchthavenretail-operator',

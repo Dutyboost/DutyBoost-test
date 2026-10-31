@@ -39,7 +39,7 @@ export const ENTERPRISE_RETAILERS = [
   { key: "dubai_df", name: "Dubai Duty Free", airports: byName["Dubai Duty Free"]?.airports || [], hqCountry: "United Arab Emirates", description: "One of the world's largest single-airport duty free operations" },
   { key: "qatar_df", name: "Qatar Duty Free", airports: byName["Qatar Duty Free"]?.airports || [], hqCountry: "Qatar", description: "Luxury duty free at Hamad International Airport" },
   { key: "whsmith", name: "WHSmith Travel", airports: byName["WHSmith Travel"]?.airports || [], hqCountry: "United Kingdom", description: "Travel essentials and duty free across global airports" },
-  { key: "ari", name: "Aer Rianta International (ARI)", airports: byName["Aer Rianta International (ARI)"]?.airports || [], hqCountry: "Ireland", description: "Airport retail specialist in 30+ countries" },
+  { key: "ari", name: "Aer Rianta International (ARI)", airports: byName["Aer Rianta International (ARI)"]?.airports || [], hqCountry: "Ireland", description: "Irish duty free & travel retail specialist" },
   { key: "flemingo", name: "Flemingo Travel Retail", airports: byName["Flemingo Travel Retail"]?.airports || [], hqCountry: "United Arab Emirates", description: "Duty free retailer across Middle East & Asia" },
   { key: "emirates_leisure", name: "Emirates Leisure Retail", airports: byName["Emirates Leisure Retail"]?.airports || [], hqCountry: "United Arab Emirates", description: "Dubai-based airport F&B and retail operator" },
   { key: "tav", name: "TAV Airports Retail", airports: byName["TAV Airports Retail"]?.airports || [], hqCountry: "Turkey", description: "Turkish airport retail operator" },

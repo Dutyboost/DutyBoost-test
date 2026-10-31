@@ -974,7 +974,7 @@ export default {
         dubai_df: "Una delle più grandi operazioni duty free di un singolo aeroporto al mondo",
         qatar_df: 'Duty free di lusso all\'Aeroporto Internazionale di Hamad',
         whsmith: 'Articoli da viaggio e duty free negli aeroporti del mondo',
-        ari: 'Specialista del retail aeroportuale in 30+ paesi',
+        ari: 'Specialista irlandese del duty free e travel retail',
         flemingo: 'Retailer duty free in Medio Oriente e Asia',
         emirates_leisure: 'Operatore di F&B e retail aeroportuale con sede a Dubai',
         tav: 'Operatore turco di retail aeroportuale',
