@@ -1,13 +1,12 @@
 import { useState, useMemo, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Zap, SlidersHorizontal, Briefcase, Building2, Info, CalendarPlus } from "lucide-react";
+import { Building2, Info, CalendarPlus } from "lucide-react";
 import { Link } from "react-router-dom";
 import RetailerSearchDropdown from "./RetailerSearchDropdown";
 import NetworkSelector from "./NetworkSelector";
 import BenchmarkPanel from "./BenchmarkPanel";
 import SummaryCards from "./SummaryCards";
 import CalculatorCharts from "./CalculatorCharts";
-import EnterpriseActions from "./EnterpriseActions";
 import {
   getRetailerByKey,
   computeSelectionBenchmarks,
@@ -18,19 +17,11 @@ import {
 } from "@/data/enterpriseCalculator";
 import { useCurrency } from "./CurrencyContext";
 
-const MODES = [
-  { key: "detailed", labelKey: "entCalc.mode_detailed", icon: SlidersHorizontal, descKey: "entCalc.mode_detailed_desc" },
-  { key: "enterprise", labelKey: "entCalc.mode_enterprise", icon: Briefcase, descKey: "entCalc.mode_enterprise_desc" },
-  { key: "quick", labelKey: "entCalc.mode_quick", icon: Zap, descKey: "entCalc.mode_quick_desc" },
-];
-
 export default function EnterpriseCalculator() {
   const { t } = useTranslation();
-  const [mode, setMode] = useState("detailed");
   const [retailerKey, setRetailerKey] = useState(null);
   const [selectedCodes, setSelectedCodes] = useState(new Set());
   const [assumptions, setAssumptions] = useState({ redemptionRate: 0.01, customBasket: null });
-  const [scenarios, setScenarios] = useState([]);
   const [airportOwners, setAirportOwners] = useState({});
   const [focusedAirportCode, setFocusedAirportCode] = useState(null);
 
@@ -42,7 +33,6 @@ export default function EnterpriseCalculator() {
       if (r) {
         setRetailerKey(r.key);
         setSelectedCodes(new Set());
-        setMode("detailed");
       }
     }
   }, []);
@@ -54,7 +44,6 @@ export default function EnterpriseCalculator() {
   const handleRetailerSelect = (r) => {
     setRetailerKey(r?.key || null);
     setSelectedCodes(new Set());
-    setScenarios([]);
     setAirportOwners({});
     setFocusedAirportCode(null);
   };
@@ -127,53 +116,11 @@ export default function EnterpriseCalculator() {
   const topAirports = useMemo(() => computeTopAirports(selectedAirports), [selectedAirports]);
   const countryCount = useMemo(() => getSelectedCountries(selectedAirports), [selectedAirports]);
 
-  const handleSaveScenario = () => {
-    const name = `Scenario ${scenarios.length + 1}`;
-    setScenarios((prev) => [
-      ...prev,
-      {
-        id: `s${Date.now()}`,
-        name,
-        retailerName: retailer?.name || "—",
-        airportCount: selectedAirports.length,
-        netRevenue: projections.retailerNetRevenue,
-      },
-    ]);
-  };
-
-  const handleDeleteScenario = (id) => {
-    setScenarios((prev) => prev.filter((s) => s.id !== id));
-  };
-
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-3 gap-2 bg-slate-100 border border-slate-200 rounded-2xl p-1.5">
-        {MODES.map((m) => {
-          const active = mode === m.key;
-          const Icon = m.icon;
-          return (
-            <button
-              key={m.key}
-              onClick={() => setMode(m.key)}
-              className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
-                active ? "bg-white text-primary shadow-sm" : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              <Icon className="w-4 h-4" />
-              <span className="hidden sm:inline">{t(m.labelKey)}</span>
-              <span className="sm:hidden">{t(m.labelKey).split(" ")[0]}</span>
-            </button>
-          );
-        })}
-      </div>
-
       <div className="flex items-center gap-2 text-xs text-slate-500 bg-blue-50 border border-blue-100 rounded-lg px-3 py-2">
         <Info className="w-3.5 h-3.5 text-blue-500 shrink-0" />
-        <span>
-          {mode === "quick" && t("entCalc.mode_quick_info")}
-          {mode === "detailed" && t("entCalc.mode_detailed_info")}
-          {mode === "enterprise" && t("entCalc.mode_enterprise_info")}
-        </span>
+        <span>{t("entCalc.mode_detailed_info")}</span>
       </div>
 
       <div className="bg-slate-900 text-white rounded-xl px-4 py-3 flex items-start gap-2.5">
@@ -201,7 +148,6 @@ export default function EnterpriseCalculator() {
                 selectedCodes={selectedCodes}
                 onToggleCodes={handleToggleCodes}
                 onSelectOnly={handleSelectOnly}
-                mode={mode}
                 airportOwners={airportOwners}
                 onSetAirportOwner={handleSetAirportOwner}
               />
@@ -214,7 +160,7 @@ export default function EnterpriseCalculator() {
               benchmarks={benchmarks}
               assumptions={assumptions}
               onAssumptionChange={handleAssumptionChange}
-              editable={mode !== "quick"}
+              editable
               focusedAirport={focusedAirport}
               focusedBasket={focusedBasket}
               annualRedemptions={projections.annualRedemptions}
@@ -255,20 +201,6 @@ export default function EnterpriseCalculator() {
               {t("entCalc.request_meeting")}
             </Link>
           </div>
-
-          {mode === "enterprise" && (
-            <div>
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">{t("entCalc.step5")}</p>
-              <EnterpriseActions
-                retailer={retailer}
-                benchmarks={benchmarks}
-                projections={projections}
-                scenarios={scenarios}
-                onSaveScenario={handleSaveScenario}
-                onDeleteScenario={handleDeleteScenario}
-              />
-            </div>
-          )}
         </>
       )}
     </div>

@@ -6,7 +6,7 @@ export default {
   mode_detailed_desc: 'Controlo total',
   mode_enterprise_desc: 'Vários cenários + exportação',
   mode_quick_info: 'Modo rápido: selecione um retalhista e uma região — todos os valores de referência são preenchidos automaticamente. Não é necessária introdução manual.',
-  mode_detailed_info: 'Modo detalhado: ajuste os pressupostos, selecione países e aeroportos específicos e ajuste as taxas de conversão.',
+  mode_detailed_info: 'Ajuste os pressupostos, selecione países e aeroportos específicos e ajuste as taxas de conversão.',
   mode_enterprise_info: 'Modo empresarial: guarde vários cenários, compare-os lado a lado, exporte um PDF com a sua marca, partilhe relatórios e solicite reuniões.',
   etrc_note: 'ETRC: 15–25% dos viajantes compram — a DutyBoost pretende aumentar a conversão e o cabaz sem qualquer aumento do custo de aquisição de clientes — 100% baseado no desempenho.',
   step1: 'Passo 1 — Retalhista de Aeroporto',

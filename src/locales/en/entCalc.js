@@ -6,7 +6,7 @@ export default {
   mode_detailed_desc: 'Full control',
   mode_enterprise_desc: 'Multi-scenario + export',
   mode_quick_info: 'Quick mode: select a retailer and region — all benchmarks auto-populate. No manual input required.',
-  mode_detailed_info: 'Detailed mode: fine-tune assumptions, select specific countries and airports, adjust conversion rates.',
+  mode_detailed_info: 'Fine-tune assumptions, select specific countries and airports, and adjust conversion rates.',
   mode_enterprise_info: 'Enterprise mode: save multiple scenarios, compare side-by-side, export branded PDF, share reports, and request meetings.',
   etrc_note: 'ETRC: 15–25% of travelers shop — DutyBoost aims to increase conversion & basket with zero increase in Customer Acquisition Cost — 100% performance-based.',
   step1: 'Step 1 — Airport Retailer',
