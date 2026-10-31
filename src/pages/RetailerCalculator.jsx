@@ -478,10 +478,12 @@ export default function RetailerCalculator() {
 
         {/* Header */}
         <div className="text-center space-y-2">
-          <div className="flex justify-between items-center mb-2">
-            <div className="w-24" />
-            <DutyBoostLogo height={55} />
-            <div className="flex justify-end gap-2">
+          <div className="grid grid-cols-3 items-center mb-2">
+            <div />
+            <div className="justify-self-center">
+              <DutyBoostLogo height={55} />
+            </div>
+            <div className="flex justify-end gap-2 justify-self-end">
               <CurrencySwitcher />
               <LanguageSwitcher />
             </div>
