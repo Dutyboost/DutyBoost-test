@@ -240,6 +240,29 @@ export async function downloadCompanyDutyCreditReport({ company, tokens, vertica
     y += 8.5;
   };
 
+  // ── how this revenue is unlocked ────────────────────────────────────────
+  const calloutText = doc.splitTextToSize(
+    clean(
+      `Everything in this report is potential additional passive revenue for ${company} that is not being earned today. It becomes available by adding one line of DutyBoost code to the booking confirmation page, the page that generates the booking confirmation email. From that moment every confirmed booking automatically issues the traveller a DutyCredit, delivered inside their own booking confirmation email together with the booking details. There is no extra work per booking and no change to the customer journey: the revenue builds passively as travellers redeem the credits they were sent anyway.`
+    ),
+    CW - 18
+  );
+  const calloutHeight = calloutText.length * 3.6 + 14;
+  ensure(calloutHeight + 10);
+  doc.setFillColor(...PANEL);
+  doc.roundedRect(M, y, CW, calloutHeight, 2, 2, "F");
+  doc.setFillColor(...BLUE);
+  doc.rect(M, y, 1.6, calloutHeight, "F");
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(8);
+  doc.setTextColor(...BLUE);
+  doc.text("Potential additional passive revenue", M + 6, y + 6.5);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(7.5);
+  doc.setTextColor(...BODY);
+  doc.text(calloutText, M + 6, y + 11.5);
+  y += calloutHeight + 8;
+
   // ── where the credits came from ─────────────────────────────────────────
   if (locations.length) {
     sectionTitle("Where their travellers generated their DutyCredits");
