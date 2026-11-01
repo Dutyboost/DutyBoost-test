@@ -29,7 +29,7 @@ export default {
      },
     ecosystem: {
       title: 'Un ecosistema commerciale, tutti guadagnano sulla stessa transazione',
-      subtitle: "Hub di viaggio, retailer di viaggio, partner di viaggio e viaggiatori vengono pagati tutti dallo stesso acquisto validato — un'unica transazione del viaggiatore che remunera ogni partecipante.",
+      subtitle: "Viaggiatori, partner di viaggio, retailer di viaggio e hub di viaggio vengono pagati tutti dallo stesso acquisto validato — un'unica transazione del viaggiatore che remunera ogni partecipante.",
       platform_fee_note: "Ogni riscatto sostiene l'intero ecosistema: un'unica commissione basata sulle performance viene condivisa tra i partecipanti di quella transazione e DutyBoost — senza costi iniziali e senza nulla da pagare se non c'è vendita.",
     },
     oval: {

@@ -35,7 +35,7 @@ export default {
     },
     ecosystem: {
       title: 'One commercial ecosystem, everyone wins on the same transaction',
-      subtitle: 'Travel hubs, travel retailers, travel partners and travellers are all paid out of the same validated purchase — one traveller transaction that funds every participant in it.',
+      subtitle: 'Travellers, travel partners, travel retailers and travel hubs are all paid out of the same validated purchase — one traveller transaction that funds every participant in it.',
       platform_fee_note: 'Every redemption carries the whole ecosystem: one performance-based fee is shared between the participants in that transaction and DutyBoost — no upfront cost, and nothing to pay when no sale happens.',
     },
     oval: {

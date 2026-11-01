@@ -35,7 +35,7 @@ export default {
     },
     ecosystem: {
       title: 'Um ecossistema comercial, todos ganham com a mesma transação',
-      subtitle: 'Hubs de viagem, retalhistas de viagem, parceiros de viagem e passageiros são todos pagos a partir da mesma compra validada — uma só transação do passageiro que remunera cada participante.',
+      subtitle: 'Passageiros, parceiros de viagem, retalhistas de viagem e hubs de viagem são todos pagos a partir da mesma compra validada — uma só transação do passageiro que remunera cada participante.',
       platform_fee_note: 'Cada resgate sustenta todo o ecossistema: uma única taxa baseada no desempenho é partilhada entre os participantes dessa transação e a DutyBoost — sem custos iniciais e sem nada a pagar quando não há venda.',
     },
     oval: {
