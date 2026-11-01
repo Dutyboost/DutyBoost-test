@@ -122,7 +122,7 @@ export default {
     cta: {
        title: 'Un pasajero. Una transacción. Todos ganan.',
        description: 'Una capa comercial basada en el rendimiento que convierte cada viaje en ingresos incrementales medibles. Los hubs de viaje, los minoristas de viaje y los socios de viaje ganan todos con la misma venta validada: el pasajero ahorra en caja, el minorista consigue una venta que antes no existía y el socio que envió al pasajero cobra por ello — sin coste inicial para nadie.',
-       button: "¡Únete hoy a una solución de adquisición de clientes basada en el rendimiento para el sector de viajes global!",
+       button: "Convierte cada viaje en ingresos medibles — sin coste inicial",
      },
     wecallyou: {
       modal_title: 'Te llamamos',

@@ -123,7 +123,7 @@ export default {
     cta: {
       title: 'Un voyageur. Une transaction. Tout le monde y gagne.',
       description: "Une couche commerciale basée sur la performance qui transforme chaque voyage en revenus incrémentaux mesurables. Les hubs de voyage, les détaillants du voyage et les partenaires de voyage gagnent tous sur la même vente validée : le voyageur économise en caisse, le détaillant réalise une vente qui n'aurait pas eu lieu, et le partenaire qui a envoyé le voyageur est rémunéré pour cela — sans aucun coût initial.",
-      button: "Rejoignez aujourd'hui la solution d'acquisition de clients basée sur la performance pour le voyage mondial !",
+      button: "Transformez chaque voyage en revenus mesurables — sans coût initial",
     },
     wecallyou: {
       modal_title: 'Nous vous appelons',

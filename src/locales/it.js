@@ -122,7 +122,7 @@ export default {
     cta: {
        title: 'Un viaggiatore. Una transazione. Tutti guadagnano.',
        description: "Uno strato commerciale basato sulle performance che trasforma ogni viaggio in ricavi incrementali misurabili. Hub di viaggio, retailer di viaggio e partner di viaggio guadagnano tutti sulla stessa vendita validata: il viaggiatore risparmia in cassa, il retailer realizza una vendita che prima non esisteva e il partner che ha inviato il viaggiatore viene pagato per questo — senza costi iniziali per nessuno.",
-       button: "Unisciti oggi alla soluzione di acquisizione clienti basata sulla performance per il settore globale dei viaggi!",
+       button: "Trasforma ogni viaggio in ricavi misurabili — senza costi iniziali",
        },
     wecallyou: {
       modal_title: 'Ti chiamiamo',

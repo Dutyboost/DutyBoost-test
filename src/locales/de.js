@@ -123,7 +123,7 @@ export default {
     cta: {
       title: 'Ein Reisender. Eine Transaktion. Alle verdienen.',
       description: 'Eine leistungsbasierte kommerzielle Ebene, die jede Reise in messbaren Zusatzumsatz verwandelt. Travel Hubs, Reise-Einzelhändler und Reisepartner verdienen alle am selben validierten Verkauf: der Reisende spart an der Kasse, der Händler gewinnt einen Verkauf, den es sonst nicht gäbe, und der Partner, der den Reisenden geschickt hat, wird dafür bezahlt — ohne Vorabkosten.',
-      button: "Treten Sie heute der performancebasierten Kundenakquise-Lösung für die globale Reisebranche bei!",
+      button: "Machen Sie aus jeder Reise messbaren Umsatz — ohne Vorabkosten",
     },
     wecallyou: {
       modal_title: 'Wir rufen Sie an',

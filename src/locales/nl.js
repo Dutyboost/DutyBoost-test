@@ -122,7 +122,7 @@ export default {
     cta: {
        title: 'Eén reiziger. Eén transactie. Iedereen verdient.',
        description: 'Een prestatiegerichte commerciële laag die elke reis omzet in meetbare aanvullende omzet. Reishubs, reisretailers en reispartners verdienen allemaal aan dezelfde gevalideerde verkoop: de reiziger bespaart aan de kassa, de retailer wint een verkoop die er anders niet was, en de partner die de reiziger stuurde wordt daarvoor betaald — zonder voorafgaande kosten.',
-       button: "Sluit u vandaag aan bij een prestatiegerichte oplossing voor klantacquisitie voor de wereldwijde reissector!",
+       button: "Maak van elke reis meetbare omzet — zonder voorafgaande kosten",
 
      },
     footer: {

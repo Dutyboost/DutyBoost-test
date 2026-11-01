@@ -128,7 +128,7 @@ export default {
     cta: {
       title: 'Um passageiro. Uma transação. Todos ganham.',
       description: 'Uma camada comercial baseada no desempenho que transforma cada viagem em receita incremental mensurável. Hubs de viagem, retalhistas de viagem e parceiros de viagem ganham todos com a mesma venda validada: o passageiro poupa na caixa, o retalhista concretiza uma venda que antes não existia e o parceiro que enviou o passageiro é pago por isso — sem custos iniciais para ninguém.',
-      button: 'Junte-se hoje a uma Solução de Aquisição de Clientes Baseada no Desempenho para o Setor de Viagens Global!',
+      button: 'Transforme cada viagem em receita mensurável — sem custos iniciais',
     },
     footer: {
       tagline: '— A Camada de Conversão do Retalho de Viagens',
