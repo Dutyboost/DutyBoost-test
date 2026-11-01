@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import {
-  Loader2, ChevronRight, QrCode, CheckCircle2, Clock, Building2, Search, FileDown, Euro,
+  Loader2, ChevronRight, QrCode, CheckCircle2, Clock, Building2, Search, FileDown, Euro, Handshake,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,7 @@ import { VERTICALS, VERTICAL_LABELS, carrierName, formatDate } from "@/component
 import CompanyDutyCreditDetail from "@/components/admin/CompanyDutyCreditDetail";
 import { downloadCompanyDutyCreditReport } from "@/utils/exportDutyCreditReportPdf";
 import { fmtEur } from "@/utils/formatNumber";
+import { PLATFORM_FEE_PCT, PARTNER_SHARE_PCT, feeOf, shareOf } from "@/data/dutyCreditFees";
 
 const euro = (value) => fmtEur(value, Number.isInteger(value) ? 0 : 2);
 
@@ -101,7 +102,8 @@ export default function DutyCreditInsights() {
     { label: "DutyCredits generated", value: scoped.length, icon: QrCode },
     { label: "Active", value: scoped.filter((t) => t.status === "active").length, icon: Clock },
     { label: "Redeemed", value: scoped.filter((t) => t.status === "redeemed").length, icon: CheckCircle2 },
-    { label: "Revenue generated", value: euro(revenueOf(scoped)), icon: Euro },
+    { label: `DutyBoost platform fee (${PLATFORM_FEE_PCT}%)`, value: euro(feeOf(revenueOf(scoped))), icon: Euro },
+    { label: `Partner commission share (${PARTNER_SHARE_PCT}%)`, value: euro(shareOf(revenueOf(scoped))), icon: Handshake },
     { label: "Companies", value: companies.length, icon: Building2 },
   ];
 
@@ -153,7 +155,7 @@ export default function DutyCreditInsights() {
         )}
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         {stats.map(({ label, value, icon: Icon }) => (
           <div key={label} className="bg-card rounded-xl border border-border p-3">
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
@@ -187,7 +189,7 @@ export default function DutyCreditInsights() {
             <span className="w-20 text-right">Locations</span>
             <span className="w-16 text-right">Active</span>
             <span className="w-20 text-right">Redeemed</span>
-            <span className="w-24 text-right">Revenue</span>
+            <span className="w-24 text-right">Platform fee</span>
             <span className="w-20 text-right">Generated</span>
             <span className="w-8" />
           </div>
@@ -203,14 +205,14 @@ export default function DutyCreditInsights() {
                 <span className="flex-1 min-w-0">
                   <span className="block text-sm font-medium truncate">{company.name}</span>
                   <span className="block text-xs text-muted-foreground sm:hidden">
-                    {company.locations.size} locations · {company.active} active · {company.redeemed} redeemed · {euro(company.revenue)} revenue · last {formatDate(company.last)}
+                    {company.locations.size} locations · {company.active} active · {company.redeemed} redeemed · {euro(feeOf(company.revenue))} platform fee · last {formatDate(company.last)}
                   </span>
                   <span className="hidden sm:block text-xs text-muted-foreground">Last {formatDate(company.last)}</span>
                 </span>
                 <span className="hidden sm:block w-20 text-right text-sm">{company.locations.size}</span>
                 <span className="hidden sm:block w-16 text-right text-sm">{company.active}</span>
                 <span className="hidden sm:block w-20 text-right text-sm">{company.redeemed}</span>
-                <span className="hidden sm:block w-24 text-right text-sm">{euro(company.revenue)}</span>
+                <span className="hidden sm:block w-24 text-right text-sm">{euro(feeOf(company.revenue))}</span>
                 <span className="w-16 sm:w-20 text-right text-sm font-bold text-primary">{company.total}</span>
                 <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
               </button>
