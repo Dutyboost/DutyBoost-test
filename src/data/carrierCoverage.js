@@ -3,7 +3,8 @@
  *
  * Used by the traveller claim form so that picking a departure port, station or
  * airport narrows the carrier list to the companies that really serve it:
- *  - train: exact match against the hubs of every operator in the rail directory
+ *  - train: operators hubbed at the station, plus every operator calling at the
+ *    city the station serves (a train can be boarded at any stop on its route)
  *  - cruise / coach / car rental: region or country coverage per carrier
  *  - flight: airlines based at (or hubbed at) the chosen airport, else carriers
  *    from the same part of the world
@@ -480,6 +481,147 @@ const airlineCountryAliases = (country) => {
   return k;
 };
 
+// ── trains: every city an operator calls at ────────────────────────────────
+
+// A traveller can board a train at any city it passes through, not only at the
+// operator's home hubs, so coverage follows the routes themselves: every city
+// on an international or long-distance corridor is credited to each operator
+// running it.
+const RAIL_CORRIDORS = [
+  // Amsterdam ↔ Rhine/Ruhr ↔ Basel (ICE International)
+  { operators: ['DB Fernverkehr', 'Deutsche Bahn', 'NS International'], cities: ['Amsterdam', 'Utrecht', 'Arnhem', 'Duisburg', 'Düsseldorf', 'Köln', 'Bonn', 'Mainz', 'Frankfurt', 'Mannheim', 'Karlsruhe', 'Freiburg'] },
+  // Basel ↔ Zürich ↔ Interlaken (ICE / IC)
+  { operators: ['SBB', 'DB Fernverkehr', 'Deutsche Bahn'], cities: ['Basel', 'Zürich', 'Bern', 'Interlaken', 'Luzern', 'Chur', 'Brig', 'Visp', 'Lugano'] },
+  // Amsterdam ↔ Rotterdam ↔ Antwerpen ↔ Bruxelles (Eurostar & Benelux)
+  { operators: ['Eurostar', 'NS', 'NS International', 'SNCB / NMBS', 'DB Fernverkehr'], cities: ['Amsterdam', 'Schiphol', 'Rotterdam', 'Breda', 'Roosendaal', 'Antwerpen', 'Mechelen', 'Bruxelles', 'Brussel'] },
+  // Amsterdam ↔ Berlin (IC Berlijn / European Sleeper)
+  { operators: ['NS International', 'DB Fernverkehr', 'Deutsche Bahn'], cities: ['Amsterdam', 'Amersfoort', 'Deventer', 'Hengelo', 'Osnabrück', 'Hannover', 'Berlin'] },
+  // Amsterdam ↔ Köln ↔ Basel ↔ Zürich (Nightjet)
+  { operators: ['ÖBB', 'NS International'], cities: ['Amsterdam', 'Utrecht', 'Arnhem', 'Köln', 'Bonn', 'Mainz', 'Frankfurt', 'Mannheim', 'Karlsruhe', 'Basel', 'Zürich'] },
+  // Bruxelles ↔ Liège ↔ Köln ↔ Frankfurt ↔ Basel (ICE)
+  { operators: ['DB Fernverkehr', 'Deutsche Bahn', 'SNCB / NMBS', 'SBB'], cities: ['Bruxelles', 'Brussel', 'Liège', 'Aachen', 'Köln', 'Frankfurt', 'Mannheim', 'Karlsruhe', 'Basel'] },
+  // Bruxelles ↔ Lille ↔ London (Eurostar)
+  { operators: ['Eurostar', 'SNCB / NMBS', 'NS International'], cities: ['Bruxelles', 'Brussel', 'Lille', 'Calais', 'Ashford', 'Ebbsfleet', 'London'] },
+  // Bruxelles ↔ Paris (Eurostar / TGV)
+  { operators: ['Eurostar', 'SNCF Voyageurs', 'TGV INOUI', 'SNCB / NMBS'], cities: ['Bruxelles', 'Brussel', 'Paris'] },
+  // Bruxelles ↔ Luxembourg (IC)
+  { operators: ['SNCB / NMBS', 'CFL'], cities: ['Bruxelles', 'Brussel', 'Namur', 'Luxembourg'] },
+  // Netherlands domestic long distance
+  { operators: ['NS'], cities: ['Amsterdam', 'Utrecht', 'Rotterdam', 'Den Haag', 'Eindhoven', 'Groningen', 'Arnhem', 'Nijmegen', 'Maastricht', 'Zwolle', 'Breda', 'Tilburg', 'Haarlem', 'Leiden', 'Delft', 'Dordrecht', 'Roosendaal', 'Almere', 'Amersfoort', 'Enschede', 'Leeuwarden', 'Assen', 'Venlo', 'Heerlen', 'Sittard', 'Alkmaar', 'Hoorn', 'Zaandam', 'Schiphol', 'Helmond', 'Deventer', 'Zutphen', 'Apeldoorn', 'Hengelo', 'Gouda', 'Woerden', 'Ede'] },
+  // Netherlands regional operators
+  { operators: ['Arriva Nederland'], cities: ['Groningen', 'Leeuwarden', 'Assen', 'Maastricht', 'Heerlen', 'Sittard', 'Zutphen', 'Venlo', 'Roermond', 'Winterswijk'] },
+  { operators: ['Keolis Nederland'], cities: ['Zwolle', 'Enschede', 'Hengelo', 'Almere', 'Amersfoort', 'Ede'] },
+  { operators: ['Qbuzz'], cities: ['Groningen', 'Leeuwarden', 'Dordrecht', 'Utrecht', 'Gouda'] },
+  // Belgium domestic
+  { operators: ['SNCB / NMBS'], cities: ['Bruxelles', 'Brussel', 'Antwerpen', 'Gent', 'Brugge', 'Leuven', 'Mechelen', 'Namur', 'Liège', 'Charleroi', 'Mons', 'Kortrijk', 'Oostende', 'Hasselt', 'Luxembourg'] },
+  // Paris ↔ Lyon ↔ Marseille ↔ Nice
+  { operators: ['SNCF Voyageurs', 'TGV INOUI', 'OUIGO', 'Intercités'], cities: ['Paris', 'Dijon', 'Lyon', 'Avignon', 'Aix-en-Provence', 'Marseille', 'Toulon', 'Cannes', 'Nice', 'Monaco'] },
+  // Paris ↔ Bordeaux / Nantes / Rennes / Strasbourg
+  { operators: ['SNCF Voyageurs', 'TGV INOUI', 'Intercités', 'OUIGO'], cities: ['Paris', 'Bordeaux', 'Toulouse', 'Nantes', 'Rennes', 'Le Mans', 'Angers', 'Tours', 'Poitiers', 'Strasbourg', 'Reims', 'Lille', 'Montpellier', 'Perpignan', 'Grenoble', 'Annecy'] },
+  // Paris ↔ Chambéry ↔ Torino ↔ Milano (TGV / Frecciarossa)
+  { operators: ['SNCF Voyageurs', 'TGV INOUI', 'Trenitalia'], cities: ['Paris', 'Dijon', 'Lyon', 'Chambéry', 'Modane', 'Torino', 'Milano'] },
+  // Paris ↔ Strasbourg ↔ Stuttgart ↔ München (TGV / ICE)
+  { operators: ['SNCF Voyageurs', 'TGV INOUI', 'DB Fernverkehr', 'Deutsche Bahn'], cities: ['Paris', 'Strasbourg', 'Karlsruhe', 'Stuttgart', 'Ulm', 'Augsburg', 'München'] },
+  // Paris ↔ Basel / Zürich / Genève / Lausanne (TGV Lyria)
+  { operators: ['SNCF Voyageurs', 'TGV Lyria', 'SBB'], cities: ['Paris', 'Dijon', 'Mulhouse', 'Basel', 'Zürich', 'Genève', 'Lausanne', 'Bern'] },
+  // Zürich ↔ Basel ↔ Milano ↔ Bologna ↔ Roma (EC / Frecciarossa)
+  { operators: ['SBB', 'Trenitalia', 'DB Fernverkehr'], cities: ['Zürich', 'Basel', 'Lugano', 'Chiasso', 'Como', 'Milano', 'Bologna', 'Firenze', 'Roma', 'Genova'] },
+  // München ↔ Innsbruck ↔ Verona ↔ Bologna ↔ Roma (Brenner EC)
+  { operators: ['DB Fernverkehr', 'Deutsche Bahn', 'ÖBB', 'Trenitalia'], cities: ['München', 'Rosenheim', 'Kufstein', 'Innsbruck', 'Brennero', 'Bolzano', 'Trento', 'Verona', 'Bologna', 'Firenze', 'Roma', 'Rovereto'] },
+  // Paris ↔ Barcelona ↔ Madrid (TGV / AVE)
+  { operators: ['SNCF Voyageurs', 'TGV INOUI', 'Renfe', 'Renfe AVE'], cities: ['Paris', 'Lyon', 'Nîmes', 'Montpellier', 'Perpignan', 'Girona', 'Barcelona', 'Zaragoza', 'Madrid'] },
+  // Germany long distance (ICE / IC network)
+  { operators: ['DB Fernverkehr', 'Deutsche Bahn'], cities: ['Frankfurt', 'Köln', 'Düsseldorf', 'Duisburg', 'Essen', 'Dortmund', 'Hannover', 'Hamburg', 'Bremen', 'Berlin', 'Leipzig', 'Dresden', 'Nürnberg', 'Stuttgart', 'München', 'Karlsruhe', 'Mannheim', 'Kassel', 'Erfurt', 'Halle', 'Freiburg', 'Ulm', 'Augsburg', 'Würzburg', 'Bonn', 'Kiel', 'Lübeck', 'Rostock', 'Oldenburg', 'Saarbrücken', 'Regensburg', 'Lindau', 'Konstanz', 'Garmisch-Partenkirchen', 'Münster', 'Bielefeld', 'Osnabrück', 'Braunschweig', 'Magdeburg', 'Potsdam', 'Jena', 'Gera', 'Chemnitz', 'Zwickau', 'Heidelberg', 'Trier', 'Aachen'] },
+  // Ruhr ↔ Berlin (Flixtrain)
+  { operators: ['Flixtrain'], cities: ['Köln', 'Berlin', 'Hamburg', 'Leipzig', 'Dresden', 'Frankfurt', 'Stuttgart', 'Hannover', 'Düsseldorf', 'Bremen'] },
+  // Wien ↔ Salzburg ↔ Innsbruck ↔ Zürich (Railjet)
+  { operators: ['ÖBB', 'SBB'], cities: ['Wien', 'Linz', 'Salzburg', 'Innsbruck', 'Feldkirch', 'Bregenz', 'Zürich', 'Basel', 'St. Gallen', 'Buchs'] },
+  // Austria domestic
+  { operators: ['ÖBB', 'WESTbahn'], cities: ['Wien', 'Graz', 'Klagenfurt', 'Villach', 'Leoben', 'Wiener Neustadt', 'Linz', 'Salzburg', 'Innsbruck', 'St. Pölten', 'Wels', 'Steyr', 'Bruck an der Mur'] },
+  // Wien ↔ München ↔ Frankfurt ↔ Köln ↔ Hamburg (Railjet / ICE)
+  { operators: ['ÖBB', 'DB Fernverkehr', 'Deutsche Bahn'], cities: ['Wien', 'Salzburg', 'München', 'Nürnberg', 'Frankfurt', 'Köln', 'Düsseldorf', 'Hamburg', 'Berlin', 'Stuttgart', 'Karlsruhe'] },
+  // Wien ↔ Praha ↔ Dresden ↔ Berlin (EC / Railjet)
+  { operators: ['ÖBB', 'ČD', 'DB Fernverkehr', 'Deutsche Bahn', 'RegioJet'], cities: ['Wien', 'Brno', 'Praha', 'Pardubice', 'Dresden', 'Berlin'] },
+  // Wien ↔ Budapest (Railjet / EC)
+  { operators: ['ÖBB', 'MÁV', 'RegioJet'], cities: ['Wien', 'Győr', 'Budapest'] },
+  // Budapest ↔ Bratislava ↔ Praha ↔ Warszawa
+  { operators: ['MÁV', 'ZSSK', 'ČD', 'RegioJet', 'PKP Intercity'], cities: ['Budapest', 'Bratislava', 'Košice', 'Brno', 'Praha', 'Warszawa', 'Kraków'] },
+  // Budapest ↔ Beograd ↔ Novi Sad
+  { operators: ['MÁV', 'Srbija Voz'], cities: ['Budapest', 'Szeged', 'Subotica', 'Novi Sad', 'Beograd'] },
+  // Budapest ↔ Zagreb ↔ Ljubljana
+  { operators: ['MÁV', 'HŽPP', 'SŽ'], cities: ['Budapest', 'Zagreb', 'Ljubljana', 'Maribor'] },
+  // Croatia domestic long distance
+  { operators: ['HŽPP'], cities: ['Zagreb', 'Split', 'Rijeka', 'Karlovac', 'Knin', 'Osijek', 'Zadar'] },
+  // Ljubljana ↔ Trieste ↔ Venezia (SŽ / Trenitalia)
+  { operators: ['SŽ', 'Trenitalia', 'ÖBB'], cities: ['Ljubljana', 'Trieste', 'Venezia', 'Villach', 'Maribor', 'Udine'] },
+  // București ↔ Budapest
+  { operators: ['CFR Călători', 'MÁV'], cities: ['București', 'Brașov', 'Cluj-Napoca', 'Oradea', 'Arad', 'Timișoara', 'Budapest', 'Iași', 'Constanța'] },
+  // Sofia ↔ București ↔ Istanbul / Thessaloniki
+  { operators: ['BDŽ', 'CFR Călători', 'Hellenic Train', 'TCDD Taşımacılık'], cities: ['Sofia', 'Plovdiv', 'Varna', 'Burgas', 'Ruse', 'București', 'Istanbul', 'Ankara', 'Thessaloniki', 'Athina', 'Larissa'] },
+  // Germany ↔ København (EC)
+  { operators: ['DB Fernverkehr', 'Deutsche Bahn', 'DSB'], cities: ['Hamburg', 'Flensburg', 'Kolding', 'Odense', 'København', 'Aarhus', 'Aalborg'] },
+  // København ↔ Malmö ↔ Göteborg ↔ Stockholm ↔ Oslo
+  { operators: ['DSB', 'SJ', 'Öresundståg', 'Snälltåget', 'MTRX', 'Vy'], cities: ['København', 'Malmö', 'Lund', 'Göteborg', 'Stockholm', 'Uppsala', 'Oslo', 'Bergen', 'Trondheim', 'Stavanger', 'Kristiansand'] },
+  // Sweden / Norway long distance
+  { operators: ['SJ', 'Snälltåget', 'Vy Tåg', 'MTRX', 'Arlanda Express', 'Go-Ahead Nordic'], cities: ['Stockholm', 'Malmö', 'Göteborg', 'Uppsala', 'Sundsvall', 'Umeå', 'Östersund', 'Åre', 'Kiruna', 'Arlanda', 'Oslo', 'Bergen', 'Trondheim', 'Stavanger', 'Bodø'] },
+  // Finland long distance
+  { operators: ['VR'], cities: ['Helsinki', 'Tampere', 'Turku', 'Oulu', 'Rovaniemi', 'Kuopio', 'Jyväskylä', 'Lahti', 'Joensuu', 'Vaasa', 'Kajaani', 'Kokkola', 'Seinäjoki', 'Kouvola', 'Lappeenranta', 'Mikkeli'] },
+  // Berlin ↔ Warszawa ↔ Gdańsk / Kraków (EC)
+  { operators: ['PKP Intercity', 'DB Fernverkehr', 'Deutsche Bahn'], cities: ['Berlin', 'Frankfurt (Oder)', 'Poznań', 'Warszawa', 'Gdańsk', 'Gdynia', 'Kraków', 'Wrocław', 'Katowice', 'Łódź', 'Szczecin', 'Bydgoszcz', 'Lublin', 'Rzeszów'] },
+  // Warszawa ↔ Ostrava ↔ Praha (EC / private operators)
+  { operators: ['PKP Intercity', 'ČD', 'Leo Express', 'RegioJet'], cities: ['Warszawa', 'Katowice', 'Kraków', 'Ostrava', 'Brno', 'Praha', 'Wrocław', 'Bohumín', 'Olomouc', 'Plzeň'] },
+  // Warszawa ↔ Vilnius ↔ Rīga ↔ Tallinn
+  { operators: ['PKP Intercity', 'LTG Link', 'Pasažieru vilciens', 'Elron'], cities: ['Warszawa', 'Białystok', 'Kaunas', 'Vilnius', 'Rīga', 'Tartu', 'Tallinn'] },
+  // London ↔ Edinburgh ↔ Glasgow
+  { operators: ['LNER', 'Avanti West Coast', 'ScotRail', 'CrossCountry', 'Caledonian Sleeper', 'Grand Central', 'Lumo', 'TransPennine Express'], cities: ['London', 'York', 'Leeds', 'Newcastle', 'Edinburgh', 'Glasgow', 'Aberdeen', 'Inverness', 'Dundee', 'Stirling', 'Durham'] },
+  // London ↔ Birmingham ↔ Manchester ↔ Liverpool
+  { operators: ['Avanti West Coast', 'West Midlands Trains', 'CrossCountry', 'Transport for Wales', 'TransPennine Express'], cities: ['London', 'Watford', 'Milton Keynes', 'Birmingham', 'Coventry', 'Stoke-on-Trent', 'Manchester', 'Liverpool', 'Preston', 'Lancaster', 'Carlisle', 'Chester', 'Crewe', 'Wolverhampton'] },
+  // London ↔ Bristol ↔ Cardiff ↔ Swansea
+  { operators: ['Great Western Railway', 'Transport for Wales'], cities: ['London', 'Reading', 'Swindon', 'Bristol', 'Bath', 'Newport', 'Cardiff', 'Swansea', 'Carmarthen', 'Oxford', 'Worcester', 'Hereford'] },
+  // London ↔ Cambridge ↔ Norwich
+  { operators: ['Greater Anglia', 'Stansted Express'], cities: ['London', 'Cambridge', 'Norwich', 'Ipswich', 'Colchester', 'Chelmsford', 'Southend', 'Stansted'] },
+  // London ↔ Midlands ↔ North (East Midlands / CrossCountry)
+  { operators: ['East Midlands Railway', 'CrossCountry', 'Northern', 'Hull Trains', 'Grand Central'], cities: ['London', 'Leicester', 'Nottingham', 'Derby', 'Sheffield', 'Leeds', 'Manchester', 'Hull', 'Doncaster', 'Lincoln'] },
+  // Ireland (Dublin ↔ Belfast / Cork / Galway / Limerick)
+  { operators: ['Iarnród Éireann', 'Translink NI Railways'], cities: ['Dublin', 'Belfast', 'Cork', 'Galway', 'Limerick', 'Waterford', 'Sligo', 'Wexford', 'Portadown', 'Newry'] },
+  // Portugal long distance
+  { operators: ['CP'], cities: ['Lisboa', 'Porto', 'Coimbra', 'Faro', 'Braga', 'Aveiro', 'Guimarães', 'Évora', 'Beja', 'Fátima', 'Caldas da Rainha', 'Leiria', 'Setúbal', 'Viana do Castelo'] },
+  // Spain long distance
+  { operators: ['Renfe', 'Renfe AVE', 'Iryo', 'Ouigo España', 'Renfe Avlo'], cities: ['Madrid', 'Barcelona', 'Valencia', 'Sevilla', 'Málaga', 'Alicante', 'Zaragoza', 'Córdoba', 'Bilbao', 'San Sebastián', 'Valladolid', 'León', 'Santiago de Compostela', 'A Coruña', 'Girona', 'Figueres', 'Murcia', 'Granada', 'Toledo', 'Segovia', 'Pamplona', 'Irun', 'Cádiz', 'Almería'] },
+  // Italy long distance
+  { operators: ['Trenitalia', 'Italo'], cities: ['Roma', 'Milano', 'Napoli', 'Torino', 'Bologna', 'Firenze', 'Venezia', 'Verona', 'Genova', 'Bari', 'Palermo', 'Catania', 'Trieste', 'Bolzano', 'Trento', 'Perugia', 'Salerno', 'Reggio Calabria', 'Padova', 'Pescara', 'Ancona', 'Udine', 'Bergamo', 'Brescia', 'Parma', 'Modena', 'La Spezia', 'Livorno', 'Pisa'] },
+  // Nordics ↔ Germany (night trains)
+  { operators: ['SJ', 'Snälltåget'], cities: ['Stockholm', 'Malmö', 'København', 'Hamburg', 'Berlin', 'Odense'] },
+];
+
+// Station names carry prefixes and suffixes ("Amsterdam Centraal", "Paris Gare
+// de Lyon"), so each city is matched on whole words rather than on a substring.
+const stationWords = (value) => norm(value).replace(/[^a-z0-9]+/g, ' ').trim();
+
+const RAIL_CITY_OPERATORS = (() => {
+  const map = new Map();
+  RAIL_CORRIDORS.forEach(({ operators, cities }) => {
+    cities.forEach((city) => {
+      const cityKey = stationWords(city);
+      if (!cityKey) return;
+      if (!map.has(cityKey)) map.set(cityKey, new Set());
+      operators.forEach((operator) => map.get(cityKey).add(operator));
+    });
+  });
+  return map;
+})();
+
+const operatorsStoppingAt = (stationName) => {
+  const station = stationWords(stationName);
+  const found = new Set();
+  RAIL_CITY_OPERATORS.forEach((operators, city) => {
+    const stopsHere =
+      station === city || station.startsWith(`${city} `) || station.endsWith(` ${city}`) || station.includes(` ${city} `);
+    if (stopsHere) operators.forEach((operator) => found.add(operator));
+  });
+  return found;
+};
+
 // ── public API ─────────────────────────────────────────────────────────────
 
 /**
@@ -492,9 +634,14 @@ export function getCarriersForPlace(travelType, place) {
 
   if (travelType === 'train') {
     const station = norm(place.name);
+    const stopping = operatorsStoppingAt(place.name);
     const serving = RAIL_OPERATORS
-      .filter((op) => (op.hubs || []).some((hub) => norm(hub) === station))
-      .map((op) => ({ name: op.company_name, country: op.country }));
+      .filter(
+        (op) =>
+          (op.hubs || []).some((hub) => norm(hub) === station) ||
+          stopping.has(op.company_name)
+      )
+      .map((op) => ({ name: op.company_name, country: op.country, description: op.description }));
     return serving.length ? serving : all;
   }
 

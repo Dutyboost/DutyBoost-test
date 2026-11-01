@@ -27,7 +27,8 @@ export default function CarrierPicker({ options, value, onChange, label, placeho
       .filter(
         (o) =>
           o.name.toLowerCase().includes(q) ||
-          (o.country || "").toLowerCase().includes(q)
+          (o.country || "").toLowerCase().includes(q) ||
+          (o.description || "").toLowerCase().includes(q)
       )
       .slice(0, 8);
   }, [options, value]);
@@ -68,8 +69,10 @@ export default function CarrierPicker({ options, value, onChange, label, placeho
               >
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium truncate">{o.name}</p>
-                  {o.country && (
-                    <p className="text-xs text-muted-foreground">{o.country}</p>
+                  {(o.description || o.country) && (
+                    <p className="text-xs text-muted-foreground truncate">
+                      {o.description || o.country}
+                    </p>
                   )}
                 </div>
               </button>
