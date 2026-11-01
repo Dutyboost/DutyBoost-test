@@ -25,7 +25,11 @@
     },
     "airport": {
       "type": "string",
-      "title": "Airport / Port / Station"
+      "title": "Departure / Pick-up Airport, Port or Station"
+    },
+    "return_location": {
+      "type": "string",
+      "title": "Return Airport (Car Rental)"
     },
     "status": {
       "type": "string",
@@ -60,7 +64,7 @@
     },
     "airline": {
       "type": "string",
-      "title": "Carrier"
+      "title": "Carrier (Airline, Cruise Line, Rail / Coach Operator, Rental Company, Hotel Chain)"
     },
     "departure_date": {
       "type": "string",

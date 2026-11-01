@@ -37,6 +37,7 @@ export default function ClaimDutyCredit() {
   const [airport, setAirport] = useState(preselectedAirport || '');
   // The directory location picked, or null for a manually entered stop.
   const [selectedPlace, setSelectedPlace] = useState(null);
+  const [returnLocation, setReturnLocation] = useState('');
   const [travelerEmail, setTravelerEmail] = useState('');
   const [flightNumber, setFlightNumber] = useState('');
   const [bookingRef, setBookingRef] = useState('');
@@ -138,6 +139,7 @@ export default function ClaimDutyCredit() {
     setParticipatingStores([]);
     setAirportLive(false);
     setAirline('');
+    setReturnLocation('');
     setFlightNumber('');
     setBookingRef('');
     setError('');
@@ -147,6 +149,7 @@ export default function ClaimDutyCredit() {
   // previous one, so the location is cleared along with it.
   const handleCarrierChange = (value) => {
     setAirline(value);
+    setReturnLocation('');
     setSelectedPlace(null);
     setAirport('');
     setAirportCode('');
@@ -185,8 +188,20 @@ export default function ClaimDutyCredit() {
     }
   };
 
+  const handleReturnSelect = (place) => {
+    if (typeof place === 'string') {
+      setReturnLocation(place);
+      return;
+    }
+    setReturnLocation(place.city ? `${place.name}, ${place.city}` : place.name);
+  };
+
   const handleClaim = async () => {
     if (!airport || !airline || !bookingRef || !departureDate) {
+      setError(tr('error_missing_fields'));
+      return;
+    }
+    if (travelType === 'car_rental' && !returnLocation) {
       setError(tr('error_missing_fields'));
       return;
     }
@@ -207,6 +222,7 @@ export default function ClaimDutyCredit() {
       const response = await base44.functions.invoke('generatePublicDutyCredit', {
         travel_type: travelType,
         airport,
+        return_location: travelType === 'car_rental' ? (returnLocation || undefined) : undefined,
         airline: airline || undefined,
         departure_date: departureDate || undefined,
         ref: refCode || undefined,
@@ -326,6 +342,17 @@ export default function ClaimDutyCredit() {
                   placeholder={tr(`verticals.${travelType}.location_placeholder`)}
                   noResultsText={tr(`verticals.${travelType}.location_no_results`)}
                 />
+
+                {travelType === 'car_rental' && (
+                  <LocationPicker
+                    options={locationOptions}
+                    value={returnLocation}
+                    onSelect={handleReturnSelect}
+                    label={tr('verticals.car_rental.return_label')}
+                    placeholder={tr('verticals.car_rental.return_placeholder')}
+                    noResultsText={tr('verticals.car_rental.location_no_results')}
+                  />
+                )}
               </div>
 
               <div className="space-y-4 pt-2 border-t border-border">
@@ -422,7 +449,7 @@ export default function ClaimDutyCredit() {
 
               <Button
                 onClick={handleClaim}
-                disabled={!airport || !airline || !bookingRef || !departureDate || (travelType === 'flight' && (!flightNumber || !flightNumberValid || !bookingRefValid)) || (isPartnerFlow && !travelerEmail)}
+                disabled={!airport || !airline || !bookingRef || !departureDate || (travelType === 'car_rental' && !returnLocation) || (travelType === 'flight' && (!flightNumber || !flightNumberValid || !bookingRefValid)) || (isPartnerFlow && !travelerEmail)}
                 size="lg"
                 className="w-full h-14 text-base gap-2"
               >
