@@ -17,7 +17,7 @@ import LocationPicker from "../components/claim-duty-credit/LocationPicker";
 import CarrierPicker from "../components/claim-duty-credit/CarrierPicker";
 import { TRAVEL_TYPES } from "../data/travelTypes";
 import { CARRIERS_BY_TYPE } from "../data/carriers";
-import { getPlacesForCarrier } from "../data/carrierCoverage";
+import { getPlacesForCarrier } from "@/data/carrierCoverage";
 import { getAirlineFormat } from "../data/airlineFormats";
 import { getCurrencyByCountry } from "../data/countryCurrencies";
 import { fmtMoney } from "../utils/formatNumber";
@@ -35,8 +35,7 @@ export default function ClaimDutyCredit() {
   const [step, setStep] = useState('claim'); // 'claim' | 'details' | 'generating' | 'success' | 'exists'
   const [travelType, setTravelType] = useState('flight');
   const [airport, setAirport] = useState(preselectedAirport || '');
-  // The hub picked from a list (null while the traveller types a free-text
-  // location) — carriers are narrowed by the location actually selected.
+  // The directory location picked, or null for a manually entered stop.
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [travelerEmail, setTravelerEmail] = useState('');
   const [flightNumber, setFlightNumber] = useState('');
@@ -61,7 +60,7 @@ export default function ClaimDutyCredit() {
 
   // The carrier is picked first, so its own full directory is offered…
   const carrierOptions = useMemo(() => CARRIERS_BY_TYPE[travelType] || [], [travelType]);
-  // …and the departure list then narrows to the places that carrier serves.
+  // Coverage hints order suggestions; the full location directory stays searchable.
   const locationOptions = useMemo(
     () => (travelConfig.options ? getPlacesForCarrier(travelType, airline, travelConfig.options) : null),
     [travelType, airline, travelConfig.options]

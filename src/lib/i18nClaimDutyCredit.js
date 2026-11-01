@@ -7,6 +7,8 @@ export const claimDutyCreditStrings = {
     subtitle: 'Claim your <span class="text-primary font-semibold">DutyCredit</span> in seconds.',
     description: 'No account. No registration. No boarding pass upload. Just one click and your live travel shopping credit is ready.',
     travel_type_label: 'Select your way of travel',
+    location_use_custom: 'Use “{{location}}” as an unlisted location',
+    locations_more: 'Show more locations',
     verticals: {
       flight: {
         name: 'Plane',
@@ -162,6 +164,8 @@ export const claimDutyCreditStrings = {
     subtitle: 'Claim uw <span class="text-primary font-semibold">DutyCredit</span> in seconden.',
     description: 'Geen account. Geen registratie. Geen instapkaart uploaden. Eén klik en uw live winkelsaldo voor onderweg is klaar.',
     travel_type_label: 'Selecteer uw manier van reizen',
+    location_use_custom: 'Gebruik “{{location}}” als niet-vermelde locatie',
+    locations_more: 'Meer locaties tonen',
     verticals: {
       flight: {
         name: 'Vliegtuig',
@@ -317,6 +321,8 @@ export const claimDutyCreditStrings = {
     subtitle: 'Réclamez votre <span class="text-primary font-semibold">DutyCredit</span> en quelques secondes.',
     description: 'Pas de compte. Pas d\'inscription. Pas de carte d\'embarquement à télécharger. Un seul clic et votre crédit d\'achat voyage est prêt.',
     travel_type_label: 'Sélectionnez votre mode de voyage',
+    location_use_custom: 'Utiliser « {{location}} » comme lieu non répertorié',
+    locations_more: 'Afficher plus de lieux',
     verticals: {
       flight: {
         name: 'Avion',
@@ -472,6 +478,8 @@ export const claimDutyCreditStrings = {
     subtitle: 'Beanspruchen Sie Ihr <span class="text-primary font-semibold">DutyCredit</span> in Sekunden.',
     description: 'Kein Konto. Keine Registrierung. Kein Boardingpass-Upload. Ein Klick und Ihr Live-Einkaufsguthaben für unterwegs ist bereit.',
     travel_type_label: 'Wählen Sie Ihre Reiseart',
+    location_use_custom: '„{{location}}“ als nicht gelisteten Ort verwenden',
+    locations_more: 'Weitere Orte anzeigen',
     verticals: {
       flight: {
         name: 'Flugzeug',
@@ -627,6 +635,8 @@ export const claimDutyCreditStrings = {
     subtitle: 'Reclama tu <span class="text-primary font-semibold">DutyCredit</span> en segundos.',
     description: 'Sin cuenta. Sin registro. Sin subir tu tarjeta de embarque. Un solo clic y tu crédito de compras de viaje está listo.',
     travel_type_label: 'Selecciona tu forma de viajar',
+    location_use_custom: 'Usar «{{location}}» como ubicación no incluida',
+    locations_more: 'Mostrar más ubicaciones',
     verticals: {
       flight: {
         name: 'Avión',
@@ -782,6 +792,8 @@ export const claimDutyCreditStrings = {
     subtitle: 'Richiedi il tuo <span class="text-primary font-semibold">DutyCredit</span> in pochi secondi.',
     description: 'Nessun account. Nessuna registrazione. Nessun upload della carta d\'imbarco. Un solo clic e il tuo credito di acquisto da viaggio è pronto.',
     travel_type_label: 'Seleziona il tuo modo di viaggiare',
+    location_use_custom: 'Usa “{{location}}” come località non in elenco',
+    locations_more: 'Mostra altre località',
     verticals: {
       flight: {
         name: 'Aereo',
@@ -937,6 +949,8 @@ export const claimDutyCreditStrings = {
     subtitle: 'Reclame o seu <span class="text-primary font-semibold">DutyCredit</span> em segundos.',
     description: 'Sem conta. Sem registo. Sem carregar cartão de embarque. Um clique e o seu crédito de compras de viagem está pronto.',
     travel_type_label: 'Selecione a sua forma de viajar',
+    location_use_custom: 'Usar «{{location}}» como local não listado',
+    locations_more: 'Mostrar mais locais',
     verticals: {
       flight: {
         name: 'Avião',

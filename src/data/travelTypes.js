@@ -34,7 +34,8 @@ export const RAIL_STATIONS = [...stationMap.values()].sort((a, b) =>
   a.name.localeCompare(b.name)
 );
 
-// `options` present = searchable hub list; absent = free-text location.
+// `options` present = searchable directory with manual entry for unlisted stops.
+// These directories are suggestions, not exhaustive carrier route networks.
 export const TRAVEL_TYPES = [
   { id: "flight", icon: Plane, options: DEPARTURE_AIRPORTS },
   { id: "cruise", icon: Ship, options: CRUISE_PORTS },

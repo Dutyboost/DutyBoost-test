@@ -1,16 +1,10 @@
 /**
- * Which carriers actually operate at which location.
+ * Carrier/location suggestions based on partial hub, corridor, country and
+ * region metadata. These are not complete route or timetable datasets.
  *
- * Used by the traveller claim form so that picking a departure port, station or
- * airport narrows the carrier list to the companies that really serve it:
- *  - train: operators hubbed at the station, plus every operator calling at the
- *    city the station serves (a train can be boarded at any stop on its route)
- *  - cruise / coach / car rental: region or country coverage per carrier
- *  - flight: airlines based at (or hubbed at) the chosen airport, else carriers
- *    from the same part of the world
- *
- * A location we have no coverage data for falls back to the full carrier list,
- * and every carrier field still accepts free text.
+ * The carrier-first location picker uses this metadata ONLY to order
+ * suggestions. Every directory location stays available, including foreign
+ * departures, arrivals, intermediate stops, ports of call and return points.
  */
 
 import { AIRLINES } from './airlines';
@@ -688,12 +682,8 @@ export function getCarriersForPlace(travelType, place) {
   return all;
 }
 
-/**
- * The departure points a chosen carrier actually serves, for the claim form's
- * carrier-first flow: airports, ports or stations narrow to the carrier picked
- * first. A carrier we have no coverage for returns the full list.
- */
-export function getPlacesForCarrier(travelType, carrierName, places) {
+/** Partial coverage hints for ordering suggestions, never an exclusion list. */
+function getPreferredPlacesForCarrier(travelType, carrierName, places) {
   const all = places || [];
   const name = String(carrierName || '').trim();
   if (!name || !all.length) return all;
@@ -762,6 +752,18 @@ export function getPlacesForCarrier(travelType, carrierName, places) {
   }
 
   return all;
+}
+
+/**
+ * Keep the full directory searchable for every carrier. A missing location in
+ * our partial coverage metadata means "unknown", not "not served".
+ * Both ends of a journey and intermediate stops must remain selectable.
+ */
+export function getPlacesForCarrier(travelType, carrierName, places) {
+  const all = places || [];
+  const preferred = getPreferredPlacesForCarrier(travelType, carrierName, all);
+  const preferredSet = new Set(preferred);
+  return [...preferred, ...all.filter((place) => !preferredSet.has(place))];
 }
 
 /**
