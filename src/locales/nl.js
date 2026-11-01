@@ -22,7 +22,7 @@ export default {
     hero: {
        title_1: "Een prestatiegerichte oplossing voor klantacquisitie voor de wereldwijde reissector",
        title_2: '',
-       subtitle_1: "Reishubs, reisretailers en reispartners verdienen allemaal aan dezelfde transactie van de reiziger. Eén gevalideerde aankoop aan de kassa betaalt elke deelnemer in die reis — en de reiziger bespaart erop.",
+       subtitle_1: "Reizigers, reispartners, reisretailers en reishubs worden allemaal betaald uit dezelfde gevalideerde aankoop — één reizigerstransactie die elke deelnemer erin financiert.",
        subtitle_2: '',
        subtitle_3: '',
        tagline: '',

@@ -23,7 +23,7 @@ export default {
     hero: {
       title_1: "Eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche",
       title_2: '',
-      subtitle_1: "Travel Hubs, Reise-Einzelhändler und Reisepartner verdienen alle am selben Umsatz des Reisenden. Ein validierter Einkauf an der Kasse bezahlt jeden Teilnehmer dieser Reise — und der Reisende spart dabei.",
+      subtitle_1: "Reisende, Reisepartner, Reise-Einzelhändler und Travel Hubs werden alle aus demselben validierten Einkauf bezahlt — eine Transaktion des Reisenden, die jeden Teilnehmer daran finanziert.",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',

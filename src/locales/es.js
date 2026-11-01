@@ -22,7 +22,7 @@ export default {
     hero: {
        title_1: "Una Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector de Viajes Global",
        title_2: '',
-       subtitle_1: "Los hubs de viaje, los minoristas de viaje y los socios de viaje ganan todos con la misma transacción del pasajero. Una compra validada en caja paga a cada participante de ese viaje — y el pasajero ahorra en ella.",
+       subtitle_1: "Los pasajeros, los socios de viaje, los minoristas de viaje y los hubs de viaje cobran todos de la misma compra validada — una sola transacción del pasajero que financia a cada participante en ella.",
    subtitle_2: '',
    subtitle_3: '',
    tagline: '',

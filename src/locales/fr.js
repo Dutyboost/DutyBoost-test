@@ -23,7 +23,7 @@ export default {
     hero: {
       title_1: "La solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
       title_2: '',
-      subtitle_1: "Les hubs de voyage, les détaillants du voyage et les partenaires de voyage gagnent tous sur la même transaction du voyageur. Un achat validé en caisse paie chaque participant de ce parcours — et le voyageur y gagne une remise.",
+      subtitle_1: "Les voyageurs, les partenaires de voyage, les détaillants du voyage et les hubs de voyage sont tous rémunérés par le même achat validé — une seule transaction du voyageur qui finance chacun de ses participants.",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',

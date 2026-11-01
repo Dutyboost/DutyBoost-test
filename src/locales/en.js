@@ -28,7 +28,7 @@ export default {
     hero: {
       title_1: 'A Performance-based Customer Acquisition Solution for Global Travel',
       title_2: '',
-      subtitle_1: "Travel hubs, travel retailers and travel partners, all earning from the same traveller transaction. One validated purchase at the till pays every participant in that journey — and the traveller saves on it.",
+      subtitle_1: "Travellers, travel partners, travel retailers and travel hubs are all paid out of the same validated purchase — one traveller transaction that funds every participant in it.",
       subtitle_2: "",
       subtitle_3: "",
       tagline: "",
