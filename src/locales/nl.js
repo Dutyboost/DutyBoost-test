@@ -29,7 +29,7 @@ export default {
      },
     ecosystem: {
       title: 'Eén commercieel ecosysteem, iedereen wint op dezelfde transactie',
-      subtitle: 'Reizigers, reispartners, reisretailers en reishubs worden allemaal betaald uit dezelfde gevalideerde aankoop — één reizigerstransactie waaruit elke deelnemer wordt betaald.',
+      subtitle: 'Reizigers, reispartners, reisretailers en reishubs winnen allemaal op dezelfde gevalideerde aankoop — één reizigerstransactie waaruit elke deelnemer voordeel haalt.',
       platform_fee_note: 'Elke inwisseling draagt het hele ecosysteem: één prestatiegebonden fee wordt gedeeld tussen de deelnemers aan die transactie en DutyBoost — geen voorafgaande kosten en niets te betalen als er geen verkoop plaatsvindt.',
     },
     oval: {

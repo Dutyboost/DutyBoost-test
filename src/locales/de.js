@@ -30,7 +30,7 @@ export default {
     },
     ecosystem: {
       title: 'Ein kommerzielles Ökosystem, alle gewinnen an derselben Transaktion',
-      subtitle: 'Reisende, Reisepartner, Reise-Einzelhändler und Travel Hubs werden alle aus demselben validierten Einkauf bezahlt — eine Reisendentransaktion, die jeden Teilnehmer darin trägt.',
+      subtitle: 'Reisende, Reisepartner, Reise-Einzelhändler und Travel Hubs gewinnen alle an demselben validierten Einkauf — eine Reisendentransaktion, von der jeder Teilnehmer profitiert.',
       platform_fee_note: 'Jede Einlösung trägt das gesamte Ökosystem: Eine einzige leistungsbasierte Gebühr wird zwischen den Teilnehmern dieser Transaktion und DutyBoost geteilt — ohne Vorabkosten und ohne Zahlung, wenn kein Verkauf stattfindet.',
     },
     oval: {

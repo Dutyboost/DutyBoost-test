@@ -30,7 +30,7 @@ export default {
     },
     ecosystem: {
       title: 'Un écosystème commercial, tous gagnants sur la même transaction',
-      subtitle: 'Les voyageurs, les partenaires de voyage, les détaillants du voyage et les hubs de voyage sont tous payés à partir du même achat validé — une seule transaction de voyageur qui rémunère chaque participant.',
+      subtitle: 'Les voyageurs, les partenaires de voyage, les détaillants du voyage et les hubs de voyage gagnent tous sur le même achat validé — une seule transaction de voyageur qui profite à chaque participant.',
       platform_fee_note: "Chaque utilisation alimente tout l'écosystème : une seule commission basée sur la performance est partagée entre les participants de cette transaction et DutyBoost — sans coût initial et sans rien à payer si aucune vente n'a lieu.",
     },
     oval: {
