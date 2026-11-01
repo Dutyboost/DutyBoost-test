@@ -30,6 +30,7 @@ export default function LocationPicker({ options, value, onSelect, label, placeh
         (o) =>
           o.name.toLowerCase().includes(q) ||
           (o.country || "").toLowerCase().includes(q) ||
+          (o.city || "").toLowerCase().includes(q) ||
           (o.code || "").toLowerCase().includes(q)
       )
       .slice(0, 8);
@@ -93,7 +94,11 @@ export default function LocationPicker({ options, value, onSelect, label, placeh
                   <MapPin className="w-4 h-4 text-muted-foreground shrink-0" />
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium truncate">{o.name}</p>
-                    {o.country && <p className="text-xs text-muted-foreground">{o.country}</p>}
+                    {(o.city || o.country) && (
+                      <p className="text-xs text-muted-foreground">
+                        {[o.city, o.country].filter(Boolean).join(", ")}
+                      </p>
+                    )}
                   </div>
                   {o.code && (
                     <span className="text-sm font-bold text-primary shrink-0">{o.code}</span>

@@ -6,6 +6,16 @@
 import { Plane, Ship, TrainFront, Bus, Car, BedDouble } from "lucide-react";
 import { COUNTRY_TERMINALS } from "./cruiseTerminals";
 import { RAIL_OPERATORS } from "./railOperators";
+import { COACH_STATIONS } from "./coachStations";
+import { GLOBAL_AIRPORTS } from "./globalAirports";
+
+// Departure airports, from the global airport directory (busiest first).
+export const DEPARTURE_AIRPORTS = GLOBAL_AIRPORTS.map((a) => ({
+  name: a.name,
+  code: a.code,
+  city: a.city,
+  country: a.country,
+}));
 
 // Cruise ports, flattened from the country → terminals map.
 export const CRUISE_PORTS = Object.entries(COUNTRY_TERMINALS).flatMap(([country, ports]) =>
@@ -26,10 +36,10 @@ export const RAIL_STATIONS = [...stationMap.values()].sort((a, b) =>
 
 // `options` present = searchable hub list; absent = free-text location.
 export const TRAVEL_TYPES = [
-  { id: "flight", icon: Plane, options: null },
+  { id: "flight", icon: Plane, options: DEPARTURE_AIRPORTS },
   { id: "cruise", icon: Ship, options: CRUISE_PORTS },
   { id: "train", icon: TrainFront, options: RAIL_STATIONS },
-  { id: "coach", icon: Bus, options: null },
-  { id: "car_rental", icon: Car, options: null },
+  { id: "coach", icon: Bus, options: COACH_STATIONS },
+  { id: "car_rental", icon: Car, options: DEPARTURE_AIRPORTS },
   { id: "accommodation", icon: BedDouble, options: null },
 ];

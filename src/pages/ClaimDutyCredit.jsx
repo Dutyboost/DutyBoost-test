@@ -143,7 +143,9 @@ export default function ClaimDutyCredit() {
       setAirportLive(false);
       return;
     }
-    setAirport(travelType === 'flight' ? `${place.code} — ${place.city}` : place.name);
+    if (travelType === 'flight') setAirport(`${place.code} — ${place.city}`);
+    else if (travelType === 'car_rental' && place.city) setAirport(`${place.name}, ${place.city}`);
+    else setAirport(place.name);
     if (travelType === 'flight') {
       setAirportCode(place.code);
       setAirportCountry(place.country);
