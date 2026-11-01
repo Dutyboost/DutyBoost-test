@@ -28,7 +28,7 @@ export default {
     hero: {
       title_1: 'Uma Solução de Aquisição de Clientes Baseada no Desempenho para o Setor de Viagens Global',
       title_2: '',
-      subtitle_1: 'Os passageiros, os parceiros de viagem, os retalhistas de viagem e os hubs de viagem são todos pagos a partir da mesma compra validada — uma única transação do passageiro que financia cada participante nela.',
+      subtitle_1: 'Liga passageiros, parceiros de viagem, retalhistas de viagem e hubs de viagem num único ecossistema comercial baseado no desempenho.',
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',

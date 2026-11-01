@@ -23,7 +23,7 @@ export default {
     hero: {
       title_1: "Eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche",
       title_2: '',
-      subtitle_1: "Reisende, Reisepartner, Reise-Einzelhändler und Travel Hubs werden alle aus demselben validierten Einkauf bezahlt — eine Transaktion des Reisenden, die jeden Teilnehmer daran finanziert.",
+      subtitle_1: "Verbindet Reisende, Reisepartner, Reise-Einzelhändler und Travel Hubs in einem gemeinsamen, leistungsbasierten kommerziellen Ökosystem.",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',

@@ -22,7 +22,7 @@ export default {
     hero: {
        title_1: "Een prestatiegerichte oplossing voor klantacquisitie voor de wereldwijde reissector",
        title_2: '',
-       subtitle_1: "Reizigers, reispartners, reisretailers en reishubs worden allemaal betaald uit dezelfde gevalideerde aankoop — één reizigerstransactie die elke deelnemer erin financiert.",
+       subtitle_1: "Verbindt reizigers, reispartners, reisretailers en reishubs in één gedeeld, prestatiegericht commercieel ecosysteem.",
        subtitle_2: '',
        subtitle_3: '',
        tagline: '',

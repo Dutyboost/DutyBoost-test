@@ -28,7 +28,7 @@ export default {
     hero: {
       title_1: 'A Performance-based Customer Acquisition Solution for Global Travel',
       title_2: '',
-      subtitle_1: "Travellers, travel partners, travel retailers and travel hubs are all paid out of the same validated purchase — one traveller transaction that funds every participant in it.",
+      subtitle_1: "Connecting travellers, travel partners, travel retailers and travel hubs through one shared, performance-based commercial ecosystem.",
       subtitle_2: "",
       subtitle_3: "",
       tagline: "",

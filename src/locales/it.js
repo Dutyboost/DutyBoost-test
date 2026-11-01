@@ -22,7 +22,7 @@ export default {
     hero: {
        title_1: "Una soluzione di acquisizione clienti basata sulla performance per il settore globale dei viaggi",
        title_2: '',
-       subtitle_1: "Viaggiatori, partner di viaggio, retailer di viaggio e hub di viaggio vengono tutti pagati dallo stesso acquisto validato — un'unica transazione del viaggiatore che finanzia ogni partecipante.",
+       subtitle_1: "Collega viaggiatori, partner di viaggio, retailer di viaggio e hub di viaggio in un unico ecosistema commerciale basato sulle performance.",
        subtitle_2: '',
        subtitle_3: '',
        tagline: '',
