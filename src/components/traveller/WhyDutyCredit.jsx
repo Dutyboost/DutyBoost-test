@@ -7,19 +7,17 @@ export default function WhyDutyCredit() {
   const tr = (key) => t(`traveller.${key}`);
 
   return (
-    <div className="bg-card rounded-2xl border border-border p-6 space-y-4">
-      <div>
-        <h2 className="font-heading font-bold text-lg">{tr("why_title")}</h2>
-        <p className="text-sm text-muted-foreground mt-1">{tr("why_body")}</p>
-      </div>
-      <div className="space-y-3">
+    <div className="bg-card rounded-2xl border border-border p-5 space-y-2">
+      <h2 className="font-heading font-bold text-lg">{tr("why_title")}</h2>
+      <p className="text-sm text-muted-foreground">{tr("why_body")}</p>
+      <ul className="space-y-1.5 pt-1">
         {REASONS.map((n) => (
-          <div key={n} className="space-y-0.5">
-            <p className="text-sm font-semibold text-foreground">{tr(`why_${n}_title`)}</p>
-            <p className="text-sm text-muted-foreground">{tr(`why_${n}_desc`)}</p>
-          </div>
+          <li key={n} className="flex items-start gap-2 text-sm text-foreground">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
+            <span>{tr(`why_${n}`)}</span>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
