@@ -16,7 +16,8 @@ import TravelTypeSelector from "../components/claim-duty-credit/TravelTypeSelect
 import LocationPicker from "../components/claim-duty-credit/LocationPicker";
 import CarrierPicker from "../components/claim-duty-credit/CarrierPicker";
 import { TRAVEL_TYPES } from "../data/travelTypes";
-import { getCarriersForPlace, getAirlinesForAirport } from "../data/carrierCoverage";
+import { CARRIERS_BY_TYPE } from "../data/carriers";
+import { getPlacesForCarrier } from "../data/carrierCoverage";
 import { getAirlineFormat } from "../data/airlineFormats";
 import { getCurrencyByCountry } from "../data/countryCurrencies";
 import { fmtMoney } from "../utils/formatNumber";
@@ -58,11 +59,13 @@ export default function ClaimDutyCredit() {
   const isPartnerFlow = !!refCode;
   const tr = (key, opts) => t(`claimDutyCredit.${key}`, opts, { returnObjects: false });
 
-  const carrierOptions = useMemo(
-    () => getCarriersForPlace(travelType, selectedPlace),
-    [travelType, selectedPlace]
+  // The carrier is picked first, so its own full directory is offered…
+  const carrierOptions = useMemo(() => CARRIERS_BY_TYPE[travelType] || [], [travelType]);
+  // …and the departure list then narrows to the places that carrier serves.
+  const locationOptions = useMemo(
+    () => (travelConfig.options ? getPlacesForCarrier(travelType, airline, travelConfig.options) : null),
+    [travelType, airline, travelConfig.options]
   );
-  const airlineOptions = useMemo(() => getAirlinesForAirport(selectedPlace), [selectedPlace]);
 
   const airlineFormat = useMemo(() => getAirlineFormat(airline), [airline]);
   const flightNumberValid = !!(airlineFormat?.flightPattern && airlineFormat.flightPattern.test(flightNumber));
@@ -138,6 +141,21 @@ export default function ClaimDutyCredit() {
     setAirline('');
     setFlightNumber('');
     setBookingRef('');
+    setError('');
+  };
+
+  // Picking another carrier invalidates the departure point chosen for the
+  // previous one, so the location is cleared along with it.
+  const handleCarrierChange = (value) => {
+    setAirline(value);
+    setSelectedPlace(null);
+    setAirport('');
+    setAirportCode('');
+    setAirportCountry('');
+    setAirportName('');
+    setAirportCity('');
+    setParticipatingStores([]);
+    setAirportLive(false);
     setError('');
   };
 
@@ -282,9 +300,27 @@ export default function ClaimDutyCredit() {
             <div className="bg-card rounded-2xl border border-border p-6 space-y-5">
               <TravelTypeSelector value={travelType} onChange={handleTravelTypeChange} />
 
-              <div className="pt-2 border-t border-border">
+              <div className="space-y-4 pt-2 border-t border-border">
+                {travelType === 'flight' ? (
+                  <AirlineSelector
+                    value={airline}
+                    onChange={handleCarrierChange}
+                    label={tr('verticals.flight.carrier_label')}
+                    placeholder={tr('verticals.flight.carrier_placeholder')}
+                    noResultsText={tr('airline_no_results')}
+                  />
+                ) : (
+                  <CarrierPicker
+                    options={carrierOptions}
+                    value={airline}
+                    onChange={handleCarrierChange}
+                    label={tr(`verticals.${travelType}.carrier_label`)}
+                    placeholder={tr(`verticals.${travelType}.carrier_placeholder`)}
+                  />
+                )}
+
                 <LocationPicker
-                  options={travelConfig.options}
+                  options={locationOptions}
                   value={airport}
                   onSelect={handleLocationSelect}
                   label={tr(`verticals.${travelType}.location_label`)}
@@ -294,25 +330,6 @@ export default function ClaimDutyCredit() {
               </div>
 
               <div className="space-y-4 pt-2 border-t border-border">
-                {travelType === 'flight' ? (
-                  <AirlineSelector
-                    airlines={airlineOptions}
-                    value={airline}
-                    onChange={setAirline}
-                    label={tr('verticals.flight.carrier_label')}
-                    placeholder={tr('verticals.flight.carrier_placeholder')}
-                    noResultsText={tr('airline_no_results')}
-                  />
-                ) : (
-                  <CarrierPicker
-                    options={carrierOptions}
-                    value={airline}
-                    onChange={setAirline}
-                    label={tr(`verticals.${travelType}.carrier_label`)}
-                    placeholder={tr(`verticals.${travelType}.carrier_placeholder`)}
-                  />
-                )}
-
                 {travelType === 'flight' && (
                   <div>
                     <Label className="text-sm font-medium mb-1.5 block">{tr('verticals.flight.ref_label')}</Label>

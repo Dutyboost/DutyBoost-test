@@ -611,6 +611,16 @@ const RAIL_CITY_OPERATORS = (() => {
   return map;
 })();
 
+const stationServesCity = (stationName, city) => {
+  const station = stationWords(stationName);
+  return (
+    station === city ||
+    station.startsWith(`${city} `) ||
+    station.endsWith(` ${city}`) ||
+    station.includes(` ${city} `)
+  );
+};
+
 const operatorsStoppingAt = (stationName) => {
   const station = stationWords(stationName);
   const found = new Set();
@@ -673,6 +683,82 @@ export function getCarriersForPlace(travelType, place) {
       return list.some((c) => key(c) === country);
     });
     return serving.length ? serving : all;
+  }
+
+  return all;
+}
+
+/**
+ * The departure points a chosen carrier actually serves, for the claim form's
+ * carrier-first flow: airports, ports or stations narrow to the carrier picked
+ * first. A carrier we have no coverage for returns the full list.
+ */
+export function getPlacesForCarrier(travelType, carrierName, places) {
+  const all = places || [];
+  const name = String(carrierName || '').trim();
+  if (!name || !all.length) return all;
+
+  if (travelType === 'train') {
+    const operator = RAIL_OPERATORS.find((op) => norm(op.company_name) === norm(name));
+    if (!operator) return all;
+    const cities = [];
+    RAIL_CITY_OPERATORS.forEach((operators, city) => {
+      if (operators.has(operator.company_name)) cities.push(city);
+    });
+    const hubs = new Set((operator.hubs || []).map(stationWords));
+    const serving = all.filter(
+      (station) =>
+        hubs.has(stationWords(station.name)) ||
+        cities.some((city) => stationServesCity(station.name, city))
+    );
+    return serving.length ? serving : all;
+  }
+
+  if (travelType === 'cruise') {
+    const regions = CRUISE_LINE_REGIONS[name];
+    if (!regions || !regions.length) return all;
+    const serving = all.filter((port) =>
+      (PORT_REGIONS[port.country] || []).some((region) => regions.includes(region))
+    );
+    return serving.length ? serving : all;
+  }
+
+  if (travelType === 'coach') {
+    const countries = COACH_COUNTRIES[name];
+    if (!countries) return all;
+    const serving = all.filter((station) =>
+      countries.some((country) => key(country) === key(station.country))
+    );
+    return serving.length ? serving : all;
+  }
+
+  if (travelType === 'car_rental') {
+    if (WORLDWIDE_RENTAL.has(name)) return all;
+    const countries = RENTAL_COUNTRIES[name];
+    if (!countries) return all;
+    const serving = all.filter((airport) =>
+      countries.some((country) => key(country) === key(airport.country))
+    );
+    return serving.length ? serving : all;
+  }
+
+  if (travelType === 'flight') {
+    const airline = AIRLINES.find((a) => norm(a.company_name) === norm(name));
+    if (!airline) return all;
+    const hubs = new Set((airline.hubs || []).map((hub) => String(hub).toUpperCase()));
+    const country = airlineCountryAliases(airline.country);
+    const served = all.filter(
+      (airport) =>
+        (airport.code && hubs.has(String(airport.code).toUpperCase())) ||
+        key(airport.country) === country
+    );
+    // Hubs alone are too narrow for a departure list — the same carrier is also
+    // boarded abroad — so a short list widens to its own part of the world.
+    if (served.length >= 6) return served;
+    const continents = REGION_TO_CONTINENTS[regionForAirportCountry(airline.country)] || [];
+    const nearby = all.filter((airport) => continents.includes(regionForAirportCountry(airport.country)));
+    if (nearby.length) return nearby;
+    return served.length ? served : all;
   }
 
   return all;
