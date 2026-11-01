@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import TravellerShell from "@/components/TravellerShell";
 import CreditTierTable from "@/components/traveller/CreditTierTable";
-import WhyDutyCredit from "@/components/traveller/WhyDutyCredit";
 import HowItWorks from "@/components/traveller/HowItWorks";
 import { Button } from "@/components/ui/button";
 import { QrCode, ShieldCheck, Check } from "lucide-react";
@@ -36,8 +35,6 @@ export default function TravellerHome() {
             ))}
           </ul>
         </div>
-
-        <WhyDutyCredit />
 
         <CreditTierTable />
 
