@@ -37,6 +37,13 @@ export default function LandingPage() {
       iconColor: "text-blue-600",
     },
     {
+      key: 'agencies',
+      icon: TravelAgencyIcon,
+      color: "from-green-400 to-emerald-600",
+      bg: "bg-green-50",
+      iconColor: "text-green-600",
+    },
+    {
       key: 'airports',
       icon: PlaneTakeoff,
       color: "from-cyan-400 to-sky-600",
@@ -49,13 +56,6 @@ export default function LandingPage() {
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
       iconColor: "text-orange-600",
-    },
-    {
-      key: 'agencies',
-      icon: TravelAgencyIcon,
-      color: "from-green-400 to-emerald-600",
-      bg: "bg-green-50",
-      iconColor: "text-green-600",
     },
   ];
 
