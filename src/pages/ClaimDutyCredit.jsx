@@ -8,10 +8,13 @@ import { GLOBAL_AIRPORTS } from "../data/globalAirports";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import {
-  Search, MapPin, Plane, QrCode, Loader2, CheckCircle2, ShieldCheck,
+  Plane, QrCode, Loader2, CheckCircle2, ShieldCheck,
   ShoppingBag, Zap, Clock, AlertCircle, ArrowRight, Sparkles, Wallet
 } from "lucide-react";
 import AirlineSelector from "../components/claim-duty-credit/AirlineSelector";
+import TravelTypeSelector from "../components/claim-duty-credit/TravelTypeSelector";
+import LocationPicker from "../components/claim-duty-credit/LocationPicker";
+import { TRAVEL_TYPES } from "../data/travelTypes";
 import { getAirlineFormat } from "../data/airlineFormats";
 import { getCurrencyByCountry } from "../data/countryCurrencies";
 import { fmtMoney } from "../utils/formatNumber";
@@ -27,9 +30,8 @@ export default function ClaimDutyCredit() {
   const preselectedDate = urlParams.get('date') || '';
 
   const [step, setStep] = useState('claim'); // 'claim' | 'details' | 'generating' | 'success' | 'exists'
+  const [travelType, setTravelType] = useState('flight');
   const [airport, setAirport] = useState(preselectedAirport || '');
-  const [airportQuery, setAirportQuery] = useState('');
-  const [airportOpen, setAirportOpen] = useState(false);
   const [travelerEmail, setTravelerEmail] = useState('');
   const [flightNumber, setFlightNumber] = useState('');
   const [bookingRef, setBookingRef] = useState('');
@@ -46,7 +48,7 @@ export default function ClaimDutyCredit() {
   const [participatingStores, setParticipatingStores] = useState([]);
   const [storesLoading, setStoresLoading] = useState(false);
   const [airportLive, setAirportLive] = useState(false);
-  const airportRef = useRef(null);
+  const travelConfig = TRAVEL_TYPES.find((t) => t.id === travelType) || TRAVEL_TYPES[0];
 
   const isPartnerFlow = !!refCode;
   const tr = (key, opts) => t(`claimDutyCredit.${key}`, opts, { returnObjects: false });
@@ -55,28 +57,6 @@ export default function ClaimDutyCredit() {
   const flightNumberValid = !!(airlineFormat?.flightPattern && airlineFormat.flightPattern.test(flightNumber));
   const bookingRefValid = !!(airlineFormat?.bookingPattern && airlineFormat.bookingPattern.test(bookingRef));
   const currency = useMemo(() => airportCountry ? getCurrencyByCountry(airportCountry) : "EUR", [airportCountry]);
-
-  // Airport search
-  const filteredAirports = useMemo(() => {
-    const q = airportQuery.trim().toLowerCase();
-    if (!q) return GLOBAL_AIRPORTS.slice(0, 8);
-    return GLOBAL_AIRPORTS.filter(a =>
-      a.name.toLowerCase().includes(q) ||
-      a.code.toLowerCase().includes(q) ||
-      a.city.toLowerCase().includes(q) ||
-      a.country.toLowerCase().includes(q)
-    ).slice(0, 8);
-  }, [airportQuery]);
-
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (airportRef.current && !airportRef.current.contains(e.target)) {
-        setAirportOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
 
   useEffect(() => {
     const ua = navigator.userAgent || '';
@@ -131,19 +111,52 @@ export default function ClaimDutyCredit() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleAirportSelect = (a) => {
-    setAirport(`${a.code} — ${a.city}`);
-    setAirportCode(a.code);
-    setAirportCountry(a.country);
-    setAirportName(a.name);
-    setAirportCity(a.city);
-    setAirportQuery('');
-    setAirportOpen(false);
-    fetchStoresForAirport(a);
+  // Switching the way of travel clears the details captured for the previous one.
+  const handleTravelTypeChange = (id) => {
+    if (id === travelType) return;
+    setTravelType(id);
+    setAirport('');
+    setAirportCode('');
+    setAirportCountry('');
+    setAirportName('');
+    setAirportCity('');
+    setParticipatingStores([]);
+    setAirportLive(false);
+    setAirline('');
+    setFlightNumber('');
+    setBookingRef('');
+    setError('');
+  };
+
+  // A hub picked from a list arrives as an object; a typed location
+  // (pickup point, city, hotel area) arrives as a plain string.
+  const handleLocationSelect = (place) => {
+    if (typeof place === 'string') {
+      setAirport(place);
+      setAirportCode('');
+      setAirportCountry('');
+      setAirportName('');
+      setAirportCity('');
+      setParticipatingStores([]);
+      setAirportLive(false);
+      return;
+    }
+    setAirport(travelType === 'flight' ? `${place.code} — ${place.city}` : place.name);
+    if (travelType === 'flight') {
+      setAirportCode(place.code);
+      setAirportCountry(place.country);
+      setAirportName(place.name);
+      setAirportCity(place.city);
+      fetchStoresForAirport(place);
+    }
   };
 
   const handleClaim = async () => {
-    if (!airport || !airline || !bookingRef || !departureDate || !flightNumber) {
+    if (!airport || !airline || !bookingRef || !departureDate) {
+      setError(tr('error_missing_fields'));
+      return;
+    }
+    if (travelType === 'flight' && !flightNumber) {
       setError(tr('error_missing_fields'));
       return;
     }
@@ -158,12 +171,13 @@ export default function ClaimDutyCredit() {
     setStep('generating');
     try {
       const response = await base44.functions.invoke('generatePublicDutyCredit', {
+        travel_type: travelType,
         airport,
         airline: airline || undefined,
         departure_date: departureDate || undefined,
         ref: refCode || undefined,
         traveler_email: travelerEmail || undefined,
-        flight_number: flightNumber || undefined,
+        flight_number: travelType === 'flight' ? (flightNumber || undefined) : undefined,
         partner_booking_ref: bookingRef || undefined,
         campaign_source: campaign || undefined,
       });
@@ -247,95 +261,83 @@ export default function ClaimDutyCredit() {
               </div>
             )}
 
-            {/* Airport selector */}
+            {/* How are you travelling? */}
             <div className="bg-card rounded-2xl border border-border p-6 space-y-5">
-              <div>
-                <Label className="text-sm font-semibold mb-2 block">{tr('airport_label')}</Label>
-                <div ref={airportRef} className="relative">
-                  <div className="relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                    <Input
-                      type="text"
-                      value={airportOpen ? airportQuery : airport}
-                      onChange={(e) => {
-                        setAirportQuery(e.target.value);
-                        setAirport('');
-                        setAirportOpen(true);
-                      }}
-                      onFocus={() => { setAirportOpen(true); setAirportQuery(''); }}
-                      placeholder={tr('airport_placeholder')}
-                      className="pl-10 h-12 text-base"
-                    />
-                    {airport && !airportOpen && (
-                      <CheckCircle2 className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-green-500" />
-                    )}
-                  </div>
-                  {airportOpen && (
-                    <div className="absolute z-50 mt-1 w-full max-h-64 overflow-y-auto bg-white border border-border rounded-xl shadow-lg">
-                      {filteredAirports.length === 0 ? (
-                        <div className="px-4 py-6 text-sm text-muted-foreground text-center">{tr('airport_no_results')}</div>
-                      ) : (
-                        filteredAirports.map((a) => (
-                          <button
-                            key={a.code}
-                            onClick={() => handleAirportSelect(a)}
-                            className="w-full flex items-center gap-3 px-4 py-2.5 text-left hover:bg-muted transition-colors border-b border-border last:border-b-0"
-                          >
-                            <MapPin className="w-4 h-4 text-muted-foreground shrink-0" />
-                            <div className="flex-1 min-w-0">
-                              <p className="text-sm font-medium truncate">{a.city} — {a.name}</p>
-                              <p className="text-xs text-muted-foreground">{a.country}</p>
-                            </div>
-                            <span className="text-sm font-bold text-primary shrink-0">{a.code}</span>
-                          </button>
-                        ))
-                      )}
-                    </div>
-                  )}
-                </div>
+              <TravelTypeSelector value={travelType} onChange={handleTravelTypeChange} />
+
+              <div className="pt-2 border-t border-border">
+                <LocationPicker
+                  options={travelConfig.options}
+                  value={airport}
+                  onSelect={handleLocationSelect}
+                  label={tr(`verticals.${travelType}.location_label`)}
+                  placeholder={tr(`verticals.${travelType}.location_placeholder`)}
+                  noResultsText={tr(`verticals.${travelType}.location_no_results`)}
+                />
               </div>
 
-              {/* Always visible: airline, flight number, booking ref, departure date */}
               <div className="space-y-4 pt-2 border-t border-border">
-                <AirlineSelector
-                  value={airline}
-                  onChange={setAirline}
-                  label={tr('airline_label')}
-                  placeholder={tr('airline_placeholder')}
-                  noResultsText={tr('airline_no_results')}
-                />
-                <div>
-                  <Label className="text-sm font-medium mb-1.5 block">{tr('flight_number_label')}</Label>
-                  <Input
-                    type="text"
-                    value={flightNumber}
-                    onChange={(e) => setFlightNumber(e.target.value.toUpperCase())}
-                    placeholder={airlineFormat?.flightExample || tr('flight_number_placeholder')}
-                    className="font-mono"
+                {travelType === 'flight' ? (
+                  <AirlineSelector
+                    value={airline}
+                    onChange={setAirline}
+                    label={tr('verticals.flight.carrier_label')}
+                    placeholder={tr('verticals.flight.carrier_placeholder')}
+                    noResultsText={tr('airline_no_results')}
                   />
-                  {airlineFormat && (
-                    <div className="flex items-center gap-1.5 mt-1 text-xs">
-                      {flightNumberValid ? (
-                        <CheckCircle2 className="w-3.5 h-3.5 text-green-500 shrink-0" />
-                      ) : (
-                        <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                      )}
-                      <span className={flightNumberValid ? "text-green-600" : "text-muted-foreground"}>
-                        {airlineFormat.flightHint} · e.g. {airlineFormat.flightExample}
-                      </span>
-                    </div>
-                  )}
-                </div>
+                ) : (
+                  <div>
+                    <Label className="text-sm font-medium mb-1.5 block">{tr(`verticals.${travelType}.carrier_label`)}</Label>
+                    <Input
+                      type="text"
+                      value={airline}
+                      onChange={(e) => setAirline(e.target.value)}
+                      placeholder={tr(`verticals.${travelType}.carrier_placeholder`)}
+                    />
+                  </div>
+                )}
+
+                {travelType === 'flight' && (
+                  <div>
+                    <Label className="text-sm font-medium mb-1.5 block">{tr('verticals.flight.ref_label')}</Label>
+                    <Input
+                      type="text"
+                      value={flightNumber}
+                      onChange={(e) => setFlightNumber(e.target.value.toUpperCase())}
+                      placeholder={airlineFormat?.flightExample || tr('verticals.flight.ref_placeholder')}
+                      className="font-mono"
+                    />
+                    {airlineFormat && (
+                      <div className="flex items-center gap-1.5 mt-1 text-xs">
+                        {flightNumberValid ? (
+                          <CheckCircle2 className="w-3.5 h-3.5 text-green-500 shrink-0" />
+                        ) : (
+                          <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                        )}
+                        <span className={flightNumberValid ? "text-green-600" : "text-muted-foreground"}>
+                          {airlineFormat.flightHint} · e.g. {airlineFormat.flightExample}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                )}
+
                 <div>
-                  <Label className="text-sm font-medium mb-1.5 block">{tr('booking_ref_label')}</Label>
+                  <Label className="text-sm font-medium mb-1.5 block">
+                    {travelType === 'flight' ? tr('booking_ref_label') : tr(`verticals.${travelType}.ref_label`)}
+                  </Label>
                   <Input
                     type="text"
                     value={bookingRef}
                     onChange={(e) => setBookingRef(e.target.value.toUpperCase())}
-                    placeholder={airlineFormat?.bookingExample || tr('booking_ref_placeholder')}
+                    placeholder={
+                      travelType === 'flight'
+                        ? (airlineFormat?.bookingExample || tr('booking_ref_placeholder'))
+                        : tr(`verticals.${travelType}.ref_placeholder`)
+                    }
                     className="font-mono"
                   />
-                  {airlineFormat && (
+                  {travelType === 'flight' && airlineFormat && (
                     <div className="flex items-center gap-1.5 mt-1 text-xs">
                       {bookingRefValid ? (
                         <CheckCircle2 className="w-3.5 h-3.5 text-green-500 shrink-0" />
@@ -348,8 +350,11 @@ export default function ClaimDutyCredit() {
                     </div>
                   )}
                 </div>
+
                 <div>
-                  <Label className="text-sm font-medium mb-1.5 block">{tr('departure_date_label')}</Label>
+                  <Label className="text-sm font-medium mb-1.5 block">
+                    {travelType === 'flight' ? tr('departure_date_label') : tr(`verticals.${travelType}.date_label`)}
+                  </Label>
                   <Input
                     type="date"
                     value={departureDate}
@@ -385,7 +390,7 @@ export default function ClaimDutyCredit() {
 
               <Button
                 onClick={handleClaim}
-                disabled={!airport || !airline || !bookingRef || !departureDate || !flightNumber || !flightNumberValid || !bookingRefValid || (isPartnerFlow && !travelerEmail)}
+                disabled={!airport || !airline || !bookingRef || !departureDate || (travelType === 'flight' && (!flightNumber || !flightNumberValid || !bookingRefValid)) || (isPartnerFlow && !travelerEmail)}
                 size="lg"
                 className="w-full h-14 text-base gap-2"
               >
@@ -472,7 +477,9 @@ export default function ClaimDutyCredit() {
                 />
                 <div className="w-full grid grid-cols-2 gap-3 text-sm">
                   <div className="bg-muted/50 rounded-lg p-3">
-                    <p className="text-xs text-muted-foreground mb-0.5">{tr('qr_airport')}</p>
+                    <p className="text-xs text-muted-foreground mb-0.5">
+                      {tr(`verticals.${generated.travel_type || travelType}.location_short`)}
+                    </p>
                     <p className="font-semibold truncate">{generated.airport}</p>
                   </div>
                   <div className="bg-muted/50 rounded-lg p-3">
@@ -517,12 +524,14 @@ export default function ClaimDutyCredit() {
             </div>
 
             {/* Participating stores at this airport — only stores our team has activated */}
-            <ParticipatingStores
-              stores={participatingStores}
-              loading={storesLoading}
-              airportName={airportName}
-              airportCity={airportCity}
-            />
+            {travelType === 'flight' && (
+              <ParticipatingStores
+                stores={participatingStores}
+                loading={storesLoading}
+                airportName={airportName}
+                airportCity={airportCity}
+              />
+            )}
 
             <div className="flex flex-col sm:flex-row gap-3 print:hidden">
               <Button onClick={() => window.print()} variant="outline" className="flex-1 gap-2">

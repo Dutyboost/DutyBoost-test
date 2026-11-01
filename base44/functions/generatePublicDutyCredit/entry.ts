@@ -59,7 +59,7 @@ Deno.serve(async (req) => {
     const base44 = createClientFromRequest(req);
 
     const body = await req.json();
-    const { airport, airline, departure_date, ref, traveler_email, flight_number, partner_booking_ref, campaign_source } = body;
+    const { travel_type, airport, airline, departure_date, ref, traveler_email, flight_number, partner_booking_ref, campaign_source } = body;
 
     if (!airport) {
       return Response.json({ error: 'Airport is required' }, { status: 400 });
@@ -118,6 +118,7 @@ Deno.serve(async (req) => {
     await base44.asServiceRole.entities.DutyCreditToken.create({
       token_id: tokenId,
       qr_token: qrToken,
+      travel_type: travel_type || 'flight',
       airport,
       status: 'active',
       source,

@@ -10,9 +10,22 @@
       "type": "string",
       "title": "QR Token"
     },
+    "travel_type": {
+      "type": "string",
+      "title": "Travel Type",
+      "enum": [
+        "flight",
+        "cruise",
+        "train",
+        "coach",
+        "car_rental",
+        "accommodation"
+      ],
+      "default": "flight"
+    },
     "airport": {
       "type": "string",
-      "title": "Airport"
+      "title": "Airport / Port / Station"
     },
     "status": {
       "type": "string",
@@ -47,7 +60,7 @@
     },
     "airline": {
       "type": "string",
-      "title": "Airline"
+      "title": "Carrier"
     },
     "departure_date": {
       "type": "string",
