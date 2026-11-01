@@ -127,7 +127,7 @@ export default {
     },
     cta: {
       title: 'One Traveller. One Transaction. Everyone Earns.',
-      description: "A performance-based commercial layer that turns every traveller journey into measurable incremental revenue. Travel hubs, travel retailers and travel partners all earn from the same validated sale: the traveller saves at the till, the retailer makes a sale that did not exist before, and the partner that sent the traveller in gets paid for it — with no upfront cost to anyone.",
+      description: "A performance-based commercial layer that turns every traveller journey into measurable incremental revenue. Travel hubs, travel retailers and travel partners all earn from the same validated sale: the traveller saves at the till, the retailer makes a sale that did not exist before, and the partner that sent the traveller in gets rewarded for it — with no upfront cost to anyone.",
       button: 'Join a Performance-based Customer Acquisition Solution for Global Travel Today!',
     },
     footer: {
