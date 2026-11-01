@@ -20,8 +20,6 @@ export default function TravellerHome() {
           </p>
         </div>
 
-        <CreditTierTable />
-
         <div className="bg-card rounded-2xl border border-border p-6 space-y-3">
           <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
             <QrCode className="w-5 h-5 text-primary" />
@@ -34,6 +32,8 @@ export default function TravellerHome() {
             </Button>
           </Link>
         </div>
+
+        <CreditTierTable />
       </div>
     </TravellerShell>
   );
