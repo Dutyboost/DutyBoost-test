@@ -16,7 +16,7 @@ import TravelTypeSelector from "../components/claim-duty-credit/TravelTypeSelect
 import LocationPicker from "../components/claim-duty-credit/LocationPicker";
 import CarrierPicker from "../components/claim-duty-credit/CarrierPicker";
 import { TRAVEL_TYPES } from "../data/travelTypes";
-import { CARRIERS_BY_TYPE } from "../data/carriers";
+import { getCarriersForPlace, getAirlinesForAirport } from "../data/carrierCoverage";
 import { getAirlineFormat } from "../data/airlineFormats";
 import { getCurrencyByCountry } from "../data/countryCurrencies";
 import { fmtMoney } from "../utils/formatNumber";
@@ -34,6 +34,9 @@ export default function ClaimDutyCredit() {
   const [step, setStep] = useState('claim'); // 'claim' | 'details' | 'generating' | 'success' | 'exists'
   const [travelType, setTravelType] = useState('flight');
   const [airport, setAirport] = useState(preselectedAirport || '');
+  // The hub picked from a list (null while the traveller types a free-text
+  // location) — carriers are narrowed by the location actually selected.
+  const [selectedPlace, setSelectedPlace] = useState(null);
   const [travelerEmail, setTravelerEmail] = useState('');
   const [flightNumber, setFlightNumber] = useState('');
   const [bookingRef, setBookingRef] = useState('');
@@ -54,6 +57,12 @@ export default function ClaimDutyCredit() {
 
   const isPartnerFlow = !!refCode;
   const tr = (key, opts) => t(`claimDutyCredit.${key}`, opts, { returnObjects: false });
+
+  const carrierOptions = useMemo(
+    () => getCarriersForPlace(travelType, selectedPlace),
+    [travelType, selectedPlace]
+  );
+  const airlineOptions = useMemo(() => getAirlinesForAirport(selectedPlace), [selectedPlace]);
 
   const airlineFormat = useMemo(() => getAirlineFormat(airline), [airline]);
   const flightNumberValid = !!(airlineFormat?.flightPattern && airlineFormat.flightPattern.test(flightNumber));
@@ -107,6 +116,7 @@ export default function ClaimDutyCredit() {
         setAirportCountry(found.country);
         setAirportName(found.name);
         setAirportCity(found.city);
+        setSelectedPlace(found);
         fetchStoresForAirport(found);
       }
     }
@@ -117,6 +127,7 @@ export default function ClaimDutyCredit() {
   const handleTravelTypeChange = (id) => {
     if (id === travelType) return;
     setTravelType(id);
+    setSelectedPlace(null);
     setAirport('');
     setAirportCode('');
     setAirportCountry('');
@@ -135,6 +146,7 @@ export default function ClaimDutyCredit() {
   const handleLocationSelect = (place) => {
     if (typeof place === 'string') {
       setAirport(place);
+      setSelectedPlace(null);
       setAirportCode('');
       setAirportCountry('');
       setAirportName('');
@@ -143,6 +155,7 @@ export default function ClaimDutyCredit() {
       setAirportLive(false);
       return;
     }
+    setSelectedPlace(place);
     if (travelType === 'flight') setAirport(`${place.code} — ${place.city}`);
     else if (travelType === 'car_rental' && place.city) setAirport(`${place.name}, ${place.city}`);
     else setAirport(place.name);
@@ -283,6 +296,7 @@ export default function ClaimDutyCredit() {
               <div className="space-y-4 pt-2 border-t border-border">
                 {travelType === 'flight' ? (
                   <AirlineSelector
+                    airlines={airlineOptions}
                     value={airline}
                     onChange={setAirline}
                     label={tr('verticals.flight.carrier_label')}
@@ -291,7 +305,7 @@ export default function ClaimDutyCredit() {
                   />
                 ) : (
                   <CarrierPicker
-                    options={CARRIERS_BY_TYPE[travelType] || []}
+                    options={carrierOptions}
                     value={airline}
                     onChange={setAirline}
                     label={tr(`verticals.${travelType}.carrier_label`)}
