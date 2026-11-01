@@ -44,18 +44,18 @@ export default function LandingPage() {
       iconColor: "text-green-600",
     },
     {
-      key: 'airports',
-      icon: PlaneTakeoff,
-      color: "from-cyan-400 to-sky-600",
-      bg: "bg-cyan-50",
-      iconColor: "text-cyan-600",
-    },
-    {
       key: 'retailers',
       icon: null,
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
       iconColor: "text-orange-600",
+    },
+    {
+      key: 'airports',
+      icon: PlaneTakeoff,
+      color: "from-cyan-400 to-sky-600",
+      bg: "bg-cyan-50",
+      iconColor: "text-cyan-600",
     },
   ];
 
