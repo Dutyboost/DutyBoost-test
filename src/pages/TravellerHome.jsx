@@ -2,15 +2,12 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import TravellerShell from "@/components/TravellerShell";
 import CreditTierTable from "@/components/traveller/CreditTierTable";
-import HowItWorks from "@/components/traveller/HowItWorks";
 import { Button } from "@/components/ui/button";
-import { QrCode, ShieldCheck, Check } from "lucide-react";
-
-const BENEFITS = ["what_b1", "what_b2", "what_b3"];
+import { QrCode, ShieldCheck } from "lucide-react";
 
 export default function TravellerHome() {
   const { t } = useTranslation();
-  const tr = (key, opts) => t(`traveller.${key}`, opts);
+  const tr = (key) => t(`traveller.${key}`);
 
   return (
     <TravellerShell>
@@ -23,22 +20,7 @@ export default function TravellerHome() {
           </p>
         </div>
 
-        <div className="bg-card rounded-2xl border border-border p-6 space-y-3">
-          <h2 className="font-heading font-bold text-lg">{tr('what_title')}</h2>
-          <p className="text-sm text-muted-foreground">{tr('what_body')}</p>
-          <ul className="space-y-2 pt-1">
-            {BENEFITS.map((key) => (
-              <li key={key} className="flex items-start gap-2 text-sm text-foreground">
-                <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span>{tr(key)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         <CreditTierTable />
-
-        <HowItWorks />
 
         <div className="bg-card rounded-2xl border border-border p-6 space-y-3">
           <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
