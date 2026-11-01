@@ -14,7 +14,9 @@ import {
 import AirlineSelector from "../components/claim-duty-credit/AirlineSelector";
 import TravelTypeSelector from "../components/claim-duty-credit/TravelTypeSelector";
 import LocationPicker from "../components/claim-duty-credit/LocationPicker";
+import CarrierPicker from "../components/claim-duty-credit/CarrierPicker";
 import { TRAVEL_TYPES } from "../data/travelTypes";
+import { CARRIERS_BY_TYPE } from "../data/carriers";
 import { getAirlineFormat } from "../data/airlineFormats";
 import { getCurrencyByCountry } from "../data/countryCurrencies";
 import { fmtMoney } from "../utils/formatNumber";
@@ -286,15 +288,13 @@ export default function ClaimDutyCredit() {
                     noResultsText={tr('airline_no_results')}
                   />
                 ) : (
-                  <div>
-                    <Label className="text-sm font-medium mb-1.5 block">{tr(`verticals.${travelType}.carrier_label`)}</Label>
-                    <Input
-                      type="text"
-                      value={airline}
-                      onChange={(e) => setAirline(e.target.value)}
-                      placeholder={tr(`verticals.${travelType}.carrier_placeholder`)}
-                    />
-                  </div>
+                  <CarrierPicker
+                    options={CARRIERS_BY_TYPE[travelType] || []}
+                    value={airline}
+                    onChange={setAirline}
+                    label={tr(`verticals.${travelType}.carrier_label`)}
+                    placeholder={tr(`verticals.${travelType}.carrier_placeholder`)}
+                  />
                 )}
 
                 {travelType === 'flight' && (
