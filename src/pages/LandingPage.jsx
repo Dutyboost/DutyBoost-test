@@ -27,8 +27,15 @@ export default function LandingPage() {
 
 
 
-  // Commercial-first order: revenue locations, then the enabler, then demand.
+  // Traveller-first order: demand, then revenue locations, then the enabler.
   const stakeholders = [
+    {
+      key: 'travelers',
+      icon: TravelerIcon,
+      color: "from-blue-400 to-blue-600",
+      bg: "bg-blue-50",
+      iconColor: "text-blue-600",
+    },
     {
       key: 'airports',
       icon: PlaneTakeoff,
@@ -42,13 +49,6 @@ export default function LandingPage() {
       color: "from-orange-400 to-orange-600",
       bg: "bg-orange-50",
       iconColor: "text-orange-600",
-    },
-    {
-      key: 'travelers',
-      icon: TravelerIcon,
-      color: "from-blue-400 to-blue-600",
-      bg: "bg-blue-50",
-      iconColor: "text-blue-600",
     },
     {
       key: 'agencies',
