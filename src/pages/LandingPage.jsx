@@ -62,7 +62,13 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen font-body bg-gradient-to-br from-primary/5 via-background to-accent/5">
+    <div className="min-h-screen font-body relative">
+      {/* Page background — same blue / orange light as the hero */}
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 bg-white" />
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br from-primary/10 via-white to-accent/10" />
+      <div aria-hidden="true" className="pointer-events-none fixed top-[-12%] right-[-8%] w-[38rem] h-[38rem] bg-primary/15 rounded-full blur-3xl -z-10" />
+      <div aria-hidden="true" className="pointer-events-none fixed bottom-[-14%] left-[-10%] w-[42rem] h-[42rem] bg-accent/15 rounded-full blur-3xl -z-10" />
+
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
