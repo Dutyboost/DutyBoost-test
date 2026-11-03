@@ -84,9 +84,6 @@ export default function LandingPage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden pt-4 pb-2 px-4 sm:px-6">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
-        <div className="absolute top-10 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center space-y-2.5">
           <h1
             className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold tracking-tight leading-tight"
