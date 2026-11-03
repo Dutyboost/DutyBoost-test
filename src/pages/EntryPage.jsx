@@ -45,9 +45,14 @@ export default function EntryPage() {
 
       <main className="flex-1 flex items-center justify-center px-4 sm:px-6 py-8 sm:py-12">
         <div className="w-full max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
-          <h1 className="text-2xl sm:text-4xl font-heading font-bold tracking-tight leading-tight">
-            {s.title}
-          </h1>
+          <div className="space-y-2">
+            <h1 className="text-2xl sm:text-4xl font-heading font-bold tracking-tight leading-tight">
+              {s.title}
+            </h1>
+            <p className="text-sm sm:text-base font-semibold text-accent max-w-xl mx-auto leading-snug">
+              {s.fomo}
+            </p>
+          </div>
 
           <div className="grid sm:grid-cols-2 gap-3 sm:gap-5">
             {options.map((option) => {

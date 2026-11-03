@@ -4,6 +4,7 @@
 const strings = {
   en: {
     title: "How would you like to continue?",
+    fomo: "Travellers claim their credit every day — yours only counts for your trip, so don't leave it behind.",
     traveller_title: "I'm a traveller",
     traveller_desc: "Claim the travel credit included with your booking and save at airport, port, station and local retailers.",
     traveller_cta: "Claim my credit",
@@ -14,6 +15,7 @@ const strings = {
   },
   nl: {
     title: "Hoe wil je verdergaan?",
+    fomo: "Elke dag claimen reizigers hun tegoed — het jouwe geldt alleen voor jouw reis, dus laat het niet liggen.",
     traveller_title: "Ik ben reiziger",
     traveller_desc: "Claim het reistegoed bij je boeking en bespaar bij winkels op luchthavens, havens, stations en in de stad.",
     traveller_cta: "Mijn tegoed claimen",
@@ -24,6 +26,7 @@ const strings = {
   },
   fr: {
     title: "Comment souhaitez-vous continuer ?",
+    fomo: "Chaque jour, des voyageurs réclament leur crédit — le vôtre ne vaut que pour votre voyage, ne le laissez pas passer.",
     traveller_title: "Je suis un voyageur",
     traveller_desc: "Réclamez le crédit voyage inclus dans votre réservation et économisez dans les commerces des aéroports, ports, gares et en ville.",
     traveller_cta: "Réclamer mon crédit",
@@ -34,6 +37,7 @@ const strings = {
   },
   de: {
     title: "Wie möchten Sie fortfahren?",
+    fomo: "Jeden Tag fordern Reisende ihr Guthaben an — Ihres gilt nur für Ihre Reise, lassen Sie es nicht verfallen.",
     traveller_title: "Ich bin Reisender",
     traveller_desc: "Fordern Sie das Reiseguthaben aus Ihrer Buchung an und sparen Sie bei Händlern an Flughäfen, Häfen, Bahnhöfen und in der Innenstadt.",
     traveller_cta: "Guthaben anfordern",
@@ -44,6 +48,7 @@ const strings = {
   },
   es: {
     title: "¿Cómo quieres continuar?",
+    fomo: "Cada día, viajeros reclaman su crédito — el tuyo solo vale para tu viaje, no lo dejes pasar.",
     traveller_title: "Soy viajero",
     traveller_desc: "Reclama el crédito de viaje incluido en tu reserva y ahorra en comercios de aeropuertos, puertos, estaciones y ciudad.",
     traveller_cta: "Reclamar mi crédito",
@@ -54,6 +59,7 @@ const strings = {
   },
   it: {
     title: "Come vuoi continuare?",
+    fomo: "Ogni giorno i viaggiatori riscattano il loro credito — il tuo vale solo per il tuo viaggio, non lasciarlo andare.",
     traveller_title: "Sono un viaggiatore",
     traveller_desc: "Richiedi il credito di viaggio incluso nella tua prenotazione e risparmia nei negozi di aeroporti, porti, stazioni e città.",
     traveller_cta: "Richiedi il mio credito",
@@ -64,6 +70,7 @@ const strings = {
   },
   pt: {
     title: "Como deseja continuar?",
+    fomo: "Todos os dias os viajantes resgatam o seu crédito — o seu só é válido durante a sua viagem, não o deixe escapar.",
     traveller_title: "Sou viajante",
     traveller_desc: "Reclame o crédito de viagem incluído na sua reserva e poupe em lojas de aeroportos, portos, estações e na cidade.",
     traveller_cta: "Reclamar o meu crédito",
