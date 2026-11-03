@@ -216,7 +216,7 @@ export default function LandingPage() {
             <div>
               <DutyBoostLogo height={55} />
             </div>
-            <div className="text-right">
+            <div className="text-center md:text-right">
               <p>{t('footer.rights')}</p>
               <p className="text-xs mt-0.5">{t('footer.kvk')}</p>
               <p className="text-xs mt-0.5">{t('footer.vat')}</p>
