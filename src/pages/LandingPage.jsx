@@ -150,7 +150,7 @@ export default function LandingPage() {
               const glyphClass = `${s.iconColor} ${manyIcons ? 'w-5 h-5 xl:w-[1.125rem] xl:h-[1.125rem]' : 'w-[1.625rem] h-[1.625rem] xl:w-5 xl:h-5'}`;
 
               const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'travelers';
-              const cardLink = s.key === 'retailers' ? '/travel-retailers' : s.key === 'airports' ? '/travel-hubs-showcase' : s.key === 'agencies' ? '/travel-partner-showcase' : s.key === 'travelers' ? '/eligibility-showcase' : '/get-started';
+              const cardLink = s.key === 'retailers' ? '/travel-retailers' : s.key === 'airports' ? '/travel-hubs-showcase' : s.key === 'agencies' ? '/travel-partner-showcase' : s.key === 'travelers' ? '/claim-duty-credit' : '/get-started';
 
               const cardContent = (
                 <>
