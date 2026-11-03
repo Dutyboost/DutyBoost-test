@@ -9,6 +9,7 @@ import Layout from './components/Layout';
 import ScrollRestoration from './components/ScrollRestoration';
 import TrafficTracker from './components/TrafficTracker';
 import Home from './pages/Home';
+import EntryPage from './pages/EntryPage';
 import LandingPage from './pages/LandingPage';
 import VouchersPage from './pages/VouchersPage';
 import RetailersPage from './pages/RetailersPage';
@@ -214,7 +215,8 @@ const AuthenticatedApp = () => {
       <ScrollRestoration />
       <TrafficTracker />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<EntryPage />} />
+        <Route path="/partners" element={<LandingPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         {surveyRoutes}
         <Route path="/landing" element={<LandingPage />} />

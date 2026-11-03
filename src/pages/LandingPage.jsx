@@ -5,7 +5,7 @@ import { base44 } from "@/api/base44Client";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight, Menu, X, Anchor, PlaneTakeoff, Route, Store
+  ArrowLeft, ArrowRight, Menu, X, Anchor, PlaneTakeoff, Route, Store
 } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
@@ -16,6 +16,7 @@ import TrainIcon from "../components/TrainIcon";
 import TrainOnTrackIcon from "../components/TrainOnTrackIcon";
 import CoachOnRoadIcon from "../components/CoachOnRoadIcon";
 import { getEcosystemCardsStrings } from "@/lib/i18nEcosystemCards";
+import { getEntryStrings } from "@/lib/i18nEntry";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import FooterLinks from "../components/FooterLinks";
 
@@ -24,6 +25,7 @@ export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const eco = getEcosystemCardsStrings(i18n.language);
+  const entry = getEntryStrings(i18n.language);
 
 
 
@@ -226,6 +228,12 @@ export default function LandingPage() {
               <p className="text-xs mt-0.5">{t('footer.kvk')}</p>
               <p className="text-xs mt-0.5">{t('footer.vat')}</p>
             </div>
+          </div>
+          <div className="text-center">
+            <Link to="/" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors">
+              <ArrowLeft className="w-3.5 h-3.5" />
+              {entry.back}
+            </Link>
           </div>
           <FooterLinks />
         </div>
