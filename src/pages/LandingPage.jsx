@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import CruiseShipIcon from "../components/CruiseShipIcon";
 import TravelAgencyIcon from "../components/TravelAgencyIcon";
-import TravelerIcon from "../components/TravelerIcon";
 import HotelIcon from "../components/HotelIcon";
 import CarRentalIcon from "../components/CarRentalIcon";
 import TrainIcon from "../components/TrainIcon";
@@ -31,13 +30,6 @@ export default function LandingPage() {
 
   // Traveller-first order: demand, then revenue locations, then the enabler.
   const stakeholders = [
-    {
-      key: 'travelers',
-      icon: TravelerIcon,
-      color: "from-blue-400 to-blue-600",
-      bg: "bg-blue-50",
-      iconColor: "text-blue-600",
-    },
     {
       key: 'agencies',
       icon: TravelAgencyIcon,
@@ -121,7 +113,7 @@ export default function LandingPage() {
           <div className="text-center mb-5 space-y-2">
             <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t('ecosystem.title')}</h2>
           </div>
-          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
             {stakeholders.map((s) => {
               let Icon = s.icon;
               let AdditionalIcons = [];
@@ -157,8 +149,8 @@ export default function LandingPage() {
               const tileClass = `rounded-lg ${s.bg} flex items-center justify-center shrink-0 ${manyIcons ? 'w-10 h-10 xl:w-9 xl:h-9' : 'w-12 h-12 xl:w-10 xl:h-10'}`;
               const glyphClass = `${s.iconColor} ${manyIcons ? 'w-5 h-5 xl:w-[1.125rem] xl:h-[1.125rem]' : 'w-[1.625rem] h-[1.625rem] xl:w-5 xl:h-5'}`;
 
-              const isClickable = s.key === 'agencies' || s.key === 'retailers' || s.key === 'airports' || s.key === 'travelers';
-              const cardLink = s.key === 'retailers' ? '/travel-retailers' : s.key === 'airports' ? '/travel-hubs-showcase' : s.key === 'agencies' ? '/travel-partner-showcase' : s.key === 'travelers' ? '/claim-duty-credit' : '/get-started';
+              const isClickable = true;
+              const cardLink = s.key === 'retailers' ? '/travel-retailers' : s.key === 'airports' ? '/travel-hubs-showcase' : '/travel-partner-showcase';
 
               const cardContent = (
                 <>
