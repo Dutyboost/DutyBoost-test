@@ -18,7 +18,7 @@ export const ecosystemCards = {
         'Airport, sea port, cruise, motorway, rail and local town-centre retailers all sell to travellers who already hold a DutyCredit — shoppers arriving with purchase intent instead of passing browsers.',
       b1: 'Higher conversion from the same footfall',
       b2: 'One network across terminals, ships, stations and town centres',
-      b3: 'Pay a fee only when a sale is redeemed',
+      b3: 'Pay a fee only after a real transaction is completed',
     },
     corporate: {
       title: 'Corporate Travel Partners',
