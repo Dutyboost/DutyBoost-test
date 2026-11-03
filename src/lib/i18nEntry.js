@@ -4,7 +4,6 @@
 const strings = {
   en: {
     title: "How would you like to continue?",
-    subtitle: "One platform, two sides: travellers claim their travel credit, companies turn traveller journeys into measurable revenue.",
     traveller_title: "I'm a traveller",
     traveller_desc: "Claim the travel credit included with your booking and save at airport, port, station and local retailers.",
     traveller_cta: "Claim my credit",
@@ -15,7 +14,6 @@ const strings = {
   },
   nl: {
     title: "Hoe wil je verdergaan?",
-    subtitle: "Eén platform, twee kanten: reizigers claimen hun reistegoed, bedrijven maken van reizigersreizen meetbare omzet.",
     traveller_title: "Ik ben reiziger",
     traveller_desc: "Claim het reistegoed bij je boeking en bespaar bij winkels op luchthavens, havens, stations en in de stad.",
     traveller_cta: "Mijn tegoed claimen",
@@ -26,7 +24,6 @@ const strings = {
   },
   fr: {
     title: "Comment souhaitez-vous continuer ?",
-    subtitle: "Une plateforme, deux côtés : les voyageurs réclament leur crédit voyage, les entreprises transforment les trajets en revenus mesurables.",
     traveller_title: "Je suis un voyageur",
     traveller_desc: "Réclamez le crédit voyage inclus dans votre réservation et économisez dans les commerces des aéroports, ports, gares et en ville.",
     traveller_cta: "Réclamer mon crédit",
@@ -37,7 +34,6 @@ const strings = {
   },
   de: {
     title: "Wie möchten Sie fortfahren?",
-    subtitle: "Eine Plattform, zwei Seiten: Reisende fordern ihr Reiseguthaben an, Unternehmen machen aus Reisewegen messbaren Umsatz.",
     traveller_title: "Ich bin Reisender",
     traveller_desc: "Fordern Sie das Reiseguthaben aus Ihrer Buchung an und sparen Sie bei Händlern an Flughäfen, Häfen, Bahnhöfen und in der Innenstadt.",
     traveller_cta: "Guthaben anfordern",
@@ -48,7 +44,6 @@ const strings = {
   },
   es: {
     title: "¿Cómo quieres continuar?",
-    subtitle: "Una plataforma, dos lados: los viajeros reclaman su crédito de viaje y las empresas convierten los trayectos en ingresos medibles.",
     traveller_title: "Soy viajero",
     traveller_desc: "Reclama el crédito de viaje incluido en tu reserva y ahorra en comercios de aeropuertos, puertos, estaciones y ciudad.",
     traveller_cta: "Reclamar mi crédito",
@@ -59,7 +54,6 @@ const strings = {
   },
   it: {
     title: "Come vuoi continuare?",
-    subtitle: "Una piattaforma, due lati: i viaggiatori richiedono il loro credito di viaggio, le aziende trasformano i viaggi in ricavi misurabili.",
     traveller_title: "Sono un viaggiatore",
     traveller_desc: "Richiedi il credito di viaggio incluso nella tua prenotazione e risparmia nei negozi di aeroporti, porti, stazioni e città.",
     traveller_cta: "Richiedi il mio credito",
@@ -70,7 +64,6 @@ const strings = {
   },
   pt: {
     title: "Como deseja continuar?",
-    subtitle: "Uma plataforma, dois lados: os viajantes reclamam o seu crédito de viagem e as empresas transformam viagens em receita mensurável.",
     traveller_title: "Sou viajante",
     traveller_desc: "Reclame o crédito de viagem incluído na sua reserva e poupe em lojas de aeroportos, portos, estações e na cidade.",
     traveller_cta: "Reclamar o meu crédito",
