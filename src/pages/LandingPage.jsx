@@ -112,7 +112,6 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-5 space-y-2">
             <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t('ecosystem.title')}</h2>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto">{t('ecosystem.subtitle')}</p>
           </div>
           <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
             {stakeholders.map((s) => {
