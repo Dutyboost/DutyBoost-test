@@ -220,7 +220,7 @@ export default function EligibilityShowcase() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-8 px-4 sm:px-6">
+      <footer className="py-8 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <DutyBoostLogo height={40} linkTo={null} />
           <p>{tr('footer', { year: new Date().getFullYear() })}</p>

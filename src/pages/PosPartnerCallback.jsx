@@ -312,7 +312,7 @@ export default function PosPartnerCallback() {
       </div>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-border py-8 px-4 sm:px-6 mt-10">
+      <footer className="py-8 px-4 sm:px-6 mt-10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <Link to="/"><DutyBoostLogo height={40} /></Link>
           <p>{t("posChannel.footer.tagline", { year: new Date().getFullYear() })}</p>

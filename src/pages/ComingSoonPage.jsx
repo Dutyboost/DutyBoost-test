@@ -107,7 +107,7 @@ export default function ComingSoonPage() {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-border py-6 px-4 mt-auto">
+      <footer className="py-6 px-4 mt-auto">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <DutyBoostLogo height={55} />
           <p>© {new Date().getFullYear()} DutyBoost All rights reserved.</p>

@@ -147,7 +147,7 @@ export default function WholesaleCalculator() {
         </div>
       </section>
 
-      <footer className="border-t border-border py-8 px-4">
+      <footer className="py-8 px-4">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <DutyBoostLogo height={42} />
           <p>© {new Date().getFullYear()} DutyBoost B.V. — {c.footer}</p>

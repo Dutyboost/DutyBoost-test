@@ -351,7 +351,7 @@ export default function BusinessTravel() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-10 px-6 bg-transparent">
+      <footer className="py-10 px-6 bg-transparent">
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">

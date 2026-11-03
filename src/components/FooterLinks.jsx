@@ -31,7 +31,7 @@ export default function FooterLinks() {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center md:justify-between gap-y-2 text-xs text-muted-foreground border-t border-border pt-4 items-center">
+    <div className="flex flex-wrap justify-center md:justify-between gap-y-2 text-xs text-muted-foreground pt-4 items-center">
       <div className="flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2 items-center">
       {/* Legal dropdown */}
       <div className="relative" ref={ref}>

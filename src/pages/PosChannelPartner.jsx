@@ -522,7 +522,7 @@ export default function PosChannelPartner() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-border py-6 sm:py-8 px-4 sm:px-6">
+      <footer className="py-6 sm:py-8 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground text-center">
           <Link to="/"><DutyBoostLogo height={55} /></Link>
           <p>{t("posChannel.footer.tagline", { year: new Date().getFullYear() })}</p>

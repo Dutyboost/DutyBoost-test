@@ -382,7 +382,7 @@ export default function CircularRevenueFlow() {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-border py-6 px-4 sm:px-6">
+      <footer className="py-6 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto space-y-3">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-muted-foreground">
             <DutyBoostLogo height={80} />

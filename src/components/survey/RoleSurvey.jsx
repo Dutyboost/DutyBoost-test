@@ -628,7 +628,7 @@ export default function RoleSurvey({ config, surveyType = "unknown" }) {
         </div>
       </div>
 
-      <footer className="border-t border-border py-6 px-4">
+      <footer className="py-6 px-4">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <DutyBoostLogo height={55} />
           <p>© {new Date().getFullYear()} DutyBoost</p>

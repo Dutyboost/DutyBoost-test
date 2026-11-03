@@ -383,7 +383,7 @@ export default function UserGuide() {
           </div>
         </section>
       </div>
-      <footer className="border-t border-border py-10 px-6 mt-10">
+      <footer className="py-10 px-6 mt-10">
         <div className="max-w-4xl mx-auto text-center text-xs text-muted-foreground">
           <p>{c.footer}</p>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-3">

@@ -26,7 +26,7 @@ export default function TravellerShell({ children }) {
         {children}
       </main>
 
-      <footer className="border-t border-border py-6 px-4 sm:px-6">
+      <footer className="py-6 px-4 sm:px-6">
         <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <p>{tr('footer', { year: new Date().getFullYear() })}</p>
           <div className="flex items-center gap-4">

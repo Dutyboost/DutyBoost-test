@@ -526,7 +526,7 @@ export default function RetailerIntegrationGuide() {
 
       </div>
 
-      <footer className="border-t border-border py-8 px-6 print:hidden">
+      <footer className="py-8 px-6 print:hidden">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-3">
             <DutyBoostLogo height={120} />
