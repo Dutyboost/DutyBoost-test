@@ -7,7 +7,7 @@ export const ecosystemCards = {
     airports: {
       title: 'Travel Hubs',
       description:
-        'Airports, sea ports and rail stations already collect retail concession above a guaranteed minimum. DutyBoost adds incremental sales on top, so concession income grows without extra space or staff.',
+        'Airports, sea ports and rail stations already collect retail concession above a guaranteed annual minimum (MAG). DutyBoost adds incremental sales on top, so concession income grows without extra space or staff.',
       b1: 'Concession on sales that did not exist before',
       b2: 'No capex — runs on the POS already in place',
       b3: 'Airport, sea port and rail station on equal terms',
