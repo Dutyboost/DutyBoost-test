@@ -4,7 +4,6 @@
 const strings = {
   en: {
     title: "How would you like to continue?",
-    fomo: "Claim it before your trip ends — your credit won't wait.",
     traveller_title: "I'm a traveller",
     traveller_desc: "Claim the travel credit included with your booking and save at airport, port, station and local retailers.",
     traveller_cta: "Claim my credit",
@@ -15,7 +14,6 @@ const strings = {
   },
   nl: {
     title: "Hoe wil je verdergaan?",
-    fomo: "Claim het voor je reis eindigt — je tegoed wacht niet.",
     traveller_title: "Ik ben reiziger",
     traveller_desc: "Claim het reistegoed bij je boeking en bespaar bij winkels op luchthavens, havens, stations en in de stad.",
     traveller_cta: "Mijn tegoed claimen",
@@ -26,7 +24,6 @@ const strings = {
   },
   fr: {
     title: "Comment souhaitez-vous continuer ?",
-    fomo: "Réclamez-le avant la fin de votre voyage — votre crédit n'attend pas.",
     traveller_title: "Je suis un voyageur",
     traveller_desc: "Réclamez le crédit voyage inclus dans votre réservation et économisez dans les commerces des aéroports, ports, gares et en ville.",
     traveller_cta: "Réclamer mon crédit",
@@ -37,7 +34,6 @@ const strings = {
   },
   de: {
     title: "Wie möchten Sie fortfahren?",
-    fomo: "Fordern Sie es an, bevor Ihre Reise endet — Ihr Guthaben wartet nicht.",
     traveller_title: "Ich bin Reisender",
     traveller_desc: "Fordern Sie das Reiseguthaben aus Ihrer Buchung an und sparen Sie bei Händlern an Flughäfen, Häfen, Bahnhöfen und in der Innenstadt.",
     traveller_cta: "Guthaben anfordern",
@@ -48,7 +44,6 @@ const strings = {
   },
   es: {
     title: "¿Cómo quieres continuar?",
-    fomo: "Reclámalo antes de que acabe tu viaje — tu crédito no espera.",
     traveller_title: "Soy viajero",
     traveller_desc: "Reclama el crédito de viaje incluido en tu reserva y ahorra en comercios de aeropuertos, puertos, estaciones y ciudad.",
     traveller_cta: "Reclamar mi crédito",
@@ -59,7 +54,6 @@ const strings = {
   },
   it: {
     title: "Come vuoi continuare?",
-    fomo: "Richiedilo prima che il tuo viaggio finisca — il tuo credito non aspetta.",
     traveller_title: "Sono un viaggiatore",
     traveller_desc: "Richiedi il credito di viaggio incluso nella tua prenotazione e risparmia nei negozi di aeroporti, porti, stazioni e città.",
     traveller_cta: "Richiedi il mio credito",
@@ -70,7 +64,6 @@ const strings = {
   },
   pt: {
     title: "Como deseja continuar?",
-    fomo: "Reclame-o antes do fim da sua viagem — o seu crédito não espera.",
     traveller_title: "Sou viajante",
     traveller_desc: "Reclame o crédito de viagem incluído na sua reserva e poupe em lojas de aeroportos, portos, estações e na cidade.",
     traveller_cta: "Reclamar o meu crédito",
