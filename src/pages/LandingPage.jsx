@@ -113,7 +113,7 @@ export default function LandingPage() {
           <div className="text-center mb-5 space-y-2">
             <h2 className="text-2xl sm:text-3xl font-heading font-bold">{t('ecosystem.title')}</h2>
           </div>
-          <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {stakeholders.map((s) => {
               let Icon = s.icon;
               let AdditionalIcons = [];
