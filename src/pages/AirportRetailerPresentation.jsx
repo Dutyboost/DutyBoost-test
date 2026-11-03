@@ -327,9 +327,9 @@ export default function AirportRetailerPresentation() {
       {/* Footer */}
       <footer className="py-8 sm:py-10 px-4 sm:px-6 mt-10">
         <div className="max-w-6xl mx-auto space-y-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <DutyBoostLogo height={100} />
-            <div className="text-center md:text-right">
+            <div className="text-center lg:text-right">
               <p>© 2026 DutyBoost. All rights reserved.</p>
               <p className="text-xs mt-0.5">Chamber of Commerce (KvK): 42053088</p>
             </div>
