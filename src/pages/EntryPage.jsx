@@ -5,6 +5,7 @@ import DutyBoostLogo from "@/components/DutyBoostLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import TravelerIcon from "@/components/TravelerIcon";
 import { getEntryStrings } from "@/lib/i18nEntry";
+import PageBackdrop from "@/components/PageBackdrop";
 
 // Front page: the one decision a visitor makes before anything else —
 // traveller (B2C) or company (B2B).
@@ -34,7 +35,8 @@ export default function EntryPage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col font-body">
+    <div className="min-h-screen flex flex-col font-body relative">
+      <PageBackdrop />
       <header className="px-4 sm:px-6">
         <div className="max-w-6xl mx-auto h-16 sm:h-20 flex items-center justify-between gap-3">
           <span className="sm:hidden"><DutyBoostLogo height={36} /></span>

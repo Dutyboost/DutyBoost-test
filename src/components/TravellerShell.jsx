@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import DutyBoostLogo from "./DutyBoostLogo";
 import LanguageSwitcher from "./LanguageSwitcher";
+import PageBackdrop from "./PageBackdrop";
 
 /**
  * Locked frame for every traveller-facing screen.
@@ -12,7 +13,8 @@ export default function TravellerShell({ children }) {
   const tr = (key, opts) => t(`traveller.${key}`, opts);
 
   return (
-    <div className="min-h-screen bg-background font-body flex flex-col">
+    <div className="min-h-screen font-body flex flex-col relative">
+      <PageBackdrop />
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <DutyBoostLogo height={45} linkTo={null} />

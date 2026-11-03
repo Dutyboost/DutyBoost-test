@@ -23,6 +23,7 @@ import { getCurrencyByCountry } from "../data/countryCurrencies";
 import { fmtMoney } from "../utils/formatNumber";
 import { DUTY_CREDIT_TIERS, MIN_SPEND_EUR } from "../data/dutyCreditTiers";
 import ParticipatingStores from "../components/claim-duty-credit/ParticipatingStores";
+import PageBackdrop from "../components/PageBackdrop";
 
 export default function ClaimDutyCredit() {
   const { t } = useTranslation();
@@ -270,7 +271,8 @@ export default function ClaimDutyCredit() {
   };
 
   return (
-    <div className="min-h-screen bg-background font-body">
+    <div className="min-h-screen font-body relative">
+      <PageBackdrop />
       {/* Nav */}
       <nav className="sticky top-0 z-50 backdrop-blur border-b border-border bg-background/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
