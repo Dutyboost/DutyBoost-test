@@ -297,6 +297,9 @@ export default function ClaimDutyCredit() {
                 {tr('title')}
               </h1>
               <p className="text-xl text-muted-foreground" dangerouslySetInnerHTML={{ __html: tr('subtitle') }} />
+              <p className="text-base sm:text-lg font-medium text-foreground max-w-lg mx-auto">
+                {tr('definition')}
+              </p>
               <p className="text-sm text-muted-foreground max-w-md mx-auto">
                 {tr('description')}
               </p>
