@@ -1,0 +1,66 @@
+import { fmtEur, fmtNum } from "@/utils/formatNumber";
+import { carrierName } from "@/components/admin/dutyCreditFields";
+import { ITEMS_PER_REDEMPTION } from "@/data/retailTurnoverModel";
+
+export default function TurnoverPartnerResults({ tokens }) {
+  const groups = new Map();
+  tokens.forEach((token) => {
+    const key = carrierName(token);
+    const row = groups.get(key) || { partner: key, claims: 0, redeemed: 0, bought: 0 };
+    row.claims += 1;
+    if (token.status === "redeemed") {
+      row.redeemed += 1;
+      row.bought += Number(token.basket_value || 0);
+    }
+    groups.set(key, row);
+  });
+
+  const rows = [...groups.values()].sort((a, b) => b.bought - a.bought);
+
+  return (
+    <div className="bg-card rounded-2xl border border-border overflow-hidden">
+      <div className="p-5 sm:p-6 pb-3">
+        <h3 className="font-heading font-bold">The result per partner</h3>
+        <p className="text-sm text-muted-foreground mt-1">
+          Same chain, per carrier. Turnover is the product of the terms, so it always equals the redeemed basket value
+          behind it.
+        </p>
+      </div>
+
+      {rows.length === 0 ? (
+        <p className="px-5 sm:px-6 pb-6 text-sm text-muted-foreground">No DutyCredits for this travel type yet.</p>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-y border-border text-xs uppercase tracking-wide text-muted-foreground">
+                <th className="text-left font-medium px-5 sm:px-6 py-2">Partner</th>
+                <th className="text-right font-medium px-3 py-2">Claims</th>
+                <th className="text-right font-medium px-3 py-2">Redeemed</th>
+                <th className="text-right font-medium px-3 py-2">Conversion</th>
+                <th className="text-right font-medium px-3 py-2">Avg basket</th>
+                <th className="text-right font-medium px-5 sm:px-6 py-2">Turnover</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => {
+                const conversion = row.claims > 0 ? (row.redeemed / row.claims) * 100 : 0;
+                const avgBasket = row.redeemed > 0 ? row.bought / row.redeemed / ITEMS_PER_REDEMPTION : 0;
+                return (
+                  <tr key={row.partner} className="border-b border-border last:border-0">
+                    <td className="px-5 sm:px-6 py-2.5 font-medium">{row.partner}</td>
+                    <td className="px-3 py-2.5 text-right tabular-nums">{fmtNum(row.claims)}</td>
+                    <td className="px-3 py-2.5 text-right tabular-nums">{fmtNum(row.redeemed)}</td>
+                    <td className="px-3 py-2.5 text-right tabular-nums">{fmtNum(conversion, 1)}%</td>
+                    <td className="px-3 py-2.5 text-right tabular-nums">{fmtEur(avgBasket, 2)}</td>
+                    <td className="px-5 sm:px-6 py-2.5 text-right font-semibold tabular-nums">{fmtEur(row.bought)}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}

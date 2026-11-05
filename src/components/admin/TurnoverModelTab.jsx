@@ -2,18 +2,22 @@ import { useEffect, useMemo, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import { Loader2 } from "lucide-react";
 import { VERTICALS } from "@/components/admin/dutyCreditFields";
-import { DEFAULT_BENCHMARKS } from "@/data/retailTurnoverModel";
-import TurnoverAttributed from "@/components/admin/turnover/TurnoverAttributed";
-import TurnoverPartnerModel from "@/components/admin/turnover/TurnoverPartnerModel";
-import TurnoverSensitivity from "@/components/admin/turnover/TurnoverSensitivity";
+import { FLOW_UNITS } from "@/data/retailTurnoverModel";
+import { GLOBAL_AIRPORTS } from "@/data/globalAirports";
+import TurnoverResult from "@/components/admin/turnover/TurnoverResult";
+import TurnoverPartnerResults from "@/components/admin/turnover/TurnoverPartnerResults";
 
-const termsFor = (vertical) => ({ ...(DEFAULT_BENCHMARKS[vertical] || DEFAULT_BENCHMARKS.all) });
+// Annual passenger traffic per IATA code, from the airport directory.
+const TRAFFIC = GLOBAL_AIRPORTS.reduce((map, airport) => {
+  if (airport.annual_pax) map[airport.code.toUpperCase()] = airport.annual_pax;
+  return map;
+}, {});
+
+const codeOf = (token) => (String(token.airport || "").match(/^([A-Za-z]{3})\b/)?.[1] || "").toUpperCase();
 
 export default function TurnoverModelTab() {
   const [tokens, setTokens] = useState(null);
   const [vertical, setVertical] = useState("all");
-  const [partnerTerms, setPartnerTerms] = useState(() => termsFor("all"));
-  const [uplift, setUplift] = useState("1");
 
   useEffect(() => {
     base44.entities.DutyCreditToken
@@ -27,14 +31,25 @@ export default function TurnoverModelTab() {
     [tokens, vertical]
   );
 
-  const handleVerticalChange = (id) => {
-    setVertical(id);
-    setPartnerTerms(termsFor(id));
-    setUplift("1");
-  };
+  const measured = useMemo(() => {
+    const redeemed = scoped.filter((token) => token.status === "redeemed");
+    const bought = redeemed.reduce((sum, token) => sum + Number(token.basket_value || 0), 0);
+    return { redeemedCount: redeemed.length, bought };
+  }, [scoped]);
 
-  const setPartnerField = (key, value) =>
-    setPartnerTerms((current) => ({ ...current, [key]: value }));
+  // Flow can only be read from the airport directory, and only for air travel.
+  const flow = useMemo(() => {
+    if (vertical !== "all" && vertical !== "flight") return 0;
+    const codes = new Set(scoped.map(codeOf).filter((code) => TRAFFIC[code]));
+    return [...codes].reduce((sum, code) => sum + TRAFFIC[code], 0);
+  }, [scoped, vertical]);
+
+  const flowNote =
+    vertical === "all" || vertical === "flight"
+      ? flow > 0
+        ? `Flow is the annual traffic of the ${FLOW_UNITS.flight.toLowerCase()} airports in scope, from the airport directory.`
+        : "Flow appears once the covered airports are recorded."
+      : `Flow for ${(FLOW_UNITS[vertical] || "").toLowerCase()} has to come from the partner's own figures, so penetration stays open.`;
 
   if (!tokens) {
     return (
@@ -49,8 +64,8 @@ export default function TurnoverModelTab() {
       <div>
         <h2 className="font-heading font-bold">Retail turnover model</h2>
         <p className="text-sm text-muted-foreground mt-1">
-          The chain every travel retailer plans with: turnover is the product of five levers. Read it twice, once on
-          what DutyBoost measurably moved and once on the partner's own estate, and never blend the two.
+          Philip's chain, computed on live DutyCredit data and shown as a result. Every term is read from a record or a
+          directory, nothing is typed in here.
         </p>
         <p className="text-xs text-muted-foreground mt-2 font-mono">
           Turnover = Flow × Penetration × Conversion × Multiple sale × Average price
@@ -61,7 +76,7 @@ export default function TurnoverModelTab() {
         {VERTICALS.map(({ id, label, icon: Icon }) => (
           <button
             key={id}
-            onClick={() => handleVerticalChange(id)}
+            onClick={() => setVertical(id)}
             className={`flex items-center gap-1.5 whitespace-nowrap text-xs px-3 py-2 rounded-full border transition-all ${
               vertical === id ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary/50"
             }`}
@@ -71,18 +86,15 @@ export default function TurnoverModelTab() {
         ))}
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-4 items-start">
-        <TurnoverAttributed key={`attributed-${vertical}`} tokens={scoped} vertical={vertical} />
-        <div className="space-y-4">
-          <TurnoverPartnerModel
-            vertical={vertical}
-            terms={partnerTerms}
-            onChange={setPartnerField}
-            uplift={uplift}
-            onUpliftChange={setUplift}
-          />
-          <TurnoverSensitivity terms={partnerTerms} />
-        </div>
+      <div className="space-y-4">
+        <TurnoverResult
+          claims={scoped.length}
+          redeemedCount={measured.redeemedCount}
+          bought={measured.bought}
+          flow={flow}
+          flowNote={flowNote}
+        />
+        <TurnoverPartnerResults tokens={scoped} />
       </div>
     </div>
   );
