@@ -63,10 +63,6 @@ export default function TurnoverModelTab() {
     <div className="space-y-5">
       <div>
         <h2 className="font-heading font-bold">Retail turnover model</h2>
-        <p className="text-sm text-muted-foreground mt-1">
-          Philip's chain, computed on live DutyCredit data and shown as a result. Every term is read from a record or a
-          directory, nothing is typed in here.
-        </p>
         <p className="text-xs text-muted-foreground mt-2 font-mono">
           Turnover = Flow × Penetration × Conversion × Multiple sale × Average price
         </p>
