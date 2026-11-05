@@ -18,6 +18,7 @@ import { PARTNER_TYPES } from "../components/onboarding/partnerTypes";
 import BatchPayoutApproval from "../components/BatchPayoutApproval";
 import AggregationView from "../components/AggregationView";
 import DutyCreditInsights from "../components/admin/DutyCreditInsights";
+import TurnoverModelTab from "../components/admin/TurnoverModelTab";
 import { Link } from "react-router-dom";
 
 export default function AdminPanel() {
@@ -307,6 +308,7 @@ export default function AdminPanel() {
             </TabsTrigger>
             <TabsTrigger value="vouchers">All DutyCredits</TabsTrigger>
             <TabsTrigger value="dutycredit-data">DutyCredit Data</TabsTrigger>
+            <TabsTrigger value="turnover-model">Turnover Model</TabsTrigger>
             <TabsTrigger value="transactions">Transactions</TabsTrigger>
             <TabsTrigger value="users">Users</TabsTrigger>
             <TabsTrigger value="invoices">
@@ -525,6 +527,10 @@ export default function AdminPanel() {
 
         <TabsContent value="dutycredit-data" className="mt-4">
           <DutyCreditInsights />
+        </TabsContent>
+
+        <TabsContent value="turnover-model" className="mt-4">
+          <TurnoverModelTab />
         </TabsContent>
 
         <TabsContent value="transactions" className="mt-4">
