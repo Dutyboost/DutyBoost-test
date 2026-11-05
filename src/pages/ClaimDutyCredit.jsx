@@ -41,7 +41,6 @@ export default function ClaimDutyCredit() {
   const [returnLocation, setReturnLocation] = useState('');
   const [travelerEmail, setTravelerEmail] = useState('');
   const [flightNumber, setFlightNumber] = useState('');
-  const [bookingRef, setBookingRef] = useState('');
   const [airline, setAirline] = useState('');
   const [departureDate, setDepartureDate] = useState(preselectedDate || '');
   const [generated, setGenerated] = useState(null);
@@ -70,7 +69,6 @@ export default function ClaimDutyCredit() {
 
   const airlineFormat = useMemo(() => getAirlineFormat(airline), [airline]);
   const flightNumberValid = !!(airlineFormat?.flightPattern && airlineFormat.flightPattern.test(flightNumber));
-  const bookingRefValid = !!(airlineFormat?.bookingPattern && airlineFormat.bookingPattern.test(bookingRef));
   const currency = useMemo(() => airportCountry ? getCurrencyByCountry(airportCountry) : "EUR", [airportCountry]);
 
   useEffect(() => {
@@ -142,7 +140,6 @@ export default function ClaimDutyCredit() {
     setAirline('');
     setReturnLocation('');
     setFlightNumber('');
-    setBookingRef('');
     setError('');
   };
 
@@ -198,7 +195,7 @@ export default function ClaimDutyCredit() {
   };
 
   const handleClaim = async () => {
-    if (!airport || !airline || !bookingRef || !departureDate) {
+    if (!airport || !airline || !departureDate) {
       setError(tr('error_missing_fields'));
       return;
     }
@@ -229,7 +226,6 @@ export default function ClaimDutyCredit() {
         ref: refCode || undefined,
         traveler_email: travelerEmail || undefined,
         flight_number: travelType === 'flight' ? (flightNumber || undefined) : undefined,
-        partner_booking_ref: bookingRef || undefined,
         campaign_source: campaign || undefined,
       });
 
@@ -388,35 +384,6 @@ export default function ClaimDutyCredit() {
 
                 <div>
                   <Label className="text-sm font-medium mb-1.5 block">
-                    {travelType === 'flight' ? tr('booking_ref_label') : tr(`verticals.${travelType}.ref_label`)}
-                  </Label>
-                  <Input
-                    type="text"
-                    value={bookingRef}
-                    onChange={(e) => setBookingRef(e.target.value.toUpperCase())}
-                    placeholder={
-                      travelType === 'flight'
-                        ? (airlineFormat?.bookingExample || tr('booking_ref_placeholder'))
-                        : tr(`verticals.${travelType}.ref_placeholder`)
-                    }
-                    className="font-mono"
-                  />
-                  {travelType === 'flight' && airlineFormat && (
-                    <div className="flex items-center gap-1.5 mt-1 text-xs">
-                      {bookingRefValid ? (
-                        <CheckCircle2 className="w-3.5 h-3.5 text-green-500 shrink-0" />
-                      ) : (
-                        <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                      )}
-                      <span className={bookingRefValid ? "text-green-600" : "text-muted-foreground"}>
-                        e.g. {airlineFormat.bookingExample} · {airlineFormat.bookingHint}
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  <Label className="text-sm font-medium mb-1.5 block">
                     {travelType === 'flight' ? tr('departure_date_label') : tr(`verticals.${travelType}.date_label`)}
                   </Label>
                   <Input
@@ -454,7 +421,7 @@ export default function ClaimDutyCredit() {
 
               <Button
                 onClick={handleClaim}
-                disabled={!airport || !airline || !bookingRef || !departureDate || (travelType === 'car_rental' && !returnLocation) || (travelType === 'flight' && (!flightNumber || !flightNumberValid || !bookingRefValid)) || (isPartnerFlow && !travelerEmail)}
+                disabled={!airport || !airline || !departureDate || (travelType === 'car_rental' && !returnLocation) || (travelType === 'flight' && (!flightNumber || !flightNumberValid)) || (isPartnerFlow && !travelerEmail)}
                 size="lg"
                 className="w-full h-14 text-base gap-2"
               >
