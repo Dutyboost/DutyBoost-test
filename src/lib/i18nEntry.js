@@ -3,11 +3,11 @@
 
 const strings = {
   en: {
-    title: "Are you a traveller or a travel related business?",
+    title: "Are you a traveller or a travel related company?",
     traveller_title: "I'm a traveller",
     traveller_desc: "Claim your credit and save at airport, cruise ship terminal, train station and motorway retailers.",
     traveller_cta: "Claim my credit",
-    company_title: "I'm a travel related business",
+    company_title: "I'm a travel related company",
     company_desc: "Turn traveller journeys into measurable revenue.",
     company_cta: "Enter the business platform",
     back: "Back to start",
