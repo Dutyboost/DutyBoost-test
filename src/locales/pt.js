@@ -26,7 +26,7 @@ export default {
       integration_partnerships: 'Para Parceiros de Integração POS',
     },
     hero: {
-      title_1: 'Uma Solução de Aquisição de Clientes Baseada no Desempenho para o Setor de Viagens Global',
+      title_1: 'Bem-vindo à DutyBoost - A Solução de Aquisição de Clientes Baseada no Desempenho para o Setor de Viagens Global',
       title_2: '',
       subtitle_1: 'Liga passageiros, parceiros de viagem, retalhistas de viagem e hubs de viagem num único ecossistema comercial baseado no desempenho.',
       subtitle_2: '',

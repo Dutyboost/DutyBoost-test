@@ -20,7 +20,7 @@ export default {
       integration_partnerships: 'Para Socios de Integración POS',
     },
     hero: {
-       title_1: "Una Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector de Viajes Global",
+       title_1: "Bienvenido a DutyBoost - La Solución de Adquisición de Clientes Basada en el Rendimiento para el Sector de Viajes Global",
        title_2: '',
        subtitle_1: "Conecta a los pasajeros, los socios de viaje, los minoristas de viaje y los hubs de viaje en un mismo ecosistema comercial basado en el rendimiento.",
    subtitle_2: '',

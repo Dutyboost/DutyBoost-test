@@ -20,7 +20,7 @@ export default {
       integration_partnerships: 'Voor POS Integratiepartners',
     },
     hero: {
-       title_1: "Een prestatiegerichte oplossing voor klantacquisitie voor de wereldwijde reissector",
+       title_1: "Welkom bij DutyBoost - De prestatiegerichte oplossing voor klantacquisitie voor de wereldwijde reissector",
        title_2: '',
        subtitle_1: "Verbindt reizigers, reispartners, reisretailers en reishubs in één gedeeld, prestatiegericht commercieel ecosysteem.",
        subtitle_2: '',
