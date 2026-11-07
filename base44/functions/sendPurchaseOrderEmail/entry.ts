@@ -71,7 +71,7 @@ function generatePOHtml(businessType, formData, poNumber) {
           <tr>
             <td width="50%" style="vertical-align:top;padding-right:16px;">
               <div style="font-size:10px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">From (Service Provider)</div>
-              <div style="font-weight:600;">DutyBoost B.V.</div>
+              <div style="font-weight:600;">DutyBoost</div>
               <div style="color:#6b7280;font-size:13px;">Amsterdam, The Netherlands</div>
               <div style="color:#6b7280;font-size:13px;">KVK: 94891234</div>
               <div style="color:#6b7280;font-size:13px;">VAT: NL866038978B01</div>
@@ -123,7 +123,7 @@ function generatePOHtml(businessType, formData, poNumber) {
 
         <!-- Footer -->
         <div style="padding-top:16px;border-top:1px solid #e5e7eb;font-size:12px;color:#9ca3af;text-align:center;">
-          DutyBoost B.V. · Amsterdam, The Netherlands · hello@dutyboost.com · dutyboost.com
+          DutyBoost · Amsterdam, The Netherlands · hello@dutyboost.com · dutyboost.com
         </div>
       </div>
     </body>

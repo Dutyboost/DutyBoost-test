@@ -65,7 +65,7 @@ export default function PartnerIncentiveReceipts({
     doc.text("DutyBoost", 20, 20);
     doc.setFontSize(11);
     doc.setTextColor(100);
-    doc.text("DutyBoost B.V. · Self-billed incentive statement", 20, 28);
+    doc.text("DutyBoost · Self-billed incentive statement", 20, 28);
     doc.text("hello@dutyboost.com · dutyboost.com", 20, 34);
 
     doc.setFontSize(16);
@@ -143,7 +143,7 @@ export default function PartnerIncentiveReceipts({
       doc.setPage(p);
       doc.setFontSize(8);
       doc.setTextColor(150);
-      doc.text("This statement documents the incentive share paid by DutyBoost B.V. under the platform fee sharing agreement.", 20, 282);
+      doc.text("This statement documents the incentive share paid by DutyBoost under the platform fee sharing agreement.", 20, 282);
       doc.text("It is not an invoice. Keep it with your bookkeeping for tax reporting. Questions? hello@dutyboost.com", 20, 287);
     }
 

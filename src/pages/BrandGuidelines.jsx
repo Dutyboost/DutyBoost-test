@@ -81,7 +81,7 @@ function generatePDF() {
     doc.setFontSize(9);
     doc.setTextColor(...WHITE);
     doc.text("DutyBoost  —  Brand Guidelines", margin, 11);
-    doc.text("© 2026 DutyBoost B.V.", W - margin, 11, { align: "right" });
+    doc.text("© 2026 DutyBoost", W - margin, 11, { align: "right" });
 
     // Section heading block
     doc.setFillColor(...BG);
@@ -111,7 +111,7 @@ function generatePDF() {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(7);
     doc.setTextColor(...GREY);
-    doc.text("DutyBoost B.V.  |  KvK 42053088  |  hello@dutyboost.com  |  dutyboost.com", W / 2, H - 5, { align: "center" });
+    doc.text("DutyBoost  |  KvK 42053088  |  hello@dutyboost.com  |  dutyboost.com", W / 2, H - 5, { align: "center" });
     doc.text(`Page ${pageNum}`, W - margin, H - 5, { align: "right" });
   };
 
@@ -150,7 +150,7 @@ function generatePDF() {
   doc.setFontSize(9);
   doc.setTextColor(130, 140, 160);
   doc.text("Version 1.0  —  June 2026", margin, 150);
-  doc.text("DutyBoost B.V.  |  The Travel Retail Conversion Layer", margin, 158);
+  doc.text("DutyBoost  |  The Travel Retail Conversion Layer", margin, 158);
 
   footerLine(1);
 

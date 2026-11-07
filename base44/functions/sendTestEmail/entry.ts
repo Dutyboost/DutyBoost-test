@@ -39,7 +39,7 @@ Deno.serve(async (req) => {
               If you didn't request this, please ignore this email.
             </p>
             <hr style="border: none; border-top: 1px solid #eee; margin: 24px 0;" />
-            <p style="color: #bbb; font-size: 12px;">© 2026 DutyBoost B.V. All rights reserved.</p>
+            <p style="color: #bbb; font-size: 12px;">© 2026 DutyBoost All rights reserved.</p>
           </div>
         `
       }),

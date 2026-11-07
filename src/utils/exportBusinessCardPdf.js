@@ -177,7 +177,7 @@ function drawBack(doc, data, icons) {
 
   doc.setFontSize(6);
   doc.setTextColor(...MUTED);
-  doc.text("DutyBoost B.V.  |  KvK 42053088  |  The Netherlands", 8, 49);
+  doc.text("DutyBoost  |  KvK 42053088  |  The Netherlands", 8, 49);
 }
 
 export async function exportBusinessCardPdf(data = {}) {

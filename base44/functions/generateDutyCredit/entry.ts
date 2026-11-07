@@ -241,7 +241,7 @@ Deno.serve(async (req) => {
         <tr>
           <td style="background:#f9fafb;padding:20px 40px;text-align:center;border-top:1px solid #e5e7eb;">
             <p style="margin:0 0 4px;color:#9ca3af;font-size:12px;">Questions? Contact <a href="mailto:hello@dutyboost.com" style="color:#1e40af;text-decoration:none;">hello@dutyboost.com</a></p>
-            <p style="margin:4px 0 0;color:#9ca3af;font-size:11px;">Powered by <strong style="color:#1e40af;">DutyBoost</strong> — The Travel Retail Conversion Layer · © ${new Date().getFullYear()} DutyBoost B.V.</p>
+            <p style="margin:4px 0 0;color:#9ca3af;font-size:11px;">Powered by <strong style="color:#1e40af;">DutyBoost</strong> — The Travel Retail Conversion Layer · © ${new Date().getFullYear()} DutyBoost</p>
           </td>
         </tr>
 

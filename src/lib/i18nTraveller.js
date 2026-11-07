@@ -47,7 +47,7 @@ export const travellerStrings = {
     legal_privacy: 'Privacy',
     legal_terms: 'Terms',
     legal_cookies: 'Cookies',
-    footer: '© {{year}} DutyBoost B.V.',
+    footer: '© {{year}} DutyBoost',
   },
   nl: {
     title: 'Heb je een DutyCredit?',
@@ -74,7 +74,7 @@ export const travellerStrings = {
     legal_privacy: 'Privacy',
     legal_terms: 'Voorwaarden',
     legal_cookies: 'Cookies',
-    footer: '© {{year}} DutyBoost B.V.',
+    footer: '© {{year}} DutyBoost',
   },
   fr: {
     title: 'Vous avez un DutyCredit ?',
@@ -101,7 +101,7 @@ export const travellerStrings = {
     legal_privacy: 'Confidentialité',
     legal_terms: 'Conditions',
     legal_cookies: 'Cookies',
-    footer: '© {{year}} DutyBoost B.V.',
+    footer: '© {{year}} DutyBoost',
   },
   de: {
     title: 'Sie haben einen DutyCredit?',
@@ -128,7 +128,7 @@ export const travellerStrings = {
     legal_privacy: 'Datenschutz',
     legal_terms: 'Bedingungen',
     legal_cookies: 'Cookies',
-    footer: '© {{year}} DutyBoost B.V.',
+    footer: '© {{year}} DutyBoost',
   },
   es: {
     title: '¿Tienes un DutyCredit?',
@@ -155,7 +155,7 @@ export const travellerStrings = {
     legal_privacy: 'Privacidad',
     legal_terms: 'Términos',
     legal_cookies: 'Cookies',
-    footer: '© {{year}} DutyBoost B.V.',
+    footer: '© {{year}} DutyBoost',
   },
   it: {
     title: 'Hai un DutyCredit?',
@@ -182,7 +182,7 @@ export const travellerStrings = {
     legal_privacy: 'Privacy',
     legal_terms: 'Termini',
     legal_cookies: 'Cookie',
-    footer: '© {{year}} DutyBoost B.V.',
+    footer: '© {{year}} DutyBoost',
   },
   pt: {
     title: 'Tem um DutyCredit?',
@@ -209,6 +209,6 @@ export const travellerStrings = {
     legal_privacy: 'Privacidade',
     legal_terms: 'Termos',
     legal_cookies: 'Cookies',
-    footer: '© {{year}} DutyBoost B.V.',
+    footer: '© {{year}} DutyBoost',
   },
 };

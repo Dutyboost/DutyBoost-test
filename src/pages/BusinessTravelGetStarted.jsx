@@ -411,7 +411,7 @@ export default function BusinessTravelGetStarted() {
                     className="mt-0.5 h-4 w-4 rounded border-input accent-primary cursor-pointer"
                   />
                   <span className="text-sm text-foreground leading-relaxed">
-                    I have read and agree to the <a href="/terms" target="_blank" className="text-primary underline underline-offset-2">Terms of Service</a> and <a href="/privacy" target="_blank" className="text-primary underline underline-offset-2">Privacy Policy</a> of DutyBoost B.V. for the Business Travel programme.
+                    I have read and agree to the <a href="/terms" target="_blank" className="text-primary underline underline-offset-2">Terms of Service</a> and <a href="/privacy" target="_blank" className="text-primary underline underline-offset-2">Privacy Policy</a> of DutyBoost for the Business Travel programme.
                   </span>
                 </label>
               </div>

@@ -55,7 +55,7 @@ const content = {
     help_desc: "Browse our FAQ or contact our support team.",
     browse_faq: "Browse FAQ",
     email_support: "Email Support",
-    footer: "© 2026 DutyBoost B.V. — All rights reserved.",
+    footer: "© 2026 DutyBoost — All rights reserved.",
   },
   nl: {
     title: "DutyBoost Gebruikersgids",
@@ -108,7 +108,7 @@ const content = {
     help_desc: "Bekijk onze FAQ of neem contact op met ons ondersteuningsteam.",
     browse_faq: "FAQ bekijken",
     email_support: "E-mail ondersteuning",
-    footer: "© 2026 DutyBoost B.V. — Alle rechten voorbehouden.",
+    footer: "© 2026 DutyBoost — Alle rechten voorbehouden.",
   },
   de: {
     title: "DutyBoost Benutzerhandbuch",
@@ -160,7 +160,7 @@ const content = {
     help_desc: "Durchsuchen Sie unsere FAQ oder kontaktieren Sie unser Support-Team.",
     browse_faq: "FAQ durchsuchen",
     email_support: "E-Mail-Support",
-    footer: "© 2026 DutyBoost B.V. — Alle Rechte vorbehalten.",
+    footer: "© 2026 DutyBoost — Alle Rechte vorbehalten.",
   },
   fr: {
     title: "Guide utilisateur DutyBoost",
@@ -212,7 +212,7 @@ const content = {
     help_desc: "Parcourez notre FAQ ou contactez notre équipe de support.",
     browse_faq: "Parcourir la FAQ",
     email_support: "Contacter le support",
-    footer: "© 2026 DutyBoost B.V. — Tous droits réservés.",
+    footer: "© 2026 DutyBoost — Tous droits réservés.",
   },
   es: {
     title: "Guía de usuario de DutyBoost",
@@ -264,7 +264,7 @@ const content = {
     help_desc: "Consulta nuestras preguntas frecuentes o contacta con nuestro equipo de soporte.",
     browse_faq: "Ver FAQ",
     email_support: "Soporte por email",
-    footer: "© 2026 DutyBoost B.V. — Todos los derechos reservados.",
+    footer: "© 2026 DutyBoost — Todos los derechos reservados.",
   },
   it: {
     title: "Guida utente DutyBoost",
@@ -316,7 +316,7 @@ const content = {
     help_desc: "Sfoglia le nostre FAQ o contatta il nostro team di supporto.",
     browse_faq: "Sfoglia le FAQ",
     email_support: "Contatta il supporto",
-    footer: "© 2026 DutyBoost B.V. — Tutti i diritti riservati.",
+    footer: "© 2026 DutyBoost — Tutti i diritti riservati.",
   },
 };
 

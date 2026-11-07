@@ -12,8 +12,8 @@ import { fmtMoney } from "../utils/formatNumber";
 // ─── Region configuration ───────────────────────────────────────────────────
 
 const _enLabels = {
-  dutyboostHeader: "DutyBoost B.V. · hello@dutyboost.com · dutyboost.com",
-  dutyboostFooter: "DutyBoost B.V. · KvK: 42053088 · IBAN: NL91ABNA0417164300",
+  dutyboostHeader: "DutyBoost · hello@dutyboost.com · dutyboost.com",
+  dutyboostFooter: "DutyBoost · KvK: 42053088 · IBAN: NL91ABNA0417164300",
   copyrightLine: "© 2026 DutyBoost. All rights reserved.",
   kvkLine: "Chamber of Commerce (KvK): 42053088",
   vatLine: "",
@@ -31,7 +31,7 @@ const _enLabels = {
   totalDue: "Total Due:",
   statusLabel: "Status:",
   footer1: "",
-  footer2: "This invoice is issued by DutyBoost B.V. for accounting purposes.",
+  footer2: "This invoice is issued by DutyBoost for accounting purposes.",
   accountInfo: "Account Information",
   contactPerson: "Contact Person",
   email: "Email",
@@ -62,8 +62,8 @@ const REGION_CONFIG = {
     regKey: "kvk",
     regLabel: "CoC Number",
     vatLabel: "VAT Number",
-    dutyboostHeader: "DutyBoost B.V. · hello@dutyboost.com · dutyboost.com",
-    dutyboostFooter: "DutyBoost B.V. · KvK: 42053088 · IBAN: NL91ABNA0417164300",
+    dutyboostHeader: "DutyBoost · hello@dutyboost.com · dutyboost.com",
+    dutyboostFooter: "DutyBoost · KvK: 42053088 · IBAN: NL91ABNA0417164300",
     copyrightLine: "© 2026 DutyBoost. All rights reserved.",
     kvkLine: "Chamber of Commerce (KvK): 42053088",
     vatLine: "VAT Number: NL869492068B01",
@@ -81,7 +81,7 @@ const REGION_CONFIG = {
     totalDue: "Total Due:",
     statusLabel: "Status:",
     footer1: "All DutyBoost fees are exclusive of VAT. VAT (21%) is added separately as shown above.",
-    footer2: "This invoice is issued by DutyBoost B.V. for tax and accounting purposes.",
+    footer2: "This invoice is issued by DutyBoost for tax and accounting purposes.",
     accountInfo: "Account Information",
     contactPerson: "Contact Person",
     email: "Email",
@@ -111,7 +111,7 @@ const REGION_CONFIG = {
     regLabel: "CIF",
     vatLabel: "NIF-IVA",
     dutyboostHeader: "DutyBoost Spain S.L. · hola@dutyboost.com · dutyboost.com",
-    dutyboostFooter: "DutyBoost B.V. · KvK: 42053088 · IBAN: NL91ABNA0417164300",
+    dutyboostFooter: "DutyBoost · KvK: 42053088 · IBAN: NL91ABNA0417164300",
     copyrightLine: "© 2026 DutyBoost. Todos los derechos reservados.",
     kvkLine: "Cámara de Comercio (KvK): 42053088",
     vatLine: "N.º IVA: NL869492068B01",
@@ -129,7 +129,7 @@ const REGION_CONFIG = {
     totalDue: "Total a pagar:",
     statusLabel: "Estado:",
     footer1: "Todas las comisiones de DutyBoost excluyen IVA. El IVA (21%) se añade aparte como se muestra arriba.",
-    footer2: "Esta factura es emitida por DutyBoost B.V. para fines fiscales y contables.",
+    footer2: "Esta factura es emitida por DutyBoost para fines fiscales y contables.",
     accountInfo: "Información de la cuenta",
     contactPerson: "Persona de contacto",
     email: "Correo electrónico",
@@ -350,7 +350,7 @@ function downloadPayoutPDF(inv, entity, profile) {
   const doc = new jsPDF();
   doc.setFontSize(10);
   doc.setTextColor(100);
-  doc.text("DutyBoost B.V. · hello@dutyboost.com · dutyboost.com", 20, 28);
+  doc.text("DutyBoost · hello@dutyboost.com · dutyboost.com", 20, 28);
 
   doc.setFontSize(15);
   doc.setTextColor(31, 111, 255);
@@ -421,8 +421,8 @@ function downloadPayoutPDF(inv, entity, profile) {
   doc.setTextColor(150);
   const payoutLineY = abY + 4;
   doc.line(20, payoutLineY, 190, payoutLineY);
-  doc.text("This payout statement is issued by DutyBoost B.V. for tax and accounting purposes.", 20, payoutLineY + 7);
-  doc.text("DutyBoost B.V. · KvK: 42053088 · VAT: NL869492068B01 · IBAN: NL91ABNA0417164300", 20, payoutLineY + 14);
+  doc.text("This payout statement is issued by DutyBoost for tax and accounting purposes.", 20, payoutLineY + 7);
+  doc.text("DutyBoost · KvK: 42053088 · VAT: NL869492068B01 · IBAN: NL91ABNA0417164300", 20, payoutLineY + 14);
 
   // Add logo only on first page, centered
   doc.setPage(1);

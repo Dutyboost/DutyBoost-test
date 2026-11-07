@@ -33,7 +33,7 @@ export const eligibilityStrings = {
     cta_title: "Ready to check your eligibility?",
     cta_desc: "It takes 10 seconds — and it could save you money at the airport.",
     cta_btn: "Go to DutyCredit claim",
-    footer: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+    footer: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
   },
   nl: {
     hero_badge: "Binnenkort op reis?",
@@ -69,7 +69,7 @@ export const eligibilityStrings = {
     cta_title: "Klaar om uw recht te controleren?",
     cta_desc: "Het duurt 10 seconden — en het kan u geld besparen op de luchthaven.",
     cta_btn: "Ga naar DutyCredit-claim",
-    footer: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+    footer: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
   },
   fr: {
     hero_badge: "Vous voyagez bientôt ?",
@@ -105,7 +105,7 @@ export const eligibilityStrings = {
     cta_title: "Prêt à vérifier votre éligibilité ?",
     cta_desc: "Cela prend 10 secondes — et cela pourrait vous faire économiser de l'argent à l'aéroport.",
     cta_btn: "Aller à la demande DutyCredit",
-    footer: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+    footer: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
   },
   de: {
     hero_badge: "Sie reisen bald?",
@@ -141,7 +141,7 @@ export const eligibilityStrings = {
     cta_title: "Bereit, Ihre Berechtigung zu prüfen?",
     cta_desc: "Es dauert 10 Sekunden — und könnte Ihnen Geld am Flughafen sparen.",
     cta_btn: "Zur DutyCredit-Beantragung",
-    footer: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+    footer: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
   },
   es: {
     hero_badge: "¿Viajas pronto?",
@@ -177,7 +177,7 @@ export const eligibilityStrings = {
     cta_title: "¿Listo para comprobar si clasificas?",
     cta_desc: "Tarda 10 segundos — y podría ahorrarte dinero en el aeropuerto.",
     cta_btn: "Ir a la solicitud de DutyCredit",
-    footer: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+    footer: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
   },
   it: {
     hero_badge: "In viaggio presto?",
@@ -213,7 +213,7 @@ export const eligibilityStrings = {
     cta_title: "Pronto a verificare la tua idoneità?",
     cta_desc: "Richiede 10 secondi — e potrebbe farti risparmiare denaro in aeroporto.",
     cta_btn: "Vai alla richiesta DutyCredit",
-    footer: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+    footer: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
   },
   pt: {
     hero_badge: "Vai viajar em breve?",
@@ -249,6 +249,6 @@ export const eligibilityStrings = {
     cta_title: "Pronto para verificar a sua elegibilidade?",
     cta_desc: "Demora 10 segundos — e pode poupar-lhe dinheiro no aeroporto.",
     cta_btn: "Ir para o pedido de DutyCredit",
-    footer: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+    footer: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
   },
 };

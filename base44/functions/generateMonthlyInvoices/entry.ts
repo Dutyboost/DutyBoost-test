@@ -198,7 +198,7 @@ Deno.serve(async (req) => {
                   </div>
 
                   <p style="margin: 0; font-size: 12px; color: #9ca3af; border-top: 1px solid #e5e7eb; padding-top: 16px;">
-                    DutyBoost B.V. · Amsterdam, The Netherlands · KVK: 94891234 · VAT: NL866038978B01 · hello@dutyboost.com<br/>
+                    DutyBoost · Amsterdam, The Netherlands · KVK: 94891234 · VAT: NL866038978B01 · hello@dutyboost.com<br/>
                     Questions? Reply to this email or contact <a href="mailto:hello@dutyboost.com" style="color:#1e40af;">hello@dutyboost.com</a>
                   </p>
                 </div>

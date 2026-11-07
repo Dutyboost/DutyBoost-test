@@ -107,7 +107,7 @@ export const posChannelStrings = {
       button_secondary: "Learn about DutyBoost",
     },
     footer: {
-      tagline: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+      tagline: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
     },
     callback: {
       back: "Back",
@@ -141,7 +141,7 @@ export const posChannelStrings = {
       placeholder_footprint: "e.g. 5000",
       footprint_help: "Helps us tailor the revenue projection for the call.",
       button: "Request callback",
-      consent: "By submitting you agree to be contacted by DutyBoost B.V. about a partnership.",
+      consent: "By submitting you agree to be contacted by DutyBoost about a partnership.",
       err_name: "Please enter your full name (first and last name).",
       err_email_required: "Work email is required.",
       err_email_work: "Please use a professional work email address (no Gmail, Hotmail, etc.).",
@@ -263,7 +263,7 @@ export const posChannelStrings = {
       button_secondary: "Meer over DutyBoost",
     },
     footer: {
-      tagline: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+      tagline: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
     },
     callback: {
       back: "Terug",
@@ -297,7 +297,7 @@ export const posChannelStrings = {
       placeholder_footprint: "bijv. 5000",
       footprint_help: "Helpt ons de inkomstenprojectie voor de call op maat te maken.",
       button: "Callback aanvragen",
-      consent: "Door te verzenden gaat u ermee akkoord dat DutyBoost B.V. contact met u opneemt over een partnerschap.",
+      consent: "Door te verzenden gaat u ermee akkoord dat DutyBoost contact met u opneemt over een partnerschap.",
       err_name: "Voer uw volledige naam in (voor- en achternaam).",
       err_email_required: "Werk-e-mail is verplicht.",
       err_email_work: "Gebruik een professioneel werk-e-mailadres (geen Gmail, Hotmail, enz.).",
@@ -419,7 +419,7 @@ export const posChannelStrings = {
       button_secondary: "Découvrir DutyBoost",
     },
     footer: {
-      tagline: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+      tagline: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
     },
     callback: {
       back: "Retour",
@@ -453,7 +453,7 @@ export const posChannelStrings = {
       placeholder_footprint: "ex. 5000",
       footprint_help: "Nous aide à personnaliser la projection de revenus pour l'appel.",
       button: "Demander un rappel",
-      consent: "En soumettant, vous acceptez d'être contacté par DutyBoost B.V. au sujet d'un partenariat.",
+      consent: "En soumettant, vous acceptez d'être contacté par DutyBoost au sujet d'un partenariat.",
       err_name: "Veuillez saisir votre nom complet (prénom et nom).",
       err_email_required: "L'e-mail professionnel est requis.",
       err_email_work: "Veuillez utiliser une adresse e-mail professionnelle (pas de Gmail, Hotmail, etc.).",
@@ -575,7 +575,7 @@ export const posChannelStrings = {
       button_secondary: "Mehr über DutyBoost",
     },
     footer: {
-      tagline: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+      tagline: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
     },
     callback: {
       back: "Zurück",
@@ -609,7 +609,7 @@ export const posChannelStrings = {
       placeholder_footprint: "z. B. 5000",
       footprint_help: "Hilft uns, die Einnahmenprojektion für den Anruf anzupassen.",
       button: "Rückruf anfordern",
-      consent: "Mit dem Absenden stimmen Sie zu, von DutyBoost B.V. bezüglich einer Partnerschaft kontaktiert zu werden.",
+      consent: "Mit dem Absenden stimmen Sie zu, von DutyBoost bezüglich einer Partnerschaft kontaktiert zu werden.",
       err_name: "Bitte geben Sie Ihren vollständigen Namen ein (Vor- und Nachname).",
       err_email_required: "Geschäfts-E-Mail ist erforderlich.",
       err_email_work: "Bitte verwenden Sie eine geschäftliche E-Mail-Adresse (keine Gmail, Hotmail, etc.).",
@@ -731,7 +731,7 @@ export const posChannelStrings = {
       button_secondary: "Conoce DutyBoost",
     },
     footer: {
-      tagline: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+      tagline: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
     },
     callback: {
       back: "Atrás",
@@ -765,7 +765,7 @@ export const posChannelStrings = {
       placeholder_footprint: "ej. 5000",
       footprint_help: "Nos ayuda a adaptar la proyección de ingresos para la llamada.",
       button: "Solicitar llamada",
-      consent: "Al enviar, aceptas ser contactado por DutyBoost B.V. sobre una colaboración.",
+      consent: "Al enviar, aceptas ser contactado por DutyBoost sobre una colaboración.",
       err_name: "Por favor, introduce tu nombre completo (nombre y apellido).",
       err_email_required: "El correo profesional es obligatorio.",
       err_email_work: "Por favor, usa una dirección de correo profesional (no Gmail, Hotmail, etc.).",
@@ -887,7 +887,7 @@ export const posChannelStrings = {
       button_secondary: "Scopri DutyBoost",
     },
     footer: {
-      tagline: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+      tagline: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
     },
     callback: {
       back: "Indietro",
@@ -921,7 +921,7 @@ export const posChannelStrings = {
       placeholder_footprint: "es. 5000",
       footprint_help: "Ci aiuta a personalizzare la proiezione di entrate per la chiamata.",
       button: "Richiedi richiamo",
-      consent: "Inviando, accetti di essere contattato da DutyBoost B.V. riguardo una partnership.",
+      consent: "Inviando, accetti di essere contattato da DutyBoost riguardo una partnership.",
       err_name: "Inserisci il tuo nome completo (nome e cognome).",
       err_email_required: "L'email di lavoro è obbligatoria.",
       err_email_work: "Usa un indirizzo email di lavoro professionale (niente Gmail, Hotmail, ecc.).",
@@ -1042,7 +1042,7 @@ export const posChannelStrings = {
       button_secondary: "Saber mais sobre a DutyBoost",
     },
     footer: {
-      tagline: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer",
+      tagline: "© {{year}} DutyBoost — The Travel Retail Conversion Layer",
     },
     callback: {
       back: "Voltar",
@@ -1076,7 +1076,7 @@ export const posChannelStrings = {
       placeholder_footprint: "por exemplo, 5000",
       footprint_help: "Ajuda-nos a adaptar a projeção de receita para a chamada.",
       button: "Pedir contacto",
-      consent: "Ao submeter, aceita ser contactado pela DutyBoost B.V. sobre uma parceria.",
+      consent: "Ao submeter, aceita ser contactado pela DutyBoost sobre uma parceria.",
       err_name: "Introduza o seu nome completo (nome e apelido).",
       err_email_required: "O email profissional é obrigatório.",
       err_email_work: "Utilize um endereço de email profissional (sem Gmail, Hotmail, etc.).",

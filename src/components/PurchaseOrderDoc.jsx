@@ -24,7 +24,7 @@ export default function PurchaseOrderDoc({ businessType, formData, poNumber }) {
       <div className="grid grid-cols-2 gap-6">
         <div className="space-y-1">
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">From (Service Provider)</p>
-          <p className="font-semibold">DutyBoost B.V.</p>
+          <p className="font-semibold">DutyBoost</p>
           <p className="text-muted-foreground">Amsterdam, The Netherlands</p>
           <p className="text-muted-foreground">KVK: 94891234</p>
           <p className="text-muted-foreground">VAT: NL866038978B01</p>
@@ -122,8 +122,8 @@ export default function PurchaseOrderDoc({ businessType, formData, poNumber }) {
           <p className="text-xs text-muted-foreground">By accepting digitally in the DutyBoost onboarding flow, you confirm agreement to the terms above.</p>
         </div>
         <div className="space-y-6">
-          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">On behalf of DutyBoost B.V.</p>
-          <div className="border-b border-border pb-1 text-muted-foreground text-xs">DutyBoost B.V. — Amsterdam</div>
+          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">On behalf of DutyBoost</p>
+          <div className="border-b border-border pb-1 text-muted-foreground text-xs">DutyBoost — Amsterdam</div>
           <p className="text-xs text-muted-foreground">This purchase order is automatically issued upon platform onboarding.</p>
         </div>
       </div>

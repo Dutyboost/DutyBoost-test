@@ -308,7 +308,7 @@ export async function exportTravelPartnerPptx() {
     });
 
     s.addText("hello@dutyboost.com · www.dutyboost.com", { x: 1, y: 5.5, w: 11.3, h: 0.4, fontSize: 13, bold: true, color: "FFFFFF", align: "center", fontFace: "Calibri" });
-    s.addText(`© 2026 DutyBoost B.V. · Travel Partner Program`, { x: 1, y: 6.7, w: 11.3, h: 0.35, fontSize: 9, color: "E0E7FF", align: "center", fontFace: "Calibri" });
+    s.addText(`© 2026 DutyBoost · Travel Partner Program`, { x: 1, y: 6.7, w: 11.3, h: 0.35, fontSize: 9, color: "E0E7FF", align: "center", fontFace: "Calibri" });
   }
 
   await pptx.writeFile({ fileName: "DutyBoost-For-Travel-Partners.pptx" });

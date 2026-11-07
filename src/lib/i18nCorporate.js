@@ -70,7 +70,7 @@ export const corporateStrings = {
       ctaTitle: "Ready to turn the bookings you already process into a new revenue stream?",
       ctaDesc: "Tell us about your booking volume and we'll prepare a tailored estimate — no commitment, no setup fee.",
       cta: "Activate your Corporate Travel Partner programme — connect your bookings, earn on every redemption.",
-      legal: "© 2026 DutyBoost B.V. — Chamber of Commerce: 42053088 — VAT: NL869492068B01 — CONFIDENTIAL",
+      legal: "© 2026 DutyBoost — Chamber of Commerce: 42053088 — VAT: NL869492068B01 — CONFIDENTIAL",
     },
     pitch: {
       labels: {
@@ -397,7 +397,7 @@ export const corporateStrings = {
       ctaTitle: "Klaar om van de boekingen die u al verwerkt een nieuwe omzetstroom te maken?",
       ctaDesc: "Vertel ons over uw boekingsvolume en wij stellen een op maat gemaakte schatting op — geen verplichting, geen opzetkosten.",
       cta: "Activeer uw Corporate Travel Partner-programma — verbind uw boekingen, verdien bij elke verzilvering.",
-      legal: "© 2026 DutyBoost B.V. — Kvk: 42053088 — BTW: NL869492068B01 — CONFIDENTIAL",
+      legal: "© 2026 DutyBoost — Kvk: 42053088 — BTW: NL869492068B01 — CONFIDENTIAL",
     },
     pitch: {
       labels: {
@@ -724,7 +724,7 @@ export const corporateStrings = {
       ctaTitle: "Prêt à transformer les réservations que vous traitez déjà en nouveau flux de revenus ?",
       ctaDesc: "Parlez-nous de votre volume de réservations et nous préparerons une estimation sur mesure — sans engagement, sans frais d'installation.",
       cta: "Activez votre programme Corporate Travel Partner — connectez vos réservations, gagnez à chaque utilisation.",
-      legal: "© 2026 DutyBoost B.V. — RCS : 42053088 — TVA : NL869492068B01 — CONFIDENTIEL",
+      legal: "© 2026 DutyBoost — RCS : 42053088 — TVA : NL869492068B01 — CONFIDENTIEL",
     },
     pitch: {
       labels: {
@@ -1051,7 +1051,7 @@ export const corporateStrings = {
       ctaTitle: "Bereit, die Buchungen, die Sie bereits verarbeiten, in einen neuen Umsatzstrom zu verwandeln?",
       ctaDesc: "Nennen Sie uns Ihr Buchungsvolumen und wir erstellen eine maßgeschneiderte Schätzung — keine Verpflichtung, keine Einrichtungsgebühr.",
       cta: "Aktivieren Sie Ihr Corporate-Travel-Partner-Programm — verbinden Sie Ihre Buchungen, verdienen Sie bei jeder Einlösung.",
-      legal: "© 2026 DutyBoost B.V. — Handelsregister: 42053131 — USt-IdNr.: NL869492068B01 — VERTRAULICH",
+      legal: "© 2026 DutyBoost — Handelsregister: 42053131 — USt-IdNr.: NL869492068B01 — VERTRAULICH",
     },
     pitch: {
       labels: {
@@ -1378,7 +1378,7 @@ export const corporateStrings = {
       ctaTitle: "¿Listo para convertir las reservas que ya procesa en un nuevo flujo de ingresos?",
       ctaDesc: "Cuéntenos su volumen de reservas y prepararemos una estimación personalizada — sin compromiso, sin tarifa de instalación.",
       cta: "Active su programa Corporate Travel Partner — conecte sus reservas, gane en cada canje.",
-      legal: "© 2026 DutyBoost B.V. — Cámara de Comercio: 42053088 — NIF: NL869492068B01 — CONFIDENCIAL",
+      legal: "© 2026 DutyBoost — Cámara de Comercio: 42053088 — NIF: NL869492068B01 — CONFIDENCIAL",
     },
     pitch: {
       labels: {
@@ -1705,7 +1705,7 @@ export const corporateStrings = {
       ctaTitle: "Pronto a trasformare le prenotazioni che già elabori in un nuovo flusso di ricavi?",
       ctaDesc: "Raccontaci il tuo volume di prenotazioni e prepareremo una stima su misura — senza impegno, senza costo di attivazione.",
       cta: "Attiva il tuo programma Corporate Travel Partner — collega le tue prenotazioni, guadagna a ogni utilizzo.",
-      legal: "© 2026 DutyBoost B.V. — Camera di Commercio: 42053131 — P.IVA: NL869492068B01 — CONFIDENZIALE",
+      legal: "© 2026 DutyBoost — Camera di Commercio: 42053131 — P.IVA: NL869492068B01 — CONFIDENZIALE",
     },
     pitch: {
       labels: {
@@ -2031,7 +2031,7 @@ export const corporateStrings = {
       ctaTitle: "Pronto para transformar as reservas que já processa num novo fluxo de receita?",
       ctaDesc: "Fale-nos do seu volume de reservas e prepararemos uma estimativa à medida — sem compromisso, sem taxa de adesão.",
       cta: "Ative o seu programa Corporate Travel Partner — ligue as suas reservas, ganhe em cada resgate.",
-      legal: "© 2026 DutyBoost B.V. — Registo Comercial: 42053088 — IVA: NL869492068B01 — CONFIDENCIAL",
+      legal: "© 2026 DutyBoost — Registo Comercial: 42053088 — IVA: NL869492068B01 — CONFIDENCIAL",
     },
     pitch: {
       labels: {

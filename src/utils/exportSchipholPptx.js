@@ -253,7 +253,7 @@ export async function exportSchipholPptx() {
     s.addText("~€292,000 additional revenue per location/year · Zero setup cost · Join the first AMS retailers", { x: 1.5, y: 3.9, w: 10.3, h: 0.6, fontSize: 13, color: "94A3B8", align: "center", fontFace: "Calibri" });
     s.addText("hello@dutyboost.com", { x: 1, y: 5.0, w: 11.3, h: 0.5, fontSize: 16, bold: true, color: "EA580C", align: "center", fontFace: "Calibri" });
     s.addText("www.dutyboost.com", { x: 1, y: 5.6, w: 11.3, h: 0.35, fontSize: 12, color: "94A3B8", align: "center", fontFace: "Calibri" });
-    s.addText(`© ${new Date().getFullYear()} DutyBoost B.V. — Amsterdam, Netherlands`, { x: 1, y: 6.8, w: 11.3, h: 0.3, fontSize: 9, color: "475569", align: "center", fontFace: "Calibri" });
+    s.addText(`© ${new Date().getFullYear()} DutyBoost — Amsterdam, Netherlands`, { x: 1, y: 6.8, w: 11.3, h: 0.3, fontSize: 9, color: "475569", align: "center", fontFace: "Calibri" });
   }
 
   await pptx.writeFile({ fileName: "DutyBoost-Schiphol-AMS-Retailers.pptx" });

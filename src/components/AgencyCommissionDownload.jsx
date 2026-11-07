@@ -41,7 +41,7 @@ export default function AgencyCommissionDownload({ vouchers, agencyName, user })
     doc.text("DutyBoost", 20, 20);
     doc.setFontSize(11);
     doc.setTextColor(100);
-    doc.text("DutyBoost B.V. · Commission Statement", 20, 28);
+    doc.text("DutyBoost · Commission Statement", 20, 28);
     doc.text("hello@dutyboost.com · dutyboost.com", 20, 34);
 
     // Title
@@ -200,7 +200,7 @@ export default function AgencyCommissionDownload({ vouchers, agencyName, user })
       doc.setPage(i);
       doc.setFontSize(8);
       doc.setTextColor(180);
-      doc.text("This document is for tax and accounting purposes. DutyBoost B.V. · hello@dutyboost.com", 20, 288);
+      doc.text("This document is for tax and accounting purposes. DutyBoost · hello@dutyboost.com", 20, 288);
     }
 
     doc.save(`DutyBoost_Commission_${periodLabel.replace(/ /g, "_")}.pdf`);

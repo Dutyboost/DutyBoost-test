@@ -57,7 +57,7 @@ const content = {
       "Misrepresenting your identity, business type, or licensing status when registering or using the platform.",
     ]},
     { h: "8. Enforcement", p: "Violations of this Code of Conduct may result in immediate account suspension, permanent termination of platform access, forfeiture of pending revenue shares or commissions, recovery of improperly received funds, and legal action. DutyBoost reserves the right to investigate all reported violations and to share information with relevant authorities where required by law." },
-    { h: "9. Contact", p: "Report misconduct or suspicious activity: trust@dutyboost.com · DutyBoost B.V., a legal entity registered at the Dutch Chamber of Commerce (Kamer van Koophandel) under number 42053088, Amsterdam, the Netherlands." },
+    { h: "9. Contact", p: "Report misconduct or suspicious activity: trust@dutyboost.com · DutyBoost, a legal entity registered at the Dutch Chamber of Commerce (Kamer van Koophandel) under number 42053088, Amsterdam, the Netherlands." },
   ]},
   nl: { title: "Gedragscode", updated: "Laatst bijgewerkt: november 2026", back: "Terug naar home", sections: [
     { h: "1. Onze toewijding", p: "DutyBoost exploiteert a Performance-based Customer Acquisition Solution for Global Travel, gebouwd op het principe dat Reispartners, Reisretailpartners, Travel Hub-partners en reizigers in elke reisvertical eerlijk en transparant voordeel moeten halen — vluchten, cruises, treinen, touringcars, autoverhuur en accommodatie. Wij zetten ons in voor een betrouwbaar, professioneel platform dat de ethische normen van de internationale reis- en luchthavendetailhandel handhaaft." },
@@ -110,7 +110,7 @@ const content = {
       "Onjuiste voorstelling van uw identiteit, bedrijfstype of licentiestatus bij registratie of gebruik.",
     ]},
     { h: "8. Handhaving", p: "Overtredingen kunnen leiden tot onmiddellijke schorsing, permanente beëindiging van platformtoegang, verbeurdverklaring van uitstaande commissies, terugvordering van onrechtmatig ontvangen gelden en juridische stappen. DutyBoost behoudt zich het recht voor alle overtredingen te onderzoeken en informatie te delen met relevante autoriteiten." },
-    { h: "9. Contact", p: "Wangedrag of verdachte activiteiten melden: trust@dutyboost.com · DutyBoost B.V., een rechtspersoon ingeschreven bij de Kamer van Koophandel onder nummer 42053088, Amsterdam, Nederland." },
+    { h: "9. Contact", p: "Wangedrag of verdachte activiteiten melden: trust@dutyboost.com · DutyBoost, een rechtspersoon ingeschreven bij de Kamer van Koophandel onder nummer 42053088, Amsterdam, Nederland." },
   ]},
   de: { title: "Verhaltenskodex", updated: "Zuletzt aktualisiert: November 2026", back: "Zurück zur Startseite", sections: [
     { h: "1. Unser Engagement", p: "DutyBoost betreibt a Performance-based Customer Acquisition Solution for Global Travel, basierend auf dem Prinzip, dass Reisepartner, Reise-Einzelhandelspartner, Travel-Hub-Partner und Reisende in jeder Reisesparte fair und transparent profitieren sollen — Flüge, Kreuzfahrten, Züge, Reisebusse, Mietwagen und Unterkünfte. Wir verpflichten uns, eine vertrauenswürdige, professionelle Plattform aufrechtzuerhalten, die den ethischen Standards der internationalen Reise- und Flughafeneinzelhandelsbranche entspricht." },
@@ -163,7 +163,7 @@ const content = {
       "Falsche Angaben zur Identität, zum Unternehmenstyp oder zur Lizenzsituation machen.",
     ]},
     { h: "8. Durchsetzung", p: "Verstöße können zu sofortiger Kontosperrung, dauerhafter Beendigung des Zugangs, Einziehung ausstehender Provisionen, Rückforderung unrechtmäßig erhaltener Mittel und rechtlichen Schritten führen. DutyBoost behält sich das Recht vor, alle Verstöße zu untersuchen und Informationen mit den zuständigen Behörden zu teilen." },
-    { h: "9. Kontakt", p: "Fehlverhalten oder verdächtige Aktivitäten melden: trust@dutyboost.com · DutyBoost B.V., eine im niederländischen Handelsregister (Kamer van Koophandel) eingetragene Gesellschaft unter der Nummer 42053088, Amsterdam, Niederlande." },
+    { h: "9. Kontakt", p: "Fehlverhalten oder verdächtige Aktivitäten melden: trust@dutyboost.com · DutyBoost, eine im niederländischen Handelsregister (Kamer van Koophandel) eingetragene Gesellschaft unter der Nummer 42053088, Amsterdam, Niederlande." },
   ]},
   fr: { title: "Code de conduite", updated: "Dernière mise à jour : novembre 2026", back: "Retour à l'accueil", sections: [
     { h: "1. Notre engagement", p: "DutyBoost exploite a Performance-based Customer Acquisition Solution for Global Travel, fondé sur le principe que les partenaires de voyage, les partenaires du retail de voyage, les partenaires Travel Hub et les voyageurs doivent tous bénéficier équitablement et de manière transparente, dans tous les secteurs du voyage — vols, croisières, trains, autocars, location de voitures et hébergement. Nous nous engageons à maintenir une plateforme professionnelle qui respecte les normes éthiques des secteurs du voyage et du commerce de détail aéroportuaire internationaux." },
@@ -216,7 +216,7 @@ const content = {
       "Se faire passer pour une autre identité ou type d'entreprise lors de l'inscription.",
     ]},
     { h: "8. Application", p: "Les violations peuvent entraîner une suspension immédiate, la résiliation permanente de l'accès, la confiscation des commissions en attente, la récupération des fonds indûment perçus et des actions en justice. DutyBoost se réserve le droit d'enquêter sur toutes les violations et de partager des informations avec les autorités compétentes." },
-    { h: "9. Contact", p: "Signaler un comportement inapproprié ou une activité suspecte : trust@dutyboost.com · DutyBoost B.V., entité légale enregistrée à la Chambre de commerce néerlandaise (Kamer van Koophandel) sous le numéro 42053088, Amsterdam, Pays-Bas." },
+    { h: "9. Contact", p: "Signaler un comportement inapproprié ou une activité suspecte : trust@dutyboost.com · DutyBoost, entité légale enregistrée à la Chambre de commerce néerlandaise (Kamer van Koophandel) sous le numéro 42053088, Amsterdam, Pays-Bas." },
   ]},
   es: { title: "Código de conducta", updated: "Última actualización: noviembre de 2026", back: "Volver al inicio", sections: [
     { h: "1. Nuestro compromiso", p: "DutyBoost opera a Performance-based Customer Acquisition Solution for Global Travel, basado en el principio de que los socios de viaje, los socios de retail de viaje, los socios Travel Hub y los pasajeros deben beneficiarse de manera justa y transparente en todos los verticales de viaje: vuelos, cruceros, trenes, autocares, alquiler de coches y alojamiento. Nos comprometemos a mantener una plataforma profesional que defienda los estándares éticos de los sectores internacionales del viaje y el comercio minorista aeroportuario." },
@@ -269,7 +269,7 @@ const content = {
       "Falsear la identidad, tipo de empresa o situación de licencia al registrarse.",
     ]},
     { h: "8. Cumplimiento", p: "Las infracciones pueden resultar en suspensión inmediata, terminación permanente del acceso, pérdida de comisiones pendientes, recuperación de fondos percibidos indebidamente y acciones legales. DutyBoost se reserva el derecho de investigar todas las infracciones y compartir información con las autoridades competentes." },
-    { h: "9. Contacto", p: "Reportar conductas inapropiadas o actividades sospechosas: trust@dutyboost.com · DutyBoost B.V., entidad legal registrada en la Cámara de Comercio neerlandesa (Kamer van Koophandel) bajo el número 42053088, Ámsterdam, Países Bajos." },
+    { h: "9. Contacto", p: "Reportar conductas inapropiadas o actividades sospechosas: trust@dutyboost.com · DutyBoost, entidad legal registrada en la Cámara de Comercio neerlandesa (Kamer van Koophandel) bajo el número 42053088, Ámsterdam, Países Bajos." },
   ]},
   it: { title: "Codice di condotta", updated: "Ultimo aggiornamento: novembre 2026", back: "Torna alla home", sections: [
     { h: "1. Il nostro impegno", p: "DutyBoost gestisce a Performance-based Customer Acquisition Solution for Global Travel, costruita sul principio che i partner di viaggio, i partner del retail di viaggio, i partner Travel Hub e i viaggiatori debbano beneficiare equamente e in modo trasparente in ogni verticale di viaggio — voli, crociere, treni, autobus a lunga percorrenza, autonoleggio e strutture ricettive. Ci impegniamo a mantenere una piattaforma professionale che rispetti gli standard etici dei settori internazionali del viaggio e del commercio al dettaglio aeroportuale." },
@@ -322,7 +322,7 @@ const content = {
       "Dichiarare falsamente la propria identità, tipo di impresa o situazione di licenza.",
     ]},
     { h: "8. Applicazione", p: "Le violazioni possono comportare sospensione immediata, cessazione permanente dell'accesso, perdita di commissioni in sospeso, recupero di fondi indebitamente percepiti e azioni legali. DutyBoost si riserva il diritto di indagare su tutte le violazioni e di condividere informazioni con le autorità competenti." },
-    { h: "9. Contatto", p: "Segnalare comportamenti scorretti o attività sospette: trust@dutyboost.com · DutyBoost B.V., entità legale registrata presso la Camera di Commercio olandese (Kamer van Koophandel) con il numero 42053088, Amsterdam, Paesi Bassi." },
+    { h: "9. Contatto", p: "Segnalare comportamenti scorretti o attività sospette: trust@dutyboost.com · DutyBoost, entità legale registrata presso la Camera di Commercio olandese (Kamer van Koophandel) con il numero 42053088, Amsterdam, Paesi Bassi." },
   ]},
 };
 

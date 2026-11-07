@@ -136,7 +136,7 @@ export default function PatentDisclosureDocument() {
           </h2>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
-              <p><span className="font-semibold text-gray-700">Applicant:</span> DutyBoost B.V.</p>
+              <p><span className="font-semibold text-gray-700">Applicant:</span> DutyBoost</p>
               <p><span className="font-semibold text-gray-700">Inventor:</span> Raël Martis, Co-Founder</p>
             </div>
             <div>
@@ -824,7 +824,7 @@ OUTPUT: RefundResult | Error
           </div>
           <p className="font-semibold text-gray-600">CONFIDENTIAL — INVENTION DISCLOSURE</p>
           <p>This document is confidential and prepared solely for patent counsel assessment.</p>
-          <p className="mt-2">DutyBoost B.V. · Raël Martis, Co-Founder · August 2026</p>
+          <p className="mt-2">DutyBoost · Raël Martis, Co-Founder · August 2026</p>
         </div>
       </div>
     </div>

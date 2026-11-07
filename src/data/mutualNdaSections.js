@@ -10,7 +10,7 @@ import { ndaSections as it } from "./mutualNdaSectionsIt";
 import { ndaSections as pt } from "./mutualNdaSectionsPt";
 
 export const NDA_DUTYBOOST = {
-  legal_name: "DutyBoost B.V.",
+  legal_name: "DutyBoost",
   jurisdiction: "the Netherlands",
   registration: "42053088",
   address: "DEK 32, 1913 BB, Almere, The Netherlands",

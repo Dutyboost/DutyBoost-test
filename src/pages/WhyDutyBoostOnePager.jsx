@@ -55,7 +55,7 @@ const STRINGS = {
       },
     ],
     cta: "One platform. Six winners. Every participant creates value.",
-    legal: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer. Figures are illustrative.",
+    legal: "© {{year}} DutyBoost — The Travel Retail Conversion Layer. Figures are illustrative.",
   },
   nl: {
     badge: "Waarom DutyBoost",
@@ -99,7 +99,7 @@ const STRINGS = {
       },
     ],
     cta: "Eén platform. Zes winnaars. Elke deelnemer creëert waarde.",
-    legal: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer. Cijfers zijn illustratief.",
+    legal: "© {{year}} DutyBoost — The Travel Retail Conversion Layer. Cijfers zijn illustratief.",
   },
   es: {
     badge: "Por qué DutyBoost",
@@ -143,7 +143,7 @@ const STRINGS = {
       },
     ],
     cta: "Una plataforma. Seis ganadores. Cada participante crea valor.",
-    legal: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer. Las cifras son ilustrativas.",
+    legal: "© {{year}} DutyBoost — The Travel Retail Conversion Layer. Las cifras son ilustrativas.",
   },
   fr: {
     badge: "Pourquoi DutyBoost",
@@ -187,7 +187,7 @@ const STRINGS = {
       },
     ],
     cta: "Une plateforme. Six gagnants. Chaque participant crée de la valeur.",
-    legal: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer. Les chiffres sont indicatifs.",
+    legal: "© {{year}} DutyBoost — The Travel Retail Conversion Layer. Les chiffres sont indicatifs.",
   },
   de: {
     badge: "Warum DutyBoost",
@@ -231,7 +231,7 @@ const STRINGS = {
       },
     ],
     cta: "Eine Plattform. Sechs Gewinner. Jeder Teilnehmer schafft Wert.",
-    legal: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer. Zahlen sind illustrativ.",
+    legal: "© {{year}} DutyBoost — The Travel Retail Conversion Layer. Zahlen sind illustrativ.",
   },
   it: {
     badge: "Perché DutyBoost",
@@ -275,7 +275,7 @@ const STRINGS = {
       },
     ],
     cta: "Una piattaforma. Sei vincitori. Ogni partecipante crea valore.",
-    legal: "© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer. I dati sono illustrativi.",
+    legal: "© {{year}} DutyBoost — The Travel Retail Conversion Layer. I dati sono illustrativi.",
   },
 };
 

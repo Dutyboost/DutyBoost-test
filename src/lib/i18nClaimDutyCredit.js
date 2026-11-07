@@ -158,7 +158,7 @@ export const claimDutyCreditStrings = {
     existing_credit_title: 'Your existing DutyCredit',
     token_id: 'Token ID',
     existing_hint: 'Check your email or your travel partner\'s booking confirmation for your original DutyCredit QR code.',
-    footer: '© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer',
+    footer: '© {{year}} DutyBoost — The Travel Retail Conversion Layer',
   },
   nl: {
     nav_partner: 'Partner met ons',
@@ -318,7 +318,7 @@ export const claimDutyCreditStrings = {
     existing_credit_title: 'Uw bestaande DutyCredit',
     token_id: 'Token ID',
     existing_hint: 'Controleer uw e-mail of de boekingsbevestiging van uw reispartner voor uw originele DutyCredit QR-code.',
-    footer: '© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer',
+    footer: '© {{year}} DutyBoost — The Travel Retail Conversion Layer',
   },
   fr: {
     nav_partner: 'Partenaire',
@@ -478,7 +478,7 @@ export const claimDutyCreditStrings = {
     existing_credit_title: 'Votre DutyCredit existant',
     token_id: 'Token ID',
     existing_hint: 'Vérifiez votre email ou la confirmation de réservation de votre partenaire de voyage pour votre code QR DutyCredit original.',
-    footer: '© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer',
+    footer: '© {{year}} DutyBoost — The Travel Retail Conversion Layer',
   },
   de: {
     nav_partner: 'Partner werden',
@@ -638,7 +638,7 @@ export const claimDutyCreditStrings = {
     existing_credit_title: 'Ihr bestehendes DutyCredit',
     token_id: 'Token-ID',
     existing_hint: 'Prüfen Sie Ihre E-Mail oder die Buchungsbestätigung Ihres Reisepartners auf Ihren ursprünglichen DutyCredit-QR-Code.',
-    footer: '© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer',
+    footer: '© {{year}} DutyBoost — The Travel Retail Conversion Layer',
   },
   es: {
     nav_partner: 'Sé Partner',
@@ -798,7 +798,7 @@ export const claimDutyCreditStrings = {
     existing_credit_title: 'Tu DutyCredit existente',
     token_id: 'Token ID',
     existing_hint: 'Revisa tu correo electrónico o la confirmación de reserva de tu socio de viaje para tu código QR DutyCredit original.',
-    footer: '© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer',
+    footer: '© {{year}} DutyBoost — The Travel Retail Conversion Layer',
   },
   it: {
     nav_partner: 'Diventa Partner',
@@ -958,7 +958,7 @@ export const claimDutyCreditStrings = {
     existing_credit_title: 'Il tuo DutyCredit esistente',
     token_id: 'Token ID',
     existing_hint: 'Controlla la tua email o la conferma di prenotazione del tuo partner di viaggio per il tuo codice QR DutyCredit originale.',
-    footer: '© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer',
+    footer: '© {{year}} DutyBoost — The Travel Retail Conversion Layer',
   },
   pt: {
     nav_partner: 'Seja Parceiro',
@@ -1118,6 +1118,6 @@ export const claimDutyCreditStrings = {
     existing_credit_title: 'O seu DutyCredit existente',
     token_id: 'Token ID',
     existing_hint: 'Verifique o seu email ou a confirmação de reserva do seu parceiro de viagens para obter o código QR DutyCredit original.',
-    footer: '© {{year}} DutyBoost B.V. — The Travel Retail Conversion Layer',
+    footer: '© {{year}} DutyBoost — The Travel Retail Conversion Layer',
   },
 };
