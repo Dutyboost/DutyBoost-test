@@ -10,7 +10,7 @@ import PageBackdrop from "@/components/PageBackdrop";
 // Front page: the one decision a visitor makes before anything else —
 // traveller (B2C) or company (B2B).
 export default function EntryPage() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const s = getEntryStrings(i18n.language);
 
   const options = [
@@ -75,6 +75,14 @@ export default function EntryPage() {
           </div>
         </div>
       </main>
+
+      <footer className="px-4 sm:px-6 py-6">
+        <div className="max-w-6xl mx-auto text-center text-xs text-muted-foreground leading-relaxed">
+          <p>{t("footer.rights")}</p>
+          <p>{t("footer.kvk")}</p>
+          <p>{t("footer.vat")}</p>
+        </div>
+      </footer>
     </div>
   );
 }
