@@ -77,10 +77,13 @@ export default function EntryPage() {
       </main>
 
       <footer className="px-4 sm:px-6 py-6">
-        <div className="max-w-6xl mx-auto text-center text-xs text-muted-foreground leading-relaxed">
-          <p>{t("footer.rights")}</p>
-          <p>{t("footer.kvk")}</p>
-          <p>{t("footer.vat")}</p>
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-muted-foreground leading-relaxed">
+          <DutyBoostLogo height={40} />
+          <div className="text-center lg:text-right">
+            <p>{t("footer.rights")}</p>
+            <p>{t("footer.kvk")}</p>
+            <p>{t("footer.vat")}</p>
+          </div>
         </div>
       </footer>
     </div>
