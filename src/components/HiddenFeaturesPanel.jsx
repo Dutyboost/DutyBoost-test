@@ -1,7 +1,28 @@
 import { Badge } from "@/components/ui/badge";
-import { EyeOff, Briefcase, Plane, Package, Train, Bus, Store, Users, Building2, Cpu } from "lucide-react";
+import { EyeOff, Briefcase, Plane, Package, Train, Bus, Store, Users, Building2, Cpu, BookOpen } from "lucide-react";
 
 const HIDDEN_FEATURES = [
+  {
+    id: "user-guide",
+    icon: BookOpen,
+    title: "User Guide",
+    status: "hidden",
+    reason: "Pulled from the public site — footer link removed and route disabled",
+    description: `The multilingual User Guide covered the platform overview, partner and retailer workflows, traveller instructions and mobile install help. It is no longer published: the footer link is gone and the /user-guide route is disabled, so the page cannot be reached by URL either. All content and translations are untouched in src/pages/UserGuide.jsx.
+
+The page carries its own content object for English, Dutch, German, French, Spanish and Italian. Editing copy or adding a language only touches that file — no other page or string file is involved.`,
+    pages: [
+      { label: "User Guide (disabled)", path: "/user-guide" },
+    ],
+    howToRestore: [
+      "In src/App.jsx: re-add the import UserGuide from './pages/UserGuide'; line next to the other page imports.",
+      'In src/App.jsx: re-add the public route <Route path="/user-guide" element={<UserGuide />} /> above the Layout route block.',
+      'In src/components/FooterLinks.jsx: re-add the <Link to="/user-guide">User Guide</Link> entry next to the FAQ link.',
+    ],
+    files: [
+      "pages/UserGuide.jsx",
+    ],
+  },
   {
     id: "travel-partner-calculator",
     icon: Users,

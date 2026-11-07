@@ -32,7 +32,6 @@ import FAQ from './pages/FAQ';
 import AgencyIntegrationGuide from './pages/AgencyIntegrationGuide';
 import AgencyIntegrationPage from './pages/AgencyIntegrationPage';
 import RetailerIntegrationGuide from './pages/RetailerIntegrationGuide';
-import UserGuide from './pages/UserGuide';
 import AdminDashboard from './pages/AdminDashboard';
 import SelectUserType from './pages/SelectUserType';
 
@@ -370,7 +369,6 @@ const AuthenticatedApp = () => {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/travel-partner-integration-guide" element={<AgencyIntegrationGuide />} />
         <Route path="/retailer-integration-guide" element={<RetailerIntegrationGuide />} />
-        <Route path="/user-guide" element={<UserGuide />} />
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Home />} />
           <Route path="/vouchers" element={<VouchersPage />} />

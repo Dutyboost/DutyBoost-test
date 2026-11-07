@@ -59,7 +59,6 @@ export default function FooterLinks() {
         )}
       </div>
       <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
-      <Link to="/user-guide" className="hover:text-primary transition-colors">User Guide</Link>
       <Link to="/cookies" className="hover:text-primary transition-colors">{t('footer.cookie_policy', 'Cookie Policy')}</Link>
       <Link to="/team" className="hover:text-primary transition-colors">The People Behind DutyBoost</Link>
       </div>
