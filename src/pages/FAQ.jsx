@@ -42,7 +42,7 @@ const content = {
       ]},
       { cat: "Platform & Security", qs: [
         { q: "Is DutyBoost secure?", a: "Yes. Every DutyCredit is cryptographically unique and single-use. Our platform uses industry-standard encryption (TLS 1.2+, AES-256) and role-based access controls." },
-        { q: "Is my data safe with DutyBoost?", a: "Absolutely. DutyBoost is fully GDPR-compliant and never sells your data to third parties." },
+        { q: "Is my data safe with DutyBoost?", a: "Absolutely. DutyBoost is fully GDPR-compliant and never sells your data to third parties. We collect zero PII (personally identifiable information) and zero PCI data (payment card data) — no names, card numbers or payment details ever pass through our platform, because the discount is validated on the QR code alone. The concept is deliberately not about generating more and more data about travellers so they can be sent unnecessary marketing. DutyBoost is about giving every stakeholder in the travel journey more of what they actually want — travellers a discount, travel partners commission and loyalty, retailers high-intent shoppers — not about collecting data." },
       ]},
     ],
   },
@@ -80,7 +80,7 @@ const content = {
       ]},
       { cat: "Platform & Beveiliging", qs: [
         { q: "Is DutyBoost veilig?", a: "Ja. Elke DutyCredit is cryptografisch uniek en eenmalig. We gebruiken TLS 1.2+ en AES-256 versleuteling." },
-        { q: "Zijn mijn gegevens veilig?", a: "Absoluut. DutyBoost is AVG-conform en verkoopt uw gegevens nooit aan derden." },
+        { q: "Zijn mijn gegevens veilig?", a: "Absoluut. DutyBoost is AVG-conform en verkoopt uw gegevens nooit aan derden. Wij verzamelen nul PII (persoonsgegevens) en nul PCI-gegevens (betaalkaartgegevens) — er gaan nooit namen, kaartnummers of betaalgegevens via ons platform, omdat de korting uitsluitend op basis van de QR-code wordt gevalideerd. Het concept is bewust niet gericht op het genereren van steeds meer gegevens over reizigers om hen onnodige marketing te kunnen sturen. DutyBoost geeft elke partij in de reisreis meer van wat zij wil — de reiziger korting, reispartners commissie en loyaliteit, winkels koopbereide bezoekers — en gaat niet over het verzamelen van gegevens." },
       ]},
     ],
   },
@@ -118,7 +118,7 @@ const content = {
       ]},
       { cat: "Plattform & Sicherheit", qs: [
         { q: "Ist DutyBoost sicher?", a: "Ja. Jeder DutyCredit ist kryptografisch einzigartig. Wir verwenden TLS 1.2+ und AES-256 Verschlüsselung." },
-        { q: "Sind meine Daten sicher?", a: "Absolut. DutyBoost ist vollständig DSGVO-konform und verkauft Ihre Daten niemals an Dritte." },
+        { q: "Sind meine Daten sicher?", a: "Absolut. DutyBoost ist vollständig DSGVO-konform und verkauft Ihre Daten niemals an Dritte. Wir erheben null PII (personenbezogene Daten) und null PCI-Daten (Zahlungskartendaten) — Namen, Kartennummern oder Zahlungsdetails laufen niemals über unsere Plattform, da der Rabatt allein anhand des QR-Codes validiert wird. Das Konzept zielt bewusst nicht darauf ab, immer mehr Daten über Reisende zu erzeugen, um ihnen unnötiges Marketing zu schicken. Bei DutyBoost geht es darum, jedem Beteiligten der Reisekette mehr von dem zu geben, was er will — Reisenden einen Rabatt, Reisepartnern Provision und Loyalität, Händlern kaufbereite Kunden — und nicht um das Sammeln von Daten." },
       ]},
     ],
   },
@@ -156,7 +156,7 @@ const content = {
       ]},
       { cat: "Plateforme & Sécurité", qs: [
         { q: "DutyBoost est-il sécurisé ?", a: "Oui. Chaque DutyCredit est cryptographiquement unique. Nous utilisons TLS 1.2+ et AES-256." },
-        { q: "Mes données sont-elles en sécurité ?", a: "Absolument. DutyBoost est conforme au RGPD et ne vend jamais vos données à des tiers." },
+        { q: "Mes données sont-elles en sécurité ?", a: "Absolument. DutyBoost est conforme au RGPD et ne vend jamais vos données à des tiers. Nous ne collectons aucune donnée personnelle (PII) et aucune donnée de carte bancaire (PCI) — aucun nom, numéro de carte ni détail de paiement ne transite par notre plateforme, la réduction étant validée uniquement à partir du QR code. Le concept ne consiste délibérément pas à générer toujours plus de données sur les voyageurs pour leur envoyer du marketing inutile. DutyBoost consiste à donner à chaque acteur du parcours de voyage davantage de ce qu'il veut — une réduction aux voyageurs, des commissions et de la fidélité aux partenaires de voyage, des acheteurs à forte intention aux détaillants — et non à collecter des données." },
       ]},
     ],
   },
@@ -194,7 +194,7 @@ const content = {
       ]},
       { cat: "Plataforma y Seguridad", qs: [
         { q: "¿Es DutyBoost seguro?", a: "Sí. Cada DutyCredit es criptográficamente único. Usamos cifrado TLS 1.2+ y AES-256." },
-        { q: "¿Están seguros mis datos?", a: "Absolutamente. DutyBoost cumple el RGPD y nunca vende tus datos a terceros." },
+        { q: "¿Están seguros mis datos?", a: "Absolutamente. DutyBoost cumple el RGPD y nunca vende tus datos a terceros. No recopilamos ningún dato personal (PII) ni datos de tarjeta de pago (PCI): ningún nombre, número de tarjeta ni dato de pago pasa por nuestra plataforma, ya que el descuento se valida únicamente con el código QR. El concepto no consiste deliberadamente en generar cada vez más datos sobre los viajeros para enviarles marketing innecesario. DutyBoost consiste en dar a cada actor del viaje más de lo que quiere — al pasajero un descuento, a los socios de viajes comisiones y fidelidad, y a los comercios compradores con alta intención — y no en recopilar datos." },
       ]},
     ],
   },
@@ -232,7 +232,7 @@ const content = {
       ]},
       { cat: "Piattaforma e Sicurezza", qs: [
         { q: "DutyBoost è sicuro?", a: "Sì. Ogni DutyCredit è crittograficamente unico. Utilizziamo TLS 1.2+ e AES-256." },
-        { q: "I miei dati sono al sicuro?", a: "Assolutamente. DutyBoost è conforme al GDPR e non vende mai i tuoi dati a terzi." },
+        { q: "I miei dati sono al sicuro?", a: "Assolutamente. DutyBoost è conforme al GDPR e non vende mai i tuoi dati a terzi. Non raccogliamo alcun dato personale (PII) né dati di carte di pagamento (PCI): nessun nome, numero di carta o dato di pagamento passa dalla nostra piattaforma, poiché lo sconto viene validato unicamente tramite il QR code. Il concetto non consiste deliberatamente nel generare sempre più dati sui viaggiatori per inviare loro marketing inutile. DutyBoost serve a dare a ogni attore del viaggio più di ciò che desidera — ai viaggiatori uno sconto, ai partner di viaggio commissioni e fidelizzazione, ai rivenditori acquirenti ad alta intenzione — e non a raccogliere dati." },
       ]},
     ],
   },
