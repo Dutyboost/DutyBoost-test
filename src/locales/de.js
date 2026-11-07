@@ -23,14 +23,14 @@ export default {
     hero: {
       title_1: "Willkommen bei DutyBoost - Die performancebasierte Kundenakquise-Lösung für die globale Reisebranche",
       title_2: '',
-      subtitle_1: "Verbindet Reisende, Reisepartner, Reise-Einzelhändler und Travel Hubs in einem gemeinsamen, leistungsbasierten kommerziellen Ökosystem.",
+      subtitle_1: "Verbindet Reisende, Reisepartner, Reise-Einzelhändler und Travel Hub Partners in einem gemeinsamen, leistungsbasierten kommerziellen Ökosystem.",
       subtitle_2: '',
       subtitle_3: '',
       tagline: '',
     },
     ecosystem: {
       title: 'Ein kommerzielles Ökosystem, alle gewinnen an derselben Transaktion',
-      subtitle: 'Reisende, Reisepartner, Reise-Einzelhändler und Travel Hubs gewinnen alle an demselben validierten Einkauf — eine Reisendentransaktion, von der jeder Teilnehmer profitiert.',
+      subtitle: 'Reisende, Reisepartner, Reise-Einzelhändler und Travel Hub Partners gewinnen alle an demselben validierten Einkauf — eine Reisendentransaktion, von der jeder Teilnehmer profitiert.',
       platform_fee_note: 'Jede Einlösung trägt das gesamte Ökosystem: Eine einzige leistungsbasierte Gebühr wird zwischen den Teilnehmern dieser Transaktion und DutyBoost geteilt — ohne Vorabkosten und ohne Zahlung, wenn kein Verkauf stattfindet.',
     },
     oval: {
@@ -122,7 +122,7 @@ export default {
     },
     cta: {
       title: 'Ein Reisender. Eine Transaktion. Alle verdienen.',
-      description: 'Eine leistungsbasierte kommerzielle Ebene, die jede Reise in messbaren Zusatzumsatz verwandelt. Travel Hubs, Reise-Einzelhändler und Reisepartner verdienen alle am selben validierten Verkauf: der Reisende spart an der Kasse, der Händler gewinnt einen Verkauf, den es sonst nicht gäbe, und der Partner, der den Reisenden geschickt hat, wird dafür bezahlt — ohne Vorabkosten.',
+      description: 'Eine leistungsbasierte kommerzielle Ebene, die jede Reise in messbaren Zusatzumsatz verwandelt. Travel Hub Partners, Reise-Einzelhändler und Reisepartner verdienen alle am selben validierten Verkauf: der Reisende spart an der Kasse, der Händler gewinnt einen Verkauf, den es sonst nicht gäbe, und der Partner, der den Reisenden geschickt hat, wird dafür bezahlt — ohne Vorabkosten.',
       button: "Machen Sie aus jeder Reise messbaren Umsatz — ohne Vorabkosten",
     },
     wecallyou: {

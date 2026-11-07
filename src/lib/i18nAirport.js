@@ -33,10 +33,10 @@ export const airportStrings = {
       magNote: "MAG note: concession revenue is realised on incremental sales above your Minimum Annual Guarantee. These figures show gross incremental concession revenue; net additional revenue depends on your current concession performance versus MAG.",
     },
     showcase: {
-      badge: "For Travel Hubs",
+      badge: "For Travel Hub Partners",
       headline: "Turn Non-Purchasing Travellers Into a Higher Concession Rate",
       subtitle: "A zero-cost, zero-integration revenue layer for airports, sea ports and rail stations — DutyBoost pre-activates the 73% of travellers who never buy and turns them into verified incremental retail spend. Stronger retail performance is what strengthens a hub's position to increase its concession rate.",
-      s1_title: "Why It Works for Travel Hubs",
+      s1_title: "Why It Works for Travel Hub Partners",
       why1_title: "No upfront investment",
       why1_desc: "DutyBoost works with the retailers and POS infrastructure you already have — no new hardware, no capital expenditure.",
       why2_title: "A stronger case for a higher rate",
@@ -70,7 +70,7 @@ export const airportStrings = {
   },
   es: {
     calculator: {
-      badge: "Socio de Concesión de Travel Hubs",
+      badge: "Socio de Concesión de Travel Hub Partners",
       title: "Calculadora de Ingresos por Concesión",
       subtitle: "Estima los ingresos anuales por concesión que tu hub obtiene sobre las ventas minoristas incrementales generadas por DutyBoost — ya sea aeropuerto, puerto marítimo o estación de tren: 15% de cada cesta validada, realizado por encima de tu umbral MAG.",
       aboutBtn: "Sobre el programa",
@@ -93,10 +93,10 @@ export const airportStrings = {
       magNote: "Nota MAG: los ingresos por concesión se realizan sobre las ventas incrementales por encima de tu Garantía Mínima Anual. Estas cifras muestran ingresos brutos por concesión incremental; los ingresos netos adicionales dependen del rendimiento actual de tu concesión frente al MAG.",
     },
     showcase: {
-      badge: "Para Travel Hubs",
+      badge: "Para Travel Hub Partners",
       headline: "Convierte Viajeros No Compradores en una Tasa de Concesión Más Alta",
       subtitle: "Una capa de ingresos sin coste ni integración para aeropuertos, puertos marítimos y estaciones de tren — DutyBoost pre-activa al 73% de los viajeros que nunca compran y los convierte en gasto minorista incremental verificado. Un mayor rendimiento comercial es lo que refuerza la posición de un hub para aumentar su tasa de concesión.",
-      s1_title: "Por qué funciona para Travel Hubs",
+      s1_title: "Por qué funciona para Travel Hub Partners",
       why1_title: "Sin inversión inicial",
       why1_desc: "DutyBoost funciona con los comercios e infraestructura POS que ya tienes — sin nuevo hardware ni gasto de capital.",
       why2_title: "Un argumento sólido para una tasa mayor",
@@ -130,7 +130,7 @@ export const airportStrings = {
   },
   fr: {
     calculator: {
-      badge: "Partenaire de Concession Travel Hubs",
+      badge: "Partenaire de Concession Travel Hub Partners",
       title: "Calculateur de Revenus de Concession",
       subtitle: "Estimez les revenus annuels de concession que votre hub perçoit sur les ventes de détail incrémentales générées par DutyBoost — aéroport, port maritime ou gare : 15 % de chaque panier validé, réalisé au-delà de votre seuil MAG.",
       aboutBtn: "À propos du programme",
@@ -153,10 +153,10 @@ export const airportStrings = {
       magNote: "Note MAG : les revenus de concession sont réalisés sur les ventes incrémentales au-delà de votre Garantie Annuelle Minimale. Ces chiffres montrent les revenus bruts de concession incrémentale ; les revenus nets supplémentaires dépendent de la performance actuelle de votre concession par rapport au MAG.",
     },
     showcase: {
-      badge: "Pour les Travel Hubs",
+      badge: "Pour les Travel Hub Partners",
       headline: "Transformez les Voyageurs Non-Acheteurs en un Taux de Concession Plus Élevé",
       subtitle: "Une couche de revenus sans coût ni intégration pour les aéroports, ports maritimes et gares — DutyBoost pré-active les 73 % de voyageurs qui n'achètent jamais et les convertit en dépenses de détail incrémentales vérifiées. Une meilleure performance commerciale renforce la position d'un hub pour augmenter son taux de concession.",
-      s1_title: "Pourquoi ça marche pour les Travel Hubs",
+      s1_title: "Pourquoi ça marche pour les Travel Hub Partners",
       why1_title: "Aucun investissement initial",
       why1_desc: "DutyBoost fonctionne avec vos commerçants et votre infrastructure POS existants — pas de nouveau matériel, pas de dépense d'investissement.",
       why2_title: "Un argument solide pour un taux plus élevé",
@@ -213,10 +213,10 @@ export const airportStrings = {
       magNote: "Nota MAG: i ricavi da concessione sono realizzati sulle vendite incrementali oltre la Garanzia Annuale Minima. Queste cifre mostrano i ricavi lordi da concessione incrementale; i ricavi netti aggiuntivi dipendono dalle prestazioni attuali della tua concessione rispetto al MAG.",
     },
     showcase: {
-      badge: "Per i Travel Hubs",
+      badge: "Per i Travel Hub Partners",
       headline: "Trasforma i Viaggiatori Non Acquirenti in una Percentuale di Concessione Più Alta",
       subtitle: "Uno strato di ricavi senza costi né integrazioni per aeroporti, porti marittimi e stazioni ferroviarie — DutyBoost pre-attiva il 73% dei viaggiatori che non acquista mai e li converte in spesa al dettaglio incrementale verificata. Prestazioni commerciali più alte sono ciò che rafforza la posizione di un hub per aumentare la sua percentuale di concessione.",
-      s1_title: "Perché funziona per i Travel Hubs",
+      s1_title: "Perché funziona per i Travel Hub Partners",
       why1_title: "Nessun investimento iniziale",
       why1_desc: "DutyBoost funziona con i tuoi rivenditori e l'infrastruttura POS esistente — nessun nuovo hardware, nessuna spesa in conto capitale.",
       why2_title: "Un argomento solido per una percentuale più alta",
@@ -273,10 +273,10 @@ export const airportStrings = {
       magNote: "MAG-notitie: concessie-omzet wordt gerealiseerd op incrementele verkopen boven je Minimum Annual Guarantee. Deze cijfers tonen bruto incrementele concessie-omzet; de netto extra omzet hangt af van je huidige concessieprestaties ten opzichte van de MAG.",
     },
     showcase: {
-      badge: "Voor Travel Hubs",
+      badge: "Voor Travel Hub Partners",
       headline: "Verander Niet-Kopende Reizigers in een Hoger Concessiepercentage",
       subtitle: "Een omzetlaag zonder kosten of integratie voor luchthavens, zeehavens en stations — DutyBoost pre-activeert de 73% reizigers die nooit kopen en zet ze om in geverifieerde incrementele retaibesteding. Betere retailprestaties zijn wat de positie van een hub versterkt om het concessiepercentage te verhogen.",
-      s1_title: "Waarom het werkt voor Travel Hubs",
+      s1_title: "Waarom het werkt voor Travel Hub Partners",
       why1_title: "Geen voorafgaande investering",
       why1_desc: "DutyBoost werkt met je bestaande winkeliers en POS-infrastructuur — geen nieuwe hardware, geen kapitaaluitgaven.",
       why2_title: "Een sterker argument voor een hoger percentage",
@@ -333,10 +333,10 @@ export const airportStrings = {
       magNote: "MAG-Hinweis: Konzessionserträge werden auf zusätzliche Verkäufe über Ihrer Minimum Annual Guarantee realisiert. Diese Zahlen zeigen brutto zusätzliche Konzessionserträge; die zusätzlichen Nettoerträge hängen von Ihrer aktuellen Konzessionsleistung gegenüber dem MAG ab.",
     },
     showcase: {
-      badge: "Für Travel Hubs",
+      badge: "Für Travel Hub Partners",
       headline: "Verwandeln Sie Nicht-Kaufende Reisende in einen Höheren Konzessionssatz",
       subtitle: "Eine Erlösschicht ohne Kosten und Integration für Flughäfen, Seehäfen und Bahnhöfe — DutyBoost pre-aktiviert die 73 % der Reisenden, die nie kaufen, und macht daraus verifizierten zusätzlichen Einzelhandelsumsatz. Höhere Einzelhandelsleistung ist es, was die Position eines Hubs stärkt, seinen Konzessionssatz zu erhöhen.",
-      s1_title: "Warum es für Travel Hubs funktioniert",
+      s1_title: "Warum es für Travel Hub Partners funktioniert",
       why1_title: "Keine Vorab-Investition",
       why1_desc: "DutyBoost funktioniert mit Ihren bestehenden Einzelhändlern und POS-Infrastruktur — keine neue Hardware, keine Kapitalaufwendungen.",
       why2_title: "Ein stärkeres Argument für einen höheren Satz",
@@ -370,7 +370,7 @@ export const airportStrings = {
   },
   pt: {
     calculator: {
-      badge: "Parceiro de Concessão de Travel Hubs",
+      badge: "Parceiro de Concessão de Travel Hub Partners",
       title: "Calculadora de Receita de Concessão",
       subtitle: "Estime a receita anual de concessão que o seu hub obtém com as vendas de retalho incrementais geradas pela DutyBoost — seja aeroporto, porto marítimo ou estação ferroviária: 15% de cada cabaz validado, realizado acima do seu limiar MAG.",
       aboutBtn: "Sobre o programa",
@@ -393,10 +393,10 @@ export const airportStrings = {
       magNote: "Nota MAG: a receita de concessão é realizada sobre vendas incrementais acima da sua Garantia Anual Mínima. Estes valores mostram a receita bruta incremental de concessão; a receita líquida adicional depende do desempenho atual da sua concessão face ao MAG.",
     },
     showcase: {
-      badge: "Para Travel Hubs",
+      badge: "Para Travel Hub Partners",
       headline: "Transforme Viajantes Não Compradores numa Taxa de Concessão Mais Alta",
       subtitle: "Uma camada de receita sem custos nem integração para aeroportos, portos marítimos e estações — a DutyBoost pré-ativa os 73% de viajantes que nunca compram e converte-os em gasto de retalho incremental verificado. Um melhor desempenho no retalho é o que reforça a posição de um hub para aumentar a sua taxa de concessão.",
-      s1_title: "Porque Funciona para Travel Hubs",
+      s1_title: "Porque Funciona para Travel Hub Partners",
       why1_title: "Sem investimento inicial",
       why1_desc: "A DutyBoost funciona com os seus retalhistas e infraestrutura POS existentes — sem hardware novo, sem investimento de capital.",
       why2_title: "Um argumento sólido para uma taxa mais alta",
