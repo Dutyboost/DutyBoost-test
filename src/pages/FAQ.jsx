@@ -194,7 +194,7 @@ const content = {
       ]},
       { cat: "Plataforma y Seguridad", qs: [
         { q: "¿Es DutyBoost seguro?", a: "Sí. Cada DutyCredit es criptográficamente único. Usamos cifrado TLS 1.2+ y AES-256." },
-        { q: "¿Están seguros mis datos?", a: "Absolutamente. DutyBoost cumple el RGPD y nunca vende tus datos a terceros. No recopilamos ningún dato personal (PII) ni datos de tarjeta de pago (PCI): ningún nombre, número de tarjeta ni dato de pago pasa por nuestra plataforma, ya que el descuento se valida únicamente con el código QR. El concepto no consiste deliberadamente en generar cada vez más datos sobre los viajeros para enviarles marketing innecesario. DutyBoost consiste en dar a cada actor del viaje más de lo que quiere — al pasajero un descuento, a los socios de viajes comisiones y fidelidad, y a los comercios compradores con alta intención — y no en recopilar datos." },
+        { q: "¿Están seguros mis datos?", a: "Absolutamente. DutyBoost cumple el RGPD y nunca vende tus datos a terceros. No recopilamos ningún dato personal (PII) ni datos de tarjeta de pago (PCI): ningún nombre, número de tarjeta ni dato de pago pasa por nuestra plataforma, ya que el descuento se valida únicamente con el código QR. El concepto no consiste deliberadamente en generar cada vez más datos sobre los pasajeros para enviarles marketing innecesario. DutyBoost consiste en dar a cada actor del viaje más de lo que quiere — al pasajero un descuento, a los socios de viajes comisiones y fidelidad, y a los comercios compradores con alta intención — y no en recopilar datos." },
       ]},
     ],
   },

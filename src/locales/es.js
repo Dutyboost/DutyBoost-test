@@ -29,7 +29,7 @@ export default {
      },
     ecosystem: {
       title: 'Un ecosistema comercial, todos ganan con la misma transacción',
-      subtitle: 'Los pasajeros, los socios de viaje, los minoristas de viaje y los hubs de viaje ganan todos con la misma compra validada: una sola transacción del viajero que beneficia a cada participante.',
+      subtitle: 'Los pasajeros, los socios de viaje, los minoristas de viaje y los hubs de viaje ganan todos con la misma compra validada: una sola transacción del pasajero que beneficia a cada participante.',
       platform_fee_note: 'Cada canje sostiene todo el ecosistema: una única comisión basada en el rendimiento se reparte entre los participantes de esa transacción y DutyBoost, sin coste inicial y sin pagar nada cuando no hay venta.',
     },
     oval: {

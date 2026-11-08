@@ -157,7 +157,7 @@ export const ecosystemCards = {
     local: {
       title: 'Minoristas locales',
       description:
-        'Los pasajeros de crucero, los pasajeros aéreos y los viajeros en tren acaban todos en el centro: aquí se encuentran todos los flujos. Las tiendas del aeropuerto, las terminales de crucero y las estaciones son una parada; su tienda es donde llega cada pasajero, listo para canjear un DutyCredit venga de donde venga, incluidos los turistas que llegan en tren a otra ciudad.',
+        'Los pasajeros de crucero, los pasajeros aéreos y los pasajeros en tren acaban todos en el centro: aquí se encuentran todos los flujos. Las tiendas del aeropuerto, las terminales de crucero y las estaciones son una parada; su tienda es donde llega cada pasajero, listo para canjear un DutyCredit venga de donde venga, incluidos los turistas que llegan en tren a otra ciudad.',
       b1: 'Pasajeros de crucero, aéreos y de tren en un solo flujo',
       b2: 'Canjee DutyCredits en cualquier ruta de llegada',
       b3: 'Pague solo por resultados',

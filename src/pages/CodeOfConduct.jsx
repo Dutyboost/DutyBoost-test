@@ -251,7 +251,7 @@ const content = {
       "No interferir en el proceso de canje, el descuento aplicado ni el valor de transacción declarado por un Socio de retail de viaje.",
       "Mantener actualizada en la plataforma la información de tu hub (terminales, zonas, directorio de comercios).",
       "Cooperar de buena fe cuando se necesite tu apoyo para investigar un canje, reembolso o fraude.",
-      "Informar a DutyBoost sin demora de cualquier cambio en los comercios de tu hub o en los flujos de viajeros relevantes.",
+      "Informar a DutyBoost sin demora de cualquier cambio en los comercios de tu hub o en los flujos de pasajeros relevantes.",
     ]},
     { h: "6. Antilavado de dinero (AML) y crimen financiero", list: [
       "No usar la plataforma para facilitar el lavado de dinero, la financiación del terrorismo, la evasión fiscal u otro delito financiero.",

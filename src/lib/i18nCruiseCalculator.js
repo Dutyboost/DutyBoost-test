@@ -515,7 +515,7 @@ export const cruiseCalculatorStrings = {
     title: "Su propia calculadora de tienda",
     stores: "Sus tiendas",
     addStore: "Añadir tienda",
-    info: "DutyBoost preactiva a los viajeros antes de que lleguen a usted. El único coste es una comisión de plataforma del {fee} % sobre las transacciones validadas por DutyBoost; el descuento para el viajero sigue los tramos DutyCredit: {min} %–{max} % según la cesta, con el límite de gasto cualificado.",
+    info: "DutyBoost preactiva a los pasajeros antes de que lleguen a usted. El único coste es una comisión de plataforma del {fee} % sobre las transacciones validadas por DutyBoost; el descuento para el pasajero sigue los tramos DutyCredit: {min} %–{max} % según la cesta, con el límite de gasto cualificado.",
     ctaTitle: "¿Quiere que validemos estas cifras para toda su red?",
     ctaDesc: "Envíenos la lista de sus tiendas y modelaremos juntos la visión completa.",
     disclaimer:
@@ -551,8 +551,8 @@ export const cruiseCalculatorStrings = {
         intro:
           "Un operador de autocares obtiene una comisión sobre el gasto retail de sus pasajeros en las paradas del recorrido. Introduzca sus autocares, los viajes por autocar y año y los pasajeros que transporta — DutyBoost activa a esos pasajeros antes de viajar, de modo que llegan a los comercios participantes con intención de compra, y usted obtiene una comisión por cada venta validada. No hay ningún coste para el operador.",
         focus:
-          "Todo circuito en autocar pasa por retail: áreas de servicio, terminales y puntos de bajada donde los viajeros ya esperan. DutyBoost convierte parte de ese paso en ventas retail validadas y paga al operador una comisión por cada una, sin tecnología que instalar y sin cambios en su operación.",
-        info: "DutyBoost activa a los viajeros antes de que lleguen al punto de venta. Sin coste para el operador: usted obtiene una comisión del {commission} % sobre cada transacción validada por DutyBoost, abonada mensualmente. El descuento al viajero sigue los tramos DutyCredit ({min} %–{max} % según la cesta, con el límite de gasto elegible) y lo financia el comercio participante.",
+          "Todo circuito en autocar pasa por retail: áreas de servicio, terminales y puntos de bajada donde los pasajeros ya esperan. DutyBoost convierte parte de ese paso en ventas retail validadas y paga al operador una comisión por cada una, sin tecnología que instalar y sin cambios en su operación.",
+        info: "DutyBoost activa a los pasajeros antes de que lleguen al punto de venta. Sin coste para el operador: usted obtiene una comisión del {commission} % sobre cada transacción validada por DutyBoost, abonada mensualmente. El descuento al pasajero sigue los tramos DutyCredit ({min} %–{max} % según la cesta, con el límite de gasto elegible) y lo financia el comercio participante.",
         rowsLabel: "Sus autocares",
         commissionLabel: "Comisión sobre ventas validadas",
         commissionNetLabel: "Comisión obtenida / año",
@@ -584,13 +584,13 @@ export const cruiseCalculatorStrings = {
       local: {
         badge: "Minoristas locales",
         intro:
-          "Todo viajero que llega a su mercado — en crucero o en avión — acaba en el centro urbano, y ahí está su tienda. DutyBoost los preactiva antes de que lleguen, para que lleguen a su caja con intención de compra; el modelo parte de las llegadas indicativas de su mercado, por mar y por aire, y solo paga por las ventas que genera.",
+          "Todo pasajero que llega a su mercado — en crucero o en avión — acaba en el centro urbano, y ahí está su tienda. DutyBoost los preactiva antes de que lleguen, para que lleguen a su caja con intención de compra; el modelo parte de las llegadas indicativas de su mercado, por mar y por aire, y solo paga por las ventas que genera.",
         ctaLabel: "Solicitar como minorista local",
-        totalsPassengers: "Viajeros que llegan / año",
+        totalsPassengers: "Pasajeros que llegan / año",
         card: {
-          arrivals: "Viajeros que llegan a su mercado / año",
+          arrivals: "Pasajeros que llegan a su mercado / año",
           passRate: "Proporción que pasa por su tienda",
-          kArrivals: "Viajeros que llegan / año",
+          kArrivals: "Pasajeros que llegan / año",
         },
       },
     },
@@ -622,7 +622,7 @@ export const cruiseCalculatorStrings = {
       traffic: "Por todas las tiendas / año",
       baskets: "Compras incrementales / año",
       sales: "Ventas incrementales / año",
-      discounts: "Descuentos financiados al viajero",
+      discounts: "Descuentos financiados al pasajero",
       fee: "Comisión de plataforma ({fee} %) / año",
       net: "Neto para el minorista / año",
     },
