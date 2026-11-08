@@ -21,7 +21,7 @@ export default {
       integration_partnerships: 'Pour les Partenaires d\'Intégration POS',
     },
     hero: {
-      title_1: "Bienvenue chez DutyBoost - La solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
+      title_1: "Bienvenue chez DutyBoost - Une solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
       title_2: '',
       subtitle_1: "Relier les voyageurs, les partenaires de voyage, les détaillants du voyage et les hubs de voyage au sein d'un même écosystème commercial fondé sur la performance.",
       subtitle_2: '',
@@ -34,7 +34,7 @@ export default {
       platform_fee_note: "Chaque utilisation alimente tout l'écosystème : une seule commission basée sur la performance est partagée entre les participants de cette transaction et DutyBoost — sans coût initial et sans rien à payer si aucune vente n'a lieu.",
     },
     oval: {
-      badge: "La solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
+      badge: "Une solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
       title: "Chaque Partenaire Gravite autour du <span class=\"text-primary\">Voyage du Voyageur</span>",
       subtitle: "Une transaction validée relie chaque participant — chacun gagnant au même moment du voyageur.",
       actual_title: "Situation Actuelle",
@@ -114,7 +114,7 @@ export default {
       },
       dutyboost: {
         title: 'DutyBoost',
-        description: "La solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
+        description: "Une solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
         b1: "Une seule couche unifie partenaires de voyage, détaillants aéroportuaires, prestataires POS, voyageurs de loisir et d'affaires.",
         b2: 'Chaque rachat validé rémunère toute la chaîne — voyageur, partenaire, détaillant et corporate — automatiquement et en toute transparence.',
         b3: 'Rapprochement automatisé, gestion des remboursements partiels et règlement mensuel maintiennent les revenus fluides sur les six côtés.',
@@ -1612,7 +1612,7 @@ Les Parties déclarent entrer dans cette Lettre d'Intention dans un esprit de co
     },
     retailpartneronepager: {
       badge: "Programme Partenaires Retail",
-      headline: "La solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
+      headline: "Une solution d'acquisition de clients basée sur la performance pour le secteur du voyage mondial",
       subtitle: "DutyBoost pré-active les voyageurs avec un DutyCredit personnalisé avant qu'ils n'arrivent dans votre boutique — à l'aéroport, au port maritime et dans le commerce local. Vous acquérez des clients additionnels à intention d'achat déjà activée et payez une seule commission de plateforme, uniquement sur une vente vérifiée. Aucun coût initial. Aucun risque.",
       audience_label: "Conçu pour les partenaires retail en",
       audience1: "Commerçants aéroportuaires",

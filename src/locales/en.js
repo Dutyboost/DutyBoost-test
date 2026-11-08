@@ -26,7 +26,7 @@ export default {
       integration_partnerships: 'For POS Integration Partners',
     },
     hero: {
-      title_1: 'Welcome to DutyBoost - The Performance-based Customer Acquisition Solution for Global Travel',
+      title_1: 'Welcome to DutyBoost - A Performance-based Customer Acquisition Solution for Global Travel',
       title_2: '',
       subtitle_1: "Connecting travellers, travel partners, travel retailers and travel hubs through one shared, performance-based commercial ecosystem.",
       subtitle_2: "",

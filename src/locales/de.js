@@ -21,7 +21,7 @@ export default {
       integration_partnerships: 'Für POS Integrationspartner',
     },
     hero: {
-      title_1: "Willkommen bei DutyBoost - Die performancebasierte Kundenakquise-Lösung für die globale Reisebranche",
+      title_1: "Willkommen bei DutyBoost - Eine performancebasierte Kundenakquise-Lösung für die globale Reisebranche",
       title_2: '',
       subtitle_1: "Verbindet Reisende, Reisepartner, Reise-Einzelhändler und Travel Hub Partners in einem gemeinsamen, leistungsbasierten kommerziellen Ökosystem.",
       subtitle_2: '',
