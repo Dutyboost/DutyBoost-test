@@ -7,17 +7,6 @@ import { Button } from "@/components/ui/button";
 import { fmtNum, fmtEur, fmtMoney } from "@/utils/formatNumber";
 import { computeCompanyTotals, computeCompanyStoreCount, numFontClass } from "@/utils/retailerCalc";
 
-const DEMO_DASHBOARD_ROUTES = {
-  "Lagardère Travel Retail": "/demo/retailer-lagardere",
-  "Avolta (incl. World Duty Free, Hudson, Dufry)": "/demo/retailer-avolta",
-  "Avolta (Aruba)": "/demo/retailer-avolta-aruba",
-  "Gebr. Heinemann": "/demo/retailer-heinemann",
-  "Aena SME, S.A.": "/demo/retailer-aena",
-  "DFP World (Duty Free Stores Zimbabwe)": "/demo/retailer-dfp-world",
-  "ILTT & Penha Group (Sint Maarten)": "/demo/retailer-sint-maarten",
-  "Global Airport Retail Network": "/demo/retailer-dfp-world",
-};
-
 export default function PresentationAggregation({ company, conversionRate = 3, compact = false, currency = "EUR" }) {
   const { t, i18n } = useTranslation();
   const lang = (i18n?.language || "en").split("-")[0];
@@ -162,14 +151,6 @@ export default function PresentationAggregation({ company, conversionRate = 3, c
         <p className="text-2xl font-heading font-bold text-primary">{fmtMoney(totals.avgBasket, currency, 2)}</p>
       </div>
 
-      <div className="text-center">
-        <Link to={`${DEMO_DASHBOARD_ROUTES[company.name] || "/"}?lang=${lang}`} target="_blank" rel="noopener noreferrer">
-          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white gap-2">
-            <BarChart3 className="w-4 h-4" />
-            {t('presentation.agg.view_dashboard')}
-          </Button>
-        </Link>
-      </div>
     </div>
   );
 }

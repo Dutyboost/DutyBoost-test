@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
-import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
@@ -15,7 +15,6 @@ import VouchersPage from './pages/VouchersPage';
 import RetailersPage from './pages/RetailersPage';
 import TravelAgenciesPage from './pages/TravelAgenciesPage';
 import AdminPanel from './pages/AdminPanel';
-import RetailerDashboard from './pages/RetailerDashboard';
 import ScanVoucher from './pages/ScanVoucher';
 import GetStarted from './pages/GetStarted';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -35,16 +34,12 @@ import RetailerIntegrationGuide from './pages/RetailerIntegrationGuide';
 import AdminDashboard from './pages/AdminDashboard';
 import SelectUserType from './pages/SelectUserType';
 
-import DemoLanding from './pages/DemoLanding';
 import LeadsAdmin from './pages/LeadsAdmin';
-import DemoAgencyDashboard from './pages/DemoAgencyDashboard';
-import DemoAdminDashboard from './pages/DemoAdminDashboard';
 import RetailerScanQR from './pages/RetailerScanQR';
 import BusinessTravel from './pages/BusinessTravel';
 import BusinessTravelGetStarted from './pages/BusinessTravelGetStarted';
 import CorporateTravelAdmin from './pages/CorporateTravelAdmin';
 import CorporateTravelDashboard from './pages/CorporateTravelDashboard';
-import DemoCorporateDashboard from './pages/DemoCorporateDashboard';
 import CorporateBudgetAllocation from './pages/CorporateBudgetAllocation';
 import RetailerScanOnly from './pages/RetailerScanOnly';
 import HotelShowcase from './pages/HotelShowcase';
@@ -53,8 +48,6 @@ import HotelPortal from './pages/HotelPortal';
 import CarRentalPortal from './pages/CarRentalPortal';
 import HotelSignup from './pages/HotelSignup';
 import CarRentalSignup from './pages/CarRentalSignup';
-import DemoHotelDashboard from './pages/DemoHotelDashboard';
-import DemoCarRentalDashboard from './pages/DemoCarRentalDashboard';
 import SurveyAirportRetailer from './pages/SurveyAirportRetailer';
 import SurveyTravelPartner from './pages/SurveyTravelPartner';
 import SurveyPosProvider from './pages/SurveyPosProvider';
@@ -89,11 +82,9 @@ import SurveyDashboard from './pages/SurveyDashboard';
 import CruiseShowcase from './pages/CruiseShowcase.jsx';
 import CruisePartnerCalculator from './pages/CruisePartnerCalculator.jsx';
 import CruiseSignup from './pages/CruiseSignup.jsx';
-import DemoCruiseDashboard from './pages/DemoCruiseDashboard.jsx';
 import TrainShowcase from './pages/TrainShowcase.jsx';
 import TrainPortal from './pages/TrainPortal.jsx';
 import TrainSignup from './pages/TrainSignup.jsx';
-import DemoTrainDashboard from './pages/DemoTrainDashboard.jsx';
 import DevWireframe from './pages/DevWireframe';
 import RequestDemoPage from './pages/RequestDemoPage';
 import AirportRetailerPresentation from './pages/AirportRetailerPresentation';
@@ -137,7 +128,7 @@ import AirportPitchDeckAruba from './pages/AirportPitchDeckAruba';
 import PhygridPitchDeck from './pages/PhygridPitchDeck';
 import TravelPartnerPitchDeck from './pages/TravelPartnerPitchDeck';
 import TravelPartnerPitchDeckAFKLM from './pages/TravelPartnerPitchDeckAFKLM';
-import PartnerDashboard from './pages/PartnerDashboard';
+import PartnerWorkspace from './pages/PartnerWorkspace';
 
 import AirportShowcase from './pages/AirportShowcase';
 import AirportOnlyShowcase from './pages/AirportOnlyShowcase';
@@ -162,13 +153,6 @@ import AirportRetailersCampaignList from './pages/AirportRetailersCampaignList';
 import AirportRolloutTemplate from './pages/AirportRolloutTemplate';
 import PitchPipeline from './pages/PitchPipeline';
 import TravellersTransactionShowcase from './pages/TravellersTransactionShowcase';
-
-// Every retailer demo link now opens the one Airport Retailer Dashboard,
-// with the company taken from the URL extension.
-const RetailerDashboardLink = ({ company }) => {
-  const { search } = useLocation();
-  return <Navigate to={`/retailer-dashboard/${company}${search}`} replace />;
-};
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin, user, isAuthenticated } = useAuth();
@@ -214,28 +198,12 @@ const AuthenticatedApp = () => {
       <ScrollRestoration />
       <TrafficTracker />
       <Routes>
-        <Route path="/" element={<EntryPage />} />
+        <Route path="/" element={user?.role === "user" ? <Navigate to="/dashboard" replace /> : <EntryPage />} />
         <Route path="/partners" element={<LandingPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         {surveyRoutes}
         <Route path="/landing" element={<LandingPage />} />
 
-        <Route path="/demo" element={<DemoLanding />} />
-        <Route path="/demo/travel-partner" element={<DemoAgencyDashboard />} />
-        <Route path="/demo/retailer" element={<RetailerDashboardLink company="lagardere" />} />
-        <Route path="/demo/retailer-lagardere" element={<RetailerDashboardLink company="lagardere" />} />
-        <Route path="/demo/retailer-heinemann" element={<RetailerDashboardLink company="heinemann" />} />
-        <Route path="/demo/retailer-avolta" element={<RetailerDashboardLink company="avolta" />} />
-        <Route path="/demo/retailer-avolta-aruba" element={<RetailerDashboardLink company="avolta-aruba" />} />
-        <Route path="/demo/retailer-dfp-world" element={<RetailerDashboardLink company="dfp-world" />} />
-        <Route path="/demo/retailer-sint-maarten" element={<RetailerDashboardLink company="sint-maarten" />} />
-        <Route path="/demo/retailer-trinidad-tobago" element={<RetailerDashboardLink company="trinidad-tobago" />} />
-        <Route path="/demo/retailer-trinidad" element={<RetailerDashboardLink company="trinidad-tobago" />} />
-        <Route path="/demo/hotel" element={<DemoHotelDashboard />} />
-        <Route path="/demo/car-rental" element={<DemoCarRentalDashboard />} />
-        <Route path="/demo/cruise" element={<DemoCruiseDashboard />} />
-        <Route path="/demo/train" element={<DemoTrainDashboard />} />
-        <Route path="/demo/admin" element={<DemoAdminDashboard />} />
         <Route path="/get-started" element={<SelectUserType />} />
         <Route path="/travel-partner-showcase" element={<SelectUserType travelPartnerOnly />} />
         <Route path="/registration" element={<GetStarted />} />
@@ -378,9 +346,7 @@ const AuthenticatedApp = () => {
           <Route path="/car-rentals" element={<CarRentalPortal />} />
           <Route path="/admin" element={<AdminPanel />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route path="/retailer-dashboard" element={<RetailerDashboard />} />
-          <Route path="/retailer-dashboard/:company" element={<RetailerDashboard />} />
-          <Route path="/travel-partner-dashboard" element={<PartnerDashboard type="travel" />} />
+          <Route path="/partner" element={<PartnerWorkspace />} />
           <Route path="/travel-partner-integration" element={<AgencyIntegrationPage />} />
           <Route path="/scan-redeem" element={<ScanVoucher />} />
           <Route path="/retailer-scan" element={<RetailerScanQR />} />

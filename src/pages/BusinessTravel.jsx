@@ -86,11 +86,6 @@ export default function BusinessTravel() {
             <DutyBoostLogo height={130} />
           </Link>
           <div className="flex items-center gap-3 flex-wrap justify-end">
-            <Link to="/demo">
-              <Button variant="outline" size="sm" className="gap-1.5">
-                <Eye className="w-3.5 h-3.5" /> Live Demo
-              </Button>
-            </Link>
             <Button variant="ghost" size="sm" onClick={() => base44.auth.redirectToLogin('/dashboard')}>Sign In</Button>
             <Link to="/business-travel/get-started">
               <Button size="sm" className="gap-1">
@@ -308,13 +303,6 @@ export default function BusinessTravel() {
                 <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
               </div>
             ))}
-          </div>
-          <div className="text-center">
-            <Link to="/demo/corporate">
-              <Button size="lg" className="gap-2 px-8 text-base">
-                View Corporate Dashboard <ArrowRight className="w-4 h-4" />
-              </Button>
-            </Link>
           </div>
         </div>
       </section>

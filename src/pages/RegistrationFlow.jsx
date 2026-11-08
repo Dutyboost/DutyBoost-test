@@ -155,7 +155,7 @@ const RETAILER_STEPS = [
     icon: "🎉",
     title: "Retailer Dashboard",
     desc: "Retailer is live! They can scan vouchers, view transaction history, and manage their store profile.",
-    action: "/retailer-dashboard",
+    action: "/partner",
     color: "from-green-500 to-emerald-600",
     bg: "bg-emerald-50",
     border: "border-emerald-300",

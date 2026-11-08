@@ -629,9 +629,6 @@ function SlideIncremental() {
               <div className="text-blue-700 text-xs lg:text-sm">Explore a live simulation of DutyBoost transactions, redemptions and incremental revenue at an Avolta duty-free store.</div>
             </div>
           </div>
-          <Link to="/demo/retailer-avolta" className="flex items-center gap-2 px-5 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap text-sm">
-            View Avolta Report <ArrowRight size={16} />
-          </Link>
         </div>
       </div>
     </SlideWrapper>
@@ -831,9 +828,6 @@ function SlideGetStarted() {
             <p className="text-slate-300 text-sm lg:text-base font-semibold">
               Always performance-based — you pay only the 2.5% platform fee on validated sales.
             </p>
-            <Link to="/demo/retailer-avolta" className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors text-sm mt-2">
-              <Store size={16} /> See It in Practice — Avolta Demo <ArrowRight size={16} />
-            </Link>
           </div>
         </div>
       </div>

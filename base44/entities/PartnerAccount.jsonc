@@ -1,0 +1,99 @@
+{
+  "name": "PartnerAccount",
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "type": "string",
+      "title": "Partner Company Name"
+    },
+    "vertical": {
+      "type": "string",
+      "title": "Dashboard",
+      "enum": [
+        "flight",
+        "cruise",
+        "train",
+        "coach",
+        "car_rental",
+        "accommodation",
+        "airport_retail",
+        "seaport_retail",
+        "cruise_line_retail",
+        "motorway_retail",
+        "railway_retail",
+        "local_retail"
+      ]
+    },
+    "contact_name": {
+      "type": "string",
+      "title": "Contact Name"
+    },
+    "contact_email": {
+      "type": "string",
+      "title": "Login Email"
+    },
+    "annual_flow": {
+      "type": "number",
+      "title": "Annual Flow (passengers, visitors or nights)"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "invited",
+        "active",
+        "suspended"
+      ],
+      "default": "invited",
+      "enumColors": [
+        "yellow",
+        "green",
+        "red"
+      ]
+    },
+    "notes": {
+      "type": "string",
+      "title": "Internal Notes"
+    },
+    "activated_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Activated Date"
+    }
+  },
+  "required": [
+    "company_name",
+    "vertical",
+    "contact_email",
+    "status"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.contact_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

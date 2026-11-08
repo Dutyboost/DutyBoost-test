@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
-import RetailerDashboard from "./RetailerDashboard";
 import AdminPanel from "./AdminPanel";
-import PartnerDashboard from "./PartnerDashboard";
-import PartnerNoDashboard from "@/components/partner/PartnerNoDashboard";
-import { partnerTypeToKey, PARTNER_NO_DASHBOARD_TYPES } from "@/lib/partnerDashboards";
+import PartnerWorkspace from "./PartnerWorkspace";
 
+/**
+ * One entry point for every signed-in account: admins get the admin panel,
+ * everyone else gets the dashboard their partner account is linked to.
+ */
 export default function Home() {
   const [user, setUser] = useState(null);
-  const [partner, setPartner] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,16 +24,6 @@ export default function Home() {
           }
         }
         setUser(userData);
-        // Partners see their own dashboard instead of the travel-agency one.
-        if (userData?.role !== "admin" && userData?.role !== "retailer" && userData?.email) {
-          const records = await base44.entities.ParticipatingPartner
-            .filter({ contact_email: userData.email }, "-created_date", 20)
-            .catch(() => []);
-          const record = (records || []).find(
-            (r) => partnerTypeToKey(r.partner_type) || PARTNER_NO_DASHBOARD_TYPES.includes(r.partner_type)
-          );
-          if (record) setPartner({ key: partnerTypeToKey(record.partner_type), type: record.partner_type });
-        }
       } catch (error) {
         console.error('Failed to fetch user:', error);
       } finally {
@@ -61,11 +51,7 @@ export default function Home() {
     return null;
   }
 
-  const role = user.role;
+  if (user.role === "admin") return <AdminPanel />;
 
-  if (role === "admin") return <AdminPanel />;
-  if (role === "retailer") return <RetailerDashboard />;
-  if (partner?.key) return <PartnerDashboard type={partner.key} />;
-  if (partner) return <PartnerNoDashboard partnerType={partner.type} />;
-  return <PartnerDashboard type="travel" />
+  return <PartnerWorkspace />;
 }

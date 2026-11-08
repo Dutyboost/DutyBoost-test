@@ -19,6 +19,7 @@ import BatchPayoutApproval from "../components/BatchPayoutApproval";
 import AggregationView from "../components/AggregationView";
 import DutyCreditInsights from "../components/admin/DutyCreditInsights";
 import TurnoverModelTab from "../components/admin/TurnoverModelTab";
+import PartnerAccountsTab from "../components/admin/PartnerAccountsTab";
 import { Link } from "react-router-dom";
 
 export default function AdminPanel() {
@@ -341,6 +342,9 @@ export default function AdminPanel() {
             </TabsTrigger>
             <TabsTrigger value="partner-directory" className="gap-1.5">
               <Users className="w-3.5 h-3.5" /> Partner Directory
+            </TabsTrigger>
+            <TabsTrigger value="partner-accounts" className="gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5" /> Partner Accounts
             </TabsTrigger>
             <TabsTrigger value="hidden-features" className="gap-1.5">
               <EyeOff className="w-3.5 h-3.5" /> Hidden Features
@@ -696,6 +700,9 @@ export default function AdminPanel() {
         </TabsContent>
         <TabsContent value="partner-directory" className="mt-4">
           <PartnerDirectoryPanel />
+        </TabsContent>
+        <TabsContent value="partner-accounts" className="mt-4">
+          <PartnerAccountsTab />
         </TabsContent>
         <TabsContent value="hidden-features" className="mt-4">
           <HiddenFeaturesPanel />

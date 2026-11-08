@@ -23,8 +23,6 @@ const roleNavItems = {
   admin: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
     { label: "DutyCredits", path: "/vouchers", icon: TicketPercent },
-    { label: "Airport Retailer Dashboard", path: "/retailer-dashboard", icon: Store },
-    { label: "Travel Partner Dashboard", path: "/travel-partner-dashboard", icon: Plane },
     { label: "Scan & Redeem", path: "/scan-redeem", icon: ScanLine },
     { label: "DutyBoost Dashboard", path: "/DutyBoost-Dashboard", icon: BarChart2 },
     { label: "Admin", path: "/admin", icon: ShieldCheck },
@@ -36,7 +34,6 @@ const roleNavItems = {
   ],
   retailer: [
     { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
-    { label: "My Store", path: "/retailer-dashboard", icon: Store },
     { label: "Scan & Redeem", path: "/scan-redeem", icon: ScanLine },
   ],
   user: [
@@ -49,33 +46,16 @@ export default function Layout() {
   const [user, setUser] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [authReady, setAuthReady] = useState(false);
-  const [demoMode, setDemoMode] = useState(false);
 
   useEffect(() => {
-    // Paths that can be viewed without a login, so the dashboard can be
-    // demonstrated to a prospective retailer straight from a shared link.
-    const demoPaths = [
-      "/retailer-dashboard",
-      "/travel-partner-dashboard",
-    ];
-    const isDemoPath = demoPaths.some(
-      (p) => window.location.pathname === p || window.location.pathname.startsWith(`${p}/`)
-    );
     base44.auth.me()
       .then(u => {
-        if (!u) {
-          if (isDemoPath) { setDemoMode(true); setAuthReady(true); return; }
-          window.location.replace('/login');
-          return;
-        }
+        if (!u) { window.location.replace('/login'); return; }
         if (!u.role) { window.location.replace('/get-started'); return; }
         setUser(u);
         setAuthReady(true);
       })
-      .catch(() => {
-        if (isDemoPath) { setDemoMode(true); setAuthReady(true); return; }
-        window.location.replace('/login');
-      });
+      .catch(() => window.location.replace('/login'));
   }, []);
 
   if (!authReady) {
@@ -85,9 +65,6 @@ export default function Layout() {
       </div>
     );
   }
-
-  // Demo view: full-screen, without the signed-in navigation shell
-  if (demoMode) return <Outlet />;
 
   const role = user?.role || "agency";
   const navItems = roleNavItems[role] || roleNavItems.agency;
