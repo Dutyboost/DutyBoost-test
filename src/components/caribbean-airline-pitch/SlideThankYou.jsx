@@ -57,7 +57,7 @@ export default function SlideThankYou() {
           </div>
 
           <div className="mt-3 text-slate-500 text-[10px]">
-            CONFIDENTIAL — 2026 | Chamber of Commerce: 42053088 | VAT: NL869492068B01
+            CONFIDENTIAL — 2026 | Chamber of Commerce: 42053188 | VAT: NL869492068B01
           </div>
         </div>
       </div>

@@ -436,7 +436,7 @@ export default {
     footer: {
       tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Alle Rechte vorbehalten.',
-      kvk: 'Handelskammer (KvK): 42053088',
+      kvk: 'Handelskammer (KvK): 42053188',
       vat: 'USt-IdNr.: NL869492068B01',
       cookie_policy: 'Cookie-Richtlinie',
     },
@@ -1038,7 +1038,7 @@ export default {
       submit_loi: 'Unterzeichnete Absichtserklärung einreichen',
       submitting: 'Wird eingereicht...',
       validating: 'Handelsregisternummer wird überprüft...',
-      storage_info: 'Ihre Einreichung wird sicher gespeichert. DutyBoost · KvK 42053088 · hello@dutyboost.com',
+      storage_info: 'Ihre Einreichung wird sicher gespeichert. DutyBoost · KvK 42053188 · hello@dutyboost.com',
       success_title: 'Absichtserklärung eingereicht',
       success_subtitle: 'Vielen Dank, {name}. Ihre unterzeichnete Absichtserklärung wurde im Namen von {company} erhalten. Mit Ihrer Unterstützung stehen wir stärker darin, Flughafenhändler zur Teilnahme an unserem Ökosystem zu überzeugen. Eine digital unterzeichnete Kopie wird Ihnen innerhalb von 24 Stunden per E-Mail zugesandt.',
       error_required: 'Dieses Feld ist erforderlich.',
@@ -1050,7 +1050,7 @@ export default {
 
 Diese Absichtserklärung ("AOI") wird am {date} zwischen folgenden Parteien geschlossen:
 
-DutyBoost mit Sitz unter DEK 32, 1319BB Almere, Niederlande, eingetragen in der niederländischen Handelskammer unter der Nummer 42053088, USt-ID NL869492068B01, rechtlich vertreten durch:
+DutyBoost mit Sitz unter DEK 32, 1319BB Almere, Niederlande, eingetragen in der niederländischen Handelskammer unter der Nummer 42053188, USt-ID NL869492068B01, rechtlich vertreten durch:
 Jaquelin Beliad Perez – Mitbegründer
 Raël Martis – Mitbegründer
 im Folgenden „DutyBoost" genannt,
@@ -1214,7 +1214,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung in gegenseitigem Vertr
       submit_loi: 'Unterzeichnete Absichtserklärung Einreichen',
       submitting: 'Einreichen...',
       validating: 'Handelsregisternummer überprüfen...',
-      storage_info: 'Ihre Einreichung wird sicher gespeichert. DutyBoost · KvK 42053088 · hello@dutyboost.com',
+      storage_info: 'Ihre Einreichung wird sicher gespeichert. DutyBoost · KvK 42053188 · hello@dutyboost.com',
       success_title: 'Absichtserklärung Eingereicht',
       success_subtitle: 'Vielen Dank, {name}. Ihre unterzeichnete Absichtserklärung wurde im Namen von {company} erhalten. Mit Ihrer Teilnahme stehen wir stärker beim Aufbau des DutyBoost Flughafeneinzelhändler-Netzwerks. Eine digital unterzeichnete Kopie wird Ihnen innerhalb von 24 Stunden per E-Mail zugesandt.',
       error_required: 'Dieses Feld ist erforderlich.',
@@ -1226,7 +1226,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung in gegenseitigem Vertr
 
 Diese Absichtserklärung ("AE") wird am {date} zwischen folgenden Parteien geschlossen:
 
-DutyBoost, mit Sitz in DEK 32, 1319BB Almere, Niederlande, eingetragen beim niederländischen Handelskammer unter der Nummer 42053088, USt-IdNr. NL869492068B01, rechtlich vertreten durch:
+DutyBoost, mit Sitz in DEK 32, 1319BB Almere, Niederlande, eingetragen beim niederländischen Handelskammer unter der Nummer 42053188, USt-IdNr. NL869492068B01, rechtlich vertreten durch:
 Jaquelin Beliad Perez – Mitgründer
 Raël Martis – Mitgründer
 im Folgenden als "DutyBoost" bezeichnet,
@@ -1476,7 +1476,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       benefit3_title: '⚡ Null operativer Aufwand',
       benefit3_desc: 'Der DutyCredit-QR-Code wird direkt in Ihre Buchungsbestätigungs-E-Mail eingebettet — keine zusätzlichen Schritte, keine neuen Tools, kein manueller Aufwand.',
       cta: 'Bereit, Ihre Buchungen in Loyalität und Umsatz zu verwandeln?',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelsregister (KvK): 42053088 | USt-IdNr.: NL869492068B01',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelsregister (KvK): 42053188 | USt-IdNr.: NL869492068B01',
     },
     flightonepager: {
       badge: 'Flugpartner-Programm',
@@ -1500,7 +1500,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       benefit2_title: '💰 Ein neuer Einnahmestrom ohne Mehraufwand', benefit2_desc: 'Provisionen werden automatisch bei jeder Einlösung fließen — kein Vertriebsteam erforderlich, kein Mehraufwand, keine Änderung Ihres bestehenden Betriebs.',
       benefit3_title: '⚡ Null operativer Aufwand', benefit3_desc: 'DutyCredits werden direkt in Ihre bestehenden Buchungsbestätigungs-E-Mails eingebettet. Keine neuen Tools. Keine zusätzlichen Schritte. Keine Wartung. Nur eine Belohnung, die Ihre Reisenden lieben werden — und ein Einnahmestrom, den Sie verdienen werden.',
       cta: 'Bereit, jede Flugbuchung wertvoller zu machen — für Ihre Reisenden und für Sie?',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053088 | USt-IdNr.: NL869492068B01',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053188 | USt-IdNr.: NL869492068B01',
     },
     accommodationonepager: {
       badge: 'Unterkunftspartner-Programm',
@@ -1524,7 +1524,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       benefit2_title: '💰 Zwei Provisionsopportunitäten pro Gast', benefit2_desc: 'Anders als Flugpartner, die auf einem DutyCredit verdienen, werden Unterkunftspartner auf zwei pro Gast verdienen — doppeltes passives Einnahmepotenzial auf jeden bestätigten Aufenthalt.',
       benefit3_title: '⚡ Null operativer Aufwand', benefit3_desc: 'DutyCredits werden direkt in Ihre bestehende Buchungsbestätigung und Check-out-E-Mail eingebettet. Kein neues System. Keine zusätzlichen Schritte. Keine Wartung. Zwei Belohnungen, null Arbeit.',
       cta: 'Bereit, jeden Aufenthalt unvergesslicher — und profitabler — zu machen?',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053088 | USt-IdNr.: NL869492068B01',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053188 | USt-IdNr.: NL869492068B01',
     },
     carrentalonepager: {
       badge: 'Autovermietung & Transfer Partner-Programm',
@@ -1548,7 +1548,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       benefit2_title: '💰 Zwei Provisionsopportunitäten pro Kunde', benefit2_desc: 'Anders als reine Flugpartner werden Autovermietungspartner auf zwei DutyCredits pro Kunde verdienen — doppeltes passives Einnahmepotenzial auf jede bestätigte Vermietung.',
       benefit3_title: '⚡ Null operativer Aufwand', benefit3_desc: 'DutyCredits werden direkt in Ihre bestehende Buchungsbestätigung und Rückgabe-E-Mail eingebettet. Kein neues System. Keine zusätzlichen Schritte. Keine Wartung. Zwei Belohnungen, null Arbeit.',
       cta: 'Bereit, jede Vermietung wertvoller zu machen — für Ihre Kunden und für Sie?',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053088 | USt-IdNr.: NL869492068B01',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053188 | USt-IdNr.: NL869492068B01',
     },
     travelstackonepager: {
       programme_name: 'TravelStack Partner Programm',
@@ -1606,7 +1606,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       benefit3_title: '⚡ Eine Integration. Dauerhafter Wert.',
       benefit3_desc: 'DutyCredits werden direkt in bestehende Bestätigungs-E-Mails des Partners eingebettet — keine neuen Tools, keine manuelle Arbeit, keine laufende Wartung.',
       cta: 'Bereit, DutyBoost über den gesamten Travel Stack zu aktivieren?',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053088 | USt-IdNr.: NL869492068B01',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelskammer (KvK): 42053188 | USt-IdNr.: NL869492068B01',
     },
     retailpartneronepager: {
       badge: 'Retail-Partner-Programm',
@@ -1652,7 +1652,7 @@ Die Parteien erklären, dass sie diese Absichtserklärung im Geiste gegenseitige
       benefit3_title: '⚡ Null Risiko, null Vorabkosten',
       benefit3_desc: 'Keine Gebühr auf Traffic, der nicht konvertiert. DutyBoost wird aus den erzielten Verkäufen bezahlt, monatlich auf einer Rechnung.',
       cta: 'Bereit, Kunden nach Leistung statt nach Versprechen zu gewinnen?',
-      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelsregister (KvK): 42053088 | USt-IdNr.: NL869492068B01',
+      legal: 'DutyBoost. Alle Rechte vorbehalten. 2026. | Handelsregister (KvK): 42053188 | USt-IdNr.: NL869492068B01',
     },
     presentation: {
       retailer: {

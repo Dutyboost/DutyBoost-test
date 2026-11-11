@@ -12,7 +12,7 @@ import { ndaSections as pt } from "./mutualNdaSectionsPt";
 export const NDA_DUTYBOOST = {
   legal_name: "DutyBoost",
   jurisdiction: "the Netherlands",
-  registration: "42053088",
+  registration: "42053188",
   address: "DEK 32, 1913 BB, Almere, The Netherlands",
   representative: "Raël Martis Ozuna",
   representative_title: "Chief Commercial Officer",

@@ -41,7 +41,7 @@ export default function SlideThankYouSupport() {
           <PositioningLine className="mt-5 max-w-4xl" text={t.positioning} />
 
           <div className="mt-3 text-slate-500 text-[10px]">
-            {t.chrome.confidential} — 2026 | Chamber of Commerce: 42053088 | VAT: NL869492068B01
+            {t.chrome.confidential} — 2026 | Chamber of Commerce: 42053188 | VAT: NL869492068B01
           </div>
         </div>
       </div>

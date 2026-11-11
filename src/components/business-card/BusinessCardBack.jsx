@@ -38,7 +38,7 @@ export default function BusinessCardBack({ data }) {
         </div>
 
         <p style={{ fontSize: "6pt", color: "#8FA0C0" }}>
-          DutyBoost · KvK 42053088 · The Netherlands
+          DutyBoost · KvK 42053188 · The Netherlands
         </p>
       </div>
     </div>

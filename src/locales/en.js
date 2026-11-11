@@ -133,7 +133,7 @@ export default {
     footer: {
       tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. All rights reserved.',
-      kvk: 'Chamber of Commerce (KvK): 42053088',
+      kvk: 'Chamber of Commerce (KvK): 42053188',
       vat: 'VAT Number: NL869492068B01',
       cookie_policy: 'Cookie Policy',
     },
@@ -602,7 +602,7 @@ export default {
       benefit3_title: '⚡ Zero operational burden',
       benefit3_desc: 'The DutyCredit QR code is embedded directly into your booking confirmation email — no extra steps, no new tools, no manual work.',
       cta: 'Ready to turn your bookings into loyalty and revenue?',
-      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053088 | VAT: NL869492068B01',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053188 | VAT: NL869492068B01',
     },
     flightonepager: {
       badge: 'Flight Partner Programme',
@@ -626,7 +626,7 @@ export default {
       benefit2_title: '💰 Two commission opportunities per booking', benefit2_desc: 'Commission flows on both the booking credit and the return flight reminder credit — doubling your passive revenue potential versus a single-touchpoint approach.',
       benefit3_title: '⚡ Zero operational burden', benefit3_desc: 'DutyCredits are embedded directly into your existing booking confirmation and return flight reminder emails. No new tools. No extra steps. No maintenance. Two rewards, zero work.',
       cta: 'Ready to make every flight booking more valuable — twice — for your travellers and for you?',
-      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053088 | VAT: NL869492068B01',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053188 | VAT: NL869492068B01',
     },
     accommodationonepager: {
       badge: 'Accommodation Partner Programme',
@@ -650,7 +650,7 @@ export default {
       benefit2_title: '💰 Two commission opportunities per guest', benefit2_desc: 'Unlike flight partners who earn on one DutyCredit, accommodation partners will earn commission on two per guest — doubling the passive revenue potential on every confirmed stay.',
       benefit3_title: '⚡ Zero operational burden', benefit3_desc: 'DutyCredits will be embedded directly into your existing booking confirmation and check-out emails. No new platform. No extra steps. No ongoing maintenance. Two rewards, zero work.',
       cta: 'Ready to make every stay more memorable — and more profitable?',
-      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053088 | VAT: NL869492068B01',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053188 | VAT: NL869492068B01',
     },
     carrentalonepager: {
       badge: 'Car & Transfer Rental Partner Programme',
@@ -674,7 +674,7 @@ export default {
       benefit2_title: '💰 Two commission opportunities per customer', benefit2_desc: 'Unlike flight-only partners, car rental partners will earn commission on two DutyCredits per customer — one at booking, one at car return. Double the passive revenue potential on every confirmed rental.',
       benefit3_title: '⚡ Zero operational burden', benefit3_desc: 'DutyCredits will be embedded directly into your existing booking confirmation and car return emails. No new platform. No extra steps. No ongoing maintenance. Two rewards, zero work.',
       cta: 'Ready to make every rental more valuable — for your customers and for you?',
-      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053088 | VAT: NL869492068B01',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053188 | VAT: NL869492068B01',
     },
     travelstackonepager: {
       programme_name: 'Travel Partner Programme',
@@ -734,7 +734,7 @@ export default {
       benefit3_title: '⚡ One integration. Permanent value.',
       benefit3_desc: 'DutyCredits are embedded directly into the partner\'s existing confirmation emails — no new tools, no manual work, no ongoing maintenance.',
       cta: 'Ready to activate DutyBoost across all travel-related verticals?',
-      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053088 | VAT: NL869492068B01',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053188 | VAT: NL869492068B01',
     },
     retailpartneronepager: {
       badge: 'Retail Partner Programme',
@@ -780,7 +780,7 @@ export default {
       benefit3_title: '⚡ Zero risk, zero upfront cost',
       benefit3_desc: 'No fee on traffic that does not convert. DutyBoost is paid out of the sales it delivers, at month-end, on one invoice.',
       cta: 'Ready to acquire customers on performance, not promises?',
-      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053088 | VAT: NL869492068B01',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053188 | VAT: NL869492068B01',
     },
     pospartneronepager: {
       badge: 'POS Partner Programme',
@@ -821,7 +821,7 @@ export default {
       benefit3_title: '📈 Shared Growth, Zero Risk',
       benefit3_desc: 'As DutyBoost expands across airports and travel partners, redemption volume on your retailers grows automatically. You benefit from platform growth you didn\u2019t fund — with no obligation to onboard anyone.',
       cta: 'Ready to extend your POS solution?',
-      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053088 | VAT: NL869492068B01',
+      legal: 'DutyBoost. All rights reserved. 2026. | Chamber of Commerce (KvK): 42053188 | VAT: NL869492068B01',
     },
     calculator,
     entCalc,

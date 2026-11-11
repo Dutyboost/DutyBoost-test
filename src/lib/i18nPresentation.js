@@ -278,7 +278,7 @@ export const presentationStrings = {
     },
     footer: {
       rights: "© 2026 DutyBoost. All rights reserved.",
-      kvk: "Chamber of Commerce (KvK): 42053088",
+      kvk: "Chamber of Commerce (KvK): 42053188",
     },
   },
 
@@ -561,7 +561,7 @@ export const presentationStrings = {
     },
     footer: {
       rights: "© 2026 DutyBoost. Alle rechten voorbehouden.",
-      kvk: "Kamer van Koophandel (KvK): 42053088",
+      kvk: "Kamer van Koophandel (KvK): 42053188",
     },
   },
 
@@ -844,7 +844,7 @@ export const presentationStrings = {
     },
     footer: {
       rights: "© 2026 DutyBoost. Todos los derechos reservados.",
-      kvk: "Cámara de Comercio (KvK): 42053088",
+      kvk: "Cámara de Comercio (KvK): 42053188",
     },
   },
   pt: {
@@ -1126,7 +1126,7 @@ export const presentationStrings = {
     },
     footer: {
       rights: "© 2026 DutyBoost. Todos os direitos reservados.",
-      kvk: "Câmara de Comércio (KvK): 42053088",
+      kvk: "Câmara de Comércio (KvK): 42053188",
     },
   },
 };

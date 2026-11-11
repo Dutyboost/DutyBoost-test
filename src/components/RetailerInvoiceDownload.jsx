@@ -35,7 +35,7 @@ export default function RetailerInvoiceDownload({ transactions, retailers, user 
     doc.text("DutyBoost", 20, 20);
     doc.setFontSize(11);
     doc.setTextColor(100);
-    doc.text("DutyBoost · KvK: 12345678 · VAT: NL123456789B01", 20, 28);
+    doc.text("DutyBoost · KvK: 42053188 · VAT: NL869492068B01", 20, 28);
     doc.text("hello@dutyboost.com · dutyboost.com", 20, 34);
 
     // Invoice title

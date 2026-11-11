@@ -102,7 +102,7 @@ export const retailerConfirmationStrings = {
       sign_name: "Full name",
       sign_position: "Position",
       sign_date: "Date",
-      footer: "DutyBoost — hello@dutyboost.com — Chamber of Commerce: 42053088 — VAT: NL869492068B01",
+      footer: "DutyBoost — hello@dutyboost.com — Chamber of Commerce: 42053188 — VAT: NL869492068B01",
     },
   },
   nl: {
@@ -203,7 +203,7 @@ export const retailerConfirmationStrings = {
       sign_name: "Volledige naam",
       sign_position: "Functie",
       sign_date: "Datum",
-      footer: "DutyBoost — hello@dutyboost.com — KvK: 42053088 — BTW: NL869492068B01",
+      footer: "DutyBoost — hello@dutyboost.com — KvK: 42053188 — BTW: NL869492068B01",
     },
   },
   es: {
@@ -302,7 +302,7 @@ export const retailerConfirmationStrings = {
       sign_name: "Nombre completo",
       sign_position: "Cargo",
       sign_date: "Fecha",
-      footer: "DutyBoost — hello@dutyboost.com — Registro mercantil: 42053088 — IVA: NL869492068B01",
+      footer: "DutyBoost — hello@dutyboost.com — Registro mercantil: 42053188 — IVA: NL869492068B01",
     },
   },
   de: {
@@ -403,7 +403,7 @@ export const retailerConfirmationStrings = {
       sign_name: "Vollständiger Name",
       sign_position: "Position",
       sign_date: "Datum",
-      footer: "DutyBoost — hello@dutyboost.com — Handelsregister: 42053088 — USt-IdNr.: NL869492068B01",
+      footer: "DutyBoost — hello@dutyboost.com — Handelsregister: 42053188 — USt-IdNr.: NL869492068B01",
     },
   },
   fr: {
@@ -502,7 +502,7 @@ export const retailerConfirmationStrings = {
       sign_name: "Nom complet",
       sign_position: "Fonction",
       sign_date: "Date",
-      footer: "DutyBoost — hello@dutyboost.com — Registre du commerce : 42053088 — TVA : NL869492068B01",
+      footer: "DutyBoost — hello@dutyboost.com — Registre du commerce : 42053188 — TVA : NL869492068B01",
     },
   },
   it: {
@@ -601,7 +601,7 @@ export const retailerConfirmationStrings = {
       sign_name: "Nome completo",
       sign_position: "Ruolo",
       sign_date: "Data",
-      footer: "DutyBoost — hello@dutyboost.com — Registro imprese: 42053088 — P. IVA: NL869492068B01",
+      footer: "DutyBoost — hello@dutyboost.com — Registro imprese: 42053188 — P. IVA: NL869492068B01",
     },
   },
   pt: {
@@ -700,7 +700,7 @@ export const retailerConfirmationStrings = {
       sign_name: "Nome completo",
       sign_position: "Cargo",
       sign_date: "Data",
-      footer: "DutyBoost — hello@dutyboost.com — Registo Comercial: 42053088 — IVA: NL869492068B01",
+      footer: "DutyBoost — hello@dutyboost.com — Registo Comercial: 42053188 — IVA: NL869492068B01",
     },
   },
 };

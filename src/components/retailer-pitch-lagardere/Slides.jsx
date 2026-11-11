@@ -103,7 +103,7 @@ export function SlideCoverLagardere() {
             ))}
           </div>
           <div className="mt-2 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
-            CONFIDENTIAL — 2026 | Chamber of Commerce: 42053088 | VAT: NL869492068B01
+            CONFIDENTIAL — 2026 | Chamber of Commerce: 42053188 | VAT: NL869492068B01
           </div>
         </div>
       </div>
@@ -1067,7 +1067,7 @@ export function SlideClosingLagardere() {
           </div>
           <h2 className="text-4xl md:text-6xl font-heading font-bold text-blue-600 tracking-tight">THANK YOU</h2>
           <div className="mt-2 text-xs text-slate-500 border border-slate-300 rounded px-4 py-2">
-            CONFIDENTIAL — 2026 | Chamber of Commerce: 42053088 | VAT: NL869492068B01
+            CONFIDENTIAL — 2026 | Chamber of Commerce: 42053188 | VAT: NL869492068B01
           </div>
         </div>
       </div>

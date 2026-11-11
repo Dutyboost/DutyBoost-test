@@ -341,7 +341,7 @@ export async function exportRetailerPptxDark() {
     s.addShape("roundRect", { x: 4.2, y: 5.2, w: 4.9, h: 0.7, fill: { color: ORANGE_DARK }, line: { color: ORANGE_DARK, width: 0 }, rectRadius: 0.1 });
     s.addText("hello@dutyboost.com", { x: 4.2, y: 5.22, w: 4.9, h: 0.68, fontSize: 14, bold: true, color: TEXT_WHITE, align: "center", fontFace: "Calibri" });
 
-    s.addText("© 2026 DutyBoost  ·  Chamber of Commerce (KvK): 42053088  ·  VAT: NL869492068B01", {
+    s.addText("© 2026 DutyBoost  ·  Chamber of Commerce (KvK): 42053188  ·  VAT: NL869492068B01", {
       x: 0, y: 7.1, w: 13.33, h: 0.3, fontSize: 8, color: TEXT_DIM, align: "center", fontFace: "Calibri"
     });
   }

@@ -456,7 +456,7 @@ export default {
     footer: {
       tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Todos los derechos reservados.',
-      kvk: 'Cámara de Comercio (KvK): 42053088',
+      kvk: 'Cámara de Comercio (KvK): 42053188',
       vat: 'N.º IVA: NL869492068B01',
       cookie_policy: 'Política de cookies',
     },
@@ -715,7 +715,7 @@ export default {
       benefit3_title: '⚡ Cero carga operativa',
       benefit3_desc: 'El código QR DutyCredit se incrusta directamente en tu email de confirmación de reserva — sin pasos adicionales, sin nuevas herramientas, sin trabajo manual.',
       cta: '¿Listo para convertir tus reservas en fidelización e ingresos?',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Registro Mercantil (KvK): 42053088 | N.º IVA: NL869492068B01',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Registro Mercantil (KvK): 42053188 | N.º IVA: NL869492068B01',
     },
     flightonepager: {
       badge: 'Programa de Socios de Vuelo',
@@ -739,7 +739,7 @@ export default {
       benefit2_title: '💰 Un nuevo flujo de ingresos sin esfuerzo adicional', benefit2_desc: 'Las comisiones llegarán automáticamente en cada canje — sin equipo de ventas, sin trabajo extra, sin cambios en tus operaciones existentes.',
       benefit3_title: '⚡ Cero carga operativa', benefit3_desc: 'Los DutyCredits se incorporarán directamente en tus emails de confirmación de reserva existentes. Sin nuevas herramientas. Sin pasos adicionales. Sin mantenimiento. Una recompensa que tus pasajeros amarán — y un flujo de ingresos que ganarás.',
       cta: '¿Listo para hacer cada reserva de vuelo más valiosa — para tus pasajeros y para ti?',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053088 | N.º IVA: NL869492068B01',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053188 | N.º IVA: NL869492068B01',
     },
     accommodationonepager: {
       badge: 'Programa de Socios de Alojamiento',
@@ -763,7 +763,7 @@ export default {
       benefit2_title: '💰 Dos oportunidades de comisión por huésped', benefit2_desc: 'A diferencia de los socios solo de vuelo que ganan en un DutyCredit, los socios de alojamiento ganarán en dos por huésped — duplicando el potencial de ingresos pasivos en cada estancia confirmada.',
       benefit3_title: '⚡ Cero carga operativa', benefit3_desc: 'Los DutyCredits se incorporarán directamente en tus emails de confirmación y check-out existentes. Sin nueva plataforma. Sin pasos adicionales. Sin mantenimiento. Dos recompensas, cero trabajo.',
       cta: '¿Listo para hacer cada estancia más memorable — y más rentable?',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053088 | N.º IVA: NL869492068B01',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053188 | N.º IVA: NL869492068B01',
     },
     carrentalonepager: {
       badge: 'Programa de Socios de Alquiler de Coches & Traslados',
@@ -787,7 +787,7 @@ export default {
       benefit2_title: '💰 Dos oportunidades de comisión por cliente', benefit2_desc: 'A diferencia de los socios solo de vuelo, los socios de alquiler ganarán en dos DutyCredits por cliente — duplicando el potencial de ingresos pasivos en cada alquiler confirmado.',
       benefit3_title: '⚡ Cero carga operativa', benefit3_desc: 'Los DutyCredits se incorporarán directamente en tus emails de confirmación y devolución existentes. Sin nueva plataforma. Sin pasos adicionales. Sin mantenimiento. Dos recompensas, cero trabajo.',
       cta: '¿Listo para hacer cada alquiler más valioso — para tus clientes y para ti?',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053088 | N.º IVA: NL869492068B01',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053188 | N.º IVA: NL869492068B01',
     },
     travelstackonepager: {
       programme_name: 'Programa Socio TravelStack',
@@ -845,7 +845,7 @@ export default {
       benefit3_title: '⚡ Una integración. Valor permanente.',
       benefit3_desc: 'Los DutyCredits se incrustan directamente en los emails de confirmación existentes del socio — sin nuevas herramientas, sin trabajo manual, sin mantenimiento continuo.',
       cta: '¿Listo para activar DutyBoost en todo el travel stack?',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053088 | N.º IVA: NL869492068B01',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Cámara de Comercio (KvK): 42053188 | N.º IVA: NL869492068B01',
     },
     retailpartneronepager: {
       badge: 'Programa de Socios Minoristas',
@@ -891,7 +891,7 @@ export default {
       benefit3_title: '⚡ Cero riesgo, cero coste inicial',
       benefit3_desc: 'Sin tarifa sobre el tráfico que no convierte. DutyBoost se paga con las ventas que genera, a fin de mes, en una sola factura.',
       cta: '¿Está listo para adquirir clientes por rendimiento, no por promesas?',
-      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Registro Mercantil (KvK): 42053088 | N.º IVA: NL869492068B01',
+      legal: 'DutyBoost. Todos los derechos reservados. 2026. | Registro Mercantil (KvK): 42053188 | N.º IVA: NL869492068B01',
     },
     calculator: {
       badge: 'Calculadora ROI DutyBoost',
@@ -1275,7 +1275,7 @@ export default {
       submit_loi: 'Enviar Carta de Intención firmada',
       submitting: 'Enviando...',
       validating: 'Verificando número de registro mercantil...',
-      storage_info: 'Tu envío se almacenará de forma segura. DutyBoost · KvK 42053088 · hello@dutyboost.com',
+      storage_info: 'Tu envío se almacenará de forma segura. DutyBoost · KvK 42053188 · hello@dutyboost.com',
       success_title: 'Carta de Intención enviada',
       success_subtitle: 'Gracias, {name}. Tu Carta de Intención firmada ha sido recibida en nombre de {company}. Con tu apoyo, somos más fuertes para convencer a los minoristas aeroportuarios de unirse a nuestro ecosistema. Una copia firmada digitalmente te será enviada por correo electrónico en 24 horas.',
       error_required: 'Este campo es obligatorio.',
@@ -1287,7 +1287,7 @@ export default {
 
 La presente Carta de Intención ("CI") se celebra el {date} entre:
 
-DutyBoost, con domicilio social en DEK 32, 1319BB Almere, Países Bajos, registrada ante la Cámara de Comercio Holandesa bajo el número 42053088, número de IVA NL869492068B01, legalmente representada por:
+DutyBoost, con domicilio social en DEK 32, 1319BB Almere, Países Bajos, registrada ante la Cámara de Comercio Holandesa bajo el número 42053188, número de IVA NL869492068B01, legalmente representada por:
 Jaquelin Beliad Perez – Cofundador
 Raël Martis – Cofundador
 en lo sucesivo denominada "DutyBoost",
@@ -1451,7 +1451,7 @@ Las Partes declaran que celebran esta Carta de Intención en un espíritu de con
       submit_loi: 'Enviar Carta de Intención Firmada',
       submitting: 'Enviando...',
       validating: 'Verificando número de registro mercantil...',
-      storage_info: 'Tu envío se almacenará de forma segura. DutyBoost · KvK 42053088 · hello@dutyboost.com',
+      storage_info: 'Tu envío se almacenará de forma segura. DutyBoost · KvK 42053188 · hello@dutyboost.com',
       success_title: 'Carta de Intención enviada',
       success_subtitle: 'Gracias, {name}. Tu Carta de Intención firmada ha sido recibida en nombre de {company}. Con tu participación, somos más fuertes para construir la red de minoristas aeroportuarios de DutyBoost. Una copia firmada digitalmente te será enviada por correo electrónico en 24 horas.',
       error_required: 'Este campo es obligatorio.',
@@ -1463,7 +1463,7 @@ Las Partes declaran que celebran esta Carta de Intención en un espíritu de con
 
 La presente Carta de Intención ("CI") se celebra el {date} entre:
 
-DutyBoost, con domicilio social en DEK 32, 1319BB Almere, Países Bajos, registrada ante la Cámara de Comercio Holandesa bajo el número 42053088, número de IVA NL869492068B01, legalmente representada por:
+DutyBoost, con domicilio social en DEK 32, 1319BB Almere, Países Bajos, registrada ante la Cámara de Comercio Holandesa bajo el número 42053188, número de IVA NL869492068B01, legalmente representada por:
 Jaquelin Beliad Perez – Cofundador
 Raël Martis – Cofundador
 en lo sucesivo denominada "DutyBoost",

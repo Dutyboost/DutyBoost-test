@@ -59,7 +59,7 @@ export default {
   submit_loi: 'Submit Signed Letter of Intent',
   submitting: 'Submitting...',
   validating: 'Verifying Chamber of Commerce...',
-  storage_info: 'Your submission will be securely stored. DutyBoost · KvK 42053088 · hello@dutyboost.com',
+  storage_info: 'Your submission will be securely stored. DutyBoost · KvK 42053188 · hello@dutyboost.com',
   success_title: 'Letter of Intent Submitted',
   success_subtitle: 'Thank you, {name}. Your signed Letter of Intent has been received on behalf of {company}. With your participation, we are stronger in building the DutyBoost airport retail network. A digitally signed copy will be emailed to you within 24 hours.',
   error_required: 'This field is required.',
@@ -71,7 +71,7 @@ export default {
 
 This Letter of Intent ("LOI") is entered into on {date} by and between:
 
-DutyBoost, having its registered office at DEK 32, 1319BB Almere, The Netherlands, registered with the Dutch Chamber of Commerce under number 42053088, VAT number NL869492068B01, legally represented by:
+DutyBoost, having its registered office at DEK 32, 1319BB Almere, The Netherlands, registered with the Dutch Chamber of Commerce under number 42053188, VAT number NL869492068B01, legally represented by:
 Jaquelin Beliad Perez – Co-Founder
 Raël Martis – Co-Founder
 hereinafter referred to as "DutyBoost",

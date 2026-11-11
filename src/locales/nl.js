@@ -128,7 +128,7 @@ export default {
     footer: {
       tagline: '— The Travel Retail Conversion Layer',
       rights: '© 2026 DutyBoost. Alle rechten voorbehouden.',
-      kvk: 'KvK: 42053088',
+      kvk: 'KvK: 42053188',
       vat: 'BTW-nummer: NL869492068B01',
       cookie_policy: 'Cookiebeleid',
     },
@@ -1059,7 +1059,7 @@ export default {
       submit_loi: 'Ondertekende Intentieverklaring indienen',
       submitting: 'Indienen...',
       validating: 'KvK-nummer controleren...',
-      storage_info: 'Uw indiening wordt veilig opgeslagen. DutyBoost · KvK 42053088 · hello@dutyboost.com',
+      storage_info: 'Uw indiening wordt veilig opgeslagen. DutyBoost · KvK 42053188 · hello@dutyboost.com',
       success_title: 'Intentieverklaring Ingediend',
       success_subtitle: 'Bedankt, {name}. Uw ondertekende Intentieverklaring is ontvangen namens {company}. Met uw steun staan wij sterker in het overtuigen van luchthavenwinkeliers om deel te nemen aan ons ecosysteem. Een digitaal ondertekende kopie ontvangt u binnen 24 uur per e-mail.',
       error_required: 'Dit veld is verplicht.',
@@ -1071,7 +1071,7 @@ export default {
 
 Deze Intentieverklaring ("IV") wordt gesloten op {date} tussen:
 
-DutyBoost, met statutaire zetel te DEK 32, 1319BB Almere, Nederland, ingeschreven bij de Nederlandse Kamer van Koophandel onder nummer 42053088, BTW-nummer NL869492068B01, wettelijk vertegenwoordigd door:
+DutyBoost, met statutaire zetel te DEK 32, 1319BB Almere, Nederland, ingeschreven bij de Nederlandse Kamer van Koophandel onder nummer 42053188, BTW-nummer NL869492068B01, wettelijk vertegenwoordigd door:
 Jaquelin Beliad Perez – Medeoprichter
 Raël Martis – Medeoprichter
 hierna te noemen "DutyBoost",
@@ -1235,7 +1235,7 @@ De Partijen verklaren deze Intentieverklaring aan te gaan in een geest van weder
       submit_loi: 'Ondertekende Intentieverklaring Indienen',
       submitting: 'Indienen...',
       validating: 'KvK-nummer verifiëren...',
-      storage_info: 'Uw inzending wordt veilig opgeslagen. DutyBoost · KvK 42053088 · hello@dutyboost.com',
+      storage_info: 'Uw inzending wordt veilig opgeslagen. DutyBoost · KvK 42053188 · hello@dutyboost.com',
       success_title: 'Intentieverklaring Ingediend',
       success_subtitle: 'Bedankt, {name}. Uw ondertekende Intentieverklaring is ontvangen namens {company}. Met uw deelname staan wij sterker in het uitbouwen van het DutyBoost luchthavenwinkelnetwerk. Een digitaal ondertekende kopie ontvangt u binnen 24 uur per e-mail.',
       error_required: 'Dit veld is verplicht.',
@@ -1247,7 +1247,7 @@ De Partijen verklaren deze Intentieverklaring aan te gaan in een geest van weder
 
 Deze Intentieverklaring ("IV") wordt aangegaan op {date} door en tussen:
 
-DutyBoost, gevestigd aan DEK 32, 1319BB Almere, Nederland, ingeschreven bij de Kamer van Koophandel onder nummer 42053088, BTW-nummer NL869492068B01, wettelijk vertegenwoordigd door:
+DutyBoost, gevestigd aan DEK 32, 1319BB Almere, Nederland, ingeschreven bij de Kamer van Koophandel onder nummer 42053188, BTW-nummer NL869492068B01, wettelijk vertegenwoordigd door:
 Jaquelin Beliad Perez – Co-Founder
 Raël Martis – Co-Founder
 hierna te noemen "DutyBoost",
@@ -1378,7 +1378,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       benefit3_title: '⚡ Nul operationele last',
       benefit3_desc: 'De DutyCredit QR-code wordt direct verwerkt in uw boekingsbevestigingsmail — geen extra stappen, geen nieuwe tools, geen handmatig werk.',
       cta: 'Klaar om uw boekingen om te zetten in loyaliteit en omzet?',
-      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053088 | BTW: NL869492068B01',
+      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053188 | BTW: NL869492068B01',
     },
     flightonepager: {
       badge: 'Vliegpartner Programma',
@@ -1402,7 +1402,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       benefit2_title: '💰 Een nieuwe inkomstenstroom zonder extra inspanning', benefit2_desc: 'Commissies stromen automatisch bij elke inwisseling — geen verkoopteam nodig, geen extra werk, geen wijziging van uw bestaande activiteiten.',
       benefit3_title: '⚡ Nul operationele last', benefit3_desc: 'DutyCredits worden direct ingebed in uw bestaande boekingsbevestigingsmails. Geen nieuwe tools. Geen extra stappen. Geen onderhoud. Een beloning die uw reizigers waarderen — en een inkomstenstroom die u verdient.',
       cta: 'Klaar om elke vluchtboeking waardevoller te maken — voor uw reizigers en voor u?',
-      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | Kamer van Koophandel (KvK): 42053088 | BTW: NL869492068B01',
+      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | Kamer van Koophandel (KvK): 42053188 | BTW: NL869492068B01',
     },
     accommodationonepager: {
       badge: 'Accommodatie Partner Programma',
@@ -1426,7 +1426,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       benefit2_title: '💰 Twee commissiemogelijkheden per gast', benefit2_desc: 'Anders dan vliegpartners die op één DutyCredit verdienen, verdienen accommodatiepartners op twee per gast — dubbel passief inkomstenpotentieel op elke bevestigde boeking.',
       benefit3_title: '⚡ Nul operationele last', benefit3_desc: 'DutyCredits worden direct ingebed in uw bestaande bevestigings- en uitcheckmails. Geen nieuw systeem. Geen extra stappen. Geen onderhoud. Twee beloningen, nul werk.',
       cta: 'Klaar om elk verblijf onvergetelijker — en winstgevender — te maken?',
-      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | Kamer van Koophandel (KvK): 42053088 | BTW: NL869492068B01',
+      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | Kamer van Koophandel (KvK): 42053188 | BTW: NL869492068B01',
     },
     carrentalonepager: {
       badge: 'Autoverhuur & Transfer Partner Programma',
@@ -1450,7 +1450,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       benefit2_title: '💰 Twee commissiemogelijkheden per klant', benefit2_desc: 'Anders dan pure vliegpartners verdienen autoverhuurpartners op twee DutyCredits per klant — dubbel passief inkomstenpotentieel op elke bevestigde verhuur.',
       benefit3_title: '⚡ Nul operationele last', benefit3_desc: 'DutyCredits worden direct ingebed in uw bestaande bevestigings- en teruggavemails. Geen nieuw systeem. Geen extra stappen. Geen onderhoud. Twee beloningen, nul werk.',
       cta: 'Klaar om elke autoverhuur waardevoller te maken — voor uw klanten en voor u?',
-      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | Kamer van Koophandel (KvK): 42053088 | BTW: NL869492068B01',
+      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | Kamer van Koophandel (KvK): 42053188 | BTW: NL869492068B01',
     },
     travelstackonepager: {
       programme_name: 'Travel Partner Programma',
@@ -1509,7 +1509,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       benefit3_title: '⚡ Één integratie. Permanente waarde.',
       benefit3_desc: 'DutyCredits worden direct ingebed in bestaande bevestigingsmails van de partner — geen nieuwe tools, geen handmatig werk, geen lopend onderhoud.',
       cta: 'Klaar om DutyBoost over de hele travel stack te activeren?',
-      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053088 | BTW: NL869492068B01',
+      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053188 | BTW: NL869492068B01',
     },
     retailpartneronepager: {
       badge: 'Retail Partner-programma',
@@ -1555,7 +1555,7 @@ De Partijen verklaren dat zij deze Intentieverklaring aangaan in een geest van w
       benefit3_title: '⚡ Nul risico, nul voorafkosten',
       benefit3_desc: 'Geen vergoeding op verkeer dat niet converteert. DutyBoost wordt betaald uit de verkopen die het oplevert, maandelijks op één factuur.',
       cta: 'Klaar om klanten te werven op prestatie, niet op beloftes?',
-      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053088 | BTW: NL869492068B01',
+      legal: 'DutyBoost. Alle rechten voorbehouden. 2026. | KvK: 42053188 | BTW: NL869492068B01',
     },
     requestdemo: {
        badge: 'Meer informatie aanvragen',
