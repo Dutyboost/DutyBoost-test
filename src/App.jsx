@@ -129,6 +129,7 @@ import PhygridPitchDeck from './pages/PhygridPitchDeck';
 import TravelPartnerPitchDeck from './pages/TravelPartnerPitchDeck';
 import TravelPartnerPitchDeckAFKLM from './pages/TravelPartnerPitchDeckAFKLM';
 import PartnerWorkspace from './pages/PartnerWorkspace';
+import CaribbeanAirlinesProposal from './pages/CaribbeanAirlinesProposal';
 
 import AirportShowcase from './pages/AirportShowcase';
 import AirportOnlyShowcase from './pages/AirportOnlyShowcase';
@@ -293,6 +294,7 @@ const AuthenticatedApp = () => {
         <Route path="/retailer-pitch-martinique" element={<RetailerPitchDeckMartinique />} />
         <Route path="/retailer-supplier-pitch-sxm" element={<RetailerSupplierPitchDeckSxm />} />
         <Route path="/caribbean-airlines-revenue-pitch" element={<CaribbeanAirlinesPitchDeck />} />
+        <Route path="/caribbean-airlines-proposal" element={<CaribbeanAirlinesProposal />} />
         <Route path="/dominican-republic-pitch" element={<DominicanRepublicPitchDeck />} />
         <Route path="/airport-pitch" element={<AirportPitchDeck />} />
         <Route path="/airport-pitch-aruba" element={<AirportPitchDeckAruba />} />
