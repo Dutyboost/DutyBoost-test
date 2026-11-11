@@ -42,6 +42,12 @@ export default function CaribbeanAirlinesProposal() {
           <h1 className="font-heading text-3xl sm:text-5xl font-bold mt-3">Caribbean Airlines &amp; Caribbean Duty Free</h1>
           <p className="font-heading text-xl sm:text-2xl font-semibold text-chart-3 mt-4">One ecosystem. Two revenue opportunities.</p>
           <p className="mt-2 opacity-90">A connected commercial ecosystem powered by DutyBoost.</p>
+          <div className="mt-6 rounded-xl border border-chart-3/40 bg-chart-3/10 p-4 sm:p-5">
+            <p className="text-sm sm:text-base">
+              <span className="font-bold text-chart-3">Pay for performance, not for activity.</span>{" "}
+              Other solutions bill for leads, clicks and impressions with no guarantee of a real customer. DutyBoost charges only when a real end customer completes a qualifying purchase.
+            </p>
+          </div>
           <div className="grid grid-cols-3 gap-3 mt-8">
             {CHANNELS.map(([a, b]) => (
               <div key={a} className="rounded-lg bg-background/10 p-3 sm:p-4">
