@@ -11,22 +11,23 @@ const ROWS = [
 export default function ProposalSavings() {
   return (
     <section>
-      <h2 className="font-heading text-2xl font-bold mb-4">The traveller's savings</h2>
-      <div className="rounded-xl border border-border overflow-hidden bg-card">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-ca-fuchsia">DutyCredit tiers</p>
+      <h2 className="font-heading text-2xl sm:text-3xl font-bold mt-2 mb-5">The traveller&rsquo;s savings</h2>
+      <div className="rounded-2xl border border-border overflow-hidden bg-white shadow-sm">
         <table className="w-full text-sm">
-          <thead className="bg-foreground text-background">
+          <thead className="bg-ca-purple text-white">
             <tr>
-              <th className="text-left p-3">DutyCredit</th>
-              <th className="text-left p-3">Qualifying spend</th>
-              <th className="text-left p-3">Savings</th>
+              <th className="text-left p-3 sm:p-4 font-semibold">DutyCredit</th>
+              <th className="text-left p-3 sm:p-4 font-semibold">Qualifying spend</th>
+              <th className="text-left p-3 sm:p-4 font-semibold">Savings</th>
             </tr>
           </thead>
           <tbody>
             {ROWS.map(([a, b, c]) => (
-              <tr key={a} className="border-t border-border even:bg-muted/50">
-                <td className="p-3 font-semibold">{a}</td>
-                <td className="p-3">{b}</td>
-                <td className="p-3">{c}</td>
+              <tr key={a} className="border-t border-border even:bg-ca-mist">
+                <td className="p-3 sm:p-4 font-semibold text-foreground">{a}</td>
+                <td className="p-3 sm:p-4 text-muted-foreground">{b}</td>
+                <td className="p-3 sm:p-4 text-ca-fuchsia font-semibold">{c}</td>
               </tr>
             ))}
           </tbody>

@@ -1,21 +1,22 @@
 export default function ProposalRevenue() {
   return (
     <section>
-      <h2 className="font-heading text-2xl font-bold mb-4">How the revenue model works</h2>
-      <div className="rounded-2xl border border-accent/60 bg-card p-6 space-y-3 text-sm">
-        <p className="text-xs uppercase tracking-wider text-muted-foreground">Illustrative $100 purchase</p>
-        <p>Original retail purchase <b>$100.00</b></p>
-        <p>Standard DutyCredit saving <span className="text-chart-3">−$5 to −$10</span></p>
-        <div className="flex items-center justify-between rounded-lg bg-chart-3/10 px-4 py-3">
-          <span className="font-heading font-bold">Amount paid by traveller</span>
-          <span className="font-heading text-3xl font-bold text-chart-3">$90–$95</span>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-ca-fuchsia">Revenue model</p>
+      <h2 className="font-heading text-2xl sm:text-3xl font-bold mt-2 mb-5">How the revenue model works</h2>
+      <div className="rounded-2xl border border-border bg-white p-6 sm:p-8 space-y-3 text-sm shadow-sm">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">Illustrative $100 purchase</p>
+        <p className="text-muted-foreground">Original retail purchase <b className="text-foreground">$100.00</b></p>
+        <p className="text-muted-foreground">Standard DutyCredit saving <span className="text-ca-fuchsia font-semibold">−$5 to −$10</span></p>
+        <div className="flex items-center justify-between rounded-xl bg-ca-purple/5 border border-ca-purple/15 px-4 py-3">
+          <span className="font-heading font-bold text-foreground">Amount paid by traveller</span>
+          <span className="font-heading text-2xl sm:text-3xl font-bold text-ca-purple">$90–$95</span>
         </div>
-        <p>DutyBoost platform fee (2.5% of $100) <b>$2.50</b></p>
-        <p>Caribbean Airlines share <b className="text-chart-3">$0.50</b></p>
+        <p className="text-muted-foreground">DutyBoost platform fee (2.5% of $100) <b className="text-foreground">$2.50</b></p>
+        <p className="text-muted-foreground">Caribbean Airlines share <b className="text-ca-fuchsia">$0.50</b></p>
         <p className="text-xs text-muted-foreground">
-          20% of DutyBoost's $2.50 platform fee, when Caribbean Airlines issued the redeemed DutyCredit.
+          20% of DutyBoost&rsquo;s $2.50 platform fee, when Caribbean Airlines issued the redeemed DutyCredit.
         </p>
-        <p>Remaining platform fee <b>$2.00</b></p>
+        <p className="text-muted-foreground">Remaining platform fee <b className="text-foreground">$2.00</b></p>
       </div>
     </section>
   );

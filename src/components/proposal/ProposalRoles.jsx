@@ -2,8 +2,6 @@ const ROLES = [
   {
     name: "Caribbean Airlines",
     tag: "Travel Partner",
-    box: "bg-primary/10",
-    tagColor: "text-primary",
     points: [
       "Distributes DutyCredits through its passenger communication channels.",
       "Creates opportunities for in-flight purchases and airport retail purchases.",
@@ -13,8 +11,6 @@ const ROLES = [
   {
     name: "DutyBoost",
     tag: "Commercial Infrastructure",
-    box: "bg-chart-3/10",
-    tagColor: "text-chart-3",
     points: [
       "Activates travellers through airline distribution and independent curiosity campaigns.",
       "Connects passengers, travel partners, airport retailers and existing POS systems.",
@@ -24,8 +20,6 @@ const ROLES = [
   {
     name: "Caribbean Duty Free",
     tag: "Retail Partner",
-    box: "bg-accent/10",
-    tagColor: "text-accent",
     points: [
       "Accepts DutyCredits for qualifying airport retail purchases.",
       "Offers travellers the opportunity to pre-order through its website before arriving at the airport.",
@@ -38,15 +32,19 @@ const ROLES = [
 export default function ProposalRoles() {
   return (
     <section>
-      <h2 className="font-heading text-2xl font-bold mb-4">One ecosystem. Three connected roles.</h2>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-ca-fuchsia">Roles</p>
+      <h2 className="font-heading text-2xl sm:text-3xl font-bold mt-2 mb-5">One ecosystem. Three connected roles.</h2>
       <div className="grid gap-4 lg:grid-cols-3">
         {ROLES.map((r) => (
-          <div key={r.name} className={`rounded-2xl p-6 ${r.box}`}>
-            <h3 className="font-heading font-bold uppercase tracking-wide">{r.name}</h3>
-            <p className={`text-xs uppercase tracking-wider mb-3 ${r.tagColor}`}>{r.tag}</p>
-            <ul className="space-y-2 text-sm text-foreground/90">
+          <div key={r.name} className="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ca-fuchsia">{r.tag}</p>
+            <h3 className="font-heading text-lg font-bold mt-1 mb-3 text-foreground">{r.name}</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               {r.points.map((p) => (
-                <li key={p} className="flex gap-2"><span>•</span><span>{p}</span></li>
+                <li key={p} className="flex gap-2 items-start">
+                  <span className="text-ca-purple leading-6" aria-hidden="true">•</span>
+                  <span className="leading-6">{p}</span>
+                </li>
               ))}
             </ul>
           </div>

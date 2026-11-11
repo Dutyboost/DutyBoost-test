@@ -64,6 +64,11 @@ module.exports = {
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
         },
+        ca: {
+          purple: 'hsl(var(--ca-purple))',
+          fuchsia: 'hsl(var(--ca-fuchsia))',
+          mist: 'hsl(var(--ca-mist))',
+        },
       },
       keyframes: {
         'accordion-down': {

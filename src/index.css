@@ -42,6 +42,9 @@
     --sidebar-accent-foreground: 220 30% 15%;
     --sidebar-border: 220 15% 88%;
     --sidebar-ring: 220 100% 56%;
+    --ca-purple: 312 60% 35%;
+    --ca-fuchsia: 327 74% 47%;
+    --ca-mist: 320 25% 97%;
   }
 
   .dark {
@@ -77,6 +80,9 @@
     --sidebar-accent-foreground: 220 15% 90%;
     --sidebar-border: 220 20% 20%;
     --sidebar-ring: 220 100% 60%;
+    --ca-purple: 312 60% 45%;
+    --ca-fuchsia: 327 74% 52%;
+    --ca-mist: 312 20% 14%;
   }
 }
 
