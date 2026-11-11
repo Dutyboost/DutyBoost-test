@@ -37,14 +37,14 @@ export default function CaribbeanAirlinesProposal() {
   return (
     <div className="min-h-screen bg-white">
       <header className="sticky top-0 z-20 bg-white/95 backdrop-blur border-b border-border">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-24 flex items-center justify-between gap-4">
           <DutyBoostLogo height={40} />
           <div className="flex items-center gap-3 sm:gap-4">
             <span className="hidden sm:block text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Partnership Proposal
             </span>
             <span className="hidden sm:block w-px h-6 bg-border" />
-            <img src={CA_LOGO} alt="Caribbean Airlines" className="h-6 sm:h-7 w-auto" />
+            <img src={CA_LOGO} alt="Caribbean Airlines" className="h-10 sm:h-14 w-auto" />
           </div>
         </div>
       </header>
