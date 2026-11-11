@@ -87,7 +87,12 @@ export default function CaribbeanAirlinesProposal() {
               <div key={name}>
                 <h3 className="font-bold mb-2">{name}</h3>
                 <ul className="space-y-2">
-                  {pts.map((p) => <li key={p}>• {p}</li>)}
+                  {pts.map((p) => (
+                    <li key={p} className="flex gap-2">
+                      <span aria-hidden="true">•</span>
+                      <span>{p}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             ))}
