@@ -32,9 +32,6 @@ export default function ProposalSavings() {
           </tbody>
         </table>
       </div>
-      <p className="text-xs text-muted-foreground mt-2">
-        Applicable DutyCredit values and redemption conditions are determined by the agreed campaign.
-      </p>
     </section>
   );
 }
