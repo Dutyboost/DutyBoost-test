@@ -199,7 +199,7 @@ const AuthenticatedApp = () => {
       <ScrollRestoration />
       <TrafficTracker />
       <Routes>
-        <Route path="/" element={user?.role === "user" ? <Navigate to="/dashboard" replace /> : <EntryPage />} />
+        <Route path="/" element={<EntryPage />} />
         <Route path="/partners" element={<LandingPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         {surveyRoutes}
