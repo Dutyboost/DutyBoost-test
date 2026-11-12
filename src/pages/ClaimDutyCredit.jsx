@@ -39,6 +39,7 @@ export default function ClaimDutyCredit() {
   // The directory location picked, or null for a manually entered stop.
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [returnLocation, setReturnLocation] = useState('');
+  const [arrivalAirport, setArrivalAirport] = useState('');
   const [travelerEmail, setTravelerEmail] = useState('');
   const [flightNumber, setFlightNumber] = useState('');
   const [airline, setAirline] = useState('');
@@ -139,6 +140,7 @@ export default function ClaimDutyCredit() {
     setAirportLive(false);
     setAirline('');
     setReturnLocation('');
+    setArrivalAirport('');
     setFlightNumber('');
     setError('');
   };
@@ -186,6 +188,14 @@ export default function ClaimDutyCredit() {
     }
   };
 
+  const handleArrivalSelect = (place) => {
+    if (typeof place === 'string') {
+      setArrivalAirport(place);
+      return;
+    }
+    setArrivalAirport(place.code ? `${place.code} — ${place.city}` : place.name);
+  };
+
   const handleReturnSelect = (place) => {
     if (typeof place === 'string') {
       setReturnLocation(place);
@@ -221,6 +231,7 @@ export default function ClaimDutyCredit() {
         travel_type: travelType,
         airport,
         return_location: travelType === 'car_rental' ? (returnLocation || undefined) : undefined,
+        arrival_airport: travelType === 'flight' ? (arrivalAirport || undefined) : undefined,
         airline: airline || undefined,
         departure_date: departureDate || undefined,
         ref: refCode || undefined,
@@ -343,6 +354,17 @@ export default function ClaimDutyCredit() {
                   placeholder={tr(`verticals.${travelType}.location_placeholder`)}
                   noResultsText={tr(`verticals.${travelType}.location_no_results`)}
                 />
+
+                {travelType === 'flight' && (
+                  <LocationPicker
+                    options={locationOptions}
+                    value={arrivalAirport}
+                    onSelect={handleArrivalSelect}
+                    label={tr('verticals.flight.arrival_label')}
+                    placeholder={tr('verticals.flight.arrival_placeholder')}
+                    noResultsText={tr('verticals.flight.arrival_no_results')}
+                  />
+                )}
 
                 {travelType === 'car_rental' && (
                   <LocationPicker

@@ -27,6 +27,10 @@
       "type": "string",
       "title": "Departure / Pick-up Airport, Port or Station"
     },
+    "arrival_airport": {
+      "type": "string",
+      "title": "Arrival Airport"
+    },
     "return_location": {
       "type": "string",
       "title": "Return Airport (Car Rental)"

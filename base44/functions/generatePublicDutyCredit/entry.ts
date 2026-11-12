@@ -59,7 +59,7 @@ Deno.serve(async (req) => {
     const base44 = createClientFromRequest(req);
 
     const body = await req.json();
-    const { travel_type, airport, airline, departure_date, ref, traveler_email, flight_number, partner_booking_ref, campaign_source, return_location } = body;
+    const { travel_type, airport, airline, departure_date, ref, traveler_email, flight_number, partner_booking_ref, campaign_source, return_location, arrival_airport } = body;
 
     if (!airport) {
       return Response.json({ error: 'Airport is required' }, { status: 400 });
@@ -121,6 +121,7 @@ Deno.serve(async (req) => {
       travel_type: travel_type || 'flight',
       airport,
       return_location: return_location ? return_location.trim() : null,
+      arrival_airport: arrival_airport ? arrival_airport.trim() : null,
       status: 'active',
       source,
       commission_partner: commissionPartner,
