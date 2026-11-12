@@ -44,6 +44,7 @@ export default function ClaimDutyCredit() {
   const [flightNumber, setFlightNumber] = useState('');
   const [airline, setAirline] = useState('');
   const [departureDate, setDepartureDate] = useState(preselectedDate || '');
+  const [returnDate, setReturnDate] = useState('');
   const [generated, setGenerated] = useState(null);
   const [error, setError] = useState('');
   const [walletPlatform, setWalletPlatform] = useState('unknown');
@@ -211,7 +212,7 @@ export default function ClaimDutyCredit() {
       setError(tr('error_missing_fields'));
       return;
     }
-    if (travelType === 'car_rental' && !returnLocation) {
+    if (travelType === 'car_rental' && (!returnLocation || !returnDate)) {
       setError(tr('error_missing_fields'));
       return;
     }
@@ -236,6 +237,7 @@ export default function ClaimDutyCredit() {
         arrival_airport: travelType === 'car_rental' ? undefined : (arrivalAirport || undefined),
         airline: airline || undefined,
         departure_date: departureDate || undefined,
+        return_date: travelType === 'car_rental' ? (returnDate || undefined) : undefined,
         ref: refCode || undefined,
         traveler_email: travelerEmail || undefined,
         flight_number: travelType === 'flight' ? (flightNumber || undefined) : undefined,
@@ -362,9 +364,9 @@ export default function ClaimDutyCredit() {
                     options={locationOptions}
                     value={arrivalAirport}
                     onSelect={handleArrivalSelect}
-                    label={travelType === 'flight' ? tr('verticals.flight.arrival_label') : tr('arrival_label')}
-                    placeholder={travelType === 'flight' ? tr('verticals.flight.arrival_placeholder') : tr('arrival_placeholder')}
-                    noResultsText={travelType === 'flight' ? tr('verticals.flight.arrival_no_results') : tr('arrival_no_results')}
+                    label={tr(`verticals.${travelType}.arrival_label`, { defaultValue: tr('arrival_label') })}
+                    placeholder={tr(`verticals.${travelType}.arrival_placeholder`, { defaultValue: tr('arrival_placeholder') })}
+                    noResultsText={tr(`verticals.${travelType}.arrival_no_results`, { defaultValue: tr('arrival_no_results') })}
                   />
                 )}
 
@@ -406,16 +408,42 @@ export default function ClaimDutyCredit() {
                   </div>
                 )}
 
-                <div>
-                  <Label className="text-sm font-medium mb-1.5 block">
-                    {travelType === 'flight' ? tr('departure_date_label') : tr(`verticals.${travelType}.date_label`)}
-                  </Label>
-                  <Input
-                    type="date"
-                    value={departureDate}
-                    onChange={(e) => setDepartureDate(e.target.value)}
-                  />
-                </div>
+                {travelType === 'car_rental' ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <Label className="text-sm font-medium mb-1.5 block">
+                        {tr('verticals.car_rental.pickup_date_label')}
+                      </Label>
+                      <Input
+                        type="date"
+                        value={departureDate}
+                        onChange={(e) => setDepartureDate(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Label className="text-sm font-medium mb-1.5 block">
+                        {tr('verticals.car_rental.return_date_label')}
+                      </Label>
+                      <Input
+                        type="date"
+                        value={returnDate}
+                        min={departureDate || undefined}
+                        onChange={(e) => setReturnDate(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    <Label className="text-sm font-medium mb-1.5 block">
+                      {travelType === 'flight' ? tr('departure_date_label') : tr(`verticals.${travelType}.date_label`)}
+                    </Label>
+                    <Input
+                      type="date"
+                      value={departureDate}
+                      onChange={(e) => setDepartureDate(e.target.value)}
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Partner flow: email for duplicate check */}
@@ -445,7 +473,7 @@ export default function ClaimDutyCredit() {
 
               <Button
                 onClick={handleClaim}
-                disabled={!airport || !airline || !departureDate || (travelType === 'car_rental' && !returnLocation) || (travelType === 'flight' && (!flightNumber || !flightNumberValid)) || (isPartnerFlow && !travelerEmail)}
+                disabled={!airport || !airline || !departureDate || (travelType === 'car_rental' && (!returnLocation || !returnDate)) || (travelType === 'flight' && (!flightNumber || !flightNumberValid)) || (isPartnerFlow && !travelerEmail)}
                 size="lg"
                 className="w-full h-14 text-base gap-2"
               >

@@ -29,7 +29,7 @@
     },
     "arrival_airport": {
       "type": "string",
-      "title": "Arrival Airport"
+      "title": "Arrival Airport, Port or Station"
     },
     "return_location": {
       "type": "string",
@@ -73,7 +73,12 @@
     "departure_date": {
       "type": "string",
       "format": "date",
-      "title": "Departure Date"
+      "title": "Departure / Pick-up Date"
+    },
+    "return_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Return Date (Car Rental)"
     },
     "traveler_email": {
       "type": "string",
