@@ -8,6 +8,9 @@ export const claimDutyCreditStrings = {
     definition: 'A DutyCredit is a discount on your shopping with participating travel retailers, given by DutyBoost and funded by our travel retail partners, not by you.',
     description: 'No account. No registration. No boarding pass upload. Just one click and your live travel shopping credit is ready.',
     travel_type_label: 'Select your way of travel',
+    arrival_label: 'Select your arrival destination',
+    arrival_placeholder: 'Search destination or city…',
+    arrival_no_results: 'No destinations found',
     location_use_custom: 'Use “{{location}}” as an unlisted location',
     locations_more: 'Show more locations',
     verticals: {
@@ -171,6 +174,9 @@ export const claimDutyCreditStrings = {
     definition: 'Een DutyCredit is een korting op uw aankopen bij deelnemende reisretailers, aangeboden door DutyBoost en betaald door onze reisretailpartners, niet door u.',
     description: 'Geen account. Geen registratie. Geen instapkaart uploaden. Eén klik en uw live winkelsaldo voor onderweg is klaar.',
     travel_type_label: 'Selecteer uw manier van reizen',
+    arrival_label: 'Selecteer uw aankomstbestemming',
+    arrival_placeholder: 'Zoek bestemming of stad…',
+    arrival_no_results: 'Geen bestemmingen gevonden',
     location_use_custom: 'Gebruik “{{location}}” als niet-vermelde locatie',
     locations_more: 'Meer locaties tonen',
     verticals: {
@@ -334,6 +340,9 @@ export const claimDutyCreditStrings = {
     definition: 'Un DutyCredit est une remise sur vos achats auprès des détaillants de voyage participants, offerte par DutyBoost et financée par nos partenaires de vente au détail de voyage, et non par vous.',
     description: 'Pas de compte. Pas d\'inscription. Pas de carte d\'embarquement à télécharger. Un seul clic et votre crédit d\'achat voyage est prêt.',
     travel_type_label: 'Sélectionnez votre mode de voyage',
+    arrival_label: 'Sélectionnez votre destination d\'arrivée',
+    arrival_placeholder: 'Recherchez une destination ou une ville…',
+    arrival_no_results: 'Aucune destination trouvée',
     location_use_custom: 'Utiliser « {{location}} » comme lieu non répertorié',
     locations_more: 'Afficher plus de lieux',
     verticals: {
@@ -497,6 +506,9 @@ export const claimDutyCreditStrings = {
     definition: 'Ein DutyCredit ist ein Rabatt auf Ihren Einkauf bei teilnehmenden Reisehändlern, bereitgestellt von DutyBoost und finanziert von unseren Reisehandelspartnern, nicht von Ihnen.',
     description: 'Kein Konto. Keine Registrierung. Kein Boardingpass-Upload. Ein Klick und Ihr Live-Einkaufsguthaben für unterwegs ist bereit.',
     travel_type_label: 'Wählen Sie Ihre Reiseart',
+    arrival_label: 'Wählen Sie Ihr Ankunftsziel',
+    arrival_placeholder: 'Ziel oder Stadt suchen…',
+    arrival_no_results: 'Keine Ziele gefunden',
     location_use_custom: '„{{location}}“ als nicht gelisteten Ort verwenden',
     locations_more: 'Weitere Orte anzeigen',
     verticals: {
@@ -660,6 +672,9 @@ export const claimDutyCreditStrings = {
     definition: 'Un DutyCredit es un descuento en tus compras en comercios de viaje participantes, ofrecido por DutyBoost y financiado por nuestros socios de venta minorista de viajes, no por ti.',
     description: 'Sin cuenta. Sin registro. Sin subir tu tarjeta de embarque. Un solo clic y tu crédito de compras de viaje está listo.',
     travel_type_label: 'Selecciona tu forma de viajar',
+    arrival_label: 'Seleccione su destino de llegada',
+    arrival_placeholder: 'Busque destino o ciudad…',
+    arrival_no_results: 'No se encontraron destinos',
     location_use_custom: 'Usar «{{location}}» como ubicación no incluida',
     locations_more: 'Mostrar más ubicaciones',
     verticals: {
@@ -823,6 +838,9 @@ export const claimDutyCreditStrings = {
     definition: 'Un DutyCredit è uno sconto sui tuoi acquisti presso i rivenditori di viaggio aderenti, offerto da DutyBoost e finanziato dai nostri partner del retail di viaggio, non da te.',
     description: 'Nessun account. Nessuna registrazione. Nessun upload della carta d\'imbarco. Un solo clic e il tuo credito di acquisto da viaggio è pronto.',
     travel_type_label: 'Seleziona il tuo modo di viaggiare',
+    arrival_label: 'Seleziona la tua destinazione di arrivo',
+    arrival_placeholder: 'Cerca destinazione o città…',
+    arrival_no_results: 'Nessuna destinazione trovata',
     location_use_custom: 'Usa “{{location}}” come località non in elenco',
     locations_more: 'Mostra altre località',
     verticals: {
@@ -986,6 +1004,9 @@ export const claimDutyCreditStrings = {
     definition: 'Um DutyCredit é um desconto nas suas compras em retalhistas de viagem participantes, oferecido pela DutyBoost e financiado pelos nossos parceiros de retalho de viagem, não por si.',
     description: 'Sem conta. Sem registo. Sem carregar cartão de embarque. Um clique e o seu crédito de compras de viagem está pronto.',
     travel_type_label: 'Selecione a sua forma de viajar',
+    arrival_label: 'Selecione o seu destino de chegada',
+    arrival_placeholder: 'Pesquise destino ou cidade…',
+    arrival_no_results: 'Nenhum destino encontrado',
     location_use_custom: 'Usar «{{location}}» como local não listado',
     locations_more: 'Mostrar mais locais',
     verticals: {

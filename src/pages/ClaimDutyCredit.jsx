@@ -150,6 +150,7 @@ export default function ClaimDutyCredit() {
   const handleCarrierChange = (value) => {
     setAirline(value);
     setReturnLocation('');
+    setArrivalAirport('');
     setSelectedPlace(null);
     setAirport('');
     setAirportCode('');
@@ -193,7 +194,8 @@ export default function ClaimDutyCredit() {
       setArrivalAirport(place);
       return;
     }
-    setArrivalAirport(place.code ? `${place.code} — ${place.city}` : place.name);
+    if (travelType === 'flight') setArrivalAirport(place.code ? `${place.code} — ${place.city}` : place.name);
+    else setArrivalAirport(place.city ? `${place.name}, ${place.city}` : place.name);
   };
 
   const handleReturnSelect = (place) => {
@@ -231,7 +233,7 @@ export default function ClaimDutyCredit() {
         travel_type: travelType,
         airport,
         return_location: travelType === 'car_rental' ? (returnLocation || undefined) : undefined,
-        arrival_airport: travelType === 'flight' ? (arrivalAirport || undefined) : undefined,
+        arrival_airport: arrivalAirport || undefined,
         airline: airline || undefined,
         departure_date: departureDate || undefined,
         ref: refCode || undefined,
@@ -355,16 +357,14 @@ export default function ClaimDutyCredit() {
                   noResultsText={tr(`verticals.${travelType}.location_no_results`)}
                 />
 
-                {travelType === 'flight' && (
-                  <LocationPicker
-                    options={locationOptions}
-                    value={arrivalAirport}
-                    onSelect={handleArrivalSelect}
-                    label={tr('verticals.flight.arrival_label')}
-                    placeholder={tr('verticals.flight.arrival_placeholder')}
-                    noResultsText={tr('verticals.flight.arrival_no_results')}
-                  />
-                )}
+                <LocationPicker
+                  options={locationOptions}
+                  value={arrivalAirport}
+                  onSelect={handleArrivalSelect}
+                  label={travelType === 'flight' ? tr('verticals.flight.arrival_label') : tr('arrival_label')}
+                  placeholder={travelType === 'flight' ? tr('verticals.flight.arrival_placeholder') : tr('arrival_placeholder')}
+                  noResultsText={travelType === 'flight' ? tr('verticals.flight.arrival_no_results') : tr('arrival_no_results')}
+                />
 
                 {travelType === 'car_rental' && (
                   <LocationPicker
