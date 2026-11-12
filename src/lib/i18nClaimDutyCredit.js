@@ -132,7 +132,7 @@ export const claimDutyCreditStrings = {
     qr_valid_until: 'Valid until',
     qr_brought_by: 'Brought to you by',
     qr_disclaimer: 'Single-use. Valid for 30 days from your departure date. Minimum spend {{minSpend}} at a participating retailer.',
-    savings_title: 'Your savings at the airport store',
+    savings_title: 'Your savings at the travel retailer store',
     tier_spend: 'spend',
     tier_off: 'off',
     stores_title: 'Participating stores at this airport',
