@@ -233,7 +233,7 @@ export default function ClaimDutyCredit() {
         travel_type: travelType,
         airport,
         return_location: travelType === 'car_rental' ? (returnLocation || undefined) : undefined,
-        arrival_airport: arrivalAirport || undefined,
+        arrival_airport: travelType === 'car_rental' ? undefined : (arrivalAirport || undefined),
         airline: airline || undefined,
         departure_date: departureDate || undefined,
         ref: refCode || undefined,
@@ -357,14 +357,16 @@ export default function ClaimDutyCredit() {
                   noResultsText={tr(`verticals.${travelType}.location_no_results`)}
                 />
 
-                <LocationPicker
-                  options={locationOptions}
-                  value={arrivalAirport}
-                  onSelect={handleArrivalSelect}
-                  label={travelType === 'flight' ? tr('verticals.flight.arrival_label') : tr('arrival_label')}
-                  placeholder={travelType === 'flight' ? tr('verticals.flight.arrival_placeholder') : tr('arrival_placeholder')}
-                  noResultsText={travelType === 'flight' ? tr('verticals.flight.arrival_no_results') : tr('arrival_no_results')}
-                />
+                {travelType !== 'car_rental' && (
+                  <LocationPicker
+                    options={locationOptions}
+                    value={arrivalAirport}
+                    onSelect={handleArrivalSelect}
+                    label={travelType === 'flight' ? tr('verticals.flight.arrival_label') : tr('arrival_label')}
+                    placeholder={travelType === 'flight' ? tr('verticals.flight.arrival_placeholder') : tr('arrival_placeholder')}
+                    noResultsText={travelType === 'flight' ? tr('verticals.flight.arrival_no_results') : tr('arrival_no_results')}
+                  />
+                )}
 
                 {travelType === 'car_rental' && (
                   <LocationPicker
