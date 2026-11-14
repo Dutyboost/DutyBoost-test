@@ -14,6 +14,8 @@ export async function exportDutyCreditExamplesPdf(node, filename = "dutycredit-p
     scale: 2,
     useCORS: true,
     logging: false,
+    // Screen-only controls (the download button) stay out of the PDF.
+    ignoreElements: (element) => element.hasAttribute?.("data-pdf-ignore"),
   });
 
   const pdf = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4", compress: true });

@@ -113,37 +113,39 @@ export default function DutyCreditExamples() {
       </nav>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
-        <div className="text-center space-y-3">
-          <h1 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight">
-            DutyCredit pass — partner examples
-          </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            One reference pass per travel vertical. The traveller always sees the same card; only the
-            travel details and the partner shown under “Brought to you by” change.
-          </p>
-        </div>
+        <div ref={pdfRef} className="space-y-8">
+          <div className="text-center space-y-3">
+            <h1 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight">
+              DutyCredit pass — partner examples
+            </h1>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              One reference pass per travel vertical. The traveller always sees the same card; only the
+              travel details and the partner shown under “Brought to you by” change.
+            </p>
+          </div>
 
-        <div className="flex justify-center">
-          <Button onClick={handleDownload} disabled={downloading} size="lg" className="gap-2">
-            {downloading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
-            {downloading ? "Preparing PDF…" : "Download PDF"}
-          </Button>
-        </div>
+          <div className="flex justify-center" data-pdf-ignore>
+            <Button onClick={handleDownload} disabled={downloading} size="lg" className="gap-2">
+              {downloading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
+              {downloading ? "Preparing PDF…" : "Download PDF"}
+            </Button>
+          </div>
 
-        <div ref={pdfRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-          {EXAMPLES.map((example) => (
-            <div key={example.id} className="flex flex-col gap-2">
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                {example.vertical}
-              </p>
-              <PartnerPassCard
-                token={example.token}
-                brand={example.brand}
-                tagline={example.tagline}
-                tiles={example.tiles}
-              />
-            </div>
-          ))}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+            {EXAMPLES.map((example) => (
+              <div key={example.id} className="flex flex-col gap-2">
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  {example.vertical}
+                </p>
+                <PartnerPassCard
+                  token={example.token}
+                  brand={example.brand}
+                  tagline={example.tagline}
+                  tiles={example.tiles}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
