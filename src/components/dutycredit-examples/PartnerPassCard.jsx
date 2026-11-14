@@ -22,8 +22,8 @@ export default function PartnerPassCard({ token, brand, tagline, tiles }) {
               key={tile.label}
               className={`bg-muted/50 rounded-lg p-2.5 ${tile.wide ? 'col-span-2' : ''}`}
             >
-              <p className="text-[11px] text-muted-foreground mb-0.5">{tile.label}</p>
-              <p className={`font-semibold truncate ${tile.valueClass || ''}`}>{tile.value}</p>
+              <p className="text-[11px] leading-snug text-muted-foreground mb-1">{tile.label}</p>
+              <p className={`font-semibold leading-snug break-words pb-1 ${tile.valueClass || ''}`}>{tile.value}</p>
             </div>
           ))}
         </div>
