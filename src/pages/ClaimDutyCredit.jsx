@@ -80,6 +80,12 @@ export default function ClaimDutyCredit() {
   const passToLabel = passType === 'car_rental' ? tr('qr_return') : tr('qr_to', { location: passLocationWord });
   const passToValue = passType === 'car_rental' ? generated?.return_location : generated?.arrival_airport;
 
+  // Whose DutyCredit this is: DutyBoost itself, or the travel partner who sent it.
+  const isPartnerCredit = (generated?.source || 'dutyboost') === 'partner';
+  const passBrand = isPartnerCredit
+    ? (generated?.partner_display_name || generated?.commission_partner || '')
+    : 'DutyBoost';
+
   useEffect(() => {
     const ua = navigator.userAgent || '';
     if (/iPhone|iPad|iPod/i.test(ua)) setWalletPlatform('ios');
@@ -588,10 +594,15 @@ export default function ClaimDutyCredit() {
                     <p className="text-xs text-muted-foreground mb-0.5">{tr('qr_valid_until')}</p>
                     <p className="font-semibold">{new Date(generated.expiry).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })}</p>
                   </div>
-                  <div className={`bg-muted/50 rounded-lg p-3 ${passType === 'accommodation' ? '' : 'col-span-2'}`}>
-                    <p className="text-xs text-muted-foreground mb-0.5">{tr('qr_brought_by')}</p>
-                    <p className="font-semibold truncate">{generated.commission_partner}</p>
-                  </div>
+                </div>
+                <div className="w-full text-center pt-4 border-t border-border">
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{tr('qr_brought_by')}</p>
+                  <p className="text-3xl sm:text-4xl font-heading font-bold text-primary mt-2 break-words leading-tight">
+                    {passBrand}
+                  </p>
+                  <p className="text-sm font-medium text-foreground mt-1">
+                    {isPartnerCredit ? tr('qr_partner_tagline') : tr('qr_brand_tagline')}
+                  </p>
                 </div>
                 <p className="text-xs text-muted-foreground text-center">
                   {tr('qr_disclaimer', { minSpend: fmtMoney(MIN_SPEND_EUR, currency) })}

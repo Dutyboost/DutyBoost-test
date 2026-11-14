@@ -34,6 +34,17 @@ function generateTokenId() {
   return id;
 }
 
+// The partner's ref code is what the link carries (e.g. "air-france-klm").
+// Turn it into something a traveller can read: "Air France KLM".
+function prettifyPartnerName(ref) {
+  return String(ref)
+    .replace(/[-_+]+/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .map((word) => (word.length <= 3 ? word.toUpperCase() : word.charAt(0).toUpperCase() + word.slice(1)))
+    .join(' ');
+}
+
 function generateQrToken() {
   // A longer random string that goes into the QR — this is what the retailer scans
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -110,6 +121,9 @@ Deno.serve(async (req) => {
 
     const source = isPartnerFlow ? 'partner' : 'dutyboost';
     const commissionPartner = isPartnerFlow ? ref : 'DutyBoost';
+    // Display name shown on the traveller's pass — the partner's own name when
+    // a partner sent the traveller here, DutyBoost itself otherwise.
+    const partnerDisplayName = isPartnerFlow ? prettifyPartnerName(ref) : 'DutyBoost';
 
     const normalizedEmail = traveler_email ? traveler_email.trim().toLowerCase() : null;
     const normalizedFlight = flight_number ? flight_number.trim().toUpperCase().replace(/\s+/g, '') : null;
@@ -165,6 +179,7 @@ Deno.serve(async (req) => {
       expiry: expiry.toISOString(),
       source,
       commission_partner: commissionPartner,
+      partner_display_name: partnerDisplayName,
       message: 'DutyCredit generated successfully.',
     });
   } catch (error) {
