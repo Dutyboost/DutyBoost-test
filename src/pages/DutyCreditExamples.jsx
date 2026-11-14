@@ -1,6 +1,10 @@
+import { useRef, useState } from "react";
+import { Download, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageBackdrop from "../components/PageBackdrop";
 import PartnerPassCard from "../components/dutycredit-examples/PartnerPassCard";
+import { exportDutyCreditExamplesPdf } from "@/utils/exportDutyCreditExamplesPdf";
 
 const VALID_UNTIL = "31 Dec 2026";
 const DUTYBOOST_TAGLINE = "Your Discount Partner";
@@ -100,6 +104,18 @@ const EXAMPLES = [
 ];
 
 export default function DutyCreditExamples() {
+  const pdfRef = useRef(null);
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownload = async () => {
+    setDownloading(true);
+    try {
+      await exportDutyCreditExamplesPdf(pdfRef.current);
+    } finally {
+      setDownloading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen font-body relative">
       <PageBackdrop />
@@ -121,7 +137,14 @@ export default function DutyCreditExamples() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        <div className="flex justify-center">
+          <Button onClick={handleDownload} disabled={downloading} size="lg" className="gap-2">
+            {downloading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
+            {downloading ? "Preparing PDF…" : "Download PDF"}
+          </Button>
+        </div>
+
+        <div ref={pdfRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {EXAMPLES.map((example) => (
             <div key={example.id} className="flex flex-col gap-2">
               <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
