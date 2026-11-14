@@ -101,6 +101,7 @@ import BrandGuidelines from './pages/BrandGuidelines';
 import BusinessCardRael from './pages/BusinessCardRael';
 import BusinessCardJaquelin from './pages/BusinessCardJaquelin';
 import ClaimDutyCredit from './pages/ClaimDutyCredit';
+import DutyCreditExamples from './pages/DutyCreditExamples';
 import TravellerHome from './pages/TravellerHome';
 import WhyDutyBoostOnePager from './pages/WhyDutyBoostOnePager';
 import Team from './pages/Team';
@@ -273,6 +274,7 @@ const AuthenticatedApp = () => {
         <Route path="/claim" element={<TravellerHome />} />
         <Route path="/traveller" element={<TravellerHome />} />
         <Route path="/claim-duty-credit" element={<ClaimDutyCredit />} />
+        <Route path="/dutycredit-examples" element={<DutyCreditExamples />} />
         <Route path="/why-dutyboost" element={<WhyDutyBoostOnePager />} />
         <Route path="/team" element={<Team />} />
         <Route path="/eligibility-showcase" element={<EligibilityShowcase />} />
