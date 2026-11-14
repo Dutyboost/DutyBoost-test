@@ -5,6 +5,7 @@ import DutyBoostLogo from "../components/DutyBoostLogo";
 import PageBackdrop from "../components/PageBackdrop";
 import PartnerPassCard from "../components/dutycredit-examples/PartnerPassCard";
 import { exportDutyCreditExamplesPdf } from "@/utils/exportDutyCreditExamplesPdf";
+import { getPartnerTagline } from "@/lib/partnerTaglines";
 
 const VALID_UNTIL = "31 Dec 2026";
 const DUTYBOOST_TAGLINE = "Your Discount Partner";
@@ -28,7 +29,7 @@ const EXAMPLES = [
     vertical: "Flight — KLM",
     token: "DB-ML4K2X-9F7",
     brand: "KLM",
-    tagline: "Your Flight Travel Partner",
+    tagline: getPartnerTagline("en", "flight"),
     tiles: [
       { label: "Airport of departure", value: "AMS — Amsterdam" },
       { label: "Airport of arrival", value: "LHR — London" },
@@ -41,7 +42,7 @@ const EXAMPLES = [
     vertical: "Cruise — Costa Cruises",
     token: "DB-CR4T7M-2K9",
     brand: "Costa Cruises",
-    tagline: "Your Cruise Travel Partner",
+    tagline: getPartnerTagline("en", "cruise"),
     tiles: [
       { label: "Port of departure", value: "GEN — Genoa" },
       { label: "Port of arrival", value: "BCN — Barcelona" },
@@ -54,7 +55,7 @@ const EXAMPLES = [
     vertical: "Train — NS",
     token: "DB-TR8N4S-6P2",
     brand: "NS",
-    tagline: "Your Train Travel Partner",
+    tagline: getPartnerTagline("en", "train"),
     tiles: [
       { label: "Station of departure", value: "Amsterdam Centraal" },
       { label: "Station of arrival", value: "Rotterdam Centraal" },
@@ -67,7 +68,7 @@ const EXAMPLES = [
     vertical: "Coach — BlaBlaCar",
     token: "DB-CCH5B7-3M1",
     brand: "BlaBlaCar",
-    tagline: "Your Coach Travel Partner",
+    tagline: getPartnerTagline("en", "coach"),
     tiles: [
       { label: "Station of departure", value: "Amsterdam Sloterdijk" },
       { label: "Station of arrival", value: "Paris Bercy" },
@@ -80,7 +81,7 @@ const EXAMPLES = [
     vertical: "Car rental — Enterprise Rent-A-Car",
     token: "DB-CAR9X2-4T8",
     brand: "Enterprise Rent-A-Car",
-    tagline: "Your Car Rental Travel Partner",
+    tagline: getPartnerTagline("en", "car_rental"),
     tiles: [
       { label: "Pick-up", value: "AMS — Amsterdam" },
       { label: "Return", value: "AMS — Amsterdam" },
@@ -93,7 +94,7 @@ const EXAMPLES = [
     vertical: "Accommodation — Barceló",
     token: "DB-HTL3B8-7Q5",
     brand: "Barceló",
-    tagline: "Your Accommodation Travel Partner",
+    tagline: getPartnerTagline("en", "accommodation"),
     tiles: [
       { label: "Stay", value: "Barcelona city centre", wide: true },
       { label: "Status", value: "Active", valueClass: "text-green-600" },

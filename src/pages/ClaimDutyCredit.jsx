@@ -24,9 +24,10 @@ import { fmtMoney } from "../utils/formatNumber";
 import { DUTY_CREDIT_TIERS, MIN_SPEND_EUR } from "../data/dutyCreditTiers";
 import ParticipatingStores from "../components/claim-duty-credit/ParticipatingStores";
 import PageBackdrop from "../components/PageBackdrop";
+import { getPartnerTagline } from "@/lib/partnerTaglines";
 
 export default function ClaimDutyCredit() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const urlParams = new URLSearchParams(window.location.search);
   const refCode = urlParams.get('ref') || '';
   const campaign = urlParams.get('utm_campaign') || '';
@@ -76,7 +77,11 @@ export default function ClaimDutyCredit() {
   // Pass card wording follows the travel type (airport, port, station, pick-up…)
   const passType = generated?.travel_type || travelType;
   const passLocationWord = tr(`verticals.${passType}.location_short`);
-  const passFromLabel = passType === 'car_rental' ? tr('qr_pickup') : tr('qr_from', { location: passLocationWord });
+  const passFromLabel = passType === 'car_rental'
+    ? tr('qr_pickup')
+    : passType === 'accommodation'
+      ? tr('verticals.accommodation.location_short')
+      : tr('qr_from', { location: passLocationWord });
   const passToLabel = passType === 'car_rental' ? tr('qr_return') : tr('qr_to', { location: passLocationWord });
   const passToValue = passType === 'car_rental' ? generated?.return_location : generated?.arrival_airport;
 
@@ -601,7 +606,7 @@ export default function ClaimDutyCredit() {
                     {passBrand}
                   </p>
                   <p className="text-sm font-medium text-foreground mt-1">
-                    {isPartnerCredit ? tr('qr_partner_tagline') : tr('qr_brand_tagline')}
+                    {isPartnerCredit ? getPartnerTagline(i18n.language, passType) : tr('qr_brand_tagline')}
                   </p>
                 </div>
                 <p className="text-xs text-muted-foreground text-center">
