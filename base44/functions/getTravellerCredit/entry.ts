@@ -45,6 +45,9 @@ export default async function (req) {
       token_id: token.token_id,
       qr_image_url: `https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=10&data=${encodeURIComponent(token.qr_token)}`,
       airport: token.airport,
+      arrival_airport: token.arrival_airport || null,
+      return_location: token.return_location || null,
+      travel_type: token.travel_type || 'flight',
       expiry: token.expiry,
       status,
     });

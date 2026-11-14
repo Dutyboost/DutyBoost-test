@@ -73,6 +73,13 @@ export default function ClaimDutyCredit() {
   const flightNumberValid = !!(airlineFormat?.flightPattern && airlineFormat.flightPattern.test(flightNumber));
   const currency = useMemo(() => airportCountry ? getCurrencyByCountry(airportCountry) : "EUR", [airportCountry]);
 
+  // Pass card wording follows the travel type (airport, port, station, pick-up…)
+  const passType = generated?.travel_type || travelType;
+  const passLocationWord = tr(`verticals.${passType}.location_short`);
+  const passFromLabel = passType === 'car_rental' ? tr('qr_pickup') : tr('qr_from', { location: passLocationWord });
+  const passToLabel = passType === 'car_rental' ? tr('qr_return') : tr('qr_to', { location: passLocationWord });
+  const passToValue = passType === 'car_rental' ? generated?.return_location : generated?.arrival_airport;
+
   useEffect(() => {
     const ua = navigator.userAgent || '';
     if (/iPhone|iPad|iPod/i.test(ua)) setWalletPlatform('ios');
@@ -213,6 +220,10 @@ export default function ClaimDutyCredit() {
       return;
     }
     if (travelType === 'car_rental' && (!returnLocation || !returnDate)) {
+      setError(tr('error_missing_fields'));
+      return;
+    }
+    if (travelType !== 'car_rental' && travelType !== 'accommodation' && !arrivalAirport) {
       setError(tr('error_missing_fields'));
       return;
     }
@@ -473,7 +484,7 @@ export default function ClaimDutyCredit() {
 
               <Button
                 onClick={handleClaim}
-                disabled={!airport || !airline || !departureDate || (travelType === 'car_rental' && (!returnLocation || !returnDate)) || (travelType === 'flight' && (!flightNumber || !flightNumberValid)) || (isPartnerFlow && !travelerEmail)}
+                disabled={!airport || !airline || !departureDate || (travelType !== 'car_rental' && travelType !== 'accommodation' && !arrivalAirport) || (travelType === 'car_rental' && (!returnLocation || !returnDate)) || (travelType === 'flight' && (!flightNumber || !flightNumberValid)) || (isPartnerFlow && !travelerEmail)}
                 size="lg"
                 className="w-full h-14 text-base gap-2"
               >
@@ -560,11 +571,15 @@ export default function ClaimDutyCredit() {
                 />
                 <div className="w-full grid grid-cols-2 gap-3 text-sm">
                   <div className="bg-muted/50 rounded-lg p-3">
-                    <p className="text-xs text-muted-foreground mb-0.5">
-                      {tr(`verticals.${generated.travel_type || travelType}.location_short`)}
-                    </p>
+                    <p className="text-xs text-muted-foreground mb-0.5">{passFromLabel}</p>
                     <p className="font-semibold truncate">{generated.airport}</p>
                   </div>
+                  {passType !== 'accommodation' && (
+                    <div className="bg-muted/50 rounded-lg p-3">
+                      <p className="text-xs text-muted-foreground mb-0.5">{passToLabel}</p>
+                      <p className="font-semibold truncate">{passToValue || '—'}</p>
+                    </div>
+                  )}
                   <div className="bg-muted/50 rounded-lg p-3">
                     <p className="text-xs text-muted-foreground mb-0.5">{tr('qr_status')}</p>
                     <p className="font-semibold text-green-600">{tr('qr_status_active')}</p>
@@ -573,7 +588,7 @@ export default function ClaimDutyCredit() {
                     <p className="text-xs text-muted-foreground mb-0.5">{tr('qr_valid_until')}</p>
                     <p className="font-semibold">{new Date(generated.expiry).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })}</p>
                   </div>
-                  <div className="bg-muted/50 rounded-lg p-3">
+                  <div className={`bg-muted/50 rounded-lg p-3 ${passType === 'accommodation' ? '' : 'col-span-2'}`}>
                     <p className="text-xs text-muted-foreground mb-0.5">{tr('qr_brought_by')}</p>
                     <p className="font-semibold truncate">{generated.commission_partner}</p>
                   </div>

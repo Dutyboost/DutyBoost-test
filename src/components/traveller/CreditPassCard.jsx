@@ -39,9 +39,21 @@ export default function CreditPassCard({ pass }) {
 
         <div className="w-full grid grid-cols-2 gap-3 text-sm">
           <div className="bg-muted/50 rounded-lg p-3">
-            <p className="text-xs text-muted-foreground mb-0.5">{tr('pass_airport')}</p>
+            <p className="text-xs text-muted-foreground mb-0.5">
+              {pass.travel_type === 'car_rental' ? tr('pass_pickup') : tr('pass_departure')}
+            </p>
             <p className="font-semibold truncate">{pass.airport}</p>
           </div>
+          {pass.travel_type !== 'accommodation' && (
+            <div className="bg-muted/50 rounded-lg p-3">
+              <p className="text-xs text-muted-foreground mb-0.5">
+                {pass.travel_type === 'car_rental' ? tr('pass_return') : tr('pass_arrival')}
+              </p>
+              <p className="font-semibold truncate">
+                {(pass.travel_type === 'car_rental' ? pass.return_location : pass.arrival_airport) || '—'}
+              </p>
+            </div>
+          )}
           <div className="bg-muted/50 rounded-lg p-3">
             <p className="text-xs text-muted-foreground mb-0.5">{tr('pass_expiry')}</p>
             <p className="font-semibold">
