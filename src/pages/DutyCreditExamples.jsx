@@ -8,22 +8,8 @@ import { exportDutyCreditExamplesPdf } from "@/utils/exportDutyCreditExamplesPdf
 import { getPartnerTagline } from "@/lib/partnerTaglines";
 
 const VALID_UNTIL = "31 Dec 2026";
-const DUTYBOOST_TAGLINE = "Your Discount Partner";
 
 const EXAMPLES = [
-  {
-    id: "dutyboost",
-    vertical: "Direct — DutyBoost",
-    token: "DB-FLT2K8-1A4",
-    brand: "DutyBoost",
-    tagline: DUTYBOOST_TAGLINE,
-    tiles: [
-      { label: "Airport of departure", value: "AMS — Amsterdam" },
-      { label: "Airport of arrival", value: "LHR — London" },
-      { label: "Status", value: "Active", valueClass: "text-green-600" },
-      { label: "Valid until", value: VALID_UNTIL },
-    ],
-  },
   {
     id: "klm",
     vertical: "Flight — KLM",
